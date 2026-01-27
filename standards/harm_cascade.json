@@ -1,0 +1,318 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-01-26",
+    "description": "Harm cascade analysis decision tree for AI medical information",
+    "author": "S. Sanjay Srivatsa, MD",
+    "license": "CC-BY-4.0"
+  },
+  
+  "principle": "Before generating medical information outputs, systems should trace potential harm cascades across four dimensions to identify and mitigate risks.",
+  
+  "harm_dimensions": {
+    "direct": {
+      "name": "Direct Harm",
+      "question": "Could this information cause physical harm if acted upon?",
+      "severity": "critical",
+      "time_horizon": "immediate",
+      "examples": [
+        "Incorrect medication dosing",
+        "Dangerous drug interactions not mentioned",
+        "Contraindicated treatments recommended",
+        "Allergic reaction risks not flagged",
+        "Incorrect emergency guidance"
+      ],
+      "risk_factors": [
+        {
+          "factor": "involves_medication",
+          "weight": 3.0,
+          "description": "Content involves drug names, doses, or administration"
+        },
+        {
+          "factor": "involves_procedure",
+          "weight": 2.5,
+          "description": "Content describes medical procedures or interventions"
+        },
+        {
+          "factor": "involves_dosing",
+          "weight": 3.0,
+          "description": "Specific quantities or dosages mentioned"
+        },
+        {
+          "factor": "contraindication_context",
+          "weight": 2.5,
+          "description": "Context suggests potential contraindications"
+        },
+        {
+          "factor": "emergency_context",
+          "weight": 3.0,
+          "description": "Acute or emergency medical situation"
+        },
+        {
+          "factor": "vulnerable_population",
+          "weight": 2.0,
+          "description": "Pediatric, geriatric, pregnant, or immunocompromised"
+        }
+      ],
+      "mitigation_actions": {
+        "high_risk": "Block output; require physician consultation",
+        "medium_risk": "Add prominent safety warnings; require acknowledgment",
+        "low_risk": "Include standard medical disclaimer"
+      }
+    },
+    
+    "indirect": {
+      "name": "Indirect Harm",
+      "question": "Could this information lead to harmful decisions such as delaying necessary care?",
+      "severity": "high",
+      "time_horizon": "delayed",
+      "examples": [
+        "False reassurance discouraging follow-up",
+        "Minimizing symptoms requiring urgent evaluation",
+        "Suggesting watchful waiting when urgency exists",
+        "Normalizing warning signs",
+        "Discouraging second opinions"
+      ],
+      "risk_factors": [
+        {
+          "factor": "reassurance_without_evaluation",
+          "weight": 2.5,
+          "description": "Content could reassure without proper workup"
+        },
+        {
+          "factor": "symptom_minimization",
+          "weight": 2.0,
+          "description": "Content could minimize concerning symptoms"
+        },
+        {
+          "factor": "delay_recommendation",
+          "weight": 2.5,
+          "description": "Content suggests waiting rather than evaluation"
+        },
+        {
+          "factor": "alternative_to_standard_care",
+          "weight": 2.0,
+          "description": "Content presents alternatives to evidence-based treatment"
+        },
+        {
+          "factor": "red_flag_symptoms",
+          "weight": 3.0,
+          "description": "Query involves potential red flag symptoms"
+        }
+      ],
+      "red_flag_symptoms": [
+        "chest pain",
+        "sudden severe headache",
+        "difficulty breathing",
+        "sudden weakness or numbness",
+        "vision changes",
+        "severe abdominal pain",
+        "signs of stroke",
+        "suicidal ideation",
+        "blood in stool or vomit",
+        "unexplained weight loss"
+      ],
+      "mitigation_actions": {
+        "high_risk": "Direct to emergency services or immediate physician contact",
+        "medium_risk": "Recommend prompt medical evaluation; add urgency language",
+        "low_risk": "Include follow-up recommendation"
+      }
+    },
+    
+    "epistemic": {
+      "name": "Epistemic Harm",
+      "question": "Could this information distort understanding in compounding ways?",
+      "severity": "medium_high",
+      "time_horizon": "cumulative",
+      "examples": [
+        "Laboratory values without context (age/sex/ethnicity variation)",
+        "Partial information creating false confidence",
+        "Misconceptions affecting future health decisions",
+        "Oversimplification of complex conditions",
+        "False dichotomies in treatment options"
+      ],
+      "risk_factors": [
+        {
+          "factor": "decontextualized_values",
+          "weight": 2.0,
+          "description": "Numeric values presented without necessary context"
+        },
+        {
+          "factor": "false_certainty",
+          "weight": 2.5,
+          "description": "Uncertain information presented as established"
+        },
+        {
+          "factor": "oversimplification",
+          "weight": 1.5,
+          "description": "Complex medical concepts oversimplified"
+        },
+        {
+          "factor": "incomplete_picture",
+          "weight": 2.0,
+          "description": "Important caveats or alternatives omitted"
+        },
+        {
+          "factor": "anchoring_risk",
+          "weight": 2.0,
+          "description": "Information may anchor on incorrect assumption"
+        }
+      ],
+      "compounding_examples": [
+        {
+          "initial_harm": "Patient told ALT 45 U/L is 'normal'",
+          "context_missing": "Range varies by lab, sex, BMI; elevated for this patient",
+          "compounded_harm": "Patient ignores liver disease for years",
+          "cascade": "Cirrhosis develops; earlier intervention would have helped"
+        },
+        {
+          "initial_harm": "Patient told chest pain is 'probably musculoskeletal'",
+          "context_missing": "Risk factors not assessed",
+          "compounded_harm": "Patient dismisses future cardiac symptoms",
+          "cascade": "MI not recognized; delayed treatment"
+        }
+      ],
+      "mitigation_actions": {
+        "high_risk": "Require full context; add explicit limitations",
+        "medium_risk": "Include contextual caveats; recommend professional interpretation",
+        "low_risk": "Standard educational framing"
+      }
+    },
+    
+    "systemic": {
+      "name": "Systemic Harm",
+      "question": "Could this information, at scale, degrade public health understanding?",
+      "severity": "variable",
+      "time_horizon": "population_level",
+      "examples": [
+        "Vaccine misinformation reaching millions",
+        "Normalized distrust of medical institutions",
+        "Propagation of ineffective treatments",
+        "Erosion of evidence-based medicine norms",
+        "Health disparities amplification"
+      ],
+      "risk_factors": [
+        {
+          "factor": "high_reach_potential",
+          "weight": 2.0,
+          "description": "Content likely to be widely shared or searched"
+        },
+        {
+          "factor": "institutional_trust_impact",
+          "weight": 2.5,
+          "description": "Content could affect trust in healthcare system"
+        },
+        {
+          "factor": "vaccine_related",
+          "weight": 3.0,
+          "description": "Content involves vaccine safety or efficacy"
+        },
+        {
+          "factor": "public_health_measure",
+          "weight": 2.5,
+          "description": "Content involves public health recommendations"
+        },
+        {
+          "factor": "disparity_amplification",
+          "weight": 2.0,
+          "description": "Content could worsen health disparities"
+        }
+      ],
+      "scale_multipliers": {
+        "general_search_query": 1.0,
+        "trending_topic": 2.0,
+        "pandemic_related": 3.0,
+        "viral_potential": 2.5
+      },
+      "mitigation_actions": {
+        "high_risk": "Apply strictest source requirements; link to authoritative sources",
+        "medium_risk": "Emphasize authoritative sources; avoid amplifying misinformation",
+        "low_risk": "Standard accuracy and sourcing requirements"
+      }
+    }
+  },
+  
+  "analysis_algorithm": {
+    "description": "Process for analyzing harm cascade before output generation",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Extract content features",
+        "action": "Identify medical concepts, claims, recommendations in proposed output",
+        "output": "content_features"
+      },
+      {
+        "step": 2,
+        "name": "Assess direct harm",
+        "action": "Score risk factors for direct physical harm",
+        "calculation": "sum(applicable_risk_factors * weights)",
+        "output": "direct_harm_score"
+      },
+      {
+        "step": 3,
+        "name": "Assess indirect harm",
+        "action": "Score risk factors for delayed/indirect harm",
+        "red_flag_check": "If red_flag_symptoms detected, set indirect_harm_score = max",
+        "output": "indirect_harm_score"
+      },
+      {
+        "step": 4,
+        "name": "Assess epistemic harm",
+        "action": "Score risk factors for understanding distortion",
+        "context_check": "Verify necessary context is included",
+        "output": "epistemic_harm_score"
+      },
+      {
+        "step": 5,
+        "name": "Assess systemic harm",
+        "action": "Score risk factors for population-level effects",
+        "scale_adjustment": "Multiply by scale_multiplier based on reach",
+        "output": "systemic_harm_score"
+      },
+      {
+        "step": 6,
+        "name": "Determine action",
+        "logic": {
+          "if_any_score_gte_7": {
+            "action": "BLOCK",
+            "response": "Redirect to physician consultation or emergency services"
+          },
+          "if_any_score_gte_4": {
+            "action": "WARN",
+            "response": "Add appropriate warnings and uncertainty markers"
+          },
+          "otherwise": {
+            "action": "PROCEED",
+            "response": "Apply standard confidence calibration"
+          }
+        }
+      }
+    ]
+  },
+  
+  "scoring": {
+    "scale": "0-10",
+    "thresholds": {
+      "low": {"min": 0, "max": 3},
+      "medium": {"min": 4, "max": 6},
+      "high": {"min": 7, "max": 10}
+    },
+    "aggregation": "Maximum across dimensions determines overall risk level"
+  },
+  
+  "documentation_requirements": {
+    "for_high_risk": [
+      "Log all harm dimension scores",
+      "Document mitigation actions taken",
+      "Record sources consulted",
+      "Flag for human review if available"
+    ],
+    "for_medium_risk": [
+      "Log harm dimension scores",
+      "Document warnings added"
+    ],
+    "for_low_risk": [
+      "Standard logging"
+    ]
+  }
+}

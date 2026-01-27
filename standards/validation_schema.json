@@ -1,0 +1,365 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/ai-medical-information-standards/schema/v1.0.0/validation.json",
+  "title": "AMIS Compliance Validation Schema",
+  "description": "JSON Schema for validating AI medical information output compliance with AMIS standards",
+  "version": "1.0.0",
+  
+  "definitions": {
+    "source_tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Source quality tier (1=highest, 5=excluded)"
+    },
+    
+    "confidence_level": {
+      "type": "string",
+      "enum": ["definitive", "qualified_definitive", "qualified", "uncertain", "speculative"],
+      "description": "Calibrated confidence level for claims"
+    },
+    
+    "harm_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Harm risk score (0=none, 10=critical)"
+    },
+    
+    "source_citation": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source URL"
+        },
+        "title": {
+          "type": "string",
+          "description": "Source title or description"
+        },
+        "tier": {
+          "$ref": "#/definitions/source_tier"
+        },
+        "tier_justification": {
+          "type": "string",
+          "description": "Reason for tier classification"
+        },
+        "access_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date source was accessed"
+        },
+        "publication_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of publication if known"
+        }
+      },
+      "required": ["url", "tier", "tier_justification"]
+    },
+    
+    "medical_claim": {
+      "type": "object",
+      "properties": {
+        "claim_text": {
+          "type": "string",
+          "description": "The medical claim as stated"
+        },
+        "confidence": {
+          "$ref": "#/definitions/confidence_level"
+        },
+        "supporting_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/source_citation"
+          },
+          "minItems": 1,
+          "description": "Sources supporting this claim"
+        },
+        "highest_tier": {
+          "$ref": "#/definitions/source_tier",
+          "description": "Highest quality tier among supporting sources"
+        },
+        "consensus_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Estimated consensus level (0-1)"
+        },
+        "uncertainty_disclosed": {
+          "type": "boolean",
+          "description": "Whether uncertainty was explicitly disclosed"
+        },
+        "warning_included": {
+          "type": "boolean",
+          "description": "Whether required warning was included"
+        }
+      },
+      "required": ["claim_text", "confidence", "supporting_sources", "highest_tier"]
+    },
+    
+    "harm_assessment": {
+      "type": "object",
+      "properties": {
+        "direct_harm_score": {
+          "$ref": "#/definitions/harm_score"
+        },
+        "indirect_harm_score": {
+          "$ref": "#/definitions/harm_score"
+        },
+        "epistemic_harm_score": {
+          "$ref": "#/definitions/harm_score"
+        },
+        "systemic_harm_score": {
+          "$ref": "#/definitions/harm_score"
+        },
+        "max_harm_score": {
+          "$ref": "#/definitions/harm_score"
+        },
+        "risk_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "mitigations_applied": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of mitigations applied"
+        }
+      },
+      "required": ["direct_harm_score", "indirect_harm_score", "epistemic_harm_score", "systemic_harm_score", "risk_level"]
+    },
+    
+    "therapeutic_intent": {
+      "type": "object",
+      "properties": {
+        "detected": {
+          "type": "boolean",
+          "description": "Whether therapeutic intent was detected"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["medication", "treatment", "dietary", "supplement", "exercise", "care_decision", "none"],
+          "description": "Type of therapeutic intent if detected"
+        },
+        "physician_referral_included": {
+          "type": "boolean",
+          "description": "Whether physician referral was included"
+        },
+        "implementation_guidance_withheld": {
+          "type": "boolean",
+          "description": "Whether specific implementation guidance was withheld"
+        }
+      },
+      "required": ["detected"]
+    },
+    
+    "dissent_handling": {
+      "type": "object",
+      "properties": {
+        "dissent_present": {
+          "type": "boolean",
+          "description": "Whether dissent from consensus was discussed"
+        },
+        "consensus_stated": {
+          "type": "boolean",
+          "description": "Whether consensus position was stated"
+        },
+        "dissent_labeled": {
+          "type": "boolean",
+          "description": "Whether dissent was explicitly labeled"
+        },
+        "evidence_compared": {
+          "type": "boolean",
+          "description": "Whether evidence quality was compared"
+        },
+        "false_certainty_avoided": {
+          "type": "boolean",
+          "description": "Whether dogmatic language was avoided"
+        }
+      }
+    }
+  },
+  
+  "type": "object",
+  "properties": {
+    "validation_metadata": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "const": "1.0.0"
+        },
+        "validation_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validator_version": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string",
+          "description": "Unique identifier for the validated output"
+        }
+      },
+      "required": ["schema_version", "validation_timestamp"]
+    },
+    
+    "query_analysis": {
+      "type": "object",
+      "properties": {
+        "original_query": {
+          "type": "string",
+          "description": "The user's original query"
+        },
+        "classified_as_health_related": {
+          "type": "boolean"
+        },
+        "therapeutic_intent": {
+          "$ref": "#/definitions/therapeutic_intent"
+        },
+        "urgency_indicators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Red flag symptoms or urgency indicators detected"
+        }
+      },
+      "required": ["original_query", "classified_as_health_related"]
+    },
+    
+    "output_analysis": {
+      "type": "object",
+      "properties": {
+        "output_text": {
+          "type": "string",
+          "description": "The AI-generated output text"
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/medical_claim"
+          },
+          "description": "Medical claims extracted from output"
+        },
+        "sources_used": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/source_citation"
+          }
+        },
+        "tier_5_sources_cited": {
+          "type": "boolean",
+          "description": "Whether any Tier 5 sources were cited (violation)"
+        },
+        "harm_assessment": {
+          "$ref": "#/definitions/harm_assessment"
+        },
+        "dissent_handling": {
+          "$ref": "#/definitions/dissent_handling"
+        }
+      },
+      "required": ["output_text", "claims", "sources_used", "harm_assessment"]
+    },
+    
+    "compliance_result": {
+      "type": "object",
+      "properties": {
+        "overall_compliant": {
+          "type": "boolean",
+          "description": "Whether output is AMIS compliant"
+        },
+        "conformance_level": {
+          "type": "string",
+          "enum": ["none", "partial", "substantial", "full"],
+          "description": "Level of conformance achieved"
+        },
+        "standards_compliance": {
+          "type": "object",
+          "properties": {
+            "standard_1_literature_review": {
+              "type": "object",
+              "properties": {
+                "compliant": {"type": "boolean"},
+                "violations": {"type": "array", "items": {"type": "string"}},
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              }
+            },
+            "standard_2_source_hierarchy": {
+              "type": "object",
+              "properties": {
+                "compliant": {"type": "boolean"},
+                "violations": {"type": "array", "items": {"type": "string"}},
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              }
+            },
+            "standard_3_uncertainty_disclosure": {
+              "type": "object",
+              "properties": {
+                "compliant": {"type": "boolean"},
+                "violations": {"type": "array", "items": {"type": "string"}},
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              }
+            },
+            "standard_4_dissent_labeling": {
+              "type": "object",
+              "properties": {
+                "compliant": {"type": "boolean"},
+                "violations": {"type": "array", "items": {"type": "string"}},
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              }
+            },
+            "standard_5_therapeutic_scope": {
+              "type": "object",
+              "properties": {
+                "compliant": {"type": "boolean"},
+                "violations": {"type": "array", "items": {"type": "string"}},
+                "score": {"type": "number", "minimum": 0, "maximum": 1}
+              }
+            }
+          },
+          "required": [
+            "standard_1_literature_review",
+            "standard_2_source_hierarchy", 
+            "standard_3_uncertainty_disclosure",
+            "standard_4_dissent_labeling",
+            "standard_5_therapeutic_scope"
+          ]
+        },
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "standard": {"type": "string"},
+              "violation_type": {"type": "string"},
+              "description": {"type": "string"},
+              "severity": {"type": "string", "enum": ["minor", "moderate", "major", "critical"]},
+              "location": {"type": "string", "description": "Location in output where violation occurs"}
+            },
+            "required": ["standard", "violation_type", "description", "severity"]
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Recommendations for achieving compliance"
+        },
+        "overall_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall compliance score (0-1)"
+        }
+      },
+      "required": ["overall_compliant", "conformance_level", "standards_compliance", "violations"]
+    }
+  },
+  
+  "required": ["validation_metadata", "query_analysis", "output_analysis", "compliance_result"]
+}

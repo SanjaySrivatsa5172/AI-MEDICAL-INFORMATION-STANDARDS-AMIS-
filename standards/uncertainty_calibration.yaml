@@ -1,0 +1,227 @@
+# AI Medical Information Standards
+# Uncertainty Calibration Specification
+# Version 1.0.0
+
+metadata:
+  version: "1.0.0"
+  last_updated: "2026-01-26"
+  description: "Confidence calibration thresholds for AI medical information"
+  author: "S. Sanjay Srivatsa, MD"
+  license: "CC-BY-4.0"
+
+principle: |
+  The apparent confidence of any medical statement must not exceed its epistemic warrant.
+  Confidence should be calibrated to evidence quality, consensus level, and remaining uncertainty.
+
+confidence_levels:
+  definitive:
+    name: "Definitive"
+    description: "Claim is established with high certainty"
+    permitted_phrases:
+      - "X is established"
+      - "Evidence demonstrates"
+      - "It is known that"
+      - "X has been proven to"
+      - "Medical consensus confirms"
+    
+    requirements:
+      source_tier: [1, 2]  # Must have Tier 1 or Tier 2 support
+      consensus_threshold: 0.90  # >90% expert agreement
+      methodological_disputes: false  # No significant methodological controversies
+      replication: true  # Findings replicated across studies
+    
+    example:
+      claim: "Aspirin inhibits platelet aggregation"
+      justification: "Mechanism established, replicated extensively, universal guideline consensus"
+
+  qualified_definitive:
+    name: "Qualified Definitive"
+    description: "Strong evidence with minor caveats"
+    permitted_phrases:
+      - "Strong evidence indicates"
+      - "Well-established research shows"
+      - "Current evidence strongly supports"
+      - "Most studies demonstrate"
+    
+    requirements:
+      source_tier: [1, 2]
+      consensus_threshold: 0.75  # >75% expert agreement
+      methodological_disputes: "minor"
+      replication: true
+    
+    example:
+      claim: "Statins reduce cardiovascular events in high-risk patients"
+      justification: "Multiple RCTs, guideline consensus, some debate on low-risk populations"
+
+  qualified:
+    name: "Qualified"
+    description: "Evidence suggests but certainty is limited"
+    permitted_phrases:
+      - "Evidence suggests"
+      - "Studies indicate"
+      - "Current understanding holds"
+      - "Research supports"
+      - "Data point toward"
+    
+    requirements:
+      source_tier: [2, 3]
+      consensus_threshold: 0.50  # >50% expert agreement
+      evidence_type: ["observational", "limited_rct"]
+      methodological_disputes: "possible"
+    
+    example:
+      claim: "Mediterranean diet may reduce dementia risk"
+      justification: "Observational evidence consistent, mechanistic plausibility, no definitive RCT"
+
+  uncertain:
+    name: "Uncertain"
+    description: "Evidence is limited, conflicting, or preliminary"
+    permitted_phrases:
+      - "This is not well established"
+      - "Evidence is limited"
+      - "Findings are preliminary"
+      - "Results are mixed"
+      - "More research is needed"
+    
+    requirements:
+      source_tier: [3, 4]
+      consensus_threshold: 0.25  # 25-50% agreement
+      evidence_type: ["limited_observational", "case_series", "mechanistic"]
+      conflicts: true  # Conflicting evidence exists
+    
+    mandatory_additions:
+      - warning_required: true
+      - physician_referral: true
+    
+    example:
+      claim: "Intermittent fasting may improve metabolic parameters"
+      justification: "Small studies with mixed results, optimal protocols unclear"
+
+  speculative:
+    name: "Speculative"
+    description: "Claim lacks reliable evidence or contradicts consensus"
+    permitted_phrases:
+      - "This is speculative"
+      - "No reliable evidence exists"
+      - "Claims are unverified"
+      - "This contradicts current consensus"
+      - "Evidence does not support"
+    
+    requirements:
+      source_tier: [4, 5]  # Tier 4 only, or contradicts higher tiers
+      consensus_threshold: 0.10  # <25% agreement
+      evidence_type: ["anecdotal", "theoretical", "none"]
+    
+    mandatory_additions:
+      - explicit_warning: |
+          This information is speculative and not supported by reliable medical evidence.
+          Acting on unverified health claims could lead to harm. Consult a qualified
+          healthcare provider before making any health decisions.
+      - physician_referral: true
+      - disclaimer_prominent: true
+    
+    example:
+      claim: "Megadose vitamin C cures cancer"
+      justification: "Contradicts systematic reviews, RCTs negative, not in guidelines"
+
+# Warning templates
+warnings:
+  uncertainty_warning:
+    trigger: "confidence_level in [uncertain, speculative]"
+    template: |
+      ⚠️ IMPORTANT: This information is {confidence_level} and should not be acted upon
+      without consulting a qualified healthcare provider. Adoption of unverified medical
+      advice could lead to detrimental health outcomes.
+    
+    placement: "Immediately following or preceding the uncertain content"
+    styling: "Must be visually distinct (icon, bold, box, or similar)"
+
+  conflicting_evidence_warning:
+    trigger: "conflicting_sources or evidence_disputes"
+    template: |
+      Note: Evidence on this topic is conflicting. Some studies suggest {position_a},
+      while others indicate {position_b}. The question remains actively debated.
+      Discuss with your healthcare provider to understand what applies to your situation.
+
+  evolving_field_warning:
+    trigger: "field_velocity == 'rapid' or recent_guideline_changes"
+    template: |
+      This is a rapidly evolving area. Recommendations may change as new evidence emerges.
+      Information current as of {date}. Verify with current guidelines or your healthcare provider.
+
+# Calibration decision tree
+calibration_algorithm:
+  steps:
+    - step: 1
+      action: "Identify highest-tier source supporting the claim"
+      output: "max_tier"
+    
+    - step: 2
+      action: "Assess consensus level among authoritative sources"
+      output: "consensus_score (0.0-1.0)"
+    
+    - step: 3
+      action: "Check for methodological disputes or retractions"
+      output: "disputes_flag"
+    
+    - step: 4
+      action: "Evaluate replication status"
+      output: "replication_flag"
+    
+    - step: 5
+      action: "Apply calibration matrix"
+      logic: |
+        IF max_tier <= 2 AND consensus >= 0.90 AND NOT disputes AND replicated:
+          RETURN definitive
+        ELIF max_tier <= 2 AND consensus >= 0.75:
+          RETURN qualified_definitive
+        ELIF max_tier <= 3 AND consensus >= 0.50:
+          RETURN qualified
+        ELIF max_tier <= 4 AND consensus >= 0.25:
+          RETURN uncertain
+        ELSE:
+          RETURN speculative
+    
+    - step: 6
+      action: "Apply mandatory warnings based on confidence level"
+      output: "final_statement_with_calibration"
+
+# Domain-specific adjustments
+domain_adjustments:
+  pharmacology:
+    description: "Drug information requires higher confidence thresholds"
+    adjustment: "Increase consensus requirement by 0.10 for drug efficacy claims"
+    rationale: "Direct physical harm potential"
+  
+  diagnosis:
+    description: "Diagnostic information affects care pathways"
+    adjustment: "Always include physician referral regardless of confidence"
+    rationale: "Diagnosis requires clinical integration"
+  
+  prevention:
+    description: "Preventive recommendations affect healthy individuals"
+    adjustment: "Require Tier 1-2 for any recommendation to healthy population"
+    rationale: "Harm-benefit ratio differs for healthy individuals"
+  
+  emergency:
+    description: "Emergency situations require immediate appropriate action"
+    adjustment: "Always direct to emergency services for acute symptoms"
+    rationale: "Delay can be fatal"
+
+# Forbidden patterns
+forbidden_patterns:
+  - pattern: "Definitive language with Tier 3+ sources only"
+    example: "Studies prove X" when only observational data exists
+    violation: "Overconfidence"
+  
+  - pattern: "Therapeutic recommendation without physician referral"
+    example: "You should take X for your condition"
+    violation: "Scope violation"
+  
+  - pattern: "Dismissing consensus without explicit labeling"
+    example: "X doesn't actually cause Y" contradicting Tier 1 consensus
+    violation: "False certainty"
+  
+  - pattern: "Omitting uncertainty when evidence is mixed"
+    example: "X improves outcomes" when studies conflict
+    violation: "Incomplete calibration"

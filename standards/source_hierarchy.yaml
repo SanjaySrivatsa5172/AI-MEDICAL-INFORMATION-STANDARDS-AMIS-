@@ -1,0 +1,307 @@
+# AI Medical Information Standards
+# Source Quality Hierarchy Specification
+# Version 1.0.0
+
+metadata:
+  version: "1.0.0"
+  last_updated: "2026-01-26"
+  description: "Five-tier source quality hierarchy for AI medical information systems"
+  author: "S. Sanjay Srivatsa, MD"
+  license: "CC-BY-4.0"
+
+hierarchy:
+  tier_1:
+    name: "Primary Authority"
+    level: 1
+    usage: "Primary weight; definitive statements permitted"
+    confidence_ceiling: "definitive"
+    sources:
+      - type: "systematic_review"
+        examples:
+          - "Cochrane systematic reviews"
+          - "PRISMA-compliant systematic reviews"
+          - "Meta-analyses in peer-reviewed journals"
+        identifiers:
+          - domain_patterns: ["cochranelibrary.com", "cochrane.org"]
+          - doi_prefixes: []
+          - publication_types: ["Systematic Review", "Meta-Analysis"]
+      
+      - type: "international_guideline"
+        examples:
+          - "WHO recommendations"
+          - "WHO clinical guidelines"
+        identifiers:
+          - domain_patterns: ["who.int"]
+          - organization: "World Health Organization"
+      
+      - type: "national_guideline_authority"
+        examples:
+          - "NICE guidelines (UK)"
+          - "USPSTF recommendations (US)"
+          - "SIGN guidelines (Scotland)"
+        identifiers:
+          - domain_patterns: ["nice.org.uk", "uspreventiveservicestaskforce.org"]
+          - organization_types: ["National guideline body"]
+    
+    quality_markers:
+      - "Systematic search methodology"
+      - "Formal quality assessment (GRADE, Cochrane RoB)"
+      - "Transparent inclusion/exclusion criteria"
+      - "Conflict of interest disclosure"
+      - "Regular update cycle"
+
+  tier_2:
+    name: "High-Quality Primary Evidence"
+    level: 2
+    usage: "Supplements Tier 1; qualified definitive statements"
+    confidence_ceiling: "qualified_definitive"
+    sources:
+      - type: "major_journal_rct"
+        examples:
+          - "Randomised controlled trials in NEJM"
+          - "Randomised controlled trials in Lancet"
+          - "Randomised controlled trials in JAMA"
+          - "Randomised controlled trials in BMJ"
+          - "Randomised controlled trials in Annals of Internal Medicine"
+        identifiers:
+          - journals:
+              - name: "New England Journal of Medicine"
+                issn: "0028-4793"
+                domain: "nejm.org"
+              - name: "The Lancet"
+                issn: "0140-6736"
+                domain: "thelancet.com"
+              - name: "JAMA"
+                issn: "0098-7484"
+                domain: "jamanetwork.com"
+              - name: "BMJ"
+                issn: "0959-8138"
+                domain: "bmj.com"
+              - name: "Annals of Internal Medicine"
+                issn: "0003-4819"
+                domain: "acpjournals.org"
+          - publication_types: ["Randomized Controlled Trial"]
+      
+      - type: "specialty_journal_rct"
+        description: "RCTs in top specialty journals"
+        examples:
+          - "Circulation (cardiology)"
+          - "Journal of Clinical Oncology (oncology)"
+          - "Diabetes Care (endocrinology)"
+          - "Gastroenterology (GI)"
+        identifiers:
+          - impact_factor_threshold: 10.0
+          - publication_types: ["Randomized Controlled Trial"]
+      
+      - type: "institutional_guidelines"
+        examples:
+          - "ACC/AHA guidelines"
+          - "ASCO guidelines"
+          - "ADA Standards of Care"
+          - "ESC guidelines"
+        identifiers:
+          - organization_types: ["Medical specialty society", "Professional body"]
+          - document_types: ["Clinical Practice Guideline"]
+    
+    quality_markers:
+      - "Peer review"
+      - "Randomisation methodology"
+      - "Adequate sample size"
+      - "Pre-registration (for recent studies)"
+      - "COI disclosure"
+
+  tier_3:
+    name: "Supporting Evidence"
+    level: 3
+    usage: "Context only; must not contradict Tier 1-2 consensus"
+    confidence_ceiling: "qualified"
+    sources:
+      - type: "observational_studies"
+        examples:
+          - "Cohort studies in peer-reviewed journals"
+          - "Case-control studies"
+          - "Cross-sectional studies"
+        identifiers:
+          - publication_types: ["Observational Study", "Cohort Studies", "Case-Control Studies"]
+          - indexed_in: ["PubMed", "MEDLINE"]
+      
+      - type: "medical_databases"
+        examples:
+          - "UpToDate"
+          - "MedlinePlus"
+          - "DynaMed"
+          - "BMJ Best Practice"
+        identifiers:
+          - domain_patterns: ["uptodate.com", "medlineplus.gov", "dynamed.com"]
+          - database_type: "Point-of-care clinical decision support"
+      
+      - type: "academic_institution_sites"
+        examples:
+          - "Mayo Clinic patient education"
+          - "Cleveland Clinic health library"
+          - "Johns Hopkins Medicine"
+          - "Harvard Health Publishing"
+        identifiers:
+          - domain_patterns: 
+              - "mayoclinic.org"
+              - "clevelandclinic.org"
+              - "hopkinsmedicine.org"
+              - "health.harvard.edu"
+          - affiliation: "Academic medical center"
+    
+    quality_markers:
+      - "Institutional affiliation"
+      - "Editorial review process"
+      - "Regular updates"
+      - "References to primary literature"
+    
+    constraints:
+      - "MUST NOT contradict Tier 1-2 consensus without explicit flagging"
+      - "SHOULD be corroborated by other Tier 3+ sources"
+
+  tier_4:
+    name: "Expert Opinion"
+    level: 4
+    usage: "Narrative framing only; never sole basis for claims"
+    confidence_ceiling: "uncertain"
+    sources:
+      - type: "expert_commentary"
+        examples:
+          - "Expert opinion pieces"
+          - "Editorials in medical journals"
+          - "Conference presentations"
+        identifiers:
+          - publication_types: ["Editorial", "Comment", "Letter"]
+          - author_credentials: ["MD", "DO", "PhD in relevant field"]
+      
+      - type: "professional_society_statements"
+        examples:
+          - "Position statements"
+          - "Consensus statements (non-systematic)"
+          - "White papers"
+        identifiers:
+          - document_types: ["Position Statement", "Consensus Statement"]
+          - organization_types: ["Medical specialty society"]
+      
+      - type: "textbooks"
+        examples:
+          - "Harrison's Principles of Internal Medicine"
+          - "Goodman & Gilman's Pharmacology"
+          - "Specialty textbooks"
+        identifiers:
+          - publication_type: "Medical textbook"
+          - publisher_types: ["Academic medical publisher"]
+      
+      - type: "clinical_experience"
+        examples:
+          - "Case series"
+          - "Clinical observations"
+          - "Practice-based evidence"
+        identifiers:
+          - publication_types: ["Case Reports", "Case Series"]
+    
+    quality_markers:
+      - "Credentialed author"
+      - "Published in peer-reviewed venue"
+      - "Acknowledged limitations"
+    
+    constraints:
+      - "MUST NOT serve as sole basis for medical claims"
+      - "MUST be labeled as expert opinion"
+      - "SHOULD acknowledge when evidence is limited"
+
+  tier_5:
+    name: "Excluded Sources"
+    level: 5
+    usage: "NEVER used for medical claims"
+    confidence_ceiling: null
+    permitted: false
+    sources:
+      - type: "video_platforms"
+        examples:
+          - "YouTube"
+          - "TikTok"
+          - "Vimeo"
+          - "Instagram Reels"
+        identifiers:
+          - domain_patterns: ["youtube.com", "youtu.be", "tiktok.com", "vimeo.com"]
+        exclusion_rationale: "No peer review; no credential verification; algorithmic promotion based on engagement not accuracy"
+      
+      - type: "social_media"
+        examples:
+          - "Twitter/X"
+          - "Facebook"
+          - "Instagram"
+          - "LinkedIn health posts"
+        identifiers:
+          - domain_patterns: ["twitter.com", "x.com", "facebook.com", "instagram.com"]
+        exclusion_rationale: "Platform architecture optimizes for engagement; no quality control"
+      
+      - type: "forums"
+        examples:
+          - "Reddit"
+          - "Quora"
+          - "Health forums"
+          - "Patient community boards"
+        identifiers:
+          - domain_patterns: ["reddit.com", "quora.com"]
+          - site_types: ["Forum", "Q&A platform", "Discussion board"]
+        exclusion_rationale: "Anonymous/pseudonymous; no credential verification; voting reflects popularity not accuracy"
+      
+      - type: "blogs_unaffiliated"
+        examples:
+          - "Personal health blogs"
+          - "Wellness influencer sites"
+          - "Alternative medicine blogs"
+        identifiers:
+          - no_institutional_affiliation: true
+          - no_peer_review: true
+        exclusion_rationale: "No editorial oversight; no accountability"
+      
+      - type: "news_aggregators"
+        examples:
+          - "Health news aggregators"
+          - "Content farms"
+          - "SEO-optimized health sites"
+        identifiers:
+          - characteristics: ["Aggregated content", "SEO-driven", "No original reporting"]
+        exclusion_rationale: "Summarize without expertise; optimize for traffic not accuracy"
+    
+    absolute_constraint: |
+      Tier 5 sources MUST NOT be used as basis for medical claims under any circumstances,
+      regardless of individual creator credentials. Platform architecture—not individual
+      expertise—determines source reliability for AI-generated medical information.
+
+# Classification rules
+classification_rules:
+  default_behavior: "When tier is ambiguous, default to lower (more restrictive) tier"
+  
+  override_conditions:
+    # Institutional affiliation can elevate
+    - condition: "Content from credentialed professional on Tier 5 platform"
+      result: "Remains Tier 5"
+      rationale: "Platform architecture trumps individual credentials"
+    
+    # Preprint status can demote
+    - condition: "Preprint (not yet peer-reviewed)"
+      result: "Demote by one tier"
+      rationale: "Peer review not yet complete"
+    
+    # Retraction voids source
+    - condition: "Retracted publication"
+      result: "Exclude entirely"
+      rationale: "Scientific record corrected"
+    
+    # Age consideration
+    - condition: "Publication >10 years old without recent reaffirmation"
+      result: "Demote by one tier for rapidly evolving fields"
+      rationale: "Medical knowledge evolves"
+
+# Validation schema reference
+validation:
+  schema_file: "validation_schema.json"
+  required_fields:
+    - source_url
+    - source_type
+    - tier_classification
+    - classification_rationale
