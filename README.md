@@ -3,8 +3,29 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Standards Version](https://img.shields.io/badge/Standards-v1.0.0-blue.svg)](SPECIFICATION.md)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![AI Safety](https://img.shields.io/badge/AI-Safety-red.svg)](#)
+[![Health AI](https://img.shields.io/badge/Health-AI-green.svg)](#)
 
 **Five foundational standards for AI systems that generate medical information.**
+
+---
+
+## 🏷️ Topics / Keywords
+
+<p align="center">
+<code>ai-safety</code> · <code>medical-ai</code> · <code>health-informatics</code> · <code>llm-evaluation</code> · <code>ai-ethics</code><br>
+<code>evidence-based-medicine</code> · <code>healthcare-standards</code> · <code>ai-governance</code> · <code>patient-safety</code> · <code>clinical-ai</code><br>
+<code>ai-alignment</code> · <code>medical-informatics</code> · <code>health-misinformation</code> · <code>ai-regulation</code> · <code>llm-safety</code><br>
+<code>digital-health</code> · <code>epistemic-calibration</code> · <code>source-verification</code> · <code>harm-prevention</code> · <code>responsible-ai</code>
+</p>
+
+**GitHub Repository Topics** (add these in Settings → Topics):
+```
+ai-safety, medical-ai, health-informatics, llm-evaluation, ai-ethics, 
+evidence-based-medicine, healthcare-standards, ai-governance, patient-safety, 
+clinical-ai, ai-alignment, digital-health, responsible-ai, llm-safety, 
+medical-informatics, health-misinformation, ai-regulation
+```
 
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
@@ -149,9 +170,13 @@ If you use these standards in research or implementation, please cite:
   author={Srivatsa, S. Sanjay},
   journal={The Lancet Digital Health},
   year={2026},
-  note={Comment}
+  note={Comment},
+  keywords={AI safety, medical AI, health informatics, LLM evaluation, evidence-based medicine, 
+            healthcare standards, patient safety, AI governance, digital health, AI ethics}
 }
 ```
+
+**Keywords for indexing**: artificial intelligence safety; medical artificial intelligence; health information quality; large language model evaluation; evidence-based medicine; healthcare information standards; patient safety; AI governance; digital health; clinical decision support; medical misinformation; epistemic calibration; source verification; harm cascade analysis
 
 ---
 
@@ -171,19 +196,16 @@ Please open an issue before submitting significant changes.
 
 - [EXSTO ERGO SUM: A Dharmic Framework for AI Alignment](https://github.com/placeholder) — The broader philosophical framework
 - [Guardian Investigation (Jan 2026)](https://www.theguardian.com/technology/2026/jan/02/google-ai-health-summaries-risk) — Empirical foundation
-- [GRADE Working Group](https://www.gradeworkinggroup.org/) — Evidence quality assessment
-- [Cochrane Collaboration](https://www.cochranelibrary.com/) — Systematic review methodology
-
----
-
-## License
-
-This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt with attribution.
-
-Code implementations are additionally available under [MIT License](LICENSE).
+- [GRADE Working Group](https://www.gradeworkinggroup.org/) — Evidence quality assessment methodology
+- [Cochrane Collaboration](https://www.cochranelibrary.com/) — Systematic review gold standard
+- [HONcode](https://www.hon.ch/HONcode/) — Health on the Net Foundation certification
+- [DISCERN](http://www.discern.org.uk/) — Quality criteria for health information
+- [WHO Health Information Guidelines](https://www.who.int/) — International health standards
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — AI governance standards
 
 ---
 
 **Maintainer**: S. Sanjay Srivatsa, MD | Heart Artery and Vein Center, Fresno, California
+email: drsanjaysrivatsa@gmail.com
 
 *Accuracy and appropriate epistemic humility in health information are not optional design features—they are prerequisites for AI systems that interact with human health and lives.*
