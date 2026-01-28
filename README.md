@@ -249,7 +249,7 @@ quality-assurance
 risk-assessment
 ```
 
-**To add topics**: Go to your repository → Click the ⚙️ gear icon next to "About" → Add topics in the "Topics" field.
+**To add topics**: To further explore the issue of AI safety go to https://github.com/SanjaySrivatsa5172/EXSTO-ERGO-SUM.git
 
 ---
 
