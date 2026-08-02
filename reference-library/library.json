@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "project": "Physician-Authored Evaluation of Patient-Facing Artificial Intelligence in Emergency Triage",
+    "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
+    "pi": "S. Sanjay Srivatsa, MD",
+    "institution": "Cedars-Sinai Medical Center",
+    "last_updated": "2026-08-02",
+    "dashboard_url": null,
+    "update_history": [
+      { "date": "2026-08-02", "added": 2, "notes": "stub for pipeline test" }
+    ]
+  },
+  "references": [
+    {
+      "title": "Stub reference with design overlap",
+      "authors": "Stub A, et al.",
+      "journal": "npj Digital Medicine",
+      "year": 2025,
+      "pmid": "00000000",
+      "doi": "10.0000/stub.1",
+      "url": "https://doi.org/10.0000/stub.1",
+      "type": "journal-article",
+      "topics": ["emergency-triage-ai", "physician-evaluation"],
+      "tier": "core",
+      "design_overlap": true,
+      "relevance": "Stub relevance line for pipeline testing.",
+      "date_added": "2026-08-02",
+      "source": "protocol"
+    },
+    {
+      "title": "Stub preprint reference",
+      "authors": "Stub B, Stub C, et al.",
+      "journal": "medRxiv",
+      "year": 2026,
+      "pmid": null,
+      "doi": null,
+      "url": "https://example.org",
+      "type": "preprint",
+      "topics": ["patient-facing-ai"],
+      "tier": "ancillary",
+      "design_overlap": false,
+      "relevance": "Second stub.",
+      "date_added": "2026-08-02",
+      "source": "scite"
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+<title>AI Triage Safety — Reference Library</title>
+<style>
+  :root {
+    --paper: #f7f8f7;
+    --card: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #5a6b67;
+    --line: #dce3e0;
+    --accent: #0e7c66;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f0ec;
+    --critical: #b3382e;
+    --critical-soft: #f8ebe9;
+    --amber: #a36a00;
+    --amber-soft: #f6eedd;
+    --chip: #eef1f0;
+    --shadow: 0 1px 2px rgba(22, 33, 31, 0.06), 0 4px 14px rgba(22, 33, 31, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #101816;
+      --card: #17211e;
+      --ink: #e6ece9;
+      --ink-soft: #94a49e;
+      --line: #26332f;
+      --accent: #35b795;
+      --accent-ink: #0b1512;
+      --accent-soft: #1b2f29;
+      --critical: #e06a5c;
+      --critical-soft: #33201c;
+      --amber: #d9a84e;
+      --amber-soft: #2e2717;
+      --chip: #1f2b27;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #f7f8f7;
+    --card: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #5a6b67;
+    --line: #dce3e0;
+    --accent: #0e7c66;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f0ec;
+    --critical: #b3382e;
+    --critical-soft: #f8ebe9;
+    --amber: #a36a00;
+    --amber-soft: #f6eedd;
+    --chip: #eef1f0;
+    --shadow: 0 1px 2px rgba(22, 33, 31, 0.06), 0 4px 14px rgba(22, 33, 31, 0.05);
+  }
+  :root[data-theme="dark"] {
+    --paper: #101816;
+    --card: #17211e;
+    --ink: #e6ece9;
+    --ink-soft: #94a49e;
+    --line: #26332f;
+    --accent: #35b795;
+    --accent-ink: #0b1512;
+    --accent-soft: #1b2f29;
+    --critical: #e06a5c;
+    --critical-soft: #33201c;
+    --amber: #d9a84e;
+    --amber-soft: #2e2717;
+    --chip: #1f2b27;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.55 system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px 72px; }
+
+  /* Masthead */
+  header.masthead {
+    border-bottom: 3px double var(--line);
+    padding: 34px 0 18px;
+    margin-bottom: 22px;
+  }
+  .kicker {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  h1.masthead-title {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.12;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .core-question {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 14px;
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+  }
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .masthead-meta strong { color: var(--ink); font-weight: 600; }
+
+  /* Stat tiles */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 20px 0 26px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    box-shadow: var(--shadow);
+  }
+  .stat .num {
+    font-size: 26px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+  .stat .num.crit { color: var(--critical); }
+  .stat .num.acc { color: var(--accent); }
+  .stat .lbl {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  /* Section headings */
+  h2.sect {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-size: 20px;
+    margin: 34px 0 6px;
+  }
+  .sect-sub { font-size: 13px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  /* Critical pinned band */
+  .critical-band { display: grid; gap: 8px; }
+  .crit-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--critical);
+    border-radius: 6px;
+    padding: 10px 14px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: baseline;
+  }
+  .crit-item .t { font-weight: 600; }
+  .crit-item .m { font-size: 12.5px; color: var(--ink-soft); }
+
+  /* Controls */
+  .controls {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--paper);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .controls-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .controls input[type="search"] {
+    flex: 1 1 220px;
+    padding: 8px 12px;
+    font: inherit;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  .controls select {
+    padding: 8px 10px;
+    font: inherit;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip {
+    font: inherit;
+    font-size: 12.5px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--chip);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .chip .n { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .chip.on {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+  .chip.on .n { color: var(--accent-ink); opacity: 0.75; }
+  .result-count { font-size: 12.5px; color: var(--ink-soft); margin-top: 10px; }
+
+  /* Reference list */
+  .list { display: grid; gap: 10px; }
+  .ref {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 13px 16px;
+    box-shadow: var(--shadow);
+  }
+  .ref.overlap { border-left: 4px solid var(--critical); }
+  .ref .title { font-size: 15.5px; font-weight: 600; line-height: 1.35; }
+  .ref .title a { color: inherit; }
+  .ref .title a:hover { color: var(--accent); }
+  .byline { font-size: 13px; color: var(--ink-soft); margin-top: 3px; }
+  .byline .journal { font-style: italic; }
+  .badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; align-items: center; }
+  .badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .badge.core { background: var(--accent); color: var(--accent-ink); }
+  .badge.anc { background: var(--chip); color: var(--ink-soft); }
+  .badge.overlap { background: var(--critical); color: #fff; }
+  .badge.new { background: var(--accent-soft); color: var(--accent); }
+  .badge.preprint { background: var(--amber-soft); color: var(--amber); }
+  .topic-tag { font-size: 11.5px; color: var(--ink-soft); background: var(--chip); padding: 2px 8px; border-radius: 999px; }
+  .relevance { font-size: 13px; margin-top: 8px; max-width: 78ch; }
+  .idline {
+    font: 11.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--ink-soft);
+    margin-top: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+  }
+  .empty { color: var(--ink-soft); font-size: 14px; padding: 26px 0; text-align: center; }
+
+  /* Year chart */
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+  .chart-card svg { display: block; }
+  .bar { fill: var(--accent); opacity: 0.55; }
+  .bar.latest { opacity: 1; }
+  .bar-num { font: 600 11px system-ui, sans-serif; fill: var(--ink); font-variant-numeric: tabular-nums; }
+  .bar-year { font: 11px system-ui, sans-serif; fill: var(--ink-soft); }
+
+  footer.colophon {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    max-width: 78ch;
+  }
+  footer.colophon p { margin: 0 0 8px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ref, .crit-item, .stat { transition: border-color 0.15s ease; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">Daily Reference Library · Emergency Triage AI Safety</p>
+    <h1 class="masthead-title">Physician-Authored Evaluation of Patient-Facing AI in Emergency Triage</h1>
+    <p class="core-question">Can AI systems safely recognize when symptoms described in everyday language require emergency care?</p>
+    <div class="masthead-meta" id="masthead-meta"></div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <section id="critical-sect">
+    <h2 class="sect">Design overlap — read first</h2>
+    <p class="sect-sub">Published protocols and studies whose design overlaps this study. Flagged critical for methods differentiation and citation.</p>
+    <div class="critical-band" id="critical-band"></div>
+  </section>
+
+  <h2 class="sect">Reference library</h2>
+  <p class="sect-sub">Seeded from the protocol packet; grown by the daily journal scan (NEJM AI, JAMA / JAMA+ AI, Lancet Digital Health, Nature Medicine, npj Digital Medicine, emergency medicine journals, JAMIA, and preprint servers). Clinical relevance required.</p>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="search" id="q" placeholder="Search title, author, journal…" aria-label="Search references" />
+      <select id="tier" aria-label="Filter by tier">
+        <option value="">All tiers</option>
+        <option value="core">Core (cited in protocol)</option>
+        <option value="ancillary">Ancillary</option>
+      </select>
+      <select id="sort" aria-label="Sort references">
+        <option value="added">Newest added</option>
+        <option value="year">Publication year</option>
+        <option value="journal">Journal A–Z</option>
+      </select>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="result-count" id="count"></div>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <h2 class="sect">Publications by year</h2>
+  <div class="chart-card" id="chart" role="img" aria-label="Bar chart of reference counts by publication year"></div>
+
+  <footer class="colophon">
+    <p><strong>Method.</strong> This library updates once daily via an automated literature scan (PubMed + Scite/citation graph) governed by the study's search strategy: clinically oriented work on emergency triage AI safety and physician-authored evaluation of patient-facing AI. Purely technical ML papers are excluded unless clinically consequential. Retraction notices are checked before inclusion.</p>
+    <p><strong>Provenance.</strong> Tier <em>core</em> = cited in the Cedars-Sinai protocol packet. Tier <em>ancillary</em> = collected by the daily scan. Red-flagged items overlap this study's design. Canonical data: <span id="repo-note">reference-library/library.json</span> in the AMIS repository.</p>
+    <p id="updated-note"></p>
+  </footer>
+</div>
+
+<script>
+  const LIB = /*__LIBRARY_JSON__*/ null;
+
+  const TOPIC_LABELS = {
+    "emergency-triage-ai": "Emergency triage AI",
+    "patient-facing-ai": "Patient-facing AI",
+    "physician-evaluation": "Physician evaluation",
+    "benchmark-methodology": "Benchmark methodology",
+    "ai-safety-failure-modes": "AI safety failure modes",
+    "triage-standards": "Triage standards",
+    "policy-regulation": "Policy & regulation",
+    "medical-education-assessment": "Assessment methodology"
+  };
+
+  const refs = LIB.references.slice();
+  const meta = LIB.meta;
+  const state = { q: "", topics: new Set(), tier: "", sort: "added" };
+
+  const daysBetween = (a, b) => Math.round((new Date(a) - new Date(b)) / 864e5);
+  const isNew = (r) => daysBetween(meta.last_updated, r.date_added) <= 6;
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // Masthead meta
+  document.getElementById("masthead-meta").innerHTML =
+    '<span>PI: <strong>' + esc(meta.pi) + '</strong></span>' +
+    '<span>Proposed to: <strong>' + esc(meta.institution) + '</strong></span>' +
+    '<span>Last scan: <strong>' + esc(meta.last_updated) + '</strong></span>' +
+    '<span>Updates: <strong>daily</strong></span>';
+
+  // Stats
+  const overlap = refs.filter((r) => r.design_overlap);
+  const added7 = refs.filter(isNew).length;
+  const journals = new Set(refs.map((r) => r.journal)).size;
+  document.getElementById("stats").innerHTML = [
+    ['<span class="num">' + refs.length + "</span>", "Total references"],
+    ['<span class="num acc">' + refs.filter((r) => r.tier === "core").length + "</span>", "Core (protocol-cited)"],
+    ['<span class="num crit">' + overlap.length + "</span>", "Design overlap"],
+    ['<span class="num">' + added7 + "</span>", "Added last 7 days"],
+    ['<span class="num">' + journals + "</span>", "Journals & venues"]
+  ].map(([n, l]) => '<div class="stat">' + n + '<div class="lbl">' + l + "</div></div>").join("");
+
+  // Critical pinned band
+  const band = document.getElementById("critical-band");
+  if (overlap.length === 0) {
+    document.getElementById("critical-sect").style.display = "none";
+  } else {
+    band.innerHTML = overlap
+      .slice()
+      .sort((a, b) => b.year - a.year)
+      .map((r) =>
+        '<div class="crit-item"><span class="t"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.title) + "</a></span>" +
+        '<span class="m">' + esc(r.authors) + ' · <em>' + esc(r.journal) + "</em> · " + r.year + "</span></div>"
+      ).join("");
+  }
+
+  // Topic chips
+  const topicCounts = {};
+  refs.forEach((r) => r.topics.forEach((t) => (topicCounts[t] = (topicCounts[t] || 0) + 1)));
+  const chipsEl = document.getElementById("chips");
+  chipsEl.innerHTML = Object.keys(TOPIC_LABELS)
+    .filter((t) => topicCounts[t])
+    .map((t) => '<button class="chip" data-t="' + t + '">' + TOPIC_LABELS[t] + ' <span class="n">' + topicCounts[t] + "</span></button>")
+    .join("");
+  chipsEl.addEventListener("click", (e) => {
+    const b = e.target.closest(".chip");
+    if (!b) return;
+    const t = b.dataset.t;
+    state.topics.has(t) ? state.topics.delete(t) : state.topics.add(t);
+    b.classList.toggle("on");
+    render();
+  });
+
+  document.getElementById("q").addEventListener("input", (e) => { state.q = e.target.value.toLowerCase(); render(); });
+  document.getElementById("tier").addEventListener("change", (e) => { state.tier = e.target.value; render(); });
+  document.getElementById("sort").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+
+  function render() {
+    let rows = refs.filter((r) => {
+      if (state.tier && r.tier !== state.tier) return false;
+      if (state.topics.size && ![...state.topics].some((t) => r.topics.includes(t))) return false;
+      if (state.q) {
+        const hay = (r.title + " " + r.authors + " " + r.journal + " " + (r.relevance || "")).toLowerCase();
+        if (!hay.includes(state.q)) return false;
+      }
+      return true;
+    });
+    rows.sort((a, b) => {
+      if (state.sort === "year") return b.year - a.year || a.title.localeCompare(b.title);
+      if (state.sort === "journal") return a.journal.localeCompare(b.journal) || b.year - a.year;
+      return b.date_added.localeCompare(a.date_added) || b.year - a.year;
+    });
+    document.getElementById("count").textContent =
+      rows.length + " of " + refs.length + " references shown";
+    document.getElementById("list").innerHTML = rows.length
+      ? rows.map(card).join("")
+      : '<div class="empty">No references match the current filters.</div>';
+  }
+
+  function card(r) {
+    const badges = [];
+    badges.push(r.tier === "core" ? '<span class="badge core">Core</span>' : '<span class="badge anc">Ancillary</span>');
+    if (r.design_overlap) badges.push('<span class="badge overlap">Critical · design overlap</span>');
+    if (r.type === "preprint") badges.push('<span class="badge preprint">Preprint</span>');
+    if (isNew(r)) badges.push('<span class="badge new">New</span>');
+    const tags = r.topics.map((t) => '<span class="topic-tag">' + (TOPIC_LABELS[t] || t) + "</span>").join("");
+    const ids = [];
+    if (r.doi) ids.push("DOI " + esc(r.doi));
+    if (r.pmid) ids.push("PMID " + esc(r.pmid));
+    ids.push("added " + esc(r.date_added));
+    return (
+      '<article class="ref' + (r.design_overlap ? " overlap" : "") + '">' +
+      '<div class="title"><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.title) + "</a></div>" +
+      '<div class="byline">' + esc(r.authors) + ' — <span class="journal">' + esc(r.journal) + "</span> (" + r.year + ")</div>" +
+      '<div class="badges">' + badges.join("") + tags + "</div>" +
+      (r.relevance ? '<div class="relevance">' + esc(r.relevance) + "</div>" : "") +
+      '<div class="idline">' + ids.map((i) => "<span>" + i + "</span>").join("") + "</div>" +
+      "</article>"
+    );
+  }
+
+  // Year chart (inline SVG)
+  (function chart() {
+    const counts = {};
+    refs.forEach((r) => { if (r.year) counts[r.year] = (counts[r.year] || 0) + 1; });
+    const years = Object.keys(counts).map(Number).sort((a, b) => a - b);
+    if (!years.length) return;
+    const span = [];
+    for (let y = years[0]; y <= years[years.length - 1]; y++) span.push(y);
+    const max = Math.max(...Object.values(counts));
+    const bw = 34, gap = 10, h = 150, pad = 24;
+    const w = span.length * (bw + gap) + gap;
+    let s = '<svg width="' + w + '" height="' + (h + 38) + '" viewBox="0 0 ' + w + " " + (h + 38) + '" xmlns="http://www.w3.org/2000/svg">';
+    span.forEach((y, i) => {
+      const c = counts[y] || 0;
+      const bh = c ? Math.max(3, (c / max) * (h - pad)) : 0;
+      const x = gap + i * (bw + gap);
+      const ytop = h - bh;
+      if (c) {
+        s += '<rect class="bar' + (y === span[span.length - 1] ? " latest" : "") + '" x="' + x + '" y="' + ytop + '" width="' + bw + '" height="' + bh + '" rx="2"></rect>';
+        s += '<text class="bar-num" x="' + (x + bw / 2) + '" y="' + (ytop - 6) + '" text-anchor="middle">' + c + "</text>";
+      }
+      s += '<text class="bar-year" x="' + (x + bw / 2) + '" y="' + (h + 18) + '" text-anchor="middle">' + y + "</text>";
+    });
+    s += "</svg>";
+    document.getElementById("chart").innerHTML = s;
+  })();
+
+  document.getElementById("updated-note").innerHTML =
+    "<strong>Last updated:</strong> " + esc(meta.last_updated) +
+    (meta.update_history && meta.update_history.length
+      ? " · " + meta.update_history.length + " scan(s) logged"
+      : "");
+
+  render();
+</script>
