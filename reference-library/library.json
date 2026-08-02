@@ -14,11 +14,25 @@
    },
    {
     "date": "2026-08-02",
+    "added": 8,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC direct access blocked by session network policy). Major find: Ramaswamy et al. Nature Medicine independent ChatGPT Health triage safety evaluation (52% emergency undertriage, anchoring bias, inconsistent crisis safeguards) -- flagged as urgent alert, closely matches trial design. Also added: companion Nature Medicine research briefing, a physician-supervised real-world AMIE ambulatory feasibility study, a red-teaming protocol paper (Scientific Reports), a medRxiv adversarial red-teaming study of Claude Sonnet 4.5, a JMIR ED-triage LLM/NLP/JEPA comparison, an ESI diagnostic-accuracy meta-analysis, and a real-world-conversation ChatGPT/Gemini/DeepSeek triage comparison. [Run completed in scheduled fresh session but its git push failed; additions recovered from the published dashboard by the backstop check-in and verified via PubMed (Ramaswamy PMID 41731097 confirmed).]"
+   },
+   {
+    "date": "2026-08-02",
     "added": 2,
     "notes": "Recovery scan from main session: scheduled fresh-session run fired 13:02 UTC but produced no output (no search path in fresh sessions — connectors absent, curl and WebFetch blocked by network policy). PubMed MCP recency sweep, last 3 days."
    }
   ],
-  "alerts": []
+  "alerts": [
+   {
+    "date": "2026-08-02",
+    "headline": "Nature Medicine: ChatGPT Health undertriaged 52% of gold-standard emergencies in structured physician-authored stress test",
+    "detail": "Ramaswamy et al. (Nature Medicine, fast-tracked Feb 23 2026) ran the first independent safety evaluation of OpenAI's ChatGPT Health using 60 clinician-authored vignettes across 21 clinical domains under 16 factorial conditions (960 responses). Performance followed an inverted U-shaped pattern with the most dangerous failures at clinical extremes: 48% failure on emergency conditions (52% undertriage of gold-standard emergencies such as DKA and impending respiratory failure, directed to 24-48h evaluation instead of the ED) and 35% failure on nonurgent presentations. Anchoring bias was demonstrated: triage recommendations shifted toward less-urgent categories when family/friends minimized symptoms in the conversation. Suicide/crisis-safeguard activation was inconsistent and unpredictable. This closely matches this protocol's design (physician-authored triage vignettes, factorial/dual-register presentation) and bears directly on the primary endpoint's interpretation (undertriage/critical-miss rate, anchoring-on-benign-explanations, lay-register performance).",
+    "doi": "10.1038/s41591-026-04297-7",
+    "url": "https://doi.org/10.1038/s41591-026-04297-7",
+    "resolved": false
+   }
+  ]
  },
  "references": [
   {
@@ -1822,6 +1836,158 @@
    "relevance": "ID-focused synthesis: ChatGPT adequate for selected triage and communication tasks but harmful recommendations in 16% of bloodstream-infection cases.",
    "date_added": "2026-08-02",
    "source": "pubmed"
+  },
+  {
+   "title": "ChatGPT Health performance in a structured test of triage recommendations",
+   "authors": "Ramaswamy A, Tyagi A, Hugo H, et al.",
+   "journal": "Nature Medicine",
+   "year": 2026,
+   "pmid": "41731097",
+   "doi": "10.1038/s41591-026-04297-7",
+   "url": "https://doi.org/10.1038/s41591-026-04297-7",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "First independent safety evaluation of ChatGPT Health: 60 clinician-authored vignettes across 21 domains under 16 factorial conditions (960 responses); inverted U-shaped failure pattern, 52% undertriage of gold-standard emergencies (DKA, impending respiratory failure), inconsistent suicide-crisis safeguard activation, and significant anchoring-bias shifts when family/friends minimized symptoms",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "ChatGPT Health triage advice falls short in key cases",
+   "authors": "Nature Medicine editorial staff",
+   "journal": "Nature Medicine",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1038/s41591-026-04427-1",
+   "url": "https://doi.org/10.1038/s41591-026-04427-1",
+   "type": "editorial",
+   "topics": [
+    "emergency-triage-ai",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Nature Medicine research briefing summarizing Ramaswamy et al.'s ChatGPT Health triage safety findings for a broader clinical audience",
+   "source": "websearch",
+   "design_overlap": false,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "Toward trustworthy chatbots: a protocol for red teaming for health related conversations",
+   "authors": "Hussain SA, Jackson DI, Lewis A, et al.",
+   "journal": "Scientific Reports",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1038/s41598-026-45719-3",
+   "url": "https://doi.org/10.1038/s41598-026-45719-3",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Systematic red-teaming protocol for health-related chatbots (error stratification, dual-pronged testing, vulnerability-informed mitigation); applied to a RAG chatbot, found behavioral noncompliance as dominant risk",
+   "source": "websearch",
+   "design_overlap": false,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "Artificial Intelligence Models for Predicting Triage in Emergency Departments: Seven-Month Retrospective Comparative Study of Natural Language Processing, Large Language Model, and Joint Embedding Predictive Architectures",
+   "authors": "Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.",
+   "journal": "JMIR Medical Informatics",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.2196/83318",
+   "url": "https://doi.org/10.2196/83318",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "LLM-based architecture (URGENTIAPARSE) outperformed NLP and JEPA baselines for ED triage prediction (F1=0.900, AUC-ROC=0.879) but limited by severe overfitting, extreme selection bias, monocentric design, and sparse high-acuity representation",
+   "source": "websearch",
+   "design_overlap": false,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "Red-Teaming Medical AI: Systematic Adversarial Evaluation of LLM Safety Guardrails in Clinical Contexts",
+   "authors": "Ekram T.",
+   "journal": "medRxiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2026.02.26.26347212",
+   "url": "https://doi.org/10.64898/2026.02.26.26347212",
+   "type": "preprint",
+   "topics": [
+    "ai-safety-failure-modes",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Taxonomy of 8 adversarial attack categories (24 sub-strategies) including emergency misdirection tested against Claude Sonnet 4.5; 6.9% of 160 adversarial prompts elicited clinically significant harm, dominant failure mode is context-conditioned 'behavioral mode-switching'",
+   "source": "websearch",
+   "design_overlap": false,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "A prospective clinical feasibility study of a conversational diagnostic AI in an ambulatory primary care clinic",
+   "authors": "Brodeur P, et al.",
+   "journal": "arXiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arXiv.2603.08448",
+   "url": "https://doi.org/10.48550/arXiv.2603.08448",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "First real-world (non-simulated) prospective feasibility study of AMIE conversational diagnostic AI with 100 patients at an academic ambulatory clinic, tri-phasic physician-supervised pathway and retrospective chart review; extends prior OSCE-based AMIE evaluations to actual clinical practice",
+   "source": "websearch",
+   "design_overlap": true,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "Diagnostic test accuracy of the Emergency Severity Index: a systematic review and meta-analysis",
+   "authors": "Wandl B, Kellerer JD, Fuhrmann V, Tapinova K, Roth D, Müller G.",
+   "journal": "European Journal of Emergency Medicine",
+   "year": 2025,
+   "pmid": "40686481",
+   "doi": "10.1097/MEJ.0000000000001262",
+   "url": "https://doi.org/10.1097/MEJ.0000000000001262",
+   "type": "review",
+   "topics": [
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "Systematic review/meta-analysis of 27 studies (510,777 patients) on ESI diagnostic test accuracy for identifying critically ill ED patients; up-to-date ground-truth benchmark for undertriage/overtriage norms",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-02"
+  },
+  {
+   "title": "Performance of ChatGPT, Gemini and DeepSeek for non-critical triage support using real-world conversations in emergency department",
+   "authors": "Lee S, Jung S, Park JH, Cho H, Moon S, Ahn S.",
+   "journal": "BMC Emergency Medicine",
+   "year": 2025,
+   "pmid": null,
+   "doi": "10.1186/s12873-025-01337-2",
+   "url": "https://doi.org/10.1186/s12873-025-01337-2",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Evaluated GPT-4o/4.1/o3, Gemini 2.0/2.5, and DeepSeek V3/R1 on 1,057 real-world (unsummarized, conversational) ED triage dialogues from three South Korean tertiary hospitals rather than structured vignettes; Gemini 2.5 flash highest accuracy (73.8%); directly probes the lay/conversational-language dimension of triage safety",
+   "source": "websearch",
+   "design_overlap": true,
+   "date_added": "2026-08-02"
   }
  ]
 }

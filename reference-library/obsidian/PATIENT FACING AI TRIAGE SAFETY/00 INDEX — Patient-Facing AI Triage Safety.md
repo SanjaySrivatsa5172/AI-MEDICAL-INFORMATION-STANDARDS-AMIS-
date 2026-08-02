@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
 last-updated: 2026-08-02
-total-references: 96
+total-references: 104
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,12 +11,16 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-02** · 96 references.
+Updated daily by automated scan. Last scan: **2026-08-02** · 104 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
 > [!info] Generated folder
 > This folder is regenerated on every scan. Keep personal annotations in separate notes that link here, not inside these files.
+
+## 🚨 Active urgent alerts
+
+- **2026-08-02 — Nature Medicine: ChatGPT Health undertriaged 52% of gold-standard emergencies in structured physician-authored stress test** — Ramaswamy et al. (Nature Medicine, fast-tracked Feb 23 2026) ran the first independent safety evaluation of OpenAI's ChatGPT Health using 60 clinician-authored vignettes across 21 clinical domains under 16 factorial conditions (960 responses). Performance followed an inverted U-shaped pattern with the most dangerous failures at clinical extremes: 48% failure on emergency conditions (52% undertriage of gold-standard emergencies such as DKA and impending respiratory failure, directed to 24-48h evaluation instead of the ED) and 35% failure on nonurgent presentations. Anchoring bias was demonstrated: triage recommendations shifted toward less-urgent categories when family/friends minimized symptoms in the conversation. Suicide/crisis-safeguard activation was inconsistent and unpredictable. This closely matches this protocol's design (physician-authored triage vignettes, factorial/dual-register presentation) and bears directly on the primary endpoint's interpretation (undertriage/critical-miss rate, anchoring-on-benign-explanations, lay-register performance). (https://doi.org/10.1038/s41591-026-04297-7)
 
 ## ⚠ Critical — design overlap
 
@@ -27,6 +31,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] — *Cureus* 2026
 - [[Nourbakhsh 2026 — Skyer a novel benchmark for evaluating the effectiveness of large…]] — *CJEM* 2026
 - [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] — *International Journal of Emergency Medicine* 2026
+- [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] — *Nature Medicine* 2026
+- [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] — *arXiv* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -37,6 +43,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Arora 2025 — HealthBench Evaluating Large Language Models Towards Improved Human…]] — *arXiv* 2025
 - [[Wang 2025 — Patient Triage and Guidance in Emergency Departments Using Large…]] — *Journal of Medical Internet Research* 2025
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] — *Nature* 2025
+- [[Lee 2025 — Performance of ChatGPT, Gemini and DeepSeek for non-critical triage…]] — *BMC Emergency Medicine* 2025
 - [[Pasli 2024 — Assessing the precision of artificial intelligence in ED triage…]] — *The American Journal of Emergency Medicine* 2024
 - [[Arslan 2024 — Evaluating LLM-based generative AI tools in emergency triage A…]] — *The American Journal of Emergency Medicine* 2024
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] — *medRxiv* 2024
@@ -57,6 +64,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Nourbakhsh 2026 — Skyer a novel benchmark for evaluating the effectiveness of large…]] (2026)
 - [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] (2026)
 - [[Kukreti 2026 — Can ChatGPT match physicians in the diagnosis, triage, management and…]] (2026)
+- [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] (2026)
+- [[staff 2026 — ChatGPT Health triage advice falls short in key cases]] (2026)
+- [[Lansiaux 2026 — Artificial Intelligence Models for Predicting Triage in Emergency…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -68,6 +78,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Schmieding 2025 — Impact of a Symptom Checker App on Patient-Physician Interaction…]] (2025)
 - [[Wang 2025 — Patient Triage and Guidance in Emergency Departments Using Large…]] (2025)
 - [[Gourabathina 2025 — The Medium is the Message How Non-Clinical Information Shapes…]] (2025)
+- [[Lee 2025 — Performance of ChatGPT, Gemini and DeepSeek for non-critical triage…]] (2025)
 - [[Pasli 2024 — Assessing the precision of artificial intelligence in ED triage…]] (2024) — **core**
 - [[Yazaki 2024 — Emergency Patient Triage Improvement through a Retrieval-Augmented…]] (2024)
 - [[Arslan 2024 — Evaluating LLM-based generative AI tools in emergency triage A…]] (2024)
@@ -87,6 +98,10 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] (2026)
 - [[Lievin 2026 — Towards conversational artificial intelligence for disease management]] (2026)
 - [[Kukreti 2026 — Can ChatGPT match physicians in the diagnosis, triage, management and…]] (2026)
+- [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] (2026)
+- [[staff 2026 — ChatGPT Health triage advice falls short in key cases]] (2026)
+- [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
+- [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -122,6 +137,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Draelos 2026 — Large language models provide unsafe answers to patient-posed medical…]] (2026)
 - [[Lievin 2026 — Towards conversational artificial intelligence for disease management]] (2026)
 - [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] (2026)
+- [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -147,6 +163,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Yan 2026 — LiveMedBench A Contamination-Free Medical Benchmark for LLMs with…]] (2026)
 - [[Benning 2026 — Performance evaluation and benchmarking across 16 large language…]] (2026)
 - [[Nourbakhsh 2026 — Skyer a novel benchmark for evaluating the effectiveness of large…]] (2026)
+- [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
+- [[Lansiaux 2026 — Artificial Intelligence Models for Predicting Triage in Emergency…]] (2026)
+- [[Ekram 2026 — Red-Teaming Medical AI Systematic Adversarial Evaluation of LLM…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -184,6 +203,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Zuo 2026 — Patient Cognitive Bias in Large Language Model-Supported Health…]] (2026)
 - [[MY 2026 — Prompt Framing Modulates Safety in Shoulder and Elbow Red-Flag…]] (2026)
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] (2026)
+- [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] (2026)
+- [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
+- [[Ekram 2026 — Red-Teaming Medical AI Systematic Adversarial Evaluation of LLM…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -204,6 +226,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 
 - [[Aljohani 2026 — Domain-Adapted Small Language Models for Reliable Clinical Triage]] (2026)
 - [[Ho 2025 — Evaluation of Generative Artificial Intelligence Models in Predicting…]] (2025)
+- [[Wandl 2025 — Diagnostic test accuracy of the Emergency Severity Index a systematic…]] (2025)
 - [[Sax 2024 — Emergency Severity Index Version 4 and Triage of Pediatric Emergency…]] (2024)
 - [[Sax 2023 — Evaluation of the Emergency Severity Index in US Emergency…]] (2023) — **core**
 - [[Trauma 2022 — Resources for Optimal Care of the Injured Patient (undertriage 5%…]] (2022) — **core**

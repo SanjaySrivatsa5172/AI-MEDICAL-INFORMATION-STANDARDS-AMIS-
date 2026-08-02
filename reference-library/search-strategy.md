@@ -76,6 +76,10 @@ Scan all major medical journals **and their AI subsidiary journals**, including:
 - benchmark contamination AND medical LLM evaluation
 - Emergency Severity Index AND (reliability OR validity OR mistriage)
 - conversational AI diagnosis AND physician comparison
+- named consumer health AI products AND (triage OR safety OR evaluation) —
+  e.g. "ChatGPT Health", Gemini/Med-Gemini health features, AMIE, Claude health
+  uses (the Ramaswamy Nature Medicine ChatGPT Health stress test was found via
+  product-name search, not generic LLM-triage terms — always include this angle)
 
 ## Dedupe & Provenance Rules
 
