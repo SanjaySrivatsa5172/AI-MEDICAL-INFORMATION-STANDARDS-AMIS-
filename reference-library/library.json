@@ -11,6 +11,11 @@
     "date": "2026-08-02",
     "added": 94,
     "notes": "Initial seed: protocol-cited core references plus PubMed and Scite/citation-graph sweeps across NEJM AI, JAMA network, Lancet Digital Health, Nature Medicine, npj Digital Medicine, emergency medicine journals, JAMIA, and preprint servers. One retracted ESI paper excluded. Unverified 'Llama-3.1 ESI-handbook pretraining' study withheld pending verification."
+   },
+   {
+    "date": "2026-08-02",
+    "added": 2,
+    "notes": "Recovery scan from main session: scheduled fresh-session run fired 13:02 UTC but produced no output (no search path in fresh sessions — connectors absent, curl and WebFetch blocked by network policy). PubMed MCP recency sweep, last 3 days."
    }
   ],
   "alerts": []
@@ -1779,6 +1784,44 @@
    "source": "pubmed",
    "design_overlap": false,
    "date_added": "2026-08-02"
+  },
+  {
+   "title": "Comparing the text-based diagnostic reasoning performance of emergency medicine physicians and large language models in both definitive and differential diagnoses using standardized clinical vignettes: a preliminary study",
+   "authors": "Shamsabadi MA, Vatankhah R, Jalilvand H, et al.",
+   "journal": "International Journal of Emergency Medicine",
+   "year": 2026,
+   "pmid": "42538544",
+   "doi": "10.1186/s12245-026-01324-9",
+   "url": "https://doi.org/10.1186/s12245-026-01324-9",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "design_overlap": true,
+   "relevance": "Four LLMs vs ten EM physicians on expert-validated ED vignettes: AI 73.8% vs physician 57.0% overall diagnostic accuracy.",
+   "date_added": "2026-08-02",
+   "source": "pubmed"
+  },
+  {
+   "title": "Can ChatGPT match physicians in the diagnosis, triage, management and prevention of infectious diseases? A scoping review",
+   "authors": "Kukreti S, Liu SY, Lu PF, et al.",
+   "journal": "International Journal of Medical Informatics",
+   "year": 2026,
+   "pmid": "42537620",
+   "doi": "10.1016/j.ijmedinf.2026.106631",
+   "url": "https://doi.org/10.1016/j.ijmedinf.2026.106631",
+   "type": "review",
+   "topics": [
+    "emergency-triage-ai",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "design_overlap": false,
+   "relevance": "ID-focused synthesis: ChatGPT adequate for selected triage and communication tasks but harmful recommendations in 16% of bloodstream-infection cases.",
+   "date_added": "2026-08-02",
+   "source": "pubmed"
   }
  ]
 }

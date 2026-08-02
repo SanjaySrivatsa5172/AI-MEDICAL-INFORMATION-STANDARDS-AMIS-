@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
 last-updated: 2026-08-02
-total-references: 94
+total-references: 96
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-02** · 94 references.
+Updated daily by automated scan. Last scan: **2026-08-02** · 96 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -26,6 +26,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Benning 2026 — Performance evaluation and benchmarking across 16 large language…]] — *medRxiv* 2026
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] — *Cureus* 2026
 - [[Nourbakhsh 2026 — Skyer a novel benchmark for evaluating the effectiveness of large…]] — *CJEM* 2026
+- [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] — *International Journal of Emergency Medicine* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -54,6 +55,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[MY 2026 — Prompt Framing Modulates Safety in Shoulder and Elbow Red-Flag…]] (2026)
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] (2026)
 - [[Nourbakhsh 2026 — Skyer a novel benchmark for evaluating the effectiveness of large…]] (2026)
+- [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] (2026)
+- [[Kukreti 2026 — Can ChatGPT match physicians in the diagnosis, triage, management and…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -83,6 +86,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Zuo 2026 — Patient Cognitive Bias in Large Language Model-Supported Health…]] (2026)
 - [[Harada 2026 — Safety Audit of a Large Language Model for Lay Self-Triage Using…]] (2026)
 - [[Lievin 2026 — Towards conversational artificial intelligence for disease management]] (2026)
+- [[Kukreti 2026 — Can ChatGPT match physicians in the diagnosis, triage, management and…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -117,6 +121,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Soskin 2026 — HealthBench Professional Evaluating Large Language Models on Real…]] (2026)
 - [[Draelos 2026 — Large language models provide unsafe answers to patient-posed medical…]] (2026)
 - [[Lievin 2026 — Towards conversational artificial intelligence for disease management]] (2026)
+- [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
