@@ -39,7 +39,14 @@ Intelligence in Emergency Triage"** (PI: S. Sanjay Srivatsa, MD).
 ## Using the Obsidian folder
 
 The generated folder `obsidian/PATIENT FACING AI TRIAGE SAFETY/` matches the
-folder of the same name in the PI's Obsidian vault. It is regenerated on every
-scan — keep personal annotations in separate notes that link into it. To sync,
-either point Obsidian (or the Obsidian Git plugin) at this repo folder, or copy
-the folder into the vault after each update.
+folder of the same name in the PI's Obsidian vault
+(`~/Documents/Obsidian Vault/PATIENT FACING AI TRIAGE SAFETY`). It is
+regenerated on every scan — keep personal annotations in separate notes that
+link into it.
+
+**Automatic sync to the vault (macOS):** run `sync-obsidian-vault.sh` on the
+Mac that hosts the vault. `bash sync-obsidian-vault.sh install` syncs
+immediately and schedules a daily pull at 6:20 AM local time (after the cloud
+scan); plain `bash sync-obsidian-vault.sh` syncs once; `uninstall` removes the
+schedule. The script only adds/overwrites generated notes — it never deletes
+personal files from the vault folder.
