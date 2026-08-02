@@ -143,6 +143,16 @@ const indexLines = [
   "> [!info] Generated folder",
   "> This folder is regenerated on every scan. Keep personal annotations in separate notes that link here, not inside these files.",
   "",
+  ...((meta.alerts || []).filter((a) => !a.resolved).length
+    ? [
+        "## 🚨 Active urgent alerts",
+        "",
+        ...(meta.alerts || [])
+          .filter((a) => !a.resolved)
+          .map((a) => `- **${a.date} — ${a.headline}** — ${a.detail}${a.url ? ` (${a.url})` : ""}`),
+        "",
+      ]
+    : []),
   "## ⚠ Critical — design overlap",
   "",
   ...(overlap.length ? overlap.map((r) => `- ${link(r)} — *${r.journal}* ${r.year}`) : ["- (none flagged)"]),

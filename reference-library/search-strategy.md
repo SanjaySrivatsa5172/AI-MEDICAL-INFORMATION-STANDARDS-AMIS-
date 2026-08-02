@@ -84,6 +84,31 @@ Scan all major medical journals **and their AI subsidiary journals**, including:
 - `tier: core` = cited in the protocol packet; `tier: ancillary` = collected.
 - Every entry records `source` (protocol / pubmed / scite / manual).
 
+## Urgent Alert Protocol
+
+A newly found reference is **major** when it would plausibly require addition to or
+alteration of this trial, or has specific bearing on its results. Triggers include:
+
+- Publication of a benchmark or trial closely matching this protocol's design
+  (physician-authored triage scenarios, dual-register presentation, harm-weighted
+  scoring, or a Critical-Miss-Rate-style primary endpoint).
+- New evidence directly affecting the primary endpoint's interpretation (e.g.,
+  contamination findings invalidating ESI-based LLM triage results, or major lay-
+  vs-expert register performance findings in frontier models).
+- Regulatory or policy action governing patient-facing AI triage.
+- Retraction or correction of any reference cited in the protocol.
+
+When a major reference is found, the daily scan must, in addition to normal
+library entry (with `design_overlap` as applicable):
+
+1. Append an entry to `meta.alerts` in `library.json`
+   (`{date, headline, detail, doi, url, resolved: false}`) — this renders an
+   urgent red banner at the top of the dashboard until marked `resolved`.
+2. Create a Gmail draft addressed to **drsanjaysrivatsa@gmail.com** with subject
+   `[URGENT — AI Triage Study] <headline>` summarizing the finding, its bearing
+   on the trial, and the recommended action (drafts require a manual send).
+3. Send a push notification summarizing the alert.
+
 ## Cadence
 
 - One automated scan per day (morning US Pacific). Each run: execute query bank

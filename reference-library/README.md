@@ -34,7 +34,7 @@ Intelligence in Emergency Triage"** (PI: S. Sanjay Srivatsa, MD).
 
 ## Live dashboard
 
-<!-- DASHBOARD_URL -->
+**Dashboard:** https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461 (republished daily at the same URL)
 
 ## Using the Obsidian folder
 

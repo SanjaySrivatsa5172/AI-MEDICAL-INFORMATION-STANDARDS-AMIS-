@@ -84,6 +84,28 @@
   }
   .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px 72px; }
 
+  /* Urgent alert banner */
+  .alert-banner {
+    background: var(--critical);
+    color: #fff;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow);
+  }
+  .alert-banner .alert-head {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .alert-banner .alert-item { margin: 0 0 10px; }
+  .alert-banner .alert-item:last-child { margin-bottom: 0; }
+  .alert-banner .alert-title { font-weight: 700; font-size: 15.5px; }
+  .alert-banner .alert-detail { font-size: 13.5px; opacity: 0.95; margin-top: 2px; max-width: 88ch; }
+  .alert-banner a { color: #fff; text-decoration: underline; }
+
   /* Masthead */
   header.masthead {
     border-bottom: 3px double var(--line);
@@ -300,6 +322,7 @@
 </style>
 
 <div class="wrap">
+  <div id="alert-banner"></div>
   <header class="masthead">
     <p class="kicker">Daily Reference Library · Emergency Triage AI Safety</p>
     <h1 class="masthead-title">Physician-Authored Evaluation of Patient-Facing AI in Emergency Triage</h1>
@@ -369,6 +392,21 @@
   const daysBetween = (a, b) => Math.round((new Date(a) - new Date(b)) / 864e5);
   const isNew = (r) => daysBetween(meta.last_updated, r.date_added) <= 6;
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // Urgent alerts
+  const activeAlerts = (meta.alerts || []).filter((a) => !a.resolved);
+  if (activeAlerts.length) {
+    document.getElementById("alert-banner").innerHTML =
+      '<div class="alert-banner" role="alert"><div class="alert-head">⚠ Urgent — bears on this trial</div>' +
+      activeAlerts
+        .map(
+          (a) =>
+            '<div class="alert-item"><div class="alert-title">' + esc(a.headline) + " <span style=\"font-weight:400;opacity:.85\">(" + esc(a.date) + ")</span></div>" +
+            '<div class="alert-detail">' + esc(a.detail) + (a.url ? ' <a href="' + esc(a.url) + '" target="_blank" rel="noopener">Read the paper</a>' : "") + "</div></div>"
+        )
+        .join("") +
+      "</div>";
+  }
 
   // Masthead meta
   document.getElementById("masthead-meta").innerHTML =
