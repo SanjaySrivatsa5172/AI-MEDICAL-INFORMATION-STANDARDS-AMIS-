@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-02
-total-references: 104
+last-updated: 2026-08-03
+total-references: 113
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,12 +11,16 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-02** · 104 references.
+Updated daily by automated scan. Last scan: **2026-08-03** · 113 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
 > [!info] Generated folder
 > This folder is regenerated on every scan. Keep personal annotations in separate notes that link here, not inside these files.
+
+## 🚨 Active urgent alerts
+
+- **2026-08-03 — Preprint challenges Ramaswamy ChatGPT Health undertriage finding: forced-choice exam format, not model capability, drives failure** — Fraile Navarro, Magrabi & Coiera (Macquarie University, arXiv 2603.11413) partially replicated the Nature Medicine ChatGPT Health stress test (Ramaswamy et al., the subject of this library's standing urgent alert) on 5 frontier LLMs (GPT-5.2, Claude Sonnet 4.6, Claude Opus 4.6, Gemini 3 Flash, Gemini 3.1 Pro) across 17 scenarios under two conditions: constrained exam-style forced-choice (A/B/C/D, 1,275 trials) vs naturalistic patient-style free-text messaging (850 trials). Naturalistic interaction improved triage accuracy by 6.4 percentage points (p=0.015); three models scored as low as 0-24% under forced choice but 100% on matched scenarios in free text. This directly bears on the primary endpoint's interpretation: it suggests undertriage/critical-miss rates measured under a forced-choice evaluation format may substantially overstate real-world model failure, and that naturalistic, everyday-language presentation format is itself a major determinant of triage accuracy -- the core dual-register design question this protocol is built around. Not yet peer-reviewed (arXiv preprint). (https://arxiv.org/abs/2603.11413)
 
 ## ⚠ Critical — design overlap
 
@@ -29,6 +33,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] — *International Journal of Emergency Medicine* 2026
 - [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] — *Nature Medicine* 2026
 - [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] — *arXiv* 2026
+- [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] — *arXiv (preprint)* 2026
+- [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] — *arXiv (preprint)* 2026
+- [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] — *JMIR Formative Research* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -63,6 +70,12 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] (2026)
 - [[staff 2026 — ChatGPT Health triage advice falls short in key cases]] (2026)
 - [[Lansiaux 2026 — Artificial Intelligence Models for Predicting Triage in Emergency…]] (2026)
+- [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] (2026)
+- [[Naderi 2026 — The role of large language models in emergency care a comprehensive…]] (2026)
+- [[Lee 2026 — From Promising Capabilities to Pervasive Bias Assessing Large…]] (2026)
+- [[Alamoudi 2026 — AI Triage in Primary Care Building Safer and More Equitable…]] (2026)
+- [[Lee 2026 — Performance and safety of a fine-tuned small language model for…]] (2026)
+- [[Mittal 2026 — Evaluation of Large Language Models in the Diagnosis, Urgency Triage,…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -98,6 +111,10 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[staff 2026 — ChatGPT Health triage advice falls short in key cases]] (2026)
 - [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
 - [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] (2026)
+- [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] (2026)
+- [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
+- [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] (2026)
+- [[Tiller 2026 — Generative artificial intelligence-driven chatbots and medical…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -134,6 +151,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Lievin 2026 — Towards conversational artificial intelligence for disease management]] (2026)
 - [[Shamsabadi 2026 — Comparing the text-based diagnostic reasoning performance of…]] (2026)
 - [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] (2026)
+- [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
+- [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -162,6 +181,10 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
 - [[Lansiaux 2026 — Artificial Intelligence Models for Predicting Triage in Emergency…]] (2026)
 - [[Ekram 2026 — Red-Teaming Medical AI Systematic Adversarial Evaluation of LLM…]] (2026)
+- [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] (2026)
+- [[Naderi 2026 — The role of large language models in emergency care a comprehensive…]] (2026)
+- [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
+- [[Lee 2026 — Performance and safety of a fine-tuned small language model for…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -202,6 +225,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ramaswamy 2026 — ChatGPT Health performance in a structured test of triage…]] (2026)
 - [[Hussain 2026 — Toward trustworthy chatbots a protocol for red teaming for health…]] (2026)
 - [[Ekram 2026 — Red-Teaming Medical AI Systematic Adversarial Evaluation of LLM…]] (2026)
+- [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] (2026)
+- [[Lee 2026 — From Promising Capabilities to Pervasive Bias Assessing Large…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -241,6 +266,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 
 ## Policy & regulation
 
+- [[Alamoudi 2026 — AI Triage in Primary Care Building Safer and More Equitable…]] (2026)
+- [[Tiller 2026 — Generative artificial intelligence-driven chatbots and medical…]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
 - [[Gilbert 2023 — Large language model AI chatbots require approval as medical devices]] (2023)

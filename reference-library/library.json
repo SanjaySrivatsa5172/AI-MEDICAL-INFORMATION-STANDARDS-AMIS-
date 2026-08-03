@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-02",
+  "last_updated": "2026-08-03",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -24,8 +24,13 @@
    },
    {
     "date": "2026-08-03",
+    "added": 9,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from journal/arXiv/PMC pages, not WebFetch). Major find: Fraile Navarro et al. (arXiv, Macquarie University) partial replication showing forced-choice exam-style evaluation format -- not model capability -- drives the undertriage failures reported in the standing Ramaswamy Nature Medicine alert; naturalistic patient-style messaging improved accuracy 6.4pp. Flagged as a new urgent alert (does not resolve the existing one). Also added: npj Artificial Intelligence ED benchmarking study, a peer-reviewed (Journal of Healthcare Informatics Research) publication of a previously-arXiv intersectional-bias ED triage study, a physician head-to-head evaluation of frontier models vs a specialized clinical tool (arXiv/OpenEvidence), a JMIR Formative Research physician-preference survey (LLM vs physician responses), a JMIR primary-care AI-triage equity viewpoint, a pediatric emergency small-language-model benchmark (PLOS One), an ophthalmic-emergency triage LLM comparison (Cureus), and a BMJ Open consumer-chatbot medical-misinformation audit (Tiller et al., PMID 41980854). Screened out and excluded: an arXiv preprint on latent bias in LLM-based ED triage authored by a high-school student (non-peer-reviewed, single-author, credentialing concerns) -- withheld pending verification of authorship/methodology rigor. Checked all new DOIs for retraction notices via WebSearch; none found."
+   },
+   {
+    "date": "2026-08-03",
     "added": 0,
-    "notes": "PI-authorized resolution of the urgent alert (Ramaswamy et al., ChatGPT Health triage safety evaluation, Nature Medicine, fast-tracked 2026-02-23, PMID 41731097, DOI 10.1038/s41591-026-04297-7). Citation was triangulated against PubMed (PMID + DOI conversion + author search) and confirmed non-retracted before resolution. Alert retained in meta.alerts with resolved:true for the audit trail; the dashboard urgent banner clears. No new references; last scan date unchanged."
+    "notes": "Reconciler + PI action (main session). (a) PI-authorized resolution of the first urgent alert (Ramaswamy et al., ChatGPT Health triage safety, Nature Medicine 2026-02-23, PMID 41731097, DOI 10.1038/s41591-026-04297-7): set resolved:true with resolved_by/resolved_date; that alert's dashboard banner clears. (b) Reconciled the 2026-08-03 fresh-session scan (preceding history entry), whose +9 refs and second alert had published to the dashboard but never pushed to git. Verified all 9 new references before merge: 5 confirmed in PubMed via MCP (PMIDs 41417951, 41780919, 42241437, 41694895, 41980854 — the middle three back-filled onto entries that had none) and the other 4 confirmed via authoritative web pages (arXiv 2603.11413 & 2606.28960; npj Artificial Intelligence 10.1038/s44387-026-00078-2; J Healthcare Informatics Research 10.1007/s41666-026-00241-z); none retracted. The second alert (Fraile Navarro et al., arXiv 2603.11413 — argues the Ramaswamy undertriage result is driven by forced-choice exam format) is left UNRESOLVED for the PI."
    }
   ],
   "alerts": [
@@ -38,6 +43,14 @@
     "resolved": true,
     "resolved_date": "2026-08-03",
     "resolved_by": "PI (S. Sanjay Srivatsa, MD)"
+   },
+   {
+    "date": "2026-08-03",
+    "headline": "Preprint challenges Ramaswamy ChatGPT Health undertriage finding: forced-choice exam format, not model capability, drives failure",
+    "detail": "Fraile Navarro, Magrabi & Coiera (Macquarie University, arXiv 2603.11413) partially replicated the Nature Medicine ChatGPT Health stress test (Ramaswamy et al., the subject of this library's standing urgent alert) on 5 frontier LLMs (GPT-5.2, Claude Sonnet 4.6, Claude Opus 4.6, Gemini 3 Flash, Gemini 3.1 Pro) across 17 scenarios under two conditions: constrained exam-style forced-choice (A/B/C/D, 1,275 trials) vs naturalistic patient-style free-text messaging (850 trials). Naturalistic interaction improved triage accuracy by 6.4 percentage points (p=0.015); three models scored as low as 0-24% under forced choice but 100% on matched scenarios in free text. This directly bears on the primary endpoint's interpretation: it suggests undertriage/critical-miss rates measured under a forced-choice evaluation format may substantially overstate real-world model failure, and that naturalistic, everyday-language presentation format is itself a major determinant of triage accuracy -- the core dual-register design question this protocol is built around. Not yet peer-reviewed (arXiv preprint).",
+    "doi": "10.48550/arxiv.2603.11413",
+    "url": "https://arxiv.org/abs/2603.11413",
+    "resolved": false
    }
   ]
  },
@@ -1995,6 +2008,179 @@
    "source": "websearch",
    "design_overlap": true,
    "date_added": "2026-08-02"
+  },
+  {
+   "title": "Evaluation format, not model capability, drives triage failure in the assessment of consumer health AI",
+   "authors": "Fraile Navarro D, Magrabi F, Coiera E",
+   "journal": "arXiv (preprint)",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2603.11413",
+   "url": "https://arxiv.org/abs/2603.11413",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Partial replication of the Ramaswamy et al. Nature Medicine ChatGPT Health stress test: tested 5 frontier LLMs (GPT-5.2, Claude Sonnet 4.6, Claude Opus 4.6, Gemini 3 Flash, Gemini 3.1 Pro) on a 17-scenario bank under constrained exam-style (forced A/B/C/D, 1,275 trials) vs naturalistic patient-style-message (850 trials) conditions. Naturalistic interaction improved triage accuracy by 6.4 percentage points (p=0.015); forced-choice format was the dominant failure mechanism (three models scored 0-24% forced-choice vs 100% free-text on matched scenarios). Directly interrogates whether undertriage findings reflect model incapability or an artifact of exam-style evaluation format -- bears squarely on this protocol's dual-register, everyday-language design.",
+   "source": "websearch-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "The role of large language models in emergency care: a comprehensive benchmarking study",
+   "authors": "Naderi B, Liu L, Ghandehari A, et al.",
+   "journal": "npj Artificial Intelligence",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1038/s44387-026-00078-2",
+   "url": "https://doi.org/10.1038/s44387-026-00078-2",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Two-part benchmarking study: (1) factual-knowledge testing of 18 LLMs on a curated MedMCQA subset spanning 12 ED chief complaints; (2) five models (GPT-5, GPT-4, Claude 3.5, Claude 4, LLaMA 3.1) evaluated on patient summaries, ESI scoring, investigative questioning, management planning, and differential diagnosis across 12 simulated ED cases. LLaMA-4 Maverick led factual accuracy (90.7%); GPT-5 led on the clinical-task battery.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "From Promising Capabilities to Pervasive Bias: Assessing Large Language Models for Emergency Department Triage",
+   "authors": "Lee J, Shang T, Baik JY, Duong-Tran D, Yang S, Li L, Shen L",
+   "journal": "Journal of Healthcare Informatics Research",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1007/s41666-026-00241-z",
+   "url": "https://doi.org/10.1007/s41666-026-00241-z",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Peer-reviewed journal publication (June 2026) of a study originally posted to arXiv (2504.16273); examines LLM robustness to distribution shifts/missing data and counterfactual intersectional bias by sex and race in ED triage, finding persistent discriminatory shifts in perceived acuity.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical Queries",
+   "authors": "Feng J, Patel V, Heagerty P, Mai Y, Sivaraman V, Vossler P, Ouyang J, Jena AB",
+   "journal": "arXiv (preprint)",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2606.28960",
+   "url": "https://arxiv.org/abs/2606.28960",
+   "type": "preprint",
+   "topics": [
+    "physician-evaluation",
+    "patient-facing-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "149 practicing physicians across 36 states, matched to specialty, performed head-to-head blinded grading of three frontier general-purpose models (Claude Opus 4.8, Gemini 3.1 Pro, GPT-5.5) against a specialized clinical tool on 620 real-world point-of-care queries (OpenEvidence) plus 187 HealthBench questions, scored across accuracy, clinical utility, source quality, verifiability, and completeness -- a physician-graded head-to-head evaluation architecture directly relevant to this protocol's adjudication design.",
+   "source": "websearch-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "Assessment of Physician Preferences for Large Language Model–Generated Responses Across Geographic Regions and Clinical Experience Levels: Preliminary Survey Study",
+   "authors": "Brooks JS, Blankson PK, Campbell PM, Cowley RA, Yang TS, Oseni T, Rodriguez A, Idris MY",
+   "journal": "JMIR Formative Research",
+   "year": 2026,
+   "pmid": "41417951",
+   "doi": "10.2196/82487",
+   "url": "https://doi.org/10.2196/82487",
+   "type": "journal-article",
+   "topics": [
+    "physician-evaluation",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Cross-sectional international survey (Mar-May 2025) in which licensed physicians ranked anonymized responses to real r/AskDocs patient questions from GPT-4.0, Meta AI, and verified physicians; LLM responses were preferred over physician-authored responses (GPT-4.0 mean rank 1.63 vs physician 2.53) -- a physician-graded comparator study bearing on the human-comparator benchmark design of this protocol.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "AI Triage in Primary Care: Building Safer and More Equitable Real-World Evidence",
+   "authors": "Alamoudi A, Kontopantelis E, Zghebi SS, Brown B",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "41780919",
+   "doi": "10.2196/88396",
+   "url": "https://doi.org/10.2196/88396",
+   "type": "viewpoint",
+   "topics": [
+    "emergency-triage-ai",
+    "policy-regulation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Viewpoint arguing for real-world evidence frameworks to evaluate the safety and equity of AI-enabled triage tools deployed in primary care ahead of emergency referral -- supporting-strand policy piece on consumer/primary-care triage AI oversight.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "Performance and safety of a fine-tuned small language model for pediatric emergency triage: A benchmark study",
+   "authors": "Lee EJ, Jung JY, Kim DK, Park JW, Kwak YH",
+   "journal": "PLOS One",
+   "year": 2026,
+   "pmid": "42241437",
+   "doi": "10.1371/journal.pone.0350770",
+   "url": "https://doi.org/10.1371/journal.pone.0350770",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Real-world pediatric ED benchmark: a fine-tuned small language model did not surpass a structured-data XGBoost comparator overall but showed fewer extreme errors and lower strict under-triage in select high-acuity groups at the cost of higher over-triage -- proposed as a decision-support aid for human triage review rather than an autonomous triage system.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "Evaluation of Large Language Models in the Diagnosis, Urgency Triage, and Initial Management of Ophthalmic Emergencies",
+   "authors": "Mittal S, Aggarwal Y",
+   "journal": "Cureus",
+   "year": 2026,
+   "pmid": "41694895",
+   "doi": "10.7759/cureus.101433",
+   "url": "https://doi.org/10.7759/cureus.101433",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "40 standardized ophthalmic-emergency vignettes across five subspecialties tested against ChatGPT-5, Gemini 2.5 Pro, and Claude Opus 4.1; all three exceeded 80% diagnostic accuracy with guideline-concordant management advice and no significant inter-model differences -- specialty-triage supporting evidence.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
+  },
+  {
+   "title": "Generative artificial intelligence-driven chatbots and medical misinformation: an accuracy, referencing and readability audit",
+   "authors": "Tiller NB, Marcon AR, Zenone M, et al.",
+   "journal": "BMJ Open",
+   "year": 2026,
+   "pmid": "41980854",
+   "doi": "10.1136/bmjopen-2025-112695",
+   "url": "https://doi.org/10.1136/bmjopen-2025-112695",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "policy-regulation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Five popular consumer chatbots (ChatGPT, Gemini, Grok, Meta AI, DeepSeek) audited on 250 health-information questions across cancer, vaccines, stem cells, nutrition, and athletic performance; 49.6% of responses were somewhat/highly problematic and no chatbot produced a fully accurate reference list -- consumer-product-name angle supporting evidence on patient-facing AI reliability (not triage-specific).",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-03"
   }
  ]
 }
