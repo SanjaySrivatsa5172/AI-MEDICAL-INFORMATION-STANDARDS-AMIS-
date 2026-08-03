@@ -18,7 +18,7 @@ tags: [emergency-triage-ai, ancillary]
 **Cui L, Wang M, Xu Y, et al.** — *BMC Emergency Medicine* (2026)
 
 > [!note] Clinical relevance
-> Pooled diagnostic accuracy of LLMs for ED triage across published studies, situating the benchmark in current evidence
+> Meta-analysis of 11 studies / 3,088 ED cases: pooled sensitivity only 61% (95% CI 48-73%) for the highest-acuity category vs 97% specificity, AUC 0.82 -- i.e. roughly 39% of the sickest patients missed, corroborating the undertriage/critical-miss concern across a broad evidence base.
 
 **Link:** https://doi.org/10.1186/s12873-026-01639-z
 **DOI:** `10.1186/s12873-026-01639-z`
