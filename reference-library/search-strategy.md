@@ -78,8 +78,10 @@ Scan all major medical journals **and their AI subsidiary journals**, including:
 - conversational AI diagnosis AND physician comparison
 - named consumer health AI products AND (triage OR safety OR evaluation) —
   e.g. "ChatGPT Health", Gemini/Med-Gemini health features, AMIE, Claude health
-  uses (the Ramaswamy Nature Medicine ChatGPT Health stress test was found via
-  product-name search, not generic LLM-triage terms — always include this angle)
+  uses, Grok (xAI), Meta AI health queries (the Ramaswamy Nature Medicine
+  ChatGPT Health stress test was found via product-name search, not generic
+  LLM-triage terms — always include this angle; patients use whatever consumer
+  chatbot is at hand, not only health-branded ones)
 
 ## Dedupe & Provenance Rules
 
