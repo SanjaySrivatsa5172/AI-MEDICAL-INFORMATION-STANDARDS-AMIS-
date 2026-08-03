@@ -18,10 +18,6 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 > [!info] Generated folder
 > This folder is regenerated on every scan. Keep personal annotations in separate notes that link here, not inside these files.
 
-## 🚨 Active urgent alerts
-
-- **2026-08-02 — Nature Medicine: ChatGPT Health undertriaged 52% of gold-standard emergencies in structured physician-authored stress test** — Ramaswamy et al. (Nature Medicine, fast-tracked Feb 23 2026) ran the first independent safety evaluation of OpenAI's ChatGPT Health using 60 clinician-authored vignettes across 21 clinical domains under 16 factorial conditions (960 responses). Performance followed an inverted U-shaped pattern with the most dangerous failures at clinical extremes: 48% failure on emergency conditions (52% undertriage of gold-standard emergencies such as DKA and impending respiratory failure, directed to 24-48h evaluation instead of the ED) and 35% failure on nonurgent presentations. Anchoring bias was demonstrated: triage recommendations shifted toward less-urgent categories when family/friends minimized symptoms in the conversation. Suicide/crisis-safeguard activation was inconsistent and unpredictable. This closely matches this protocol's design (physician-authored triage vignettes, factorial/dual-register presentation) and bears directly on the primary endpoint's interpretation (undertriage/critical-miss rate, anchoring-on-benign-explanations, lay-register performance). (https://doi.org/10.1038/s41591-026-04297-7)
-
 ## ⚠ Critical — design overlap
 
 - [[Soskin 2026 — HealthBench Professional Evaluating Large Language Models on Real…]] — *arXiv* 2026

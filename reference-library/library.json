@@ -21,6 +21,11 @@
     "date": "2026-08-02",
     "added": 2,
     "notes": "Recovery scan from main session: scheduled fresh-session run fired 13:02 UTC but produced no output (no search path in fresh sessions — connectors absent, curl and WebFetch blocked by network policy). PubMed MCP recency sweep, last 3 days."
+   },
+   {
+    "date": "2026-08-03",
+    "added": 0,
+    "notes": "PI-authorized resolution of the urgent alert (Ramaswamy et al., ChatGPT Health triage safety evaluation, Nature Medicine, fast-tracked 2026-02-23, PMID 41731097, DOI 10.1038/s41591-026-04297-7). Citation was triangulated against PubMed (PMID + DOI conversion + author search) and confirmed non-retracted before resolution. Alert retained in meta.alerts with resolved:true for the audit trail; the dashboard urgent banner clears. No new references; last scan date unchanged."
    }
   ],
   "alerts": [
@@ -30,7 +35,9 @@
     "detail": "Ramaswamy et al. (Nature Medicine, fast-tracked Feb 23 2026) ran the first independent safety evaluation of OpenAI's ChatGPT Health using 60 clinician-authored vignettes across 21 clinical domains under 16 factorial conditions (960 responses). Performance followed an inverted U-shaped pattern with the most dangerous failures at clinical extremes: 48% failure on emergency conditions (52% undertriage of gold-standard emergencies such as DKA and impending respiratory failure, directed to 24-48h evaluation instead of the ED) and 35% failure on nonurgent presentations. Anchoring bias was demonstrated: triage recommendations shifted toward less-urgent categories when family/friends minimized symptoms in the conversation. Suicide/crisis-safeguard activation was inconsistent and unpredictable. This closely matches this protocol's design (physician-authored triage vignettes, factorial/dual-register presentation) and bears directly on the primary endpoint's interpretation (undertriage/critical-miss rate, anchoring-on-benign-explanations, lay-register performance).",
     "doi": "10.1038/s41591-026-04297-7",
     "url": "https://doi.org/10.1038/s41591-026-04297-7",
-    "resolved": false
+    "resolved": true,
+    "resolved_date": "2026-08-03",
+    "resolved_by": "PI (S. Sanjay Srivatsa, MD)"
    }
   ]
  },
