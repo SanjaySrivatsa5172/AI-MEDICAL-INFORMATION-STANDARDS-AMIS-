@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-03
-total-references: 113
+last-updated: 2026-08-05
+total-references: 119
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-03** · 113 references.
+Updated daily by automated scan. Last scan: **2026-08-05** · 119 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -21,6 +21,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 ## 🚨 Active urgent alerts
 
 - **2026-08-03 — Preprint challenges Ramaswamy ChatGPT Health undertriage finding: forced-choice exam format, not model capability, drives failure** — Fraile Navarro, Magrabi & Coiera (Macquarie University, arXiv 2603.11413) partially replicated the Nature Medicine ChatGPT Health stress test (Ramaswamy et al., the subject of this library's standing urgent alert) on 5 frontier LLMs (GPT-5.2, Claude Sonnet 4.6, Claude Opus 4.6, Gemini 3 Flash, Gemini 3.1 Pro) across 17 scenarios under two conditions: constrained exam-style forced-choice (A/B/C/D, 1,275 trials) vs naturalistic patient-style free-text messaging (850 trials). Naturalistic interaction improved triage accuracy by 6.4 percentage points (p=0.015); three models scored as low as 0-24% under forced choice but 100% on matched scenarios in free text. This directly bears on the primary endpoint's interpretation: it suggests undertriage/critical-miss rates measured under a forced-choice evaluation format may substantially overstate real-world model failure, and that naturalistic, everyday-language presentation format is itself a major determinant of triage accuracy -- the core dual-register design question this protocol is built around. TWO CAVEATS temper the critique (verified against the Ramaswamy full text): (1) MODEL CONFOUND -- Fraile Navarro tested newer, larger frontier models via API, whereas Ramaswamy tested the actual ChatGPT Health product (gpt-5-mini backbone), so the accuracy gain conflates evaluation format with model capability and is not a clean format-only comparison of the same system; (2) Ramaswamy pre-empted the objection, arguing vignettes are a CONSERVATIVE test because real consumers under-report symptoms and misapply advice, which would compound errors. The two critiques address different axes -- output format vs input quality -- and can both hold, leaving the net real-world effect unresolved. Not yet peer-reviewed (arXiv preprint). (https://arxiv.org/abs/2603.11413)
+- **2026-08-05 — NOHARM benchmark (ARISE / Stanford & Harvard): physician-authored, harm-weighted evaluation finds up to 22.2% severe-harm potential across 31 LLMs -- closely matches this protocol's own evaluation architecture** — 'First, do NOHARM: towards clinically safe large language models' (Wu, Nateghi Haredasht, ... Goh; ARISE clinical-AI research network, Stanford & Harvard Medical School physicians; arXiv 2512.01241, posted Dec 2025, PMID 41532042) is a physician-authored, harm-weighted clinical-AI safety benchmark. Per the PubMed-indexed record: 100 real primary-care-to-specialist consultation cases across 10 specialties, with 12,747 expert annotations of 4,249 candidate management options by a 29-physician panel. Across 31 LLMs, direct application of AI-generated recommendations carried potential for SEVERE harm in up to 22.2% of cases (95% CI 21.6-22.8%), with errors of omission accounting for 76.6% of errors. Crucially, safety correlated only moderately (r=0.61-0.64) with existing accuracy/knowledge benchmarks -- a model can score well on standard evaluations yet be unsafe -- and the best models slightly exceeded generalist physicians on safety (+9.7%). RELEVANCE: NOHARM's architecture -- physician-authored clinical scenarios with expert-panel, action-level, harm-weighted scoring -- closely parallels this protocol's own physician-authored, harm-weighted evaluation methodology, and its central thesis (clinical safety is a distinct axis from accuracy, requiring explicit measurement) directly supports the protocol's rationale; recommend PI review of the NOHARM harm-scoring rubric for methodological cross-reference. CONTEXT/CAVEAT: the work reached the press only this week via a July 29 2026 Fortune report on an industry dispute (OpenEvidence vs Doximity Ask) over a later, expanded arXiv version that adds a randomized physician-AI teaming study and tests commercial RAG tools; widely-circulated news figures (e.g. '45 LLMs and 4 clinical AI systems', '24.6% severe harm', '>80% omission') come from that secondary coverage/expanded version and differ from the PubMed-indexed abstract cited above -- treat them as unverified pending the specific arXiv version. arXiv preprint (not peer-reviewed); does not resolve either standing alert. (https://arxiv.org/abs/2512.01241)
 
 ## ⚠ Critical — design overlap
 
@@ -36,6 +37,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] — *arXiv (preprint)* 2026
 - [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] — *arXiv (preprint)* 2026
 - [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] — *JMIR Formative Research* 2026
+- [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage…]] — *medRxiv* 2026
+- [[Aygun 2026 — Should we leave paediatric emergency triage to artificial…]] — *Frontiers in Pediatrics* 2026
+- [[Chen 2026 — Independent and collaborative performance of large language models…]] — *npj Digital Medicine* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -47,6 +51,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Wang 2025 — Patient Triage and Guidance in Emergency Departments Using Large…]] — *Journal of Medical Internet Research* 2025
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] — *Nature* 2025
 - [[Lee 2025 — Performance of ChatGPT, Gemini and DeepSeek for non-critical triage…]] — *BMC Emergency Medicine* 2025
+- [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] — *arXiv (preprint)* 2025
 - [[Pasli 2024 — Assessing the precision of artificial intelligence in ED triage…]] — *The American Journal of Emergency Medicine* 2024
 - [[Arslan 2024 — Evaluating LLM-based generative AI tools in emergency triage A…]] — *The American Journal of Emergency Medicine* 2024
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] — *medRxiv* 2024
@@ -76,6 +81,10 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Alamoudi 2026 — AI Triage in Primary Care Building Safer and More Equitable…]] (2026)
 - [[Lee 2026 — Performance and safety of a fine-tuned small language model for…]] (2026)
 - [[Mittal 2026 — Evaluation of Large Language Models in the Diagnosis, Urgency Triage,…]] (2026)
+- [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage…]] (2026)
+- [[Aygun 2026 — Should we leave paediatric emergency triage to artificial…]] (2026)
+- [[Chen 2026 — Independent and collaborative performance of large language models…]] (2026)
+- [[Wang 2026 — Large language models for acute coronary syndrome triage at first…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -115,6 +124,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
 - [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] (2026)
 - [[Tiller 2026 — Generative artificial intelligence-driven chatbots and medical…]] (2026)
+- [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage…]] (2026)
+- [[Aygun 2026 — Should we leave paediatric emergency triage to artificial…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -129,6 +140,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[McDuff 2025 — Towards accurate differential diagnosis with large language models]] (2025)
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] (2025)
 - [[Chen 2025 — When helpfulness backfires LLMs and the risk of false medical…]] (2025)
+- [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
 - [[Garcia 2024 — Artificial Intelligence-Generated Draft Replies to Patient Inbox…]] (2024)
 - [[Knitza 2024 — Comparison of Two Symptom Checkers (Ada and Symptoma) in the…]] (2024)
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] (2024)
@@ -153,6 +165,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Brodeur 2026 — A prospective clinical feasibility study of a conversational…]] (2026)
 - [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
 - [[Brooks 2026 — Assessment of Physician Preferences for Large Language…]] (2026)
+- [[Chen 2026 — Independent and collaborative performance of large language models…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -165,6 +178,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Singhal 2025 — Toward expert-level medical question answering with large language…]] (2025)
 - [[McDuff 2025 — Towards accurate differential diagnosis with large language models]] (2025)
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] (2025)
+- [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
 - [[Tam 2024 — A framework for human evaluation of large language models in…]] (2024)
 - [[Goh 2024 — Large Language Model Influence on Diagnostic Reasoning A Randomized…]] (2024)
 - [[Fleming 2024 — MedAlign A Clinician-Generated Dataset for Instruction Following with…]] (2024)
@@ -185,6 +199,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Naderi 2026 — The role of large language models in emergency care a comprehensive…]] (2026)
 - [[Feng 2026 — Expert Evaluation of Clinical AI Tools on Real Point-of-Care Clinical…]] (2026)
 - [[Lee 2026 — Performance and safety of a fine-tuned small language model for…]] (2026)
+- [[Chen 2026 — Independent and collaborative performance of large language models…]] (2026)
+- [[Ding 2026 — Advancing medical AI through benchmarking and competition for…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -198,6 +214,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Bedi 2025 — Testing and Evaluation of Health Care Applications of Large Language…]] (2025)
 - [[Singhal 2025 — Toward expert-level medical question answering with large language…]] (2025)
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] (2025)
+- [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
 - [[Tam 2024 — A framework for human evaluation of large language models in…]] (2024)
 - [[Xie 2024 — A Preliminary Study of o1 in Medicine Are We Closer to an AI Doctor]] (2024)
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] (2024)
@@ -227,6 +244,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ekram 2026 — Red-Teaming Medical AI Systematic Adversarial Evaluation of LLM…]] (2026)
 - [[Fraile 2026 — Evaluation format, not model capability, drives triage failure in the…]] (2026)
 - [[Lee 2026 — From Promising Capabilities to Pervasive Bias Assessing Large…]] (2026)
+- [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -236,6 +254,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Gourabathina 2025 — The Medium is the Message How Non-Clinical Information Shapes…]] (2025)
 - [[Rosen 2025 — The perils of politeness how large language models may amplify…]] (2025)
 - [[Chen 2025 — When helpfulness backfires LLMs and the risk of false medical…]] (2025)
+- [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
 - [[Knitza 2024 — Comparison of Two Symptom Checkers (Ada and Symptoma) in the…]] (2024)
 - [[Schmidgall 2024 — Evaluation and mitigation of cognitive biases in medical language…]] (2024)
 - [[Hager 2024 — Evaluation and mitigation of the limitations of large language models…]] (2024)
