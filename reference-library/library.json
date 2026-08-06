@@ -56,6 +56,11 @@
     "date": "2026-08-06",
     "added": 0,
     "notes": "Reconciler (main session) -- multi-session convergence. Git HEAD (2c2e06b, 119 refs) was behind the published dashboard, which carried an unpushed 2026-08-05 'Rev.5' main-session merge (+4 refs) and today's 2026-08-06 fresh-session scan (+7 refs + Weilnhammer alert). Recovered all 11 onto git after independently verifying each: PubMed MCP confirmed Rao (PMID 41973425), Liaw (42133568) and Barnhart (42330487, back-filled); WebSearch confirmed the two medRxiv (Tyagi 10.64898/2026.07.21.26358588; Auger & Scott 10.64898/2026.03.23.26349082), Sukhera (Research Square rs-9152209), the two Nature Health (Reis 10.1038/s44360-026-00116-y; Costa-Gomes/Microsoft 10.1038/s44360-026-00117-x), MedPRESS (arXiv 2608.02520), Weilnhammer (arXiv 2604.25415) and Cotte NEJM AI (10.1056/AIoa2500833) against authoritative journal/preprint pages; none retracted. Added the Weilnhammer one-shot emergency-psychiatric-triage alert (UNRESOLVED). Adopted the Rev.5 NOHARM caveat-update (expanded-arXiv-version figures the Rev.5 session verified from a PI-supplied PDF; the expanded version's existence is WebSearch-confirmed, but those specific figures were not independently re-verifiable this run since arxiv.org WebFetch is network-blocked). Cleaned the duplicated 2026-08-03 history entry that had appeared in the forked dashboard lineage. Library 119->130; alerts 3->4 (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). GOVERNANCE NOTE for PI: two sessions (this reference-library reconciler and the PR#2 'redraft plan' session_019fsE75) are both writing library.json and publishing the same artifact -- recommend designating a single writer to prevent future forks."
+   },
+   {
+    "date": "2026-08-06",
+    "added": 0,
+    "notes": "Reference re-check (PI-requested). Re-verified all 4 alert papers via Scite editorialNotices -- none retracted, corrected, or flagged (Ramaswamy 10.1038/s41591-026-04297-7 already 52 citations; Fraile Navarro 2603.11413; NOHARM 2512.01241; Weilnhammer 2604.25415, authors Weilnhammer/Luettgau/Summerfield confirmed). Scite confirms the expanded NOHARM version exists (title '...a medical safety benchmark and randomized study of physician and AI teaming...', authors Nateghi Haredasht/Maharaj/Tran, 6 citing publications), consistent with the standing NOHARM caveat; its specific expanded figures (45 LLMs / 2.9-24.6% / 101-physician crossover) remain sourced to the Rev.5 PDF reading, as Scite returned no matching full-text excerpts to re-pull them. Also cleared the 6 remaining bare-'websearch' references (all confirmed real, none retracted): PubMed titles matched and PMIDs back-filled for Sci Reports red-teaming protocol (41917231, Hussain et al.), JMIR Med Inform FRENCH-scale triage prediction (41805589, Lansiaux et al.), and BMC Emerg Med ChatGPT/Gemini/DeepSeek KTAS study (40890624, Lee et al.); Scite-confirmed the Nature Medicine companion editorial (04427-1), the AMIE ambulatory-feasibility arXiv (2603.08448, Brodeur et al.), and the medRxiv adversarial red-teaming preprint (2026.02.26.26347212, Ekram). No references added/removed and no alert states changed (still 130 refs / 4 alerts; Ramaswamy resolved, Fraile Navarro + NOHARM + Weilnhammer open); this entry records provenance upgrades only."
    }
   ],
   "alerts": [
@@ -1933,7 +1938,7 @@
    ],
    "tier": "ancillary",
    "relevance": "Nature Medicine research briefing summarizing Ramaswamy et al.'s ChatGPT Health triage safety findings for a broader clinical audience",
-   "source": "websearch",
+   "source": "websearch-verified",
    "design_overlap": false,
    "date_added": "2026-08-02"
   },
@@ -1942,7 +1947,7 @@
    "authors": "Hussain SA, Jackson DI, Lewis A, et al.",
    "journal": "Scientific Reports",
    "year": 2026,
-   "pmid": null,
+   "pmid": "41917231",
    "doi": "10.1038/s41598-026-45719-3",
    "url": "https://doi.org/10.1038/s41598-026-45719-3",
    "type": "journal-article",
@@ -1953,7 +1958,7 @@
    ],
    "tier": "ancillary",
    "relevance": "Systematic red-teaming protocol for health-related chatbots (error stratification, dual-pronged testing, vulnerability-informed mitigation); applied to a RAG chatbot, found behavioral noncompliance as dominant risk",
-   "source": "websearch",
+   "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-02"
   },
@@ -1962,7 +1967,7 @@
    "authors": "Lansiaux E, Azzouz R, Chazard E, Vromant A, Wiel E.",
    "journal": "JMIR Medical Informatics",
    "year": 2026,
-   "pmid": null,
+   "pmid": "41805589",
    "doi": "10.2196/83318",
    "url": "https://doi.org/10.2196/83318",
    "type": "journal-article",
@@ -1972,7 +1977,7 @@
    ],
    "tier": "ancillary",
    "relevance": "LLM-based architecture (URGENTIAPARSE) outperformed NLP and JEPA baselines for ED triage prediction (F1=0.900, AUC-ROC=0.879) but limited by severe overfitting, extreme selection bias, monocentric design, and sparse high-acuity representation",
-   "source": "websearch",
+   "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-02"
   },
@@ -1991,7 +1996,7 @@
    ],
    "tier": "ancillary",
    "relevance": "Taxonomy of 8 adversarial attack categories (24 sub-strategies) including emergency misdirection tested against Claude Sonnet 4.5; 6.9% of 160 adversarial prompts elicited clinically significant harm, dominant failure mode is context-conditioned 'behavioral mode-switching'",
-   "source": "websearch",
+   "source": "websearch+scite-verified",
    "design_overlap": false,
    "date_added": "2026-08-02"
   },
@@ -2010,7 +2015,7 @@
    ],
    "tier": "ancillary",
    "relevance": "First real-world (non-simulated) prospective feasibility study of AMIE conversational diagnostic AI with 100 patients at an academic ambulatory clinic, tri-phasic physician-supervised pathway and retrospective chart review; extends prior OSCE-based AMIE evaluations to actual clinical practice",
-   "source": "websearch",
+   "source": "websearch+scite-verified",
    "design_overlap": true,
    "date_added": "2026-08-02"
   },
@@ -2037,7 +2042,7 @@
    "authors": "Lee S, Jung S, Park JH, Cho H, Moon S, Ahn S.",
    "journal": "BMC Emergency Medicine",
    "year": 2025,
-   "pmid": null,
+   "pmid": "40890624",
    "doi": "10.1186/s12873-025-01337-2",
    "url": "https://doi.org/10.1186/s12873-025-01337-2",
    "type": "journal-article",
@@ -2046,7 +2051,7 @@
    ],
    "tier": "ancillary",
    "relevance": "Evaluated GPT-4o/4.1/o3, Gemini 2.0/2.5, and DeepSeek V3/R1 on 1,057 real-world (unsummarized, conversational) ED triage dialogues from three South Korean tertiary hospitals rather than structured vignettes; Gemini 2.5 flash highest accuracy (73.8%); directly probes the lay/conversational-language dimension of triage safety",
-   "source": "websearch",
+   "source": "websearch+pubmed-verified",
    "design_overlap": true,
    "date_added": "2026-08-02"
   },

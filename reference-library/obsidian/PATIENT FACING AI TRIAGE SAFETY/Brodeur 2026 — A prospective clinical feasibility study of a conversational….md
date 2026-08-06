@@ -10,7 +10,7 @@ type: "preprint"
 tier: "ancillary"
 design-overlap: true
 date-added: 2026-08-02
-source: "websearch"
+source: "websearch+scite-verified"
 tags: [patient-facing-ai, physician-evaluation, ancillary, design-overlap, critical]
 ---
 # A prospective clinical feasibility study of a conversational diagnostic AI in an ambulatory primary care clinic

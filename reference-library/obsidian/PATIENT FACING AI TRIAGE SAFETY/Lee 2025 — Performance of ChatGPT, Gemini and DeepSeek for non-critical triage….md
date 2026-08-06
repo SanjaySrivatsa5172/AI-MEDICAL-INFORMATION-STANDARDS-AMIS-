@@ -4,13 +4,13 @@ authors: "Lee S, Jung S, Park JH, Cho H, Moon S, Ahn S."
 journal: "BMC Emergency Medicine"
 year: 2025
 doi: "10.1186/s12873-025-01337-2"
-pmid: ""
+pmid: "40890624"
 url: "https://doi.org/10.1186/s12873-025-01337-2"
 type: "journal-article"
 tier: "ancillary"
 design-overlap: true
 date-added: 2026-08-02
-source: "websearch"
+source: "websearch+pubmed-verified"
 tags: [emergency-triage-ai, ancillary, design-overlap, critical]
 ---
 # Performance of ChatGPT, Gemini and DeepSeek for non-critical triage support using real-world conversations in emergency department
@@ -25,6 +25,7 @@ tags: [emergency-triage-ai, ancillary, design-overlap, critical]
 
 **Link:** https://doi.org/10.1186/s12873-025-01337-2
 **DOI:** `10.1186/s12873-025-01337-2`
+**PMID:** `40890624`
 
 Topics: Emergency triage AI
 

@@ -10,7 +10,7 @@ type: "preprint"
 tier: "ancillary"
 design-overlap: false
 date-added: 2026-08-02
-source: "websearch"
+source: "websearch+scite-verified"
 tags: [ai-safety-failure-modes, benchmark-methodology, ancillary]
 ---
 # Red-Teaming Medical AI: Systematic Adversarial Evaluation of LLM Safety Guardrails in Clinical Contexts

@@ -10,7 +10,7 @@ type: "editorial"
 tier: "ancillary"
 design-overlap: false
 date-added: 2026-08-02
-source: "websearch"
+source: "websearch-verified"
 tags: [emergency-triage-ai, patient-facing-ai, ancillary]
 ---
 # ChatGPT Health triage advice falls short in key cases
