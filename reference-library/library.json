@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-05",
+  "last_updated": "2026-08-06",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -38,14 +38,24 @@
     "notes": "PI-approved enrichment from the two full-text PDFs the PI supplied (Ramaswamy et al., Nature Medicine, and Cui et al., BMC Emergency Medicine meta-analysis). Alert #1 (Ramaswamy): added the gpt-5-mini / live-ChatGPT-Health-interface detail, the anchoring effect size (OR 11.7, 95% CI 3.7-36.6; 3.3% to 13.3% shift), the precise 51.6% (33/64) emergency-undertriage figure, and a cross-reference to alert #2. Alert #2 (Fraile Navarro): added two caveats verified against the Ramaswamy full text -- the model-capability confound (newer API models vs the gpt-5-mini product) and Ramaswamy's conservative-test rebuttal. Cui entry: added pooled sensitivity 61% / specificity 97% / AUC 0.82 over 11 studies / 3,088 cases. No references added or removed (still 113); alert resolution states unchanged (Ramaswamy resolved, Fraile Navarro open)."
    },
    {
-    "date": "2026-08-03",
-    "added": 9,
-    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from journal/arXiv/PMC pages, not WebFetch). Major find: Fraile Navarro et al. (arXiv, Macquarie University) partial replication showing forced-choice exam-style evaluation format -- not model capability -- drives the undertriage failures reported in the standing Ramaswamy Nature Medicine alert; naturalistic patient-style messaging improved accuracy 6.4pp. Flagged as a new urgent alert (does not resolve the existing one). Also added: npj Artificial Intelligence ED benchmarking study, a peer-reviewed (Journal of Healthcare Informatics Research) publication of a previously-arXiv intersectional-bias ED triage study, a physician head-to-head evaluation of frontier models vs a specialized clinical tool (arXiv/OpenEvidence), a JMIR Formative Research physician-preference survey (LLM vs physician responses), a JMIR primary-care AI-triage equity viewpoint, a pediatric emergency small-language-model benchmark (PLOS One), an ophthalmic-emergency triage LLM comparison (Cureus), and a BMJ Open consumer-chatbot medical-misinformation audit (Tiller et al., PMID 41980854). Screened out and excluded: an arXiv preprint on latent bias in LLM-based ED triage authored by a high-school student (non-peer-reviewed, single-author, credentialing concerns) -- withheld pending verification of authorship/methodology rigor. Checked all new DOIs for retraction notices via WebSearch; none found."
-   },
-   {
     "date": "2026-08-05",
     "added": 0,
     "notes": "Reconciler (main session) recovered the 2026-08-05 fresh-session scan, whose +6 refs and NOHARM alert had published to the dashboard but never pushed to git. Verified all 6 before merge: PubMed MCP confirmed 5 (PMIDs 41532042 NOHARM, 41782959 Aygun, 41652180 npj review, 42310091 ACS/TriageMaster, 41760911 MedTriage -- three back-filled onto entries that had none) and the Jia et al. medRxiv companion (10.64898/2026.04.23.26351526) was web-verified; none retracted. CORRECTED the NOHARM reference title and the NOHARM alert: the scan's figures (title '...a medical safety benchmark and randomized study of physician and AI teaming...', 1,100 cases, 45 LLMs + 4 RAG tools, 24.6% severe harm, >80% omission) trace to secondary Fortune coverage / a later expanded arXiv version and were replaced with the PubMed-indexed record (title 'First, do NOHARM: towards clinically safe large language models', 100 cases, 31 LLMs, 22.2% [95% CI 21.6-22.8] severe harm, 76.6% omission, 29-physician panel); the news figures are retained in the alert only as explicitly-flagged unverified context. Library 113->119; alerts 2->3 (NOHARM added UNRESOLVED for the PI; Ramaswamy resolved, Fraile Navarro open)."
+   },
+   {
+    "date": "2026-08-05",
+    "added": 4,
+    "notes": "Main-session merge (redraft plan Rev. 5) on top of today's scan reconciliation. (a) Verified the scan's 4 new PMIDs via PubMed MCP (41782959 Aygun, 41652180 Chen meta-analysis, 42310091 TriageMaster, 41760911 MedTriage) -- all confirmed. (b) Added 4 sweep finds from a retrospective full-text search across papers discussing the Ramaswamy benchmark: Tyagi et al. multi-turn ChatGPT Health study (Ramaswamy-group follow-up; multi-turn did NOT improve alignment, ~70% of discordant cases under-triaged -- empirically answers the Fraile Navarro multi-turn objection in alert #2), Auger & Scott 1,000-transcript study (100% of SAH lumbar punctures discouraged with incomplete input), Sukhera et al. iterative red-teaming, Barnhart et al. equity viewpoint. (c) NOHARM alert caveat resolved: expanded arXiv version verified directly from the PI-supplied PDF; both versions citable with version named. (d) Aug 3 batch now 8/8 independently verified (Naderi npj AI confirmed via nature.com). (e) Winters v. OpenAI complaint PDF located (Courthouse News hosts winters-v-open-ai-complaint.pdf; plaintiff Scott Winters, SF County Superior Court, defendants incl. Altman); docket number pending manual download. (f) Canonical reference-library/library.json restored to git (was missing -- prior scan pushes failed). Scan-scope fix recommended: add openRxiv DOI-prefix (10.64898) coverage."
+   },
+   {
+    "date": "2026-08-06",
+    "added": 7,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; bibliographic details confirmed via WebSearch snippets from journal/arXiv/PMC/PubMed pages, not direct WebFetch). NOTE: this run's git clone was stale relative to the published dashboard artifact (which carried an unpushed 2026-08-05 Rev.5 main-session merge, +4 refs -- Tyagi et al., Auger & Scott, Sukhera et al., Barnhart et al. -- and an updated NOHARM alert caveat-resolution); reconciled by taking the artifact as the base (123 refs/3 alerts) and merging today's finds on top, rather than the stale git HEAD (119 refs). Major find: Weilnhammer et al. (arXiv 2604.25415, Microsoft Research/Oxford) one-shot emergency psychiatric triage benchmark across 15 frontier AI chatbots (5.6% emergency under-triage) closely parallels this protocol's critical-miss-rate design -- flagged as a new urgent alert (does not resolve either standing alert). Also added: Reis et al. (Nature Health) preregistered experiment showing patients give AI chatbots lower-quality symptom reports than they give physicians -- direct hit on the core-question everyday-language anchor, design_overlap true; Costa-Gomes et al. (Nature Health, Microsoft Research) 500k-conversation taxonomy of real-world consumer health chatbot queries; MedPRESS (arXiv 2608.02520, Joy & Farhan) multi-turn patient-pressure sycophancy benchmark including a symptom-triage-and-care-resistance scenario family; Cotte et al. (NEJM AI) real-world Ada Health/CUF Portugal study showing physician-designed clinical AI more than doubled appropriate-care-setting selection; Rao et al. (JAMA Network Open, Mass General Brigham, PMID 41973425) PrIME-LLM 21-model clinical-reasoning benchmark showing >80% differential-diagnosis failure from incomplete information despite >90% final-diagnosis accuracy; Liaw (JMIR, PMID 42133568) viewpoint on AI-triage maturity/safety/equity. Checked all new DOIs for retraction/correction notices via WebSearch; none found. PMID/authors not independently confirmable via websearch for Reis et al., Costa-Gomes et al., MedPRESS, and Cotte et al. as of this run; left for PubMed-MCP verification by the reconciler. Recommend the reconciler also verify and, if needed, git-restore the 2026-08-05 Rev.5 additions (Tyagi/Auger-Scott/Sukhera/Barnhart) alongside today's, since they too are absent from git HEAD."
+   },
+   {
+    "date": "2026-08-06",
+    "added": 0,
+    "notes": "Reconciler (main session) -- multi-session convergence. Git HEAD (2c2e06b, 119 refs) was behind the published dashboard, which carried an unpushed 2026-08-05 'Rev.5' main-session merge (+4 refs) and today's 2026-08-06 fresh-session scan (+7 refs + Weilnhammer alert). Recovered all 11 onto git after independently verifying each: PubMed MCP confirmed Rao (PMID 41973425), Liaw (42133568) and Barnhart (42330487, back-filled); WebSearch confirmed the two medRxiv (Tyagi 10.64898/2026.07.21.26358588; Auger & Scott 10.64898/2026.03.23.26349082), Sukhera (Research Square rs-9152209), the two Nature Health (Reis 10.1038/s44360-026-00116-y; Costa-Gomes/Microsoft 10.1038/s44360-026-00117-x), MedPRESS (arXiv 2608.02520), Weilnhammer (arXiv 2604.25415) and Cotte NEJM AI (10.1056/AIoa2500833) against authoritative journal/preprint pages; none retracted. Added the Weilnhammer one-shot emergency-psychiatric-triage alert (UNRESOLVED). Adopted the Rev.5 NOHARM caveat-update (expanded-arXiv-version figures the Rev.5 session verified from a PI-supplied PDF; the expanded version's existence is WebSearch-confirmed, but those specific figures were not independently re-verifiable this run since arxiv.org WebFetch is network-blocked). Cleaned the duplicated 2026-08-03 history entry that had appeared in the forked dashboard lineage. Library 119->130; alerts 3->4 (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). GOVERNANCE NOTE for PI: two sessions (this reference-library reconciler and the PR#2 'redraft plan' session_019fsE75) are both writing library.json and publishing the same artifact -- recommend designating a single writer to prevent future forks."
    }
   ],
   "alerts": [
@@ -70,9 +80,17 @@
    {
     "date": "2026-08-05",
     "headline": "NOHARM benchmark (ARISE / Stanford & Harvard): physician-authored, harm-weighted evaluation finds up to 22.2% severe-harm potential across 31 LLMs -- closely matches this protocol's own evaluation architecture",
-    "detail": "'First, do NOHARM: towards clinically safe large language models' (Wu, Nateghi Haredasht, ... Goh; ARISE clinical-AI research network, Stanford & Harvard Medical School physicians; arXiv 2512.01241, posted Dec 2025, PMID 41532042) is a physician-authored, harm-weighted clinical-AI safety benchmark. Per the PubMed-indexed record: 100 real primary-care-to-specialist consultation cases across 10 specialties, with 12,747 expert annotations of 4,249 candidate management options by a 29-physician panel. Across 31 LLMs, direct application of AI-generated recommendations carried potential for SEVERE harm in up to 22.2% of cases (95% CI 21.6-22.8%), with errors of omission accounting for 76.6% of errors. Crucially, safety correlated only moderately (r=0.61-0.64) with existing accuracy/knowledge benchmarks -- a model can score well on standard evaluations yet be unsafe -- and the best models slightly exceeded generalist physicians on safety (+9.7%). RELEVANCE: NOHARM's architecture -- physician-authored clinical scenarios with expert-panel, action-level, harm-weighted scoring -- closely parallels this protocol's own physician-authored, harm-weighted evaluation methodology, and its central thesis (clinical safety is a distinct axis from accuracy, requiring explicit measurement) directly supports the protocol's rationale; recommend PI review of the NOHARM harm-scoring rubric for methodological cross-reference. CONTEXT/CAVEAT: the work reached the press only this week via a July 29 2026 Fortune report on an industry dispute (OpenEvidence vs Doximity Ask) over a later, expanded arXiv version that adds a randomized physician-AI teaming study and tests commercial RAG tools; widely-circulated news figures (e.g. '45 LLMs and 4 clinical AI systems', '24.6% severe harm', '>80% omission') come from that secondary coverage/expanded version and differ from the PubMed-indexed abstract cited above -- treat them as unverified pending the specific arXiv version. arXiv preprint (not peer-reviewed); does not resolve either standing alert.",
+    "detail": "'First, do NOHARM: towards clinically safe large language models' (Wu, Nateghi Haredasht, ... Goh; ARISE clinical-AI research network, Stanford & Harvard Medical School physicians; arXiv 2512.01241, posted Dec 2025, PMID 41532042) is a physician-authored, harm-weighted clinical-AI safety benchmark. Per the PubMed-indexed record: 100 real primary-care-to-specialist consultation cases across 10 specialties, with 12,747 expert annotations of 4,249 candidate management options by a 29-physician panel. Across 31 LLMs, direct application of AI-generated recommendations carried potential for SEVERE harm in up to 22.2% of cases (95% CI 21.6-22.8%), with errors of omission accounting for 76.6% of errors. Crucially, safety correlated only moderately (r=0.61-0.64) with existing accuracy/knowledge benchmarks -- a model can score well on standard evaluations yet be unsafe -- and the best models slightly exceeded generalist physicians on safety (+9.7%). RELEVANCE: NOHARM's architecture -- physician-authored clinical scenarios with expert-panel, action-level, harm-weighted scoring -- closely parallels this protocol's own physician-authored, harm-weighted evaluation methodology, and its central thesis (clinical safety is a distinct axis from accuracy, requiring explicit measurement) directly supports the protocol's rationale; recommend PI review of the NOHARM harm-scoring rubric for methodological cross-reference. CONTEXT/CAVEAT: the work reached the press only this week via a July 29 2026 Fortune report on an industry dispute (OpenEvidence vs Doximity Ask) over a later, expanded arXiv version that adds a randomized physician-AI teaming study and tests commercial RAG tools; widely-circulated news figures (e.g. '45 LLMs and 4 clinical AI systems', '24.6% severe harm', '>80% omission') come from that secondary coverage/expanded version and differ from the PubMed-indexed abstract cited above -- treat them as unverified pending the specific arXiv version. arXiv preprint (not peer-reviewed); does not resolve either standing alert. UPDATE 2026-08-05 (main session): RESOLVED CAVEAT -- the expanded arXiv version ('...a medical safety benchmark and randomized study of physician and AI teaming on clinical consultations') has now been verified directly from the PI-supplied full PDF: 45 LLMs evaluated (20 notable + 4 clinical RAG tools in primary analyses), severe-harm range 2.9-24.6%, omission >80% of severe errors, 101-physician randomized crossover (AI-assisted 47.3% vs 42.2% conventional; as-treated 52.0%), autograder kappa 0.804 vs inter-physician 0.784, severity weights 1:8:24, 'Do Nothing' floor 37%. Both versions' figures are citable with the version named. Methodological disposition (judging-architecture adoptions) documented in docs/cedars_ramaswamy_nm2026_redraft_plan.md Sec 2.7/3.5.",
     "doi": "10.48550/arxiv.2512.01241",
     "url": "https://arxiv.org/abs/2512.01241",
+    "resolved": false
+   },
+   {
+    "date": "2026-08-06",
+    "headline": "New arXiv benchmark (Weilnhammer et al., Microsoft Research/Oxford) tests 15 frontier AI chatbots on one-shot emergency psychiatric triage -- closely parallels this protocol's critical-miss-rate design",
+    "detail": "One-shot emergency psychiatric triage across 15 frontier AI chatbots (arXiv 2604.25415, posted 2026-04-28) tested 112 clinical vignettes as realistic single-message disclosures against a 4-level urgency benchmark (A routine / B within-1-week / C within-24-48h / D emergency-now) across 15 frontier chatbots. Emergency under-triage occurred in 5.6% (23/410) of level-D (emergency) trials -- every under-triaged case was reassigned to the next-lower urgency tier (C), a pattern structurally similar to the anchoring-toward-less-urgent-care finding in the standing Ramaswamy Nature Medicine alert. Overall accuracy ranged 42.0-71.8% across models and was lowest for level-B (routine-but-soon) vignettes (19.7%), highest for level-D emergencies (94.3%) -- an inverse U/step pattern distinct from Ramaswamy's inverted-U (which found emergencies and non-urgent cases both as failure extremes). RELEVANCE: this is a new, independently-constructed critical-miss-rate benchmark using single-message (everyday-language-adjacent) disclosures across 15 frontier models -- closely matching this protocol's own primary-endpoint architecture (undertriage/critical-miss rate) and single-message presentation format. Domain is psychiatric emergency triage specifically (not general ED triage), so findings should be read as a parallel/comparator design rather than a direct replication. Not yet peer-reviewed (arXiv preprint); does not resolve any standing alert.",
+    "doi": "10.48550/arxiv.2604.25415",
+    "url": "https://arxiv.org/abs/2604.25415",
     "resolved": false
    }
   ]
@@ -2320,6 +2338,216 @@
    "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-05"
+  },
+  {
+   "title": "Conversational multi-turn interaction does not ensure triage-disposition alignment in ChatGPT Health in real and synthetic patient encounters",
+   "authors": "Tyagi A, Taylor B, Jayaraman P, et al.",
+   "journal": "openRxiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2026.07.21.26358588",
+   "url": "https://doi.org/10.64898/2026.07.21.26358588",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "patient-facing-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Ramaswamy-group follow-up: single- vs multi-turn ChatGPT Health on 255 cases (39 vignettes, 76 real ED, 140 nurse-line). Multi-turn did not improve alignment (52.9% vs 55.7% exact agreement); ~70% of discordant recommendations were under-triage in both conditions. Empirically answers the Fraile Navarro multi-turn objection (alert #2); supports Arm C/C1.",
+   "source": "scite-sweep+web-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-05"
+  },
+  {
+   "title": "Medical errors in large language models revealed using 1,000 synthetic clinical transcripts",
+   "authors": "Auger SD, Scott G",
+   "journal": "openRxiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2026.03.23.26349082",
+   "url": "https://doi.org/10.64898/2026.03.23.26349082",
+   "type": "preprint",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "1,000 synthetic headache transcripts: GPT-5.2 hit 97.5% diagnostic accuracy with full histories yet discouraged 100% of lumbar punctures in SAH cases with incomplete input; life/sight-threatening emergencies downgraded to self-care/routine in up to 54.8% (GPT-5-mini); GPT-5.2 triage less safe for females (OR 3.2). The SAH killer-item archetype and the accuracy-safety dissociation at scale.",
+   "source": "scite-sweep+web-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-05"
+  },
+  {
+   "title": "Structured Red Teaming Improves Safety of a Clinical AI Multi-Agent Platform Under High-Risk Conditions",
+   "authors": "Sukhera J, Shearier ER, Ababulgu SN, et al.",
+   "journal": "Research Square",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.21203/rs.3.rs-9152209/v1",
+   "url": "https://doi.org/10.21203/rs.3.rs-9152209/v1",
+   "type": "preprint",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Two-phase adversarial stress test of a patient-facing clinical multi-agent platform (PatientGPT): high-risk failure rate fell from 30.2% to 8.5% with iterative evaluation; cites the Ramaswamy stress test as motivation for continuous local assurance.",
+   "source": "scite-sweep+web-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-05"
+  },
+  {
+   "title": "Solidarity or Segregation? ChatGPT Health and US Health Care Disparities",
+   "authors": "Barnhart AJ, Comerci G, Prainsack B, et al.",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "42330487",
+   "doi": "10.2196/94972",
+   "url": "https://doi.org/10.2196/94972",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "Viewpoint on ChatGPT Health and US disparities: risks include legitimized self-rationing, inaccurate emergency triage, and reinforcement of confirmation/anchoring bias, concentrated in structurally underserved users.",
+   "source": "scite-sweep+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-05"
+  },
+  {
+   "title": "Reduced symptom reporting quality during human–chatbot versus human–physician interactions",
+   "authors": "Reis M, Reis F, Kim YJ, Demir A, Lim J, Gröschel MI, Boie SD, Kunde W",
+   "journal": "Nature Health",
+   "year": 2026,
+   "doi": "10.1038/s44360-026-00116-y",
+   "url": "https://doi.org/10.1038/s44360-026-00116-y",
+   "type": "journal-article",
+   "topics": [
+    "lay-language",
+    "patient-facing-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Preregistered experiment (n=500): participants who believed a symptom report would be read by an AI chatbot (vs. a human physician) produced significantly lower-quality, shorter symptom reports for medical urgency assessment -- a direct hit on this protocol's core-question anchor (everyday-language symptom description) since it shows the audience a patient believes they are addressing measurably changes the completeness of the lay-language input any triage AI receives, independent of model capability.",
+   "source": "websearch-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-06",
+   "pmid": null
+  },
+  {
+   "title": "Public use of a generalist LLM chatbot for health queries",
+   "authors": "Costa-Gomes B, Tolmachev P, Taysom E, et al.",
+   "journal": "Nature Health",
+   "year": 2026,
+   "doi": "10.1038/s44360-026-00117-x",
+   "url": "https://doi.org/10.1038/s44360-026-00117-x",
+   "type": "journal-article",
+   "topics": [
+    "lay-language",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Analysis of >500,000 de-identified Microsoft Copilot health conversations (Jan 2026) applying a 12-category intent taxonomy to characterize real-world, everyday-language consumer health queries -- contextualizes the naturalistic-language distribution this protocol's triage scenarios are meant to approximate.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-06",
+   "pmid": null
+  },
+  {
+   "title": "MedPRESS: A Multi-turn Benchmark for Patient-Pressure-Induced Medical Sycophancy in LLMs",
+   "authors": "Joy SS, Farhan N",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2608.02520",
+   "url": "https://arxiv.org/abs/2608.02520",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "600 medically-grounded five-turn dialogues across three scenario families (including symptom triage and care resistance) testing whether 20 LLMs shift toward unsafe agreement under escalating patient pressure (personal anecdote, social proof, adversarial challenge) -- directly relevant to the false-reassurance/anchoring/sycophancy topic in the search strategy. Not yet peer-reviewed (arXiv preprint, posted ~2026-08-02).",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-06",
+   "pmid": null
+  },
+  {
+   "title": "One-shot emergency psychiatric triage across 15 frontier AI chatbots",
+   "authors": "Weilnhammer V, Luettgau L, Summerfield C, Sounderajah V, Wilkinson E, Corno V, Nour MM",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2604.25415",
+   "url": "https://arxiv.org/abs/2604.25415",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "112 clinical vignettes tested as realistic single-message disclosures across 15 frontier AI chatbots, scored against a 4-level (routine / 1-week / 24-48h / emergency-now) urgency benchmark; emergency under-triage occurred in 5.6% (23/410) of level-D trials, all reassigned to the next-lower urgency tier, with overall accuracy ranging 42.0-71.8% across models. Closely parallels this protocol's own critical-miss-rate primary endpoint and single-message/everyday-language presentation design -- flagged as an urgent alert. Not yet peer-reviewed (arXiv preprint).",
+   "source": "websearch-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-06",
+   "pmid": null
+  },
+  {
+   "title": "From Advice to Action: Real-World Behavior of Patients Using an Integrated Diagnostic Decision Support System for Navigating the Health Care System",
+   "authors": "Cotte F, et al.",
+   "journal": "NEJM AI",
+   "year": 2026,
+   "doi": "10.1056/AIoa2500833",
+   "url": "https://ai.nejm.org/doi/full/10.1056/AIoa2500833",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Prospective real-world quality-improvement study (n=1,470) embedded in Portugal's CUF private healthcare network: patients using Ada Health's physician-designed clinical-AI symptom checker via the myCUF app more than doubled their rate of choosing the clinically appropriate care setting (from <1/3 to ~2/3), with physician panels retrospectively adjudicating appropriateness of intended vs. observed care -- real-world disposition/triage-navigation outcome data and a physician-adjudication methodology relevant to this protocol's evaluation architecture, though not itself an emergency-undertriage safety stress test.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-06",
+   "pmid": null
+  },
+  {
+   "title": "Large Language Model Performance and Clinical Reasoning Tasks",
+   "authors": "Rao AS, Esmail KP, Lee RS, et al.",
+   "journal": "JAMA Network Open",
+   "year": 2026,
+   "pmid": "41973425",
+   "doi": "10.1001/jamanetworkopen.2026.4003",
+   "url": "https://doi.org/10.1001/jamanetworkopen.2026.4003",
+   "type": "journal-article",
+   "topics": [
+    "benchmark-methodology",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Mass General Brigham study of 21 LLMs (incl. GPT, Claude, Gemini, Grok, DeepSeek) across 29 standardized clinical cases using a new PrIME-LLM framework scoring differential diagnosis, testing, final diagnosis, and management separately; every model achieved >90% final-diagnosis accuracy with complete information but failed to generate an appropriate differential diagnosis >80% of the time from incomplete/early-stage information -- methodologically relevant to evaluating AI reasoning under the incomplete, evolving information characteristic of real emergency presentations rather than only endpoint accuracy.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-06"
+  },
+  {
+   "title": "Maturity, Safety, and Equity of AI-Enabled Systems and Triage in Integrated Primary Care",
+   "authors": "Liaw ST",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "42133568",
+   "doi": "10.2196/97341",
+   "url": "https://doi.org/10.2196/97341",
+   "type": "viewpoint",
+   "topics": [
+    "policy-regulation",
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Viewpoint/commentary arguing that safe deployment of AI-enabled triage requires broader investment in healthcare-system digital maturity and equity, not just model accuracy -- supporting-strand consumer health-AI policy context for this protocol's safety rationale.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-06"
   }
  ]
 }
