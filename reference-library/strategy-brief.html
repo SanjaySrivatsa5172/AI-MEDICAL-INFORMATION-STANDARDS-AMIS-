@@ -223,14 +223,14 @@
     <ul class="b-list">
       <li><b>Dual-register scenarios</b> (paired lay + expert) isolate input variance — the confound Fraile Navarro (2026) shows can move headline results.</li>
       <li><b>Offline / local weights / no live retrieval</b> removes the contamination and internet-lookup confounds that undermine most prior benchmarks.</li>
-      <li><b>Harm-weighted, under-triage-asymmetric scoring</b>, physician-adjudicated and benchmarked against an <b>independent (non-author) physician panel</b> and an AI panel — mirroring NOHARM's validated panel design (autograder vs. inter-physician κ ≈ 0.80).</li>
+      <li><b>Ground truth from validated instruments, not specialty opinion</b> — acuity follows published ESI / ACS field-triage criteria, so the correct answer is reproducible regardless of who authored the scenario. Scoring is harm-weighted and under-triage-asymmetric, physician-adjudicated against an <b>independent (non-author) panel</b> plus an AI panel — NOHARM-style (autograder vs. inter-physician κ ≈ 0.80).</li>
       <li><b>Three arms — model-alone · physician-alone · human-AI hybrid</b> — and Cedars' own deployed system can serve as the real-world hybrid arm, making the study incremental <i>and</i> directly useful to Cedars.</li>
     </ul>
 
     <h3><span class="n">4</span>The ask</h3>
     <ul class="b-list">
       <li><b>Frame:</b> AI-safety <i>evaluation science &amp; governance</i> — a reusable, publishable harness Cedars can use to validate and govern the triage AI it already runs (not an audit of it).</li>
-      <li><b>People:</b> a PhD student (spring project window) + a methodologist / biostatistician co-lead + an <b>ED physician champion</b> to author scenarios and staff the independent benchmark.</li>
+      <li><b>People:</b> a PhD student (spring project window) + a methodologist / biostatistician co-lead + an <b>Internal Medicine physician lead</b> to author the clinical scenarios — IM manages these same acute presentations daily — reserving emergency medicine for a <b>light acuity-label validation check</b> rather than the full authoring load they can't spare.</li>
       <li><b>Why now:</b> regulatory attention, live litigation, and a converging literature (Ramaswamy, NOHARM, Fraile Navarro, Reis, Weilnhammer) make an independent triage-safety instrument timely and fundable.</li>
     </ul>
 
