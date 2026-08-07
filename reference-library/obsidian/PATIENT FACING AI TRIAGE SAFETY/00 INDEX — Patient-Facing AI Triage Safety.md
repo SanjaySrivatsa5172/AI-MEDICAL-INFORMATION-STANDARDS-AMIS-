@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-06
-total-references: 130
+last-updated: 2026-08-07
+total-references: 135
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-06** · 130 references.
+Updated daily by automated scan. Last scan: **2026-08-07** · 135 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -45,6 +45,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Auger 2026 — Medical errors in large language models revealed using 1,000…]] — *openRxiv* 2026
 - [[Reis 2026 — Reduced symptom reporting quality during human–chatbot versus…]] — *Nature Health* 2026
 - [[Weilnhammer 2026 — One-shot emergency psychiatric triage across 15 frontier AI chatbots]] — *arXiv preprint* 2026
+- [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] — *Journal of Medical Internet Research* 2026
+- [[Rodman 2026 — Performance of a large language model on the reasoning tasks of a…]] — *Science* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -95,6 +97,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Weilnhammer 2026 — One-shot emergency psychiatric triage across 15 frontier AI chatbots]] (2026)
 - [[Cotte 2026 — From Advice to Action Real-World Behavior of Patients Using an…]] (2026)
 - [[Liaw 2026 — Maturity, Safety, and Equity of AI-Enabled Systems and Triage in…]] (2026)
+- [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
+- [[Zhou 2026 — Few-Shot Large Language Models for Actionable Triage Categorization…]] (2026)
+- [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -142,6 +147,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Barnhart 2026 — Solidarity or Segregation ChatGPT Health and US Health Care…]] (2026)
 - [[Reis 2026 — Reduced symptom reporting quality during human–chatbot versus…]] (2026)
 - [[Costa-Gomes 2026 — Public use of a generalist LLM chatbot for health queries]] (2026)
+- [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] (2026)
+- [[Ping 2026 — Why LLMs Give In Conversational Factors and Reasoning Behind Medical…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -184,6 +191,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Chen 2026 — Independent and collaborative performance of large language models…]] (2026)
 - [[Reis 2026 — Reduced symptom reporting quality during human–chatbot versus…]] (2026)
 - [[Rao 2026 — Large Language Model Performance and Clinical Reasoning Tasks]] (2026)
+- [[Rodman 2026 — Performance of a large language model on the reasoning tasks of a…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -222,6 +230,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Auger 2026 — Medical errors in large language models revealed using 1,000…]] (2026)
 - [[Joy 2026 — MedPRESS A Multi-turn Benchmark for Patient-Pressure-Induced Medical…]] (2026)
 - [[Rao 2026 — Large Language Model Performance and Clinical Reasoning Tasks]] (2026)
+- [[Zhou 2026 — Few-Shot Large Language Models for Actionable Triage Categorization…]] (2026)
+- [[Rodman 2026 — Performance of a large language model on the reasoning tasks of a…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -269,6 +279,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tyagi 2026 — Conversational multi-turn interaction does not ensure…]] (2026)
 - [[Auger 2026 — Medical errors in large language models revealed using 1,000…]] (2026)
 - [[Sukhera 2026 — Structured Red Teaming Improves Safety of a Clinical AI Multi-Agent…]] (2026)
+- [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
+- [[Ping 2026 — Why LLMs Give In Conversational Factors and Reasoning Behind Medical…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -290,6 +302,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 
 - [[Aljohani 2026 — Domain-Adapted Small Language Models for Reliable Clinical Triage]] (2026)
 - [[Barnhart 2026 — Solidarity or Segregation ChatGPT Health and US Health Care…]] (2026)
+- [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
 - [[Ho 2025 — Evaluation of Generative Artificial Intelligence Models in Predicting…]] (2025)
 - [[Wandl 2025 — Diagnostic test accuracy of the Emergency Severity Index a systematic…]] (2025)
 - [[Sax 2024 — Emergency Severity Index Version 4 and Triage of Pediatric Emergency…]] (2024)

@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-06",
+  "last_updated": "2026-08-07",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -61,6 +61,11 @@
     "date": "2026-08-06",
     "added": 0,
     "notes": "Reference re-check (PI-requested). Re-verified all 4 alert papers via Scite editorialNotices -- none retracted, corrected, or flagged (Ramaswamy 10.1038/s41591-026-04297-7 already 52 citations; Fraile Navarro 2603.11413; NOHARM 2512.01241; Weilnhammer 2604.25415, authors Weilnhammer/Luettgau/Summerfield confirmed). Scite confirms the expanded NOHARM version exists (title '...a medical safety benchmark and randomized study of physician and AI teaming...', authors Nateghi Haredasht/Maharaj/Tran, 6 citing publications), consistent with the standing NOHARM caveat; its specific expanded figures (45 LLMs / 2.9-24.6% / 101-physician crossover) remain sourced to the Rev.5 PDF reading, as Scite returned no matching full-text excerpts to re-pull them. Also cleared the 6 remaining bare-'websearch' references (all confirmed real, none retracted): PubMed titles matched and PMIDs back-filled for Sci Reports red-teaming protocol (41917231, Hussain et al.), JMIR Med Inform FRENCH-scale triage prediction (41805589, Lansiaux et al.), and BMC Emerg Med ChatGPT/Gemini/DeepSeek KTAS study (40890624, Lee et al.); Scite-confirmed the Nature Medicine companion editorial (04427-1), the AMIE ambulatory-feasibility arXiv (2603.08448, Brodeur et al.), and the medRxiv adversarial red-teaming preprint (2026.02.26.26347212, Ekram). No references added/removed and no alert states changed (still 130 refs / 4 alerts; Ramaswamy resolved, Fraile Navarro + NOHARM + Weilnhammer open); this entry records provenance upgrades only."
+   },
+   {
+    "date": "2026-08-07",
+    "added": 5,
+    "notes": "Reconciler (main session) recovered the 2026-08-07 fresh-session scan (7 candidates published to the dashboard but not pushed to git). Verified all 7; MERGED 5 and DROPPED 2. Kept (confirmed, none retracted): EQUITRIAGE gender-bias ED-triage fairness audit (arXiv 2605.03998, Young & Matthews; 5 models / 18,714 MIMIC-IV-ED vignettes / counterfactual flip rates 9.9-43.8%; Scite-verified -- prior 'unusual affiliation' flag reviewed and judged non-disqualifying given methodological detail); Few-Shot LLM actionable-triage-categorization (arXiv 2605.15680, Zhou & Li; Scite-verified); JMIR urgency-graded disclaimer/referral evaluation (10.2196/84668, PMID 41838894 back-filled, Reis et al. Charite; PubMed-verified; design_overlap); medical-sycophancy conversational-factors study (arXiv 2608.01017, Ping et al.; Scite-verified); and the Science paper 'Performance of a large language model on the reasoning tasks of a physician' (10.1126/science.adz4433, Brodeur/Buckley/Kanjee, Science 392:524-527, Harvard/Beth Israel; Scite-verified, 27 citing pubs; design_overlap human-comparator -- deliberately NOT flagged as an urgent alert: it measures reasoning capability rather than lay-language undertriage/harm and its direction is favorable to LLMs, so it fails the Urgent Alert Protocol triggers). DROPPED 2: (1) arXiv 2601.15306 'Uncovering Latent Bias in LLM-Based ED Triage Through Proxy Variables' (single author, non-peer-reviewed, MIMIC-IV credentialed-data access by a self-identified high-school author) -- excluded a third time, consistent with the standing 2026-08-03/05 policy on this specific preprint; (2) medRxiv 2025.08.15.25333788 (Brooks, Blankson, Campbell) -- Scite-confirmed to be the PREPRINT of the already-included published JMIR paper (10.2196/82487, PMID 41417951), dropped as a duplicate. No alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
    }
   ],
   "alerts": [
@@ -2553,6 +2558,103 @@
    "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-06"
+  },
+  {
+   "title": "EQUITRIAGE: A Fairness Audit of Gender Bias in LLM-Based Emergency Department Triage",
+   "authors": "Young RJ, Matthews AM",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2605.03998",
+   "url": "https://arxiv.org/abs/2605.03998",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "Fairness audit of five LLMs (Gemini-3-Flash, Nemotron-3-Super, DeepSeek-V3.1, Mistral-Small-3.2, GPT-4.1-Nano) assigning ESI acuity to 18,714 MIMIC-IV-ED-derived vignettes (374,275 evaluations) under baseline/chain-of-thought/debiased/blind prompting -- all five exceeded a pre-registered 5% acuity-flip threshold (9.9%-43.8%), two showed directional female undertriage (DeepSeek F/M 2.15:1, Gemini 1.34:1), and demographic blinding sharply reduced flip rates, implicating identity cues (with age as a residual channel) as a driver of triage instability independent of clinical presentation -- directly relevant to this protocol's undertriage/mistriage safety endpoint.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-07",
+   "pmid": null
+  },
+  {
+   "title": "Few-Shot Large Language Models for Actionable Triage Categorization of Online Patient Inquiries",
+   "authors": "Zhou L, Li J",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2605.15680",
+   "url": "https://arxiv.org/abs/2605.15680",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Using the public HealthCareMagic-100K corpus of informal patient-authored inquiries, benchmarks few-shot/zero-shot LLMs and supervised TF-IDF/BioBERT baselines on a four-class actionable triage task (self-care / schedule-visit / urgent-clinician-review / emergency-referral), evaluated with safety-aware triage metrics and model-disagreement as a human-in-the-loop selective-review signal -- a low-resource, real-world-phrasing triage categorization setting adjacent to this protocol's everyday-language emergency-recognition question.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-07",
+   "pmid": null
+  },
+  {
+   "title": "Disclaimers and Referral Patterns for Medical Advice Across Urgency Levels: Large Language Model Evaluation Study",
+   "authors": "Reis F, Agha-Mir-Salim L, Hickstein R, Reis M, Piper SK, Balzer F, Boie SD",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "41838894",
+   "doi": "10.2196/84668",
+   "url": "https://www.jmir.org/2026/1/e84668",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "lay-language",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Prospective multimodel evaluation of GPT-4o, Claude Sonnet-4, Grok-3, and DeepSeek-V3 responding to 227 authentic patient-authored queries (from a public dataset) rated by human raters on a 3-level urgency scale, scoring each model's disclaimer/referral advice on a 5-point ordinal scale -- finds urgency-responsive safety behavior (97% of responses recommended consulting a professional; higher-urgency queries drew more explicit referrals) using real patient phrasing across a graded urgency spectrum, closely matching this protocol's everyday-language emergency-recognition core question and physician/rater-adjudicated evaluation architecture.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-07"
+  },
+  {
+   "title": "Why LLMs Give In: Conversational Factors and Reasoning Behind Medical Sycophancy",
+   "authors": "Ping K, Carik B, Wohn C, Ding X, Wang T, Rho E",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2608.01017",
+   "url": "https://arxiv.org/abs/2608.01017",
+   "type": "preprint",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Fully-crossed factorial study (5 open-weight models x 500 MedQuAD questions, 1.2M trials) isolating conversational drivers of medical sycophancy -- user role, evidence behind a false claim, challenge timing, and prompt grounding -- finding fabricated sources double sycophancy when they precede the model's answer but roughly halve it once the model has already answered; supports this protocol's false-reassurance/anchoring safety strand by showing sycophancy is a property of conversational structure, not fixed model behavior.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-07",
+   "pmid": null
+  },
+  {
+   "title": "Performance of a large language model on the reasoning tasks of a physician",
+   "authors": "Rodman A, Manrai A, et al.",
+   "journal": "Science",
+   "year": 2026,
+   "doi": "10.1126/science.adz4433",
+   "url": "https://www.science.org/doi/10.1126/science.adz4433",
+   "type": "journal-article",
+   "topics": [
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Harvard Medical School / Beth Israel Deaconess study pitting OpenAI's o1 reasoning model against attending and resident physicians on real, unedited ED admission records across six experiments spanning diagnostic and management reasoning -- o1 reached correct-or-near-correct diagnosis in 67% of cases vs. 55% and 50% for the two physician comparators, with no image/exam/vocal-cue access for either arm; high-profile human-comparator benchmark methodologically relevant to this protocol's physician-vs-AI evaluation architecture, though its comparators were general/non-EM-specialist physicians and it did not test lay-language presentation -- authors note findings do not support clinical deployment absent prospective trials.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-07",
+   "pmid": null
   }
  ]
 }
