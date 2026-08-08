@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-07
-total-references: 135
+last-updated: 2026-08-08
+total-references: 137
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-07** · 135 references.
+Updated daily by automated scan. Last scan: **2026-08-08** · 137 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -100,6 +100,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
 - [[Zhou 2026 — Few-Shot Large Language Models for Actionable Triage Categorization…]] (2026)
 - [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] (2026)
+- [[Belski 2026 — Solving Emergency Department Triage with Small Language Models Why…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -112,6 +113,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Wang 2025 — Patient Triage and Guidance in Emergency Departments Using Large…]] (2025)
 - [[Gourabathina 2025 — The Medium is the Message How Non-Clinical Information Shapes…]] (2025)
 - [[Lee 2025 — Performance of ChatGPT, Gemini and DeepSeek for non-critical triage…]] (2025)
+- [[Taylor 2025 — Impact of Artificial Intelligence–Based Triage Decision Support on…]] (2025)
 - [[Pasli 2024 — Assessing the precision of artificial intelligence in ED triage…]] (2024) — **core**
 - [[Yazaki 2024 — Emergency Patient Triage Improvement through a Retrieval-Augmented…]] (2024)
 - [[Arslan 2024 — Evaluating LLM-based generative AI tools in emergency triage A…]] (2024)
@@ -232,6 +234,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Rao 2026 — Large Language Model Performance and Clinical Reasoning Tasks]] (2026)
 - [[Zhou 2026 — Few-Shot Large Language Models for Actionable Triage Categorization…]] (2026)
 - [[Rodman 2026 — Performance of a large language model on the reasoning tasks of a…]] (2026)
+- [[Belski 2026 — Solving Emergency Department Triage with Small Language Models Why…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**

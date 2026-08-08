@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-07",
+  "last_updated": "2026-08-08",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -66,6 +66,16 @@
     "date": "2026-08-07",
     "added": 5,
     "notes": "Reconciler (main session) recovered the 2026-08-07 fresh-session scan (7 candidates published to the dashboard but not pushed to git). Verified all 7; MERGED 5 and DROPPED 2. Kept (confirmed, none retracted): EQUITRIAGE gender-bias ED-triage fairness audit (arXiv 2605.03998, Young & Matthews; 5 models / 18,714 MIMIC-IV-ED vignettes / counterfactual flip rates 9.9-43.8%; Scite-verified -- prior 'unusual affiliation' flag reviewed and judged non-disqualifying given methodological detail); Few-Shot LLM actionable-triage-categorization (arXiv 2605.15680, Zhou & Li; Scite-verified); JMIR urgency-graded disclaimer/referral evaluation (10.2196/84668, PMID 41838894 back-filled, Reis et al. Charite; PubMed-verified; design_overlap); medical-sycophancy conversational-factors study (arXiv 2608.01017, Ping et al.; Scite-verified); and the Science paper 'Performance of a large language model on the reasoning tasks of a physician' (10.1126/science.adz4433, Brodeur/Buckley/Kanjee, Science 392:524-527, Harvard/Beth Israel; Scite-verified, 27 citing pubs; design_overlap human-comparator -- deliberately NOT flagged as an urgent alert: it measures reasoning capability rather than lay-language undertriage/harm and its direction is favorable to LLMs, so it fails the Urgent Alert Protocol triggers). DROPPED 2: (1) arXiv 2601.15306 'Uncovering Latent Bias in LLM-Based ED Triage Through Proxy Variables' (single author, non-peer-reviewed, MIMIC-IV credentialed-data access by a self-identified high-school author) -- excluded a third time, consistent with the standing 2026-08-03/05 policy on this specific preprint; (2) medRxiv 2025.08.15.25333788 (Brooks, Blankson, Campbell) -- Scite-confirmed to be the PREPRINT of the already-included published JMIR paper (10.2196/82487, PMID 41417951), dropped as a duplicate. No alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
+   },
+   {
+    "date": "2026-08-08",
+    "added": 2,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; bibliographic details confirmed via WebSearch snippets from journal/PubMed/arXiv/medRxiv pages, not direct WebFetch). Ran query-bank sweep across all topics/journals/product-name angles (ChatGPT Health, Gemini health, AMIE, Claude, Grok, Meta AI). Most strong candidates were already in the library (deduped by title/DOI), including the MDPI 39,375-patient ED-triage LLM study, the Alamoudi et al. JMIR primary-care AI-triage viewpoint, the Chen et al. npj Digital Medicine helpfulness/sycophancy paper, and (caught only after an initial dedup-assertion failure mid-run) the Draelos et al. npj Digital Medicine HealthAdvice red-teaming study, already present since 2026-08-02. Added: Taylor et al. (NEJM AI, 10.1056/AIoa2400296) landmark 174,648-visit multisite real-world AI-triage-decision-support implementation study -- published 2025 but not previously captured in this library; included despite predating the last-scan window as a significant retrospective catch bearing on Topic 1. Belski & Lukina (medRxiv, 10.64898/2026.05.04.26352355) small-language-model ESI triage benchmark (ancillary; author given names/affiliation not independently verified via WebSearch). No urgent-alert-level findings today (nothing closely matches the protocol's physician-authored/dual-register/harm-weighted design or newly bears on the primary endpoint's interpretation); no changes to existing alert resolution states (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). Checked both new DOIs for retraction/correction notices via WebSearch; none found."
+   },
+   {
+    "date": "2026-08-08",
+    "added": 0,
+    "notes": "Reconciler (main session) recovered the 2026-08-08 fresh-session scan (2 references published to the dashboard but not pushed to git -- fresh-session push 403s; git push and Artifact republish from this session work). Independently verified both before merge; neither retracted or corrected (checked via Scite editorialNotices). (1) Taylor et al., 'Impact of Artificial Intelligence-Based Triage Decision Support on Emergency Department Care' (NEJM AI 2025;2(3), 10.1056/AIoa2400296): Scite-confirmed title, authors (Richard A. Taylor, Chris Chmura, Jeremiah S. Hinson), venue and year (24 Smart Citations / 47 citing publications), and WebSearch-confirmed against the NEJM AI journal page; PubMed convert_article_ids returned NO record (NEJM AI is not PubMed-indexed for this article), so pmid stays null; source upgraded websearch -> websearch+scite-verified. (2) Belski & Lukina medRxiv/openRxiv preprint (10.64898/2026.05.04.26352355): Scite RESOLVED the author given names the scan could not confirm (Vadim Belski, Kate Lukina) and returned the fuller canonical title 'Solving Emergency Department Triage with Small Language Models: Why Large Commercial Models Fail and How Specialized Training Achieves Clinical Accuracy' with a byte-matching abstract (GPT-4o/Claude 3.5 Sonnet/Gemini 1.5 Pro/MedGemma at 45-55% exact ESI vs a BiomedBERT+deterministic pipeline at 88.9% exact / 97.2% adjacent); title corrected, authors expanded, source upgraded websearch -> websearch+scite-verified. Library 135 -> 137; no references dropped; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
    }
   ],
   "alerts": [
@@ -2654,6 +2664,43 @@
    "source": "websearch+scite-verified",
    "design_overlap": true,
    "date_added": "2026-08-07",
+   "pmid": null
+  },
+  {
+   "title": "Impact of Artificial Intelligence–Based Triage Decision Support on Emergency Department Care",
+   "authors": "Taylor RA, Chmura C, Hinson JS, Steinhart B, Sangal R, Venkatesh AK, Xu H, Cohen I, Faustino IV, Levin S",
+   "journal": "NEJM AI",
+   "year": 2025,
+   "doi": "10.1056/AIoa2400296",
+   "url": "https://ai.nejm.org/doi/full/10.1056/AIoa2400296",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Multisite quality-improvement study of an AI-informed triage clinical decision support intervention across three emergency departments (174,648 ED visits: 83,404 pre-intervention, 91,244 post-intervention); associated with improved identification of critical-care patients (78.8%->83.1%) and a 33% reduction in median time from arrival to initial care area. Landmark real-world (non-vignette) implementation evidence bearing on this protocol's Topic 1 (emergency triage AI safety/disposition); favorable direction and real-world deployment context distinguishes it from the vignette-based undertriage findings in the standing Ramaswamy/Fraile Navarro/Weilnhammer alerts. Surfaced via retrospective sweep during today's scan (published 2025; not previously captured in this library).",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-08",
+   "pmid": null
+  },
+  {
+   "title": "Solving Emergency Department Triage with Small Language Models: Why Large Commercial Models Fail and How Specialized Training Achieves Clinical Accuracy",
+   "authors": "Belski V, Lukina K",
+   "journal": "medRxiv preprint",
+   "year": 2026,
+   "doi": "10.64898/2026.05.04.26352355",
+   "url": "https://www.medrxiv.org/content/10.64898/2026.05.04.26352355v1",
+   "type": "preprint",
+   "topics": [
+    "benchmark-methodology",
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Compares large commercial LLMs (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, MedGemma) against a purpose-built small-model pipeline (BiomedBERT extraction + deterministic clinical engine, plus a 9B-parameter chain-of-thought/RL-trained model) for Emergency Severity Index (ESI) assignment; off-the-shelf large models reach only 45-55% exact ESI accuracy, versus 88.9% exact / 97.2% adjacent (+/-1 ESI) accuracy for the specialized pipeline on a 50-case expert-labeled set. Supports the supporting-strand benchmark-methodology/ESI-ground-truth angle; not peer-reviewed and lower priority (general triage-model engineering rather than physician-authored patient-facing evaluation).",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-08",
    "pmid": null
   }
  ]
