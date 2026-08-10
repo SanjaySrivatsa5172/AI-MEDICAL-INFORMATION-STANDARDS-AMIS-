@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-09",
+  "last_updated": "2026-08-10",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -86,6 +86,16 @@
     "date": "2026-08-09",
     "added": 0,
     "notes": "Reconciler (main session) -- quiet-day provenance sync + alert safety re-check. The 2026-08-09 fresh-session scan ran and published to the dashboard (last_updated advanced to 2026-08-09) but added 0 references; its push did not reach git (fresh-session push 403s), so this run brings git into line. Verified repo<->dashboard consistency: both at 137 refs / 4 alerts, 0 references present on the dashboard but missing from git, 0 references in git but missing from the dashboard, and no alert resolution-state differences. Independently confirmed the scan's zero-additions rationale: its candidate hits were already present under existing DOIs, and the one new candidate (PSEBench, arXiv 2606.05463) is correctly out of scope (hospital reportable-adverse-event/incident-reporting triage, not emergency symptom/disposition triage). Re-checked all 4 alert papers via Scite editorialNotices -- NONE retracted, corrected, or flagged: Ramaswamy 10.1038/s41591-026-04297-7 (Nat Med 2026;32(5):1671-1675, now 52 citations), Fraile Navarro 2603.11413, NOHARM 2512.01241 (arXiv DOI resolves to the expanded-version record 'a medical safety benchmark and randomized study of physician and AI teaming...', authors Nateghi Haredasht/Maharaj/Tran -- consistent with the standing NOHARM caveat), and Weilnhammer 2604.25415 (Weilnhammer/Luettgau/Summerfield). No references added/removed; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). Entry records the provenance sync and safety re-check only."
+   },
+   {
+    "date": "2026-08-10",
+    "added": 2,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from arXiv/journal pages, not WebFetch; no DOI available for the two arXiv preprints so doi left null). Ran full query bank against material newly surfaced since 2026-08-09: general LLM emergency-triage safety, named consumer-product angle (ChatGPT Health/Gemini/AMIE/Claude/Grok/Meta AI), physician-graded rubric methodology, lay-language/health-literacy angle, benchmark contamination, ESI reliability. Most surfaced items were already in the library (Ramaswamy ChatGPT Health Nature Medicine study re-surfaced via a Mount Sinai newsroom recap -- confirmed same underlying paper/DOI already captured 2026-08-02, not re-added; a JMIR Formative Research physician-preference survey, 10.2196/82487, initially drafted as new was caught as a duplicate of the already-captured 2026-08-03 entry -- PMID 41417951 -- during a pre-publish re-check against the live dashboard and removed before commit). Added: CARE-Bench (arXiv 2608.03731, Aug 2026) -- a patient-facing sequential triage benchmark directly on this protocol's core question, flagged design_overlap given close topical fit though it is LLM-graded rather than physician-adjudicated; MedMisBench (arXiv 2606.12291 / bioRxiv) -- misleading-context/anchoring benchmark relevant to the search strategy's anchoring/false-reassurance angle. No new urgent-alert-level findings (no benchmark/trial closely matching this protocol's full physician-authored/dual-register/harm-weighted design, no retraction/correction of protocol-cited work, no regulatory action). Checked both new candidates and the resurfaced Ramaswamy coverage for retraction/correction notices -- none found."
+   },
+   {
+    "date": "2026-08-10",
+    "added": 0,
+    "notes": "Reconciler (main session) recovered the 2026-08-10 fresh-session scan (2 references published to the dashboard but not pushed to git -- fresh-session push 403s). Both are arXiv preprints the scan left with doi:null; independently verified via Scite (metadata + editorialNotices) and WebSearch (arXiv abstract pages), and BACK-FILLED the Scite-confirmed arXiv DOIs (arXiv auto-registers 10.48550/arXiv.* DataCite DOIs, consistent with the library's other arXiv entries). Neither retracted, corrected, or flagged. (1) CARE-Bench 'Benchmarking Patient-Facing LLM Triage' (arXiv 2608.03731, Hua/Na/Ayubcha, submitted 2026-08-04): Scite confirmed DOI/title/authors (record closed-access so no abstract returned) and WebSearch confirmed the design details (500 cases / 1,059 patient-disclosure prefixes / 11 models / 269 held-out rounds / fixed GPT-5.5 mapper; unprompted macro-F1 31.2-50.4; only 33.5% preserved the ask-for-more-info step); doi back-filled 10.48550/arxiv.2608.03731, design_overlap true (topically on the core question, though LLM-graded not physician-adjudicated). (2) MedMisBench 'Measuring Epistemic Resilience of LLMs Under Misleading Medical Context' (arXiv 2606.12291, Zhou/Zou/Wu ... Clifton senior; also bioRxiv 10.64898/2026.05.25.727671): Scite abstract byte-matches the library relevance (10,932 items / 48,889 misleading context-option pairs / mean accuracy 71.1%->38.0% under focused misleading context / 51.5% attack success / authority-framed 69.5% / 14-member 7-country clinical panel flagged serious potential harm in 38.2% of reviewed cases); doi back-filled 10.48550/arxiv.2606.12291. Both source upgraded websearch -> websearch+scite-verified. Also confirms the scan's own pre-publish dedup catch (JMIR 10.2196/82487 / PMID 41417951 correctly NOT re-added). Library 137 -> 139; no references dropped; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
    }
   ],
   "alerts": [
@@ -2711,6 +2721,43 @@
    "source": "websearch+scite-verified",
    "design_overlap": false,
    "date_added": "2026-08-08",
+   "pmid": null
+  },
+  {
+   "title": "CARE-Bench: Benchmarking Patient-Facing LLM Triage",
+   "authors": "Hua Y, Na H, Ayubcha C",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2608.03731",
+   "url": "https://arxiv.org/abs/2608.03731",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Source-grounded benchmark evaluating sequential patient-facing triage as a four-label per-turn current-action task (500 cases, 1,059 patient-disclosure prefixes reconstructed from medical dialogue/consultation/follow-up-question sources); 11 models evaluated on 269 held-out rounds under unprompted and minimally prompted open-ended protocols. Unprompted macro-F1 only 31.2-50.4 across models; when the correct action was to ask for more information, only 33.5% of prompted outputs preserved that step, indicating patient-facing triage failures persist after prompting rather than resolving as a simple prompting problem. Directly on this protocol's core question (what action a patient-facing AI should direct given ambiguous/everyday symptom language) though grading uses a fixed LLM mapper rather than physician adjudication -- methodologically adjacent, not a physician-authored evaluation.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-10",
+   "pmid": null
+  },
+  {
+   "title": "MedMisBench: Measuring Epistemic Resilience of LLMs Under Misleading Medical Context",
+   "authors": "Zhou H, Zou X, Wu J, Wu S, Yu J, Segal BM, et al. (Clifton DA, senior author)",
+   "journal": "arXiv preprint / bioRxiv",
+   "year": 2026,
+   "doi": "10.48550/arxiv.2606.12291",
+   "url": "https://arxiv.org/abs/2606.12291",
+   "type": "preprint",
+   "topics": [
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Introduces 'epistemic resilience' (ability to maintain correct medical judgment under adversarial/misleading context) and MedMisBench, a 10,932-item benchmark with 48,889 misleading context-option pairs across medical reasoning, agentic capability, and patient-journey evaluation. Mean accuracy on correctly-answered questions collapses from 71.1% to 38.0% once misleading context is injected (51.5% attack success); authority-framed fabrications and 'spurious anchoring' corruptions are the most damaging injection types. Bears on the search strategy's anchoring/false-reassurance/sycophancy angle -- a lay patient's own framing of symptoms (e.g., minimizing language, a prior benign self-diagnosis volunteered in the message) could function as exactly this kind of misleading context in the everyday-language emergency-recognition scenarios central to this protocol. Not triage-specific; included as ancillary methodology under the clinical-bias filter's anchoring-bias carve-out.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-10",
    "pmid": null
   }
  ]
