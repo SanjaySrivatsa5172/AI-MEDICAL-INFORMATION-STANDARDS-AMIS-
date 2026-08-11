@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-10
-total-references: 139
+last-updated: 2026-08-11
+total-references: 142
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-10** · 139 references.
+Updated daily by automated scan. Last scan: **2026-08-11** · 142 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -103,6 +103,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] (2026)
 - [[Belski 2026 — Solving Emergency Department Triage with Small Language Models Why…]] (2026)
 - [[Hua 2026 — CARE-Bench Benchmarking Patient-Facing LLM Triage]] (2026)
+- [[Yamin 2026 — High-Stakes Decisions with Language Models Insights from Emergency…]] (2026)
+- [[Balaji 2026 — Improving Trauma Triage Accuracy with Large Language Models A…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -239,6 +241,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Belski 2026 — Solving Emergency Department Triage with Small Language Models Why…]] (2026)
 - [[Hua 2026 — CARE-Bench Benchmarking Patient-Facing LLM Triage]] (2026)
 - [[Zhou 2026 — MedMisBench Measuring Epistemic Resilience of LLMs Under Misleading…]] (2026)
+- [[Xiao 2026 — When Correct Beliefs Collapse Epistemic Resilience of LLMs under…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**

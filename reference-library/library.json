@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-10",
+  "last_updated": "2026-08-11",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -96,6 +96,16 @@
     "date": "2026-08-10",
     "added": 0,
     "notes": "Reconciler (main session) recovered the 2026-08-10 fresh-session scan (2 references published to the dashboard but not pushed to git -- fresh-session push 403s). Both are arXiv preprints the scan left with doi:null; independently verified via Scite (metadata + editorialNotices) and WebSearch (arXiv abstract pages), and BACK-FILLED the Scite-confirmed arXiv DOIs (arXiv auto-registers 10.48550/arXiv.* DataCite DOIs, consistent with the library's other arXiv entries). Neither retracted, corrected, or flagged. (1) CARE-Bench 'Benchmarking Patient-Facing LLM Triage' (arXiv 2608.03731, Hua/Na/Ayubcha, submitted 2026-08-04): Scite confirmed DOI/title/authors (record closed-access so no abstract returned) and WebSearch confirmed the design details (500 cases / 1,059 patient-disclosure prefixes / 11 models / 269 held-out rounds / fixed GPT-5.5 mapper; unprompted macro-F1 31.2-50.4; only 33.5% preserved the ask-for-more-info step); doi back-filled 10.48550/arxiv.2608.03731, design_overlap true (topically on the core question, though LLM-graded not physician-adjudicated). (2) MedMisBench 'Measuring Epistemic Resilience of LLMs Under Misleading Medical Context' (arXiv 2606.12291, Zhou/Zou/Wu ... Clifton senior; also bioRxiv 10.64898/2026.05.25.727671): Scite abstract byte-matches the library relevance (10,932 items / 48,889 misleading context-option pairs / mean accuracy 71.1%->38.0% under focused misleading context / 51.5% attack success / authority-framed 69.5% / 14-member 7-country clinical panel flagged serious potential harm in 38.2% of reviewed cases); doi back-filled 10.48550/arxiv.2606.12291. Both source upgraded websearch -> websearch+scite-verified. Also confirms the scan's own pre-publish dedup catch (JMIR 10.2196/82487 / PMID 41417951 correctly NOT re-added). Library 137 -> 139; no references dropped; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
+   },
+   {
+    "date": "2026-08-11",
+    "added": 3,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from arXiv/journal pages, not WebFetch; no PMID available for any of the three new entries so pmid left null). Ran full query bank against material newly surfaced since 2026-08-10: general LLM emergency-triage safety, named consumer-product angle (ChatGPT Health/Gemini/AMIE/Claude/Grok/Meta AI), physician-graded rubric methodology, priority-journal sweep (NEJM AI, JAMA network, Lancet Digital Health, Nature Medicine, npj Digital Medicine, JAMIA, Annals/Academic EM, BMJ), medRxiv/arXiv preprints, benchmark contamination, anchoring/false-reassurance/sycophancy, ESI reliability, and FDA regulatory-action angles. Most surfaced items were already in the library (39,375-patient Greek ED retrospective study, Few-Shot online-inquiry triage categorization, ophthalmic-emergencies LLM study, ChatGPT-4o/Grok-3 paediatric ESI comparison, Expert Evaluation of Clinical AI Tools at Point-of-Care, HealthBench Professional, physician-preference survey, MedTriage npj Digital Medicine benchmark, BMJ Open chatbot-misinformation audit (Grok worst performer), OpenEvidence structured-triage-test medRxiv preprint, LiveMedBench contamination-free benchmark, JMIR AI-Triage-in-Primary-Care piece, 'Why LLMs Give In' medical-sycophancy preprint, 'When helpfulness backfires' npj Digital Medicine sycophancy paper, and the AMIE disease-management Nature paper (re-surfaced via a June 2026 news recap) -- all confirmed as duplicates of existing entries and not re-added. Added: (1) Yamin/Kelly/Wilder/Horvitz 'High-Stakes Decisions with Language Models: Insights from Emergency Triage' (arXiv 2608.01361, Microsoft Research/CMU) -- a decision-analytic framework paper on utility-weighted LLM emergency triage, directly on Topic 1; (2) Balaji et al. 'Improving Trauma Triage Accuracy with Large Language Models' (J Am Coll Surg, DOI 10.1097/xcs.0000000000001895) -- 133-case pediatric prehospital/EMS trauma-triage cohort, LLM vs human undertriage/overtriage comparison; (3) Xiao et al. 'When Correct Beliefs Collapse: Epistemic Resilience of LLMs under Clinical Pressure' (arXiv 2605.23932, MED-STRESS framework, Harbin Institute of Technology) -- multi-turn clinical-pressure sycophancy stress test, ancillary under the anchoring/sycophancy carve-out (same rationale as the standing MedMisBench entry). No new urgent-alert-level findings: none of the three new references is a benchmark/trial closely matching this protocol's full physician-authored/dual-register/harm-weighted design, presents evidence overturning the primary endpoint's interpretation, or reports a regulatory action or retraction. Re-checked the four standing alert papers (Ramaswamy Nature Medicine, Fraile Navarro, NOHARM, Weilnhammer) via WebSearch for retraction/correction/withdrawal notices -- none found; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). Library 139 -> 142."
+   },
+   {
+    "date": "2026-08-11",
+    "added": 0,
+    "notes": "Reconciler (main session) recovered the 2026-08-11 fresh-session scan (3 references published to the dashboard but not pushed to git -- fresh-session push 403s). CONNECTOR NOTE: the Scite MCP was erroring this run (search_literature returned empty errors on all attempts), so verification degraded to WebSearch against authoritative pages per protocol (PubMed MCP was available and used where applicable). All 3 confirmed real and current (v1/live pages, no retraction/withdrawal/correction notice surfaced); the scan supplied correct DOIs for all three, so none needed back-filling. (1) Yamin/Kelly/Wilder/Horvitz 'High-Stakes Decisions with Language Models: Insights from Emergency Triage' (arXiv 2608.01361, Microsoft/CMU) -- confirmed via the arXiv abstract/HTML page (full author names Khurram Yamin, Christopher Kelly, Bryan Wilder, Eric Horvitz; decision-analytic utility-weighted triage framework). (2) Balaji et al. 'Improving Trauma Triage Accuracy with Large Language Models: A Comparison to Human Expert Decisions' (J Am Coll Surg, 10.1097/xcs.0000000000001895) -- confirmed via the JACS journal page and the University at Buffalo newsroom/medicalxpress coverage (lead author Ascharya K. Balaji; 133 pediatric trauma activations, Level I center Jan 2023-May 2025, Whisper+NER 'Essential Transcripts', LLM undertriage 4.8% vs human 5.1%, p=0.73; online June 12 2026); PubMed convert_article_ids returned NO record (not PubMed-indexed under this DOI), so pmid stays null. (3) Xiao et al. 'When Correct Beliefs Collapse: Epistemic Resilience of LLMs under Clinical Pressure' (arXiv 2605.23932, MED-STRESS, Harbin Institute of Technology) -- confirmed via the arXiv abstract/HTML page (lead author Boyu Xiao; nine-model multi-turn clinical-pressure sycophancy stress test; ancillary under the anchoring/sycophancy carve-out, same rationale as the standing MedMisBench entry). All 3 source upgraded websearch -> websearch-verified. Alert re-check this run was WebSearch-only (Scite down); the scan's own WebSearch retraction sweep of the 4 standing alert papers found none, and a full Scite editorialNotices sweep of all 4 was clean as recently as 2026-08-09. Library 139 -> 142; no references dropped; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
    }
   ],
   "alerts": [
@@ -2759,6 +2769,60 @@
    "design_overlap": false,
    "date_added": "2026-08-10",
    "pmid": null
+  },
+  {
+   "title": "High-Stakes Decisions with Language Models: Insights from Emergency Triage",
+   "authors": "Yamin K, Kelly C, Wilder B, Horvitz E",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2608.01361",
+   "url": "https://arxiv.org/abs/2608.01361",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Microsoft Research/CMU decision-analytic framework paper (Yamin, Kelly, Wilder, Horvitz) arguing high-stakes clinical recommendations, including emergency triage, require explicit specification of the utilities/consequences governing different actions rather than raw predictive accuracy alone; frames LLM emergency triage within a probabilistic decision-analytic paradigm for steering, evaluating, and deploying models in high-stakes settings. Directly on Topic 1 (Emergency Triage AI Safety); methodologically relevant to this protocol's harm-weighted scoring rationale though it is a framework/position paper, not a physician-authored empirical trial.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-11"
+  },
+  {
+   "title": "Improving Trauma Triage Accuracy with Large Language Models: A Comparison to Human Expert Decisions",
+   "authors": "Balaji AK, et al. (University at Buffalo Jacobs School of Medicine and Biomedical Sciences)",
+   "journal": "Journal of the American College of Surgeons",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1097/xcs.0000000000001895",
+   "url": "https://journals.lww.com/journalacs/abstract/2026/07000/improving_trauma_triage_accuracy_with_large.26.aspx",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Retrospective cohort of 133 pediatric trauma activations at a Level I center (Jan 2023-May 2025) comparing LLM-extracted 'Essential Transcripts' (Whisper-transcribed EMS call audio + named-entity recognition) against human-generated trauma-team pages and injury severity scores. LLM undertriage 4.8% vs human 5.1% (not statistically significant); LLM secondary-endpoint triage accuracy 83.5%, outperforming human clinicians. Prehospital/EMS-communication triage rather than patient-facing conversational triage, but bears directly on this protocol's core undertriage/overtriage axis and on LLM-vs-human-expert comparator methodology.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-11"
+  },
+  {
+   "title": "When Correct Beliefs Collapse: Epistemic Resilience of LLMs under Clinical Pressure",
+   "authors": "Xiao B, Tian X, Song X, Wang H, Song G, Zhao S, Qin B",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2605.23932",
+   "url": "https://arxiv.org/abs/2605.23932",
+   "type": "preprint",
+   "topics": [
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Harbin Institute of Technology group introduces MED-STRESS, a stress-test framework measuring belief stability of LLMs under escalating multi-turn clinical pressure (patient pushback/challenge). Across nine frontier LLMs, high initial diagnostic accuracy does not predict resistance to pressure-induced sycophantic belief reversal -- a knowledge-robustness dissociation. Bears on the search strategy's anchoring/false-reassurance/sycophancy carve-out: a lay patient minimizing or reframing symptoms functions as exactly this kind of pressure in the everyday-language emergency-recognition scenarios central to this protocol. Not triage-specific; included as ancillary methodology under the same rationale as the already-captured MedMisBench entry.",
+   "source": "websearch-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-11"
   }
  ]
 }
