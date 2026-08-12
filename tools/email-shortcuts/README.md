@@ -5,21 +5,15 @@ matching procedure phrase is typed at the cursor.
 
 | Shortcut | Text inserted |
 |----------|---------------|
-| **Ctrl+R** | `RIGHT GSV (AK) AND RIGHT GSV (BK) VARITHENA AND RIGHT LEG SCLEROTHERAPY` |
+| **Ctrl+R** | `RIGHT GSV (AK) RFA AND RIGHT GSV (BK) VARITHENA AND RIGHT LEG SCLEROTHERAPY` |
 | **Ctrl+L** | `LEFT GSV (AK) RFA AND LEFT GSV (BK) VARITHENA AND LEFT LEG SCLEROTHERAPY` |
 | **Ctrl+P** | `RIGHT/LEFT CALF PERFORATOR EVLT` |
 | **Ctrl+V** | `VARITHENA OF LARGE VARICES RIGHT/LEFT LEG` |
 | **Ctrl+S** | `SCLEROTHERAPY OF BILATERAL LEGS` |
 
-## ⚠️ Verify the wording before relying on it
-
-Two spots in the original request looked like typos, so please confirm:
-
-1. **Ctrl+R** — the request read `RIGHT GSV (AK) AND RIGHT GSV (BK) VARITHEN`.
-   It is stored here as `…GSV (AK) AND RIGHT GSV (BK) VARITHENA…` (spelling fixed).
-   If the right leg should mirror the left leg — i.e. `RIGHT GSV (AK) RFA AND …` —
-   add **RFA** after `(AK)` in each file's *EDIT SNIPPETS HERE* block.
-2. **Varithena** spelling was normalized everywhere (`VARITHEN` → `VARITHENA`).
+Both leg plans follow the same pattern — GSV above-knee **RFA**, GSV below-knee
+**Varithena**, then leg sclerotherapy. Wording and the **VARITHENA** spelling
+were confirmed 2026-08.
 
 Ctrl+P and Ctrl+V insert `RIGHT/LEFT` literally — delete the side that does not
 apply after inserting.

@@ -19,7 +19,7 @@ Option Explicit
 ' ============================================================================
 
 ' =========================== EDIT SNIPPETS HERE =============================
-Private Const SNIP_R As String = "RIGHT GSV (AK) AND RIGHT GSV (BK) VARITHENA AND RIGHT LEG SCLEROTHERAPY"
+Private Const SNIP_R As String = "RIGHT GSV (AK) RFA AND RIGHT GSV (BK) VARITHENA AND RIGHT LEG SCLEROTHERAPY"
 Private Const SNIP_L As String = "LEFT GSV (AK) RFA AND LEFT GSV (BK) VARITHENA AND LEFT LEG SCLEROTHERAPY"
 Private Const SNIP_P As String = "RIGHT/LEFT CALF PERFORATOR EVLT"
 Private Const SNIP_V As String = "VARITHENA OF LARGE VARICES RIGHT/LEFT LEG"
