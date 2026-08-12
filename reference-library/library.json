@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-11",
+  "last_updated": "2026-08-12",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -106,6 +106,16 @@
     "date": "2026-08-11",
     "added": 0,
     "notes": "Reconciler (main session) recovered the 2026-08-11 fresh-session scan (3 references published to the dashboard but not pushed to git -- fresh-session push 403s). CONNECTOR NOTE: the Scite MCP was erroring this run (search_literature returned empty errors on all attempts), so verification degraded to WebSearch against authoritative pages per protocol (PubMed MCP was available and used where applicable). All 3 confirmed real and current (v1/live pages, no retraction/withdrawal/correction notice surfaced); the scan supplied correct DOIs for all three, so none needed back-filling. (1) Yamin/Kelly/Wilder/Horvitz 'High-Stakes Decisions with Language Models: Insights from Emergency Triage' (arXiv 2608.01361, Microsoft/CMU) -- confirmed via the arXiv abstract/HTML page (full author names Khurram Yamin, Christopher Kelly, Bryan Wilder, Eric Horvitz; decision-analytic utility-weighted triage framework). (2) Balaji et al. 'Improving Trauma Triage Accuracy with Large Language Models: A Comparison to Human Expert Decisions' (J Am Coll Surg, 10.1097/xcs.0000000000001895) -- confirmed via the JACS journal page and the University at Buffalo newsroom/medicalxpress coverage (lead author Ascharya K. Balaji; 133 pediatric trauma activations, Level I center Jan 2023-May 2025, Whisper+NER 'Essential Transcripts', LLM undertriage 4.8% vs human 5.1%, p=0.73; online June 12 2026); PubMed convert_article_ids returned NO record (not PubMed-indexed under this DOI), so pmid stays null. (3) Xiao et al. 'When Correct Beliefs Collapse: Epistemic Resilience of LLMs under Clinical Pressure' (arXiv 2605.23932, MED-STRESS, Harbin Institute of Technology) -- confirmed via the arXiv abstract/HTML page (lead author Boyu Xiao; nine-model multi-turn clinical-pressure sycophancy stress test; ancillary under the anchoring/sycophancy carve-out, same rationale as the standing MedMisBench entry). All 3 source upgraded websearch -> websearch-verified. Alert re-check this run was WebSearch-only (Scite down); the scan's own WebSearch retraction sweep of the 4 standing alert papers found none, and a full Scite editorialNotices sweep of all 4 was clean as recently as 2026-08-09. Library 139 -> 142; no references dropped; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
+   },
+   {
+    "date": "2026-08-12",
+    "added": 3,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from journal/PMC/Nature/JAMA pages, not WebFetch). Ran full query bank against material newly surfaced or previously missed: general LLM emergency-triage safety, named consumer-product angle (ChatGPT Health/Gemini/Grok/Meta AI/AMIE/Claude), physician-graded rubric methodology, lay-language/health-literacy angle, benchmark contamination, ESI reliability, priority-journal sweep (NEJM AI, JAMA network, Lancet Digital Health, Nature Medicine, npj Digital Medicine, EM journals, JAMIA, BMJ), and preprint servers. Most candidates surfacing this run (Mount Sinai/Ramaswamy Nature Medicine, Fraile Navarro replication, NOHARM, Weilnhammer one-shot psychiatric triage, HealthBench Professional, the 39,375-patient ED retrospective, the Balaji JACS pediatric trauma paper, the BMJ Open 5-chatbot misinformation audit, LiveMedBench, and other named-product/red-teaming items) were already present in the library from prior runs -- confirmed via DOI/title dedupe, not re-added. Three genuinely new/previously-missed references added: (1) Bean et al. Nature Medicine randomized preregistered trial showing a large lay-user vs. model-alone performance gap in medical-assistant use (directly on the Core Question Anchor's lay-language dimension; PMID 41663592 confirmed); (2) Brewster et al. JAMA Network Open audit of consumer chatbot safeguards for adolescent emergent health concerns (PMID 41129154 confirmed; predates this protocol's original seed sweep but was previously missed); (3) Weilnhammer et al. Nature Medicine SIM-VAIL multi-turn psychiatric-risk chatbot audit framework, published 2026-08-07 (no PMID yet -- likely not yet PubMed-indexed; follow-on work from the same group as the standing 2026-08-06 alert, marked design_overlap given its harm-graded multi-model behavioral-audit architecture). Checked all three for retraction/correction notices: none retracted; the Bean et al. paper has a minor Publisher Correction (axis-label fix only, noted in its relevance field). No new urgent-alert-tier finding identified this run (no benchmark/trial closely matching this protocol's specific triage design, no new evidence directly overturning the primary endpoint's interpretation, and no regulatory action) -- existing alerts left unresolved and untouched per protocol."
+   },
+   {
+    "date": "2026-08-12",
+    "added": 0,
+    "notes": "Reconciler (main session) recovered the 2026-08-12 fresh-session scan (3 references published to the dashboard but not pushed to git -- fresh-session push 403s). All 3 independently verified with BOTH connectors available this run (PubMed MCP + Scite MCP). (1) Bean et al. 'Reliability of LLMs as medical assistants for the general public: a randomized preregistered study' (Nat Med 2026;32(2):609-615, 10.1038/s41591-025-04074-y): PubMed confirmed full record PMID 41663592 (PMC12920132; Randomized Controlled Trial; 11-author Oxford Internet Institute team; abstract matches -- n=1,298, models-alone 94.9% condition / 56.3% disposition vs participants <34.5% / <44.2%). Scite editorialNotices returned status 'has correction' -> noticeDoi 10.1038/s41591-026-04404-8 dated 2026-04-17, i.e. a Publisher CORRECTION, NOT a retraction or expression of concern -- consistent with the scan's characterization (cosmetic Figure 2a y-axis label fix, findings unaffected), and already transparently disclosed in the entry's relevance field. source websearch -> websearch+pubmed-verified. (2) Brewster et al. 'Characteristics and Safety of Consumer Chatbots for Emergent Adolescent Health Concerns' (JAMA Netw Open 2025;8(10):e2539022, 10.1001/jamanetworkopen.2025.39022): PubMed confirmed PMID 41129154 (PMC12550634; authors Brewster/Zahedivash/Tse/Bourgeois/Hadland); Scite editorialNotices clean. source websearch -> websearch+pubmed-verified. (3) Weilnhammer et al. 'A clinically validated framework for auditing AI chatbot behavior in mental health interactions' (SIM-VAIL, Nat Med 10.1038/s41591-026-04577-2, published 2026-08-07): PubMed convert_article_ids returned NO record (not yet indexed), pmid stays null; Scite confirmed the record and a byte-matching abstract (SIM-VAIL; 810 conversations / 9 frontier chatbots / 30 profiles / 13 clinically grounded risk dimensions; authors Weilnhammer/Hou/Luettgau...), editorialNotices clean; design_overlap true (follow-on from the same group as the standing 2026-08-06 Weilnhammer psychiatric-triage alert). source websearch -> websearch+scite-verified. Library 142 -> 145; no references dropped; no new alerts and no resolution-state changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer arXiv preprint open). Note: the newly added Weilnhammer Nature Medicine SIM-VAIL paper is a peer-reviewed companion to the standing arXiv one-shot-triage alert but does not itself trigger a new alert (psychiatric conversational-risk audit, not lay-language ESI undertriage)."
    }
   ],
   "alerts": [
@@ -2823,6 +2833,66 @@
    "source": "websearch-verified",
    "design_overlap": false,
    "date_added": "2026-08-11"
+  },
+  {
+   "title": "Reliability of LLMs as medical assistants for the general public: a randomized preregistered study",
+   "authors": "Bean AM, Payne RE, Parsons G, Kirk HR, Ciro J, Mosquera-Gómez R, Hincapié M S, Ekanayaka AS, Tarassenko L, Rocher L, Mahdi A",
+   "journal": "Nature Medicine",
+   "year": 2026,
+   "pmid": "41663592",
+   "doi": "10.1038/s41591-025-04074-y",
+   "url": "https://www.nature.com/articles/s41591-025-04074-y",
+   "type": "journal-article",
+   "topics": [
+    "lay-language",
+    "patient-facing-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Oxford Internet Institute randomized preregistered trial (n=1,298 UK public participants) testing whether LLM assistance (GPT-4o, Llama 3, Command R+) improves lay users' ability to identify the correct condition and course of action across ten physician-validated vignettes, several depicting urgent/emergent presentations (e.g., severe post-alcohol headache, new-mother breathlessness). Models alone scored 94.9% condition accuracy / 56.3% correct disposition, but participants using the same models achieved <34.5% condition accuracy / <44.2% correct disposition -- no better than search-engine or own-judgment controls. Directly on the Core Question Anchor: shows frontier-model clinical knowledge does not reliably transmit through lay/conversational human-AI interaction, the mechanism this protocol's dual-register design probes. A Publisher Correction (10.1038/s41591-026-04404-8, April 2026) fixed a y-axis mislabel in Figure 2a only; does not affect reported findings.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-12"
+  },
+  {
+   "title": "Characteristics and Safety of Consumer Chatbots for Emergent Adolescent Health Concerns",
+   "authors": "Brewster RCL, Zahedivash A, Tse G, Bourgeois F, Hadland SE",
+   "journal": "JAMA Network Open",
+   "year": 2025,
+   "pmid": "41129154",
+   "doi": "10.1001/jamanetworkopen.2025.39022",
+   "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2840495",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "policy-regulation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Cross-sectional audit of consumer chatbots (general-assistant and companion types) examining content policies and simulated behavior in response to adolescent health crises, including emergent/self-harm scenarios. General-assistant chatbots more consistently included self-harm content policies than companion chatbots (100% vs 46.7%). Bears on Topic 1 (emergency triage AI safety) and the consumer-product-name search angle for a vulnerable patient-facing population; predates this protocol's 2026-08-02 seed sweep but was not previously captured.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-12"
+  },
+  {
+   "title": "A clinically validated framework for auditing AI chatbot behavior in mental health interactions",
+   "authors": "Weilnhammer V, Hou KYC, Luettgau L, Summerfield C, Dolan R, Nour MM",
+   "journal": "Nature Medicine",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.1038/s41591-026-04577-2",
+   "url": "https://www.nature.com/articles/s41591-026-04577-2",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "UCL/Oxford/UK AI Security Institute team (same group behind the standing 2026-08-06 psychiatric one-shot triage alert) introduces SIM-VAIL, an automated multi-turn evaluation framework that simulates users with specific psychiatric vulnerabilities and adversarial conversational intents (e.g., pressuring the chatbot to downplay symptoms or endorse risky actions) against 9 frontier consumer chatbots (Claude, ChatGPT, Gemini, Grok, Llama). Across 810 conversations / 90,000+ turn-level ratings, concerning vulnerability-amplifying behavior was widespread across nearly all simulated user profiles, reduced but not eliminated in newer models; automated scoring showed substantial agreement with clinician raters. Methodologically close to this protocol's own harm-graded, multi-model behavioral-audit architecture (systematic multi-turn adversarial probing scored against clinical risk dimensions), though the domain is psychiatric conversational risk rather than one-shot ESI-style triage disposition. No PMID yet (published 2026-08-07; likely not yet PubMed-indexed).",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-12"
   }
  ]
 }

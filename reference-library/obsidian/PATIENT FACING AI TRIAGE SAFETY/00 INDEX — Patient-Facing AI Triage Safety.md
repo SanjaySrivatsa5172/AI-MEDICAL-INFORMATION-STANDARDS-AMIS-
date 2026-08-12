@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-11
-total-references: 142
+last-updated: 2026-08-12
+total-references: 145
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-11** · 142 references.
+Updated daily by automated scan. Last scan: **2026-08-12** · 145 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -48,6 +48,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] — *Journal of Medical Internet Research* 2026
 - [[Rodman 2026 — Performance of a large language model on the reasoning tasks of a…]] — *Science* 2026
 - [[Hua 2026 — CARE-Bench Benchmarking Patient-Facing LLM Triage]] — *arXiv preprint* 2026
+- [[Weilnhammer 2026 — A clinically validated framework for auditing AI chatbot behavior in…]] — *Nature Medicine* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -155,6 +156,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Costa-Gomes 2026 — Public use of a generalist LLM chatbot for health queries]] (2026)
 - [[Reis 2026 — Disclaimers and Referral Patterns for Medical Advice Across Urgency…]] (2026)
 - [[Ping 2026 — Why LLMs Give In Conversational Factors and Reasoning Behind Medical…]] (2026)
+- [[Bean 2026 — Reliability of LLMs as medical assistants for the general public a…]] (2026)
+- [[Weilnhammer 2026 — A clinically validated framework for auditing AI chatbot behavior in…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -170,6 +173,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tu 2025 — Towards conversational diagnostic artificial intelligence]] (2025)
 - [[Chen 2025 — When helpfulness backfires LLMs and the risk of false medical…]] (2025)
 - [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
+- [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
 - [[Garcia 2024 — Artificial Intelligence-Generated Draft Replies to Patient Inbox…]] (2024)
 - [[Knitza 2024 — Comparison of Two Symptom Checkers (Ada and Symptoma) in the…]] (2024)
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] (2024)
@@ -242,6 +246,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Hua 2026 — CARE-Bench Benchmarking Patient-Facing LLM Triage]] (2026)
 - [[Zhou 2026 — MedMisBench Measuring Epistemic Resilience of LLMs Under Misleading…]] (2026)
 - [[Xiao 2026 — When Correct Beliefs Collapse Epistemic Resilience of LLMs under…]] (2026)
+- [[Weilnhammer 2026 — A clinically validated framework for auditing AI chatbot behavior in…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -291,6 +296,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Sukhera 2026 — Structured Red Teaming Improves Safety of a Clinical AI Multi-Agent…]] (2026)
 - [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
 - [[Ping 2026 — Why LLMs Give In Conversational Factors and Reasoning Behind Medical…]] (2026)
+- [[Bean 2026 — Reliability of LLMs as medical assistants for the general public a…]] (2026)
+- [[Weilnhammer 2026 — A clinically validated framework for auditing AI chatbot behavior in…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -301,6 +308,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Rosen 2025 — The perils of politeness how large language models may amplify…]] (2025)
 - [[Chen 2025 — When helpfulness backfires LLMs and the risk of false medical…]] (2025)
 - [[Wu 2025 — First, do NOHARM towards clinically safe large language models]] (2025)
+- [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
 - [[Knitza 2024 — Comparison of Two Symptom Checkers (Ada and Symptoma) in the…]] (2024)
 - [[Schmidgall 2024 — Evaluation and mitigation of cognitive biases in medical language…]] (2024)
 - [[Hager 2024 — Evaluation and mitigation of the limitations of large language models…]] (2024)
@@ -338,6 +346,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Liaw 2026 — Maturity, Safety, and Equity of AI-Enabled Systems and Triage in…]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
+- [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
 - [[Gilbert 2023 — Large language model AI chatbots require approval as medical devices]] (2023)
 - [[Mesko 2023 — The imperative for regulatory oversight of large language models (or…]] (2023)
 
