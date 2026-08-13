@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-12",
+  "last_updated": "2026-08-13",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -116,6 +116,16 @@
     "date": "2026-08-12",
     "added": 0,
     "notes": "Reconciler (main session) recovered the 2026-08-12 fresh-session scan (3 references published to the dashboard but not pushed to git -- fresh-session push 403s). All 3 independently verified with BOTH connectors available this run (PubMed MCP + Scite MCP). (1) Bean et al. 'Reliability of LLMs as medical assistants for the general public: a randomized preregistered study' (Nat Med 2026;32(2):609-615, 10.1038/s41591-025-04074-y): PubMed confirmed full record PMID 41663592 (PMC12920132; Randomized Controlled Trial; 11-author Oxford Internet Institute team; abstract matches -- n=1,298, models-alone 94.9% condition / 56.3% disposition vs participants <34.5% / <44.2%). Scite editorialNotices returned status 'has correction' -> noticeDoi 10.1038/s41591-026-04404-8 dated 2026-04-17, i.e. a Publisher CORRECTION, NOT a retraction or expression of concern -- consistent with the scan's characterization (cosmetic Figure 2a y-axis label fix, findings unaffected), and already transparently disclosed in the entry's relevance field. source websearch -> websearch+pubmed-verified. (2) Brewster et al. 'Characteristics and Safety of Consumer Chatbots for Emergent Adolescent Health Concerns' (JAMA Netw Open 2025;8(10):e2539022, 10.1001/jamanetworkopen.2025.39022): PubMed confirmed PMID 41129154 (PMC12550634; authors Brewster/Zahedivash/Tse/Bourgeois/Hadland); Scite editorialNotices clean. source websearch -> websearch+pubmed-verified. (3) Weilnhammer et al. 'A clinically validated framework for auditing AI chatbot behavior in mental health interactions' (SIM-VAIL, Nat Med 10.1038/s41591-026-04577-2, published 2026-08-07): PubMed convert_article_ids returned NO record (not yet indexed), pmid stays null; Scite confirmed the record and a byte-matching abstract (SIM-VAIL; 810 conversations / 9 frontier chatbots / 30 profiles / 13 clinically grounded risk dimensions; authors Weilnhammer/Hou/Luettgau...), editorialNotices clean; design_overlap true (follow-on from the same group as the standing 2026-08-06 Weilnhammer psychiatric-triage alert). source websearch -> websearch+scite-verified. Library 142 -> 145; no references dropped; no new alerts and no resolution-state changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer arXiv preprint open). Note: the newly added Weilnhammer Nature Medicine SIM-VAIL paper is a peer-reviewed companion to the standing arXiv one-shot-triage alert but does not itself trigger a new alert (psychiatric conversational-risk audit, not lay-language ESI undertriage)."
+   },
+   {
+    "date": "2026-08-13",
+    "added": 4,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from journal/PubMed/arXiv pages, not direct WebFetch/PubMed MCP -- no MCP connectors available in this scheduled fresh session). Ran full query bank: general LLM emergency-triage safety, named consumer-product angle (ChatGPT Health/Gemini/AMIE/Claude/Grok/Meta AI), physician-graded rubric methodology, lay-language/health-literacy angle, benchmark contamination, ESI reliability, priority-journal sweep (NEJM AI, JAMA network, Lancet Digital Health, Nature Medicine, npj Digital Medicine, EM journals, JAMIA, BMJ), preprint servers, and FDA regulatory-action angle. Most surfaced candidates were already in the library (EQUITRIAGE, Few-Shot triage categorization, Pervasive Bias ED triage, Balaji JACS trauma triage, NEJM AI 174,648-visit implementation study, npj specialty-triage benchmarking-competition paper, BMJ Open chatbot-misinformation audit, Winters v. OpenAI lawsuit context -- confirmed by DOI/title dedupe, not re-added). Added 4 genuinely new/previously-missed references: (1) Souza et al. PLOS One scoping review of AI in ED triage (PMID 42348524, supporting-literature context for Topic 1); (2) Yun et al. 'This Treatment Works, Right?' (arXiv 2604.05051) -- controlled RAG study showing LLM medical-QA answers contradict across positive/negative question framing, direct hit on the Core Question Anchor's lay-language dimension; (3) MIRA (arXiv 2605.28025, Xu et al.) -- bilingual benchmark finding 'Differential Information Dilution' where low-health-literacy phrasing gets systematically thinner LLM answers, also a direct lay-language/health-literacy hit; (4) SymptomAI (arXiv 2605.04012, Google/Fitbit, Breda et al.) -- 13,917-participant real-world conversational symptom-assessment study with an independent-clinician comparator, direct hit on the everyday-language conversational symptom-description dimension. Considered and EXCLUDED: an AXA Health/Censuswide consumer survey on AI symptom-checker use and delayed care (industry market-research poll, not peer-reviewed/journal-published, fails the clinical-bias/peer-review inclusion filter despite topical relevance -- noted for awareness only). Checked all 4 new candidates and the 4 standing alert papers (Ramaswamy, Fraile Navarro, NOHARM, Weilnhammer) for retraction/correction/withdrawal notices via WebSearch: none found. No new urgent-alert-tier finding today (no benchmark/trial closely matching this protocol's full physician-authored/dual-register/harm-weighted design, no new evidence overturning the primary endpoint's interpretation, no regulatory action, no retraction of protocol-cited work); existing alerts left unresolved and untouched per protocol (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open)."
+   },
+   {
+    "date": "2026-08-13",
+    "added": 0,
+    "notes": "Reconciler (main session) recovered the 2026-08-13 fresh-session scan (4 references published to the dashboard but not pushed to git -- fresh-session push 403s; the scan reported it had NO MCP connectors this run and was WebSearch-only). This reconciler run had BOTH PubMed MCP and Scite MCP available, so all 4 were re-verified at full strength; none retracted or corrected. (1) Souza et al. 'Artificial Intelligence in emergency department triage: A scoping review' (PLoS One 2026;21(6):e0352338, 10.1371/journal.pone.0352338): PubMed confirmed full record PMID 42348524 (PMC13298922; JBI/PRISMA-ScR Scoping Review; 19 studies across 13 databases). Normalized the author list to the PubMed-authoritative form -- the scan had minor initial errors (Costa LCC -> Campos da Costa LC; Silva Filho JAA -> JAAD; Dantas RAN -> Neves Dantas RA; particle-restored de Oliveira / de Souza). source websearch -> websearch+pubmed-verified. (2) Yun et al. 'This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA' (arXiv 2604.05051): Scite-confirmed title and authors (Hye Sun Yun, Geetika Kapoor, Michael Mackert), editorialNotices clean; design_overlap (lay-language question-framing dimension). source -> websearch+scite-verified. (3) Xu et al. 'MIRA: A Bilingual Benchmark for Medical Information Response Audit' (arXiv 2605.28025): Scite-confirmed title and authors (Mengyu Xu, Qiaoxin Yang, Qianqian Wang), clean; design_overlap (health-literacy 'Differential Information Dilution' dimension). source -> websearch+scite-verified. (4) Breda et al. 'SymptomAI: Toward a Conversational AI Agent for Everyday Symptom Assessment' (arXiv 2605.04012, Google Research/Fitbit): Scite abstract BYTE-MATCHES the entry -- N=13,917 randomized via the Fitbit app across 5 conversational AI agents, 1,228-participant clinician-diagnosis subset, 517 panel-evaluated over 250+ annotation hours, SymptomAI DDx significantly more accurate than independent clinicians on the same dialogue (OR=2.56, p<0.001), and agentic dedicated-symptom-interview strategies superior to user-guided baselines (p<0.001); authors Breda/Yousif/Hawkins confirmed, editorialNotices clean; design_overlap (everyday-language conversational symptom-assessment with physician comparator). source -> websearch+scite-verified. Library 145 -> 149; no references dropped; no new alerts and no resolution-state changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). The scan also correctly EXCLUDED an AXA Health/Censuswide consumer survey as non-peer-reviewed market research -- concur."
    }
   ],
   "alerts": [
@@ -2893,6 +2903,85 @@
    "source": "websearch+scite-verified",
    "design_overlap": true,
    "date_added": "2026-08-12"
+  },
+  {
+   "title": "Artificial Intelligence in emergency department triage: A scoping review",
+   "authors": "Souza LL, de Oliveira YCN, Campos da Costa LC, Silva Filho JAAD, de Souza ATF, Mourão VG, Neves Dantas RA, Botarelli FR, Ribeiro KRB",
+   "journal": "PLOS One",
+   "year": 2026,
+   "pmid": "42348524",
+   "doi": "10.1371/journal.pone.0352338",
+   "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0352338",
+   "type": "review",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "JBI-methodology/PRISMA-ScR scoping review (13 databases, no language/date restriction) mapping the evidence base on AI implementation and performance in ED triage; broad supporting-literature context for Topic 1.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-13"
+  },
+  {
+   "title": "This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA",
+   "authors": "Yun HS, Kapoor G, Mackert M, Kouzy R, Xu W, Li JJ, Wallace BC",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2604.05051",
+   "url": "https://arxiv.org/abs/2604.05051",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "lay-language",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Controlled RAG medical-QA study: 6,614 query pairs varying patient question framing (positive vs. negative) and language style (technical vs. plain) grounded in clinical-trial abstracts, evaluated across 8 LLMs; positively- and negatively-framed pairs produced significantly more contradictory conclusions than same-framing pairs. Direct evidence on the Core Question Anchor's lay-language/register-effect dimension.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-13"
+  },
+  {
+   "title": "MIRA: A Bilingual Benchmark for Medical Information Response Audit",
+   "authors": "Xu M, Yang Q, Wang Q, Dai X, Wu W, Gao C",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2605.28025",
+   "url": "https://arxiv.org/abs/2605.28025",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "lay-language",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Bilingual controlled benchmark (4,320 prompts built from 60 medically-reviewed low-risk health questions) testing whether LLMs give comparable medical information across user-side language/register/health-literacy signals; identifies 'Differential Information Dilution' -- across 5 mainstream LLMs, responses to low-health-literacy phrasing consistently omitted more key information and offered fewer concrete next steps. Direct evidence on the Core Question Anchor's health-literacy dimension.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-13"
+  },
+  {
+   "title": "SymptomAI: Toward a Conversational AI Agent for Everyday Symptom Assessment",
+   "authors": "Breda J, Yousif F, Hawkins B, Cotoi M, Liu M, Luo R, Chen PC, Schaekermann M, Schmidgall S, Liu X, et al.",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2605.04012",
+   "url": "https://arxiv.org/abs/2605.04012",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "physician-evaluation",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "Google/Fitbit conversational symptom-assessment agent randomized to 13,917 real-world users comparing 5 AI-agent conversational strategies against independent clinicians reviewing the same dialogue; agentic strategies running a dedicated symptom interview before diagnosing significantly outperformed clinician comparators (OR 2.56, p<0.001) on differential-diagnosis accuracy. Large real-world physician-comparator study directly on the Core Question Anchor's conversational/everyday-language symptom-description dimension.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-13"
   }
  ]
 }
