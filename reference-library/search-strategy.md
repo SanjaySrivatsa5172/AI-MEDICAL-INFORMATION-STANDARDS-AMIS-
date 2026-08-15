@@ -144,6 +144,29 @@ filtered by the Core Question Anchor and the Inclusion Filter below. Only the
 - `tier: core` = cited in the protocol packet; `tier: ancillary` = collected.
 - Every entry records `source` (protocol / pubmed / scite / manual).
 
+## Single-Writer Policy (PI directive, 2026-08-15)
+
+To end multi-session write conflicts (dashboard 409s / forked `library.json`),
+exactly **one** session is the canonical writer of this reference library.
+
+- **Canonical writer:** the reference-library reconciler main session (persistent;
+  reconciler trigger `trig_01VkgTjn9QapNNosjrWmVvem`). It ALONE may commit
+  `reference-library/library.json` and publish / republish the dashboard artifact
+  `528465e1-0a3b-40aa-81ab-00373aaa2461`.
+- **Every other session** — the fresh-session daily scan, `session_019fsE75`
+  (PR #2 Cedars redraft), and any future session — must treat `library.json` and
+  the dashboard artifact as **READ-ONLY**. They may *propose* candidate references
+  (in a scan report or PR comment) but must **NOT** write `library.json` or publish
+  the artifact.
+- The canonical writer performs the whole pipeline atomically: scan → verify
+  (PubMed/Scite, else WebSearch) → dedupe → write → build → commit/push → republish.
+
+Rationale: git push and Artifact publish both succeed only from the persistent
+reconciler session; fresh-session scans cannot push (403) and their artifact
+publishes are the sole source of the forks. One writer removes the conflict.
+Mechanical enforcement (switching off the separate daily-scan trigger and folding
+the scan into the canonical writer) is tracked separately with the PI.
+
 ## Urgent Alert Protocol
 
 A newly found reference is **major** when it would plausibly require addition to or
