@@ -128,9 +128,24 @@
     "notes": "Reconciler (main session) recovered the 2026-08-13 fresh-session scan (4 references published to the dashboard but not pushed to git -- fresh-session push 403s; the scan reported it had NO MCP connectors this run and was WebSearch-only). This reconciler run had BOTH PubMed MCP and Scite MCP available, so all 4 were re-verified at full strength; none retracted or corrected. (1) Souza et al. 'Artificial Intelligence in emergency department triage: A scoping review' (PLoS One 2026;21(6):e0352338, 10.1371/journal.pone.0352338): PubMed confirmed full record PMID 42348524 (PMC13298922; JBI/PRISMA-ScR Scoping Review; 19 studies across 13 databases). Normalized the author list to the PubMed-authoritative form -- the scan had minor initial errors (Costa LCC -> Campos da Costa LC; Silva Filho JAA -> JAAD; Dantas RAN -> Neves Dantas RA; particle-restored de Oliveira / de Souza). source websearch -> websearch+pubmed-verified. (2) Yun et al. 'This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA' (arXiv 2604.05051): Scite-confirmed title and authors (Hye Sun Yun, Geetika Kapoor, Michael Mackert), editorialNotices clean; design_overlap (lay-language question-framing dimension). source -> websearch+scite-verified. (3) Xu et al. 'MIRA: A Bilingual Benchmark for Medical Information Response Audit' (arXiv 2605.28025): Scite-confirmed title and authors (Mengyu Xu, Qiaoxin Yang, Qianqian Wang), clean; design_overlap (health-literacy 'Differential Information Dilution' dimension). source -> websearch+scite-verified. (4) Breda et al. 'SymptomAI: Toward a Conversational AI Agent for Everyday Symptom Assessment' (arXiv 2605.04012, Google Research/Fitbit): Scite abstract BYTE-MATCHES the entry -- N=13,917 randomized via the Fitbit app across 5 conversational AI agents, 1,228-participant clinician-diagnosis subset, 517 panel-evaluated over 250+ annotation hours, SymptomAI DDx significantly more accurate than independent clinicians on the same dialogue (OR=2.56, p<0.001), and agentic dedicated-symptom-interview strategies superior to user-guided baselines (p<0.001); authors Breda/Yousif/Hawkins confirmed, editorialNotices clean; design_overlap (everyday-language conversational symptom-assessment with physician comparator). source -> websearch+scite-verified. Library 145 -> 149; no references dropped; no new alerts and no resolution-state changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). The scan also correctly EXCLUDED an AXA Health/Censuswide consumer survey as non-peer-reviewed market research -- concur."
    },
    {
+    "date": "2026-08-14",
+    "added": 2,
+    "notes": "Reconciled from the published dashboard artifact (main-session merge during the 2026-08-15 run): the 2026-08-14 fresh-session scan had published +3 refs to the dashboard but its git push failed (403), so git HEAD was missing them going into today's run. Recovered 2 genuinely new references -- MedPI (Fajardo V et al., medRxiv, 105-dimension ACGME-aligned patient-facing-AI rubric across 7,097 synthetic conversations) and AIPatient Arena (Niu et al., arXiv 2606.17474, EHR-grounded clinical-consultation evaluation) -- and deduped the third: Wong & Wong 'Multi-Evidence Clinical Reasoning With Retrieval-Augmented Generation for Emergency Triage' (JMIR Med Inform, DOI 10.2196/82026) had been independently rediscovered by today's 2026-08-15 scan before this merge; kept the 2026-08-14 dashboard's version (identical DOI/PMID) and dropped the duplicate. No alert-state changes."
+   },
+   {
     "date": "2026-08-15",
     "added": 1,
     "notes": "digital.health/journals integration (PI directive, 2026-08-14/15). The curated Digital.Health journal index (Daniel Kraft, MD; 28 peer-reviewed digital-health / AI-in-medicine journals, editorially last reviewed 2026-08-11) was supplied by the PI as a PDF because digital.health is blocked by this environment's egress allowlist (live auto-refresh remains pending the allowlist). Actions: (a) snapshotted the full index to reference-library/journal-directory.json -- 28 journals + the #databases block (PubMed, ClinicalTrials.gov) + preprint servers (medRxiv, arXiv); (b) expanded search-strategy.md Journal Coverage to the full 28-journal set (newly added to explicit coverage: JMIR AI, Digital Health (SAGE), Frontiers in Digital Health, BMJ Health & Care Informatics, Cell Reports Medicine, Digital Biomarkers, IEEE JBHI, International Journal of Medical Informatics, Artificial Intelligence in Medicine, Journal of Biomedical Informatics, Applied Clinical Informatics, Telemedicine and e-Health, JMIR mHealth and uHealth, International Journal of Digital Healthcare, Digital Medicine (Wolters Kluwer/ISDM), Health Affairs, Learning Health Systems, NEJM Catalyst, Mayo Clinic Proceedings: Digital Health), retaining the emergency-medicine journals (not on the index) and flagging ClinicalTrials.gov as a new trials-sweep angle (Urgent-Alert trigger for trials/benchmarks matching the protocol design); (c) ran a backfill sweep of the newly-covered journals -- most surfaced candidates were already in the library (ophthalmic-emergency Cureus eval 10.7759/cureus.101433; 39,375-patient MDPI ED study 10.3390/jcm15041512; Int J Med Informatics 'Can ChatGPT match physicians...' 10.1016/j.ijmedinf.2026.106631; Souza PLoS One scoping review 10.1371/journal.pone.0352338), and ADDED one genuine gap: Masanneck et al. 'Triage Performance Across Large Language Models, ChatGPT, and Untrained Doctors in Emergency Medicine' (J Med Internet Res 2024;26:e53297) -- PubMed PMID 38875696 (PMC11214027) confirmed, Scite editorialNotices clean (36 Smart Citations / 113 citing pubs); 124-vignette Manchester-Triage-System comparison, GPT-4 ChatGPT kappa 0.67 on par with untrained ED doctors (0.68), none at professional-rater level, LLMs over-triaged while untrained doctors under-triaged. Library 149 -> 150; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). NOTE: digital.health/journals is a journal DIRECTORY, not an article feed -- the daily value is that the scan now covers all 28 journals; the directory itself needs re-fetch only on its ~twice-yearly editorial refresh (automated once the domain is allowlisted)."
+   },
+   {
+    "date": "2026-08-15",
+    "added": 4,
+    "notes": "Daily scan via WebSearch (PubMed/Europe PMC/WebFetch direct access still blocked by session network policy; all bibliographic details confirmed via WebSearch snippets from arXiv/medRxiv/JMIR/PubMed pages, not direct API access). Major find: Gokhale et al. medRxiv study reuses the standing 60-vignette/16-condition ChatGPT Health evaluation harness to show UMLS-CUI prompt augmentation reduces LLM emergency undertriage -- flagged as new urgent alert (does not resolve existing ones). Also added: SycoEval-EM (arXiv) adversarial-persuasion sycophancy evaluation in 1,875 simulated ED encounters, a Hong Kong dual-source RAG emergency-triage study (MECR-RAG, JMIR Medical Informatics) that predates this scan window but was missed by prior runs, a JMIR Formative Research patient-facing SDoH-chatbot rubric-evaluation study, and a locally-deployable small-language-model ED decision-support benchmark (arXiv/AMIA 2026). No retractions found among existing or new entries. Gmail draft for the urgent alert could not be created -- no MCP connector access in this scheduled session. CORRECTION: this run independently found Wong & Wong MECR-RAG (JMIR Med Inform, DOI 10.2196/82026) before discovering it had already been added by the unpushed 2026-08-14 scan recovered earlier in this same merge; that duplicate was dropped, leaving 4 net-new references from today's scan (Gokhale et al. medRxiv, SycoEval-EM, PF-HCER/Maw et al., and Zhang et al. arXiv)."
+   },
+   {
+    "date": "2026-08-15",
+    "added": 7,
+    "notes": "Reconciler (main session) -- MULTI-SESSION CONVERGENCE on 409. While integrating the digital.health/journals coverage in this session (Masanneck +1, journal-directory.json), a parallel scan/session published a newer dashboard (156 refs / 5 alerts) carrying the 2026-08-14 fresh-session scan finds and the 2026-08-15 scan finds that git lacked; the Artifact republish 409'd. Re-read the dashboard, verified its 7 git-absent references, and merged them on top of this session's work (which the dashboard in turn lacked -- Masanneck 10.2196/53297 and the digital.health integration), producing the true superset. Verification (all confirmed, none retracted/corrected): (1) Wong & Wong 'Multi-Evidence Clinical Reasoning With RAG for Emergency Triage' (JMIR Med Inform 2026;14:e82026) -- PubMed PMID 41587455 (PMC12887567) full record confirmed (dual-source MECR-RAG, DeepSeek-V3, 236 encounters, QWK 0.902 vs 0.801 baseline, overtriage 28.8%->12.7%, undertriage 1.7%->1.3%); source websearch+pubmed-verified. (2) MedPI (medRxiv 10.64898/2025.12.24.25342982) -- Scite abstract match (105-dimension ACGME-aligned rubric, 366 AI patients / 7,097 conversations, 9 flagship models, AI-Judge graded); Scite first-authors Proniakin/Gruber/Marinescu (scan listed Fajardo lead -- retained, position not independently reconciled). (3) AIPatient Arena (arXiv 2606.17474, Niu/Yu/Wang) -- Scite-confirmed. (4) Gokhale et al. 'Reducing Under-Triage Risk in LLM Based Clinical Triage Using UMLS-CUI Augmentation' (medRxiv 10.64898/2026.08.07.26358932) -- Scite abstract confirmed; PROPAGATED the scan's urgent alert but appended an accuracy CAVEAT (CUI augmentation reduced under-triage but INCREASED over-triage, mixed overall accuracy -- a safety-oriented shift, not a clean win; the scan headline overstated it). (5) SycoEval-EM (arXiv 2601.16529) -- Scite-confirmed (20 LLMs / 1,875 Choosing-Wisely EM encounters, imaging acquiescence 38.8%); Scite showed Wang Y / Rose C, scan's fuller Peng/Wang/Schoeffler/Preiksaitis/Rose retained. (6) Maw et al. patient-facing SDoH-chatbot rubric (JMIR Formative Res 2026;10:e89837) -- Scite-confirmed, no PMID yet. (7) Zhang et al. locally-deployable SLM ED-decision-support benchmark (arXiv 2608.10273) -- Scite-confirmed. All 6 preprint/JMIR-recent entries source websearch+scite-verified. Library 150 -> 157; alerts 4 -> 5 (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI open). GOVERNANCE: the parallel-writer fork recurred (409 on republish); re-recommend the PI designate a single writer for library.json + the dashboard artifact. A Gmail draft of the Gokhale urgent alert was prepared for the PI per the alert protocol."
    }
   ],
   "alerts": [
@@ -166,6 +181,14 @@
     "detail": "One-shot emergency psychiatric triage across 15 frontier AI chatbots (arXiv 2604.25415, posted 2026-04-28) tested 112 clinical vignettes as realistic single-message disclosures against a 4-level urgency benchmark (A routine / B within-1-week / C within-24-48h / D emergency-now) across 15 frontier chatbots. Emergency under-triage occurred in 5.6% (23/410) of level-D (emergency) trials -- every under-triaged case was reassigned to the next-lower urgency tier (C), a pattern structurally similar to the anchoring-toward-less-urgent-care finding in the standing Ramaswamy Nature Medicine alert. Overall accuracy ranged 42.0-71.8% across models and was lowest for level-B (routine-but-soon) vignettes (19.7%), highest for level-D emergencies (94.3%) -- an inverse U/step pattern distinct from Ramaswamy's inverted-U (which found emergencies and non-urgent cases both as failure extremes). RELEVANCE: this is a new, independently-constructed critical-miss-rate benchmark using single-message (everyday-language-adjacent) disclosures across 15 frontier models -- closely matching this protocol's own primary-endpoint architecture (undertriage/critical-miss rate) and single-message presentation format. Domain is psychiatric emergency triage specifically (not general ED triage), so findings should be read as a parallel/comparator design rather than a direct replication. Not yet peer-reviewed (arXiv preprint); does not resolve any standing alert.",
     "doi": "10.48550/arxiv.2604.25415",
     "url": "https://arxiv.org/abs/2604.25415",
+    "resolved": false
+   },
+   {
+    "date": "2026-08-15",
+    "headline": "medRxiv study reusing the standing 60-vignette/16-condition ChatGPT Health harness shows UMLS-CUI prompt augmentation cuts LLM emergency undertriage",
+    "detail": "Gokhale et al. (medRxiv, posted Aug 7 2026) apply the same 960-combination clinician-authored vignette harness used in the standing Ramaswamy/Fraile Navarro alerts to test a candidate mitigation: augmenting prompts with UMLS Concept Unique Identifiers. Emergency-case accuracy rose from 73.0% to 80.7% (GPT-4o-mini) and 60.5% to 68.5% (MedGemma 27B), with CUI augmentation reducing anchoring-driven errors. This is the first mitigation-focused study built on the same evaluation architecture as this protocol and the standing undertriage alerts, with direct bearing on interpretation of the primary endpoint and on potential intervention-arm design. RECONCILER CAVEAT (Scite/abstract-verified, 2026-08-15): this is a safety-oriented SHIFT, not a clean win -- UMLS-CUI augmentation reduced under-triage but INCREASED over-triage, with mixed effects on overall accuracy (up for MedGemma 27B, down for GPT-4o-mini); the authors frame the principal value as shifting behavior toward safety-oriented recognition of high-acuity cases rather than uniformly improving accuracy. Not peer-reviewed (openRxiv/medRxiv preprint, posted 2026-08-07).",
+    "doi": "10.64898/2026.08.07.26358932",
+    "url": "https://www.medrxiv.org/content/10.64898/2026.08.07.26358932v1",
     "resolved": false
    }
   ]
@@ -3004,6 +3027,141 @@
    "tier": "ancillary",
    "relevance": "Comparative study (Manchester Triage System): 124 case vignettes triaged by untrained doctors, several LLMs (raw GPT-4, Llama 3 70B, Gemini 1.5, Mixtral 8x7b) and ChatGPT (GPT-3.5/GPT-4) against a professional-rater consensus gold standard, scored by quadratic-weighted Cohen kappa. GPT-4-based ChatGPT (kappa 0.67) matched untrained ED doctors (0.68) and beat GPT-3.5 (0.54), but none reached professional-rater level; LLMs/ChatGPT tended to OVER-triage whereas untrained doctors UNDER-triaged, and LLM second-opinion did not significantly improve untrained doctors' triage. Direct LLM-vs-human emergency-triage comparator bearing on Topics 1 & 3 (over/undertriage endpoints, physician-consensus grading). Surfaced via the digital.health/journals coverage expansion (JMIR); previously uncaptured.",
    "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-15"
+  },
+  {
+   "title": "Multi-Evidence Clinical Reasoning With Retrieval-Augmented Generation for Emergency Triage: Retrospective Evaluation Study",
+   "authors": "Wong HS, Wong TK",
+   "journal": "JMIR Medical Informatics",
+   "year": 2026,
+   "pmid": "41587455",
+   "doi": "10.2196/82026",
+   "url": "https://medinform.jmir.org/2026/1/e82026",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Hong Kong ED physicians' dual-source RAG system (grounded in the Hong Kong Accident & Emergency Triage Guidelines plus 3,000 retrieved past ED encounters) evaluated retrospectively against triage-nurse ground truth: mean QWK 0.902 / accuracy 0.802 vs. prompt-only baseline LLM QWK 0.801 / accuracy 0.542, reducing 3-group overtriage from 28.8% (baseline LLM) to 12.7% while holding undertriage at 1.3%. Clinician decision-support tool rather than patient-facing lay-language AI, but directly on Topic 1's undertriage/overtriage measurement architecture and a useful guideline-grounding comparator for the protocol's own triage-accuracy metrics.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-14"
+  },
+  {
+   "title": "MedPI: Evaluating AI Systems in Medical Patient-facing Interactions",
+   "authors": "Fajardo V D, Proniakin O, Gruber VE, Marinescu R",
+   "journal": "medRxiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2025.12.24.25342982",
+   "url": "https://www.medrxiv.org/content/10.64898/2025.12.24.25342982v1",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "High-dimensional benchmark for LLM patient-clinician conversations: synthetic EHR-grounded 'AI Patients' with memory/affect are interviewed by 9 flagship models (Claude Opus 4.1, Claude Sonnet 4, MedGemma, Gemini 2.5 Pro, Llama 3.3 70B, GPT-5, GPT-OSS-120B, o3, Grok-4) across 366 AI patients / 7,097 conversations, scored on a 105-dimension ACGME-competency-aligned rubric by calibrated committee-based AI Judges; low performance concentrated in differential-diagnosis dimensions. Directly on Topic 2's evaluation-framework/accreditation-aligned-rubric architecture for patient-facing AI, though the 'physicians' in the grading loop are AI Judges rather than human physicians -- a methodological point of contrast with this protocol's physician-authored design.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-14"
+  },
+  {
+   "title": "AIPatient Arena: EHR-grounded evaluation of large language models in end-to-end clinical consultation workflows",
+   "authors": "Niu J, Yu H, Wang W, Dai G, He J, Li X, Liang Z, Lin X, So KCY, Yan BYP, Wing YK, Xing Y, Ma X, Fan L",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2606.17474",
+   "url": "https://arxiv.org/abs/2606.17474",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Shandong University / Chinese University of Hong Kong EHR-grounded evaluation framework integrating patient-specific knowledge graphs into multi-turn LLM consultations, scored across 8 clinical-competence dimensions on a primary cohort of 437 patients plus two out-of-distribution validation cohorts (n=119, n=67); models scored well on interview questioning and professionalism (4.4-5.0/5) but weak on handling ambiguous patient responses (2.6-3.3/5), information coverage (2.1-3.0/5), and diagnostic accuracy/reasoning (2.6-3.6/5). Supporting-strand hit on Topic 2's rubric-based patient-facing AI evaluation methodology; general clinical consultation rather than ED-triage-specific.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-14"
+  },
+  {
+   "title": "Reducing Under-Triage Risk in Large Language Model Based Clinical Triage Using UMLS-CUI Augmentation",
+   "authors": "Gokhale R, Kukreja M, Kumar N, Gourab K",
+   "journal": "medRxiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2026.08.07.26358932",
+   "url": "https://www.medrxiv.org/content/10.64898/2026.08.07.26358932v1",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Reuses the same 60 clinician-authored vignette x 16 factorial-condition harness (960 combinations) as the standing Ramaswamy/Fraile Navarro benchmark to test whether augmenting LLM prompts with UMLS Concept Unique Identifiers reduces undertriage; emergency-case accuracy improved from 73.0% to 80.7% (GPT-4o-mini) and 60.5% to 68.5% (MedGemma 27B), with CUI augmentation reducing susceptibility to anchoring statements. First mitigation-focused study built on the same evaluation architecture as this protocol and the standing undertriage alerts -- flagged as urgent alert.",
+   "source": "websearch+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-15"
+  },
+  {
+   "title": "SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care",
+   "authors": "Peng D, Wang Y, Schoeffler A, Preiksaitis C, Rose C",
+   "journal": "arXiv preprint",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2601.16529",
+   "url": "https://arxiv.org/abs/2601.16529",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Multi-agent adversarial-persuasion framework testing sycophancy/acquiescence in 20 LLMs across 1,875 simulated emergency-medicine encounters built on Choosing Wisely low-value-care scenarios; acquiescence rates ranged 0-100% and were highest for imaging requests (38.8%). Direct evidence on the false-reassurance/anchoring/sycophancy failure mode named in the search strategy's Topic 1.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-15"
+  },
+  {
+   "title": "Iterative Multidisciplinary Development and Evaluation of a Patient-Facing Social Determinants of Health Chatbot Using Synthetic Data Simulation: Mixed Methods Study",
+   "authors": "Maw AM, Lupi A, Johnson-Koenke R, Coats H, Zhou L, Li B, Mitchell J, Kotz A, Plasek J, Goss F",
+   "journal": "JMIR Formative Research",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.2196/89837",
+   "url": "https://formative.jmir.org/2026/1/e89837",
+   "type": "journal-article",
+   "topics": [
+    "physician-evaluation",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Develops and applies a 10-item multidisciplinary evaluation rubric (accuracy, trustworthiness, empathy; binary met/not-met scoring) for grading a patient-facing chatbot's synthetic-scenario outputs before clinical deployment. Methodological example of clinician-authored rubric-based grading of patient-facing AI -- the Topic 2 evaluation-framework strand of this protocol.",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-15"
+  },
+  {
+   "title": "Locally Deployable Small Language Models for Emergency Department Decision Support: A Systematic Benchmark of Fine-Tuning Strategies",
+   "authors": "Zhang Q, Guo Y, Gong Y",
+   "journal": "arXiv preprint (accepted, AMIA 2026 Annual Symposium)",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2608.10273",
+   "url": "https://arxiv.org/abs/2608.10273",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Benchmarks 8 open-source small language models (zero-shot, prefix-tuning, LoRA, full fine-tuning) against Claude Haiku 4.5/Sonnet 4.5 baselines on 2,083 MIMIC-IV-ED cases for triage-level prediction, specialist-referral recommendation, and diagnosis prediction; LoRA-tuned SLMs outperformed the commercial baselines on triage-level prediction. Clinically-oriented benchmark methodology relevant to the trial's evaluation architecture.",
+   "source": "websearch+scite-verified",
    "design_overlap": false,
    "date_added": "2026-08-15"
   }
