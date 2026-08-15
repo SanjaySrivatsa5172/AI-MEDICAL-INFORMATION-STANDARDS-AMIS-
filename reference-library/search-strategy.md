@@ -39,18 +39,36 @@ health-AI policy and regulation in clinical journals.
 
 ## Journal Coverage (priority order)
 
-Scan all major medical journals **and their AI subsidiary journals**, including:
+Scan all major medical journals **and their AI subsidiary journals**. The curated
+**digital.health/journals** index (28 titles — full snapshot in
+`journal-directory.json`, as of 2026-08-11) is the authoritative source set; the
+emergency-medicine journals are additional (not on that index but essential for this
+triage study).
 
-- **NEJM AI** and The New England Journal of Medicine
-- **JAMA** and the JAMA Network AI channel (JAMA+ AI), JAMA Internal Medicine,
-  JAMA Network Open, JAMA Pediatrics
-- **The Lancet Digital Health** (the Lancet's AI/digital subsection) and The Lancet
-- Nature Medicine, **npj Digital Medicine**, Nature, Communications Medicine
-- BMJ, BMJ Digital Health & AI
+**Marquee clinical + AI (highest yield):**
+
+- **NEJM AI** and The New England Journal of Medicine; **NEJM Catalyst** Innovations in Care Delivery
+- **JAMA** + JAMA Network AI (JAMA+ AI), JAMA Internal Medicine, **JAMA Network Open**, JAMA Pediatrics
+- **The Lancet Digital Health** and The Lancet
+- **Nature Medicine**, **npj Digital Medicine**, Nature, Communications Medicine, **Cell Reports Medicine**
+- **The BMJ**, **BMJ Health & Care Informatics**
+- **JAMIA**, JAMIA Open, **Journal of Biomedical Informatics**, **International Journal of Medical Informatics**, **Applied Clinical Informatics**, **IEEE JBHI**, **Artificial Intelligence in Medicine**
+- **JMIR**, **JMIR AI**, **JMIR mHealth and uHealth**, **PLOS Digital Health**, **Digital Health (SAGE)**, **Frontiers in Digital Health**
+- **Telemedicine and e-Health**, **Digital Biomarkers**, **Digital Medicine** (Wolters Kluwer / ISDM), **International Journal of Digital Healthcare**, **Health Affairs**, **Learning Health Systems**, **Mayo Clinic Proceedings: Digital Health**
+- Scientific Reports
+
+**Emergency medicine (this study's core clinical venues — not on the digital.health index):**
+
 - Annals of Emergency Medicine, Academic Emergency Medicine, American Journal of
   Emergency Medicine, JACEP Open, Western Journal of Emergency Medicine
-- JAMIA, JAMIA Open, JMIR, PLOS Digital Health, Scientific Reports
-- Preprint servers for early signal: medRxiv, arXiv (clinical relevance required)
+
+**Databases (digital.health `#databases`):** PubMed (NIH/NLM — verification + recency
+sweeps, already in use); **ClinicalTrials.gov** (NIH — new angle: sweep for
+active/completed trials or benchmarks matching the protocol design, an Urgent-Alert
+trigger).
+
+**Preprint servers for early signal:** medRxiv, arXiv (cs.LG / q-bio) — clinical
+relevance required.
 
 ### External coverage source — digital.health/journals (PI directive, 2026-08-14)
 
@@ -64,6 +82,13 @@ ensuring the article scan covers every journal on it, not re-reading the directo
 allowlist; direct fetch fails until the domain is allowlisted (PI action in
 progress, 2026-08-14). Do **not** route around the egress policy — if the fetch is
 still blocked, skip this step for the run and note it.
+
+**Initial snapshot captured 2026-08-14** from a PI-uploaded PDF of the page (28
+journals + the PubMed / ClinicalTrials.gov databases + medRxiv / arXiv), stored in
+`journal-directory.json`; the Journal Coverage list above already reflects it. The
+fetch procedure below therefore now serves **auto-refresh**: the index is
+editorially reviewed ~twice yearly, so re-fetch once `digital.health` is allowlisted
+and act only when the snapshot diff is non-empty.
 
 **Procedure — attempt once per reconciler run; execute only when reachable:**
 

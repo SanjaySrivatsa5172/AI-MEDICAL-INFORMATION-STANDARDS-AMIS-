@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-13
-total-references: 149
+last-updated: 2026-08-15
+total-references: 150
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-13** · 149 references.
+Updated daily by automated scan. Last scan: **2026-08-15** · 150 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -130,6 +130,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tang 2024 — Real-World Performance of Large Language Models in Emergency…]] (2024)
 - [[Franc 2024 — Repeatability, reproducibility, and diagnostic accuracy of a…]] (2024)
 - [[Williams 2024 — Use of a Large Language Model to Assess Clinical Acuity of Adults in…]] (2024)
+- [[Masanneck 2024 — Triage Performance Across Large Language Models, ChatGPT, and…]] (2024)
 - [[Sarbay 2023 — Performance of emergency triage prediction of an open access natural…]] (2023)
 
 ## Patient-facing AI
@@ -226,6 +227,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tam 2024 — A framework for human evaluation of large language models in…]] (2024)
 - [[Goh 2024 — Large Language Model Influence on Diagnostic Reasoning A Randomized…]] (2024)
 - [[Fleming 2024 — MedAlign A Clinician-Generated Dataset for Instruction Following with…]] (2024)
+- [[Masanneck 2024 — Triage Performance Across Large Language Models, ChatGPT, and…]] (2024)
 - [[Ayers 2023 — Comparing Physician and Artificial Intelligence Chatbot Responses to…]] (2023)
 - [[Singhal 2023 — Large language models encode clinical knowledge]] (2023)
 

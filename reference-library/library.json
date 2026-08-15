@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-13",
+  "last_updated": "2026-08-15",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -126,6 +126,11 @@
     "date": "2026-08-13",
     "added": 0,
     "notes": "Reconciler (main session) recovered the 2026-08-13 fresh-session scan (4 references published to the dashboard but not pushed to git -- fresh-session push 403s; the scan reported it had NO MCP connectors this run and was WebSearch-only). This reconciler run had BOTH PubMed MCP and Scite MCP available, so all 4 were re-verified at full strength; none retracted or corrected. (1) Souza et al. 'Artificial Intelligence in emergency department triage: A scoping review' (PLoS One 2026;21(6):e0352338, 10.1371/journal.pone.0352338): PubMed confirmed full record PMID 42348524 (PMC13298922; JBI/PRISMA-ScR Scoping Review; 19 studies across 13 databases). Normalized the author list to the PubMed-authoritative form -- the scan had minor initial errors (Costa LCC -> Campos da Costa LC; Silva Filho JAA -> JAAD; Dantas RAN -> Neves Dantas RA; particle-restored de Oliveira / de Souza). source websearch -> websearch+pubmed-verified. (2) Yun et al. 'This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA' (arXiv 2604.05051): Scite-confirmed title and authors (Hye Sun Yun, Geetika Kapoor, Michael Mackert), editorialNotices clean; design_overlap (lay-language question-framing dimension). source -> websearch+scite-verified. (3) Xu et al. 'MIRA: A Bilingual Benchmark for Medical Information Response Audit' (arXiv 2605.28025): Scite-confirmed title and authors (Mengyu Xu, Qiaoxin Yang, Qianqian Wang), clean; design_overlap (health-literacy 'Differential Information Dilution' dimension). source -> websearch+scite-verified. (4) Breda et al. 'SymptomAI: Toward a Conversational AI Agent for Everyday Symptom Assessment' (arXiv 2605.04012, Google Research/Fitbit): Scite abstract BYTE-MATCHES the entry -- N=13,917 randomized via the Fitbit app across 5 conversational AI agents, 1,228-participant clinician-diagnosis subset, 517 panel-evaluated over 250+ annotation hours, SymptomAI DDx significantly more accurate than independent clinicians on the same dialogue (OR=2.56, p<0.001), and agentic dedicated-symptom-interview strategies superior to user-guided baselines (p<0.001); authors Breda/Yousif/Hawkins confirmed, editorialNotices clean; design_overlap (everyday-language conversational symptom-assessment with physician comparator). source -> websearch+scite-verified. Library 145 -> 149; no references dropped; no new alerts and no resolution-state changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). The scan also correctly EXCLUDED an AXA Health/Censuswide consumer survey as non-peer-reviewed market research -- concur."
+   },
+   {
+    "date": "2026-08-15",
+    "added": 1,
+    "notes": "digital.health/journals integration (PI directive, 2026-08-14/15). The curated Digital.Health journal index (Daniel Kraft, MD; 28 peer-reviewed digital-health / AI-in-medicine journals, editorially last reviewed 2026-08-11) was supplied by the PI as a PDF because digital.health is blocked by this environment's egress allowlist (live auto-refresh remains pending the allowlist). Actions: (a) snapshotted the full index to reference-library/journal-directory.json -- 28 journals + the #databases block (PubMed, ClinicalTrials.gov) + preprint servers (medRxiv, arXiv); (b) expanded search-strategy.md Journal Coverage to the full 28-journal set (newly added to explicit coverage: JMIR AI, Digital Health (SAGE), Frontiers in Digital Health, BMJ Health & Care Informatics, Cell Reports Medicine, Digital Biomarkers, IEEE JBHI, International Journal of Medical Informatics, Artificial Intelligence in Medicine, Journal of Biomedical Informatics, Applied Clinical Informatics, Telemedicine and e-Health, JMIR mHealth and uHealth, International Journal of Digital Healthcare, Digital Medicine (Wolters Kluwer/ISDM), Health Affairs, Learning Health Systems, NEJM Catalyst, Mayo Clinic Proceedings: Digital Health), retaining the emergency-medicine journals (not on the index) and flagging ClinicalTrials.gov as a new trials-sweep angle (Urgent-Alert trigger for trials/benchmarks matching the protocol design); (c) ran a backfill sweep of the newly-covered journals -- most surfaced candidates were already in the library (ophthalmic-emergency Cureus eval 10.7759/cureus.101433; 39,375-patient MDPI ED study 10.3390/jcm15041512; Int J Med Informatics 'Can ChatGPT match physicians...' 10.1016/j.ijmedinf.2026.106631; Souza PLoS One scoping review 10.1371/journal.pone.0352338), and ADDED one genuine gap: Masanneck et al. 'Triage Performance Across Large Language Models, ChatGPT, and Untrained Doctors in Emergency Medicine' (J Med Internet Res 2024;26:e53297) -- PubMed PMID 38875696 (PMC11214027) confirmed, Scite editorialNotices clean (36 Smart Citations / 113 citing pubs); 124-vignette Manchester-Triage-System comparison, GPT-4 ChatGPT kappa 0.67 on par with untrained ED doctors (0.68), none at professional-rater level, LLMs over-triaged while untrained doctors under-triaged. Library 149 -> 150; no alert changes (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer open). NOTE: digital.health/journals is a journal DIRECTORY, not an article feed -- the daily value is that the scan now covers all 28 journals; the directory itself needs re-fetch only on its ~twice-yearly editorial refresh (automated once the domain is allowlisted)."
    }
   ],
   "alerts": [
@@ -2982,6 +2987,25 @@
    "source": "websearch+scite-verified",
    "design_overlap": true,
    "date_added": "2026-08-13"
+  },
+  {
+   "title": "Triage Performance Across Large Language Models, ChatGPT, and Untrained Doctors in Emergency Medicine: Comparative Study",
+   "authors": "Masanneck L, Schmidt L, Seifert A, et al.",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2024,
+   "pmid": "38875696",
+   "doi": "10.2196/53297",
+   "url": "https://doi.org/10.2196/53297",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Comparative study (Manchester Triage System): 124 case vignettes triaged by untrained doctors, several LLMs (raw GPT-4, Llama 3 70B, Gemini 1.5, Mixtral 8x7b) and ChatGPT (GPT-3.5/GPT-4) against a professional-rater consensus gold standard, scored by quadratic-weighted Cohen kappa. GPT-4-based ChatGPT (kappa 0.67) matched untrained ED doctors (0.68) and beat GPT-3.5 (0.54), but none reached professional-rater level; LLMs/ChatGPT tended to OVER-triage whereas untrained doctors UNDER-triaged, and LLM second-opinion did not significantly improve untrained doctors' triage. Direct LLM-vs-human emergency-triage comparator bearing on Topics 1 & 3 (over/undertriage endpoints, physician-consensus grading). Surfaced via the digital.health/journals coverage expansion (JMIR); previously uncaptured.",
+   "source": "websearch+pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-15"
   }
  ]
 }
