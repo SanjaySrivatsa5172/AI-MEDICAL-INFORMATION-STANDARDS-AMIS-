@@ -52,6 +52,35 @@ Scan all major medical journals **and their AI subsidiary journals**, including:
 - JAMIA, JAMIA Open, JMIR, PLOS Digital Health, Scientific Reports
 - Preprint servers for early signal: medRxiv, arXiv (clinical relevance required)
 
+### External coverage source — digital.health/journals (PI directive, 2026-08-14)
+
+The curated directory at <https://digital.health/journals> (Daniel Kraft, MD;
+~27 peer-reviewed digital-health / AI-in-medicine / telehealth / informatics
+journals) is an authoritative source for expanding the coverage list above. It is a
+*journal directory*, not an article feed, so it changes rarely — the daily value is
+ensuring the article scan covers every journal on it, not re-reading the directory.
+
+**Access note:** `digital.health` is blocked by this environment's network egress
+allowlist; direct fetch fails until the domain is allowlisted (PI action in
+progress, 2026-08-14). Do **not** route around the egress policy — if the fetch is
+still blocked, skip this step for the run and note it.
+
+**Procedure — attempt once per reconciler run; execute only when reachable:**
+
+1. Fetch `digital.health/journals`; extract each journal (name + homepage link).
+2. Snapshot to `reference-library/journal-directory.json` (record the fetch date).
+3. Diff against the Journal Coverage list above; add any journal not already
+   covered, then do a one-time backfill sweep of each newly-added journal's recent
+   clinically-relevant articles (verified via PubMed/Scite, deduped by
+   DOI → PMID → normalized title).
+4. Re-check daily but **act only when the directory diff is non-empty** — no churn
+   on identical days. Commit any coverage or library change with its own note.
+
+The directory widens the *source set*, not the relevance bar: articles are still
+filtered by the Core Question Anchor and the Inclusion Filter below. Only the
+`/journals` slice feeds this library; the sibling `/resources`, `/books`,
+`/podcasts`, and `/programs` pages are not article sources.
+
 ## Inclusion Filter
 
 - **Clinical bias**: studies must be clinical in orientation. Exclude highly
