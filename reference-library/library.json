@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-15",
+  "last_updated": "2026-08-16",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -146,6 +146,11 @@
     "date": "2026-08-15",
     "added": 7,
     "notes": "Reconciler (main session) -- MULTI-SESSION CONVERGENCE on 409. While integrating the digital.health/journals coverage in this session (Masanneck +1, journal-directory.json), a parallel scan/session published a newer dashboard (156 refs / 5 alerts) carrying the 2026-08-14 fresh-session scan finds and the 2026-08-15 scan finds that git lacked; the Artifact republish 409'd. Re-read the dashboard, verified its 7 git-absent references, and merged them on top of this session's work (which the dashboard in turn lacked -- Masanneck 10.2196/53297 and the digital.health integration), producing the true superset. Verification (all confirmed, none retracted/corrected): (1) Wong & Wong 'Multi-Evidence Clinical Reasoning With RAG for Emergency Triage' (JMIR Med Inform 2026;14:e82026) -- PubMed PMID 41587455 (PMC12887567) full record confirmed (dual-source MECR-RAG, DeepSeek-V3, 236 encounters, QWK 0.902 vs 0.801 baseline, overtriage 28.8%->12.7%, undertriage 1.7%->1.3%); source websearch+pubmed-verified. (2) MedPI (medRxiv 10.64898/2025.12.24.25342982) -- Scite abstract match (105-dimension ACGME-aligned rubric, 366 AI patients / 7,097 conversations, 9 flagship models, AI-Judge graded); Scite first-authors Proniakin/Gruber/Marinescu (scan listed Fajardo lead -- retained, position not independently reconciled). (3) AIPatient Arena (arXiv 2606.17474, Niu/Yu/Wang) -- Scite-confirmed. (4) Gokhale et al. 'Reducing Under-Triage Risk in LLM Based Clinical Triage Using UMLS-CUI Augmentation' (medRxiv 10.64898/2026.08.07.26358932) -- Scite abstract confirmed; PROPAGATED the scan's urgent alert but appended an accuracy CAVEAT (CUI augmentation reduced under-triage but INCREASED over-triage, mixed overall accuracy -- a safety-oriented shift, not a clean win; the scan headline overstated it). (5) SycoEval-EM (arXiv 2601.16529) -- Scite-confirmed (20 LLMs / 1,875 Choosing-Wisely EM encounters, imaging acquiescence 38.8%); Scite showed Wang Y / Rose C, scan's fuller Peng/Wang/Schoeffler/Preiksaitis/Rose retained. (6) Maw et al. patient-facing SDoH-chatbot rubric (JMIR Formative Res 2026;10:e89837) -- Scite-confirmed, no PMID yet. (7) Zhang et al. locally-deployable SLM ED-decision-support benchmark (arXiv 2608.10273) -- Scite-confirmed. All 6 preprint/JMIR-recent entries source websearch+scite-verified. Library 150 -> 157; alerts 4 -> 5 (Ramaswamy resolved; Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI open). GOVERNANCE: the parallel-writer fork recurred (409 on republish); re-recommend the PI designate a single writer for library.json + the dashboard artifact. A Gmail draft of the Gokhale urgent alert was prepared for the PI per the alert protocol."
+   },
+   {
+    "date": "2026-08-16",
+    "added": 5,
+    "notes": "Daily reconciler (canonical writer, main session). RECONCILE: git sync clean (HEAD at 157 refs / 5 alerts / last_updated 2026-08-15); WebFetched dashboard artifact 528465e1 and diffed it against git -- an EXACT match (157 refs, 5 alerts, zero divergence), so no multi-session fork to converge today. LIGHT RECENCY SCAN (the fresh-session daily scan published nothing new to the dashboard; run so the library does not stall): PubMed entry-date sweep 2026-08-08..2026-08-16 (28 hits, 25 screened -- most off the core question) plus targeted Scite sweeps. Added 5 verified references and 1 urgent alert. (1) MTS-Bench (openRxiv 10.64898/2026.08.04.26359651) -- Scite-verified; an LLM emergency-triage safety benchmark that reuses the Ramaswamy ChatGPT-Health scenarios and maps them to the Manchester Triage System with an undertriage/dangerous-miss primary endpoint and an anchoring manipulation (GPT-5.1 undertriaged 44.2%, 8/8 Red under a misleading referral anchor). HIGH design overlap -> URGENT ALERT raised (resolved:false), with caveats: preprint, and a partial product evaluation authored by the makers of DR. INFO (the system it reports as outperforming GPT-5.1) -- comparative claim treated as vendor-reported; openRxiv not in US WebSearch so no web corroboration this run. (2) Omar et al. 'AI-assisted rheumatology triage changes with referral framing' (Rheumatology (Oxford) 2026; PubMed PMID 42587430, Scite editorialNotices clean) -- 30 physician-authored vignettes x3 rephrasings, 5 LLMs, 200k+ queries; framing (anxious/dismissive-anchor) shifted acuity/psychologizing MORE than demographics; design_overlap:true (close register-manipulation parallel; setting is rheumatology referral, not ED/patient-facing). (3) Tessler et al. 'Sociodemographic bias in LLMs' clinical decision-making for dizziness' (J Vestib Res 2026; PMID 42569795, Scite clean) -- 100 synthetic ED dizziness vignettes x34 descriptor variants, 12 LLMs, 2.04M responses, triage-disposition endpoint; descriptor effects largest for mental-health referral under ambiguity, attenuated by clearer clinical detail. (4) Tewari et al. chatbot-advice-accuracy meta-analysis for traumatic dental injuries (Dent Traumatol 2026; PMID 42581485, Scite clean) -- patient-facing consumer-chatbot accuracy for a time-critical emergency (pooled 65-79%); authors caution moderate accuracy != clinical reliability. (5) Wu et al. 'Deployment protocol and base model jointly determine residual risk in rule-based clinical LLM supervision' (Research Square 10.21203/rs.3.rs-10464629/v1) -- Scite-verified preprint; clinician-adjudication pilot showed automated safety-compliance != clinical adequacy (5/30 allowed outputs potentially harmful), supporting the physician-authored-evaluation thesis. All PubMed items carry PubMed attribution + DOI links per PubMed terms; the two preprints have pmid:null (never invented). Screened-but-excluded: geriatric-trauma undertriage (Aging Clin Exp Res 10.1007/s40520-026-03465-6; non-AI, no confirmed PubMed PMID -- dropped rather than record an unverified id), JAMA Surgery military binary triage (no AI), JAVMA feline-fracture LLM triage (veterinary, out of clinical scope), plus off-topic ED/AI hits (delirium prediction, EICU diagnosis, decisional-capacity, NLP knowledge graphs, Hajj mental-health screening, paediatric-allergy review). Library 157 -> 162; alerts 5 -> 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). A Gmail draft of the MTS-Bench urgent alert was prepared for the PI per the alert protocol (manual send)."
    }
   ],
   "alerts": [
@@ -189,6 +194,14 @@
     "detail": "Gokhale et al. (medRxiv, posted Aug 7 2026) apply the same 960-combination clinician-authored vignette harness used in the standing Ramaswamy/Fraile Navarro alerts to test a candidate mitigation: augmenting prompts with UMLS Concept Unique Identifiers. Emergency-case accuracy rose from 73.0% to 80.7% (GPT-4o-mini) and 60.5% to 68.5% (MedGemma 27B), with CUI augmentation reducing anchoring-driven errors. This is the first mitigation-focused study built on the same evaluation architecture as this protocol and the standing undertriage alerts, with direct bearing on interpretation of the primary endpoint and on potential intervention-arm design. RECONCILER CAVEAT (Scite/abstract-verified, 2026-08-15): this is a safety-oriented SHIFT, not a clean win -- UMLS-CUI augmentation reduced under-triage but INCREASED over-triage, with mixed effects on overall accuracy (up for MedGemma 27B, down for GPT-4o-mini); the authors frame the principal value as shifting behavior toward safety-oriented recognition of high-acuity cases rather than uniformly improving accuracy. Not peer-reviewed (openRxiv/medRxiv preprint, posted 2026-08-07).",
     "doi": "10.64898/2026.08.07.26358932",
     "url": "https://www.medrxiv.org/content/10.64898/2026.08.07.26358932v1",
+    "resolved": false
+   },
+   {
+    "date": "2026-08-16",
+    "headline": "MTS-Bench: an LLM emergency-triage safety benchmark reuses the Ramaswamy ChatGPT-Health scenarios (undertriage/dangerous-miss endpoint + anchoring manipulation)",
+    "detail": "MTS-Bench (Ravichandran et al., openRxiv preprint 10.64898/2026.08.04.26359651, posted 2026-08-05) adapts the Ramaswamy et al. ChatGPT-Health emergency scenarios -- the same 60-vignette/16-condition lineage this study's standing alerts already track -- and maps them onto the Manchester Triage System (39 cases across all five MTS priority levels; with vs without an objective clinical-data block; with vs without a misleading GP-referral anchoring statement; two genders). The primary endpoint is undertriage on the ordered MTS scale -- a Critical-Miss-Rate-style design closely paralleling this protocol. Findings: GPT-5.1 undertriaged 44.2% of cases (75.0% of Red, 73.4% of Orange), 6 dangerous misses (3.8%); the misleading referral anchor pushed GPT-5.1 to undertriage 8/8 Red cases; adding objective clinical data reduced undertriage. BEARING ON THE TRIAL: a closely design-overlapping emergency-triage safety benchmark now exists on the Ramaswamy scenario base -- the protocol should CITE AND DIFFERENTIATE from it (physician-authored NEW scenarios, patient-facing everyday/lay language, pre-specified dual-register presentation, harm-weighted scoring) to preserve novelty, and may cite the anchoring result as external support for its anchoring/false-reassurance hypotheses. CAVEATS (reconciler, Scite-verified 2026-08-16): (1) preprint, not peer-reviewed; openRxiv is not indexed in US WebSearch, so no independent web corroboration was obtained this run -- verification rests on the full Scite record (title, authors, structured abstract with quantitative results, DOI, date). (2) Partial product evaluation -- authored by the makers of DR. INFO, the agentic retrieval-augmented system reported to outperform GPT-5.1 (both DR. INFO configs 11.5% undertriage / 0 dangerous misses vs GPT-5.1 44.2% / 6), so treat the comparative DR. INFO claim as vendor-reported, not independent. Not resolved -- PI to review and decide on citation/differentiation.",
+    "doi": "10.64898/2026.08.04.26359651",
+    "url": "https://doi.org/10.64898/2026.08.04.26359651",
     "resolved": false
    }
   ]
@@ -3164,6 +3177,109 @@
    "source": "websearch+scite-verified",
    "design_overlap": false,
    "date_added": "2026-08-15"
+  },
+  {
+   "title": "MTS-Bench: A Manchester Triage System Benchmark for Language Model Triage Safety",
+   "authors": "Ravichandran S, Romano M, Corga da Silva R, et al.",
+   "journal": "openRxiv (preprint)",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.64898/2026.08.04.26359651",
+   "url": "https://doi.org/10.64898/2026.08.04.26359651",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology",
+    "ai-safety-failure-modes",
+    "triage-standards",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "HIGH design overlap. MTS-Bench adapts the Ramaswamy et al. ChatGPT-Health emergency scenarios -- the same 60-vignette/16-condition lineage this study's standing alerts already track -- and maps them onto the Manchester Triage System: 39 emergency cases spanning all five MTS priority levels, each tested with and without an objective clinical-data block (vitals/exam/labs) and permuted across two genders (156 prompts/condition), and with vs without a misleading GP-referral anchoring statement (312 prompts/system). Primary endpoint is undertriage on the ordered MTS scale -- a Critical-Miss-Rate-style design closely paralleling this protocol. GPT-5.1 undertriaged 44.2% of cases (95% CI 36.7-52.1), including 75.0% of Red and 73.4% of Orange presentations, with 6 dangerous misses (3.8%); prepending the misleading referral anchor drove GPT-5.1 to undertriage 8/8 Red cases; adding objective clinical data reduced undertriage. Bears on this trial: a closely design-overlapping emergency-triage safety benchmark now exists on the Ramaswamy scenario base -- the protocol should cite and differentiate (physician-authored NEW scenarios, patient-facing everyday/lay language, pre-specified dual-register presentation, harm-weighted scoring) to preserve novelty, and may cite the anchoring result as external support for its anchoring/false-reassurance hypotheses. CAVEATS (reconciler, Scite-verified 2026-08-16; openRxiv preprint not indexed in US WebSearch, so no independent web corroboration this run): (1) preprint, not peer-reviewed (posted 2026-08-05); (2) partial product evaluation -- authored by the makers of DR. INFO, the agentic retrieval-augmented system it reports as dramatically outperforming GPT-5.1 (both DR. INFO configs 11.5% undertriage / 0 dangerous misses vs GPT-5.1 44.2% / 6), so treat the comparative DR. INFO claim as vendor-reported rather than independent.",
+   "source": "scite",
+   "design_overlap": true,
+   "date_added": "2026-08-16"
+  },
+  {
+   "title": "AI-assisted rheumatology triage changes with referral framing",
+   "authors": "Omar M, Naffaa ME, Agbareia R, et al.",
+   "journal": "Rheumatology (Oxford)",
+   "year": 2026,
+   "pmid": "42587430",
+   "doi": "10.1093/rheumatology/keag414",
+   "url": "https://doi.org/10.1093/rheumatology/keag414",
+   "type": "journal-article",
+   "topics": [
+    "physician-evaluation",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "Close methodological parallel to this protocol's register-manipulation design. Controlled, physician-validated experiment: 30 physician-authored rheumatology vignettes, each independently rephrased 3x (90 variants), tested across 5 LLMs (Anthropic/Google/OpenAI) under 9 dimensions (demographics, clinical context, communication framing), 57 contextual modifications, 4 personas, 5 reps/cell = 200,000+ queries; 16 clinical fields graded vs physician-validated ground truth (Fleiss kappa 0.92). Baseline concordance was high (0.869) but readily disrupted by HOW the case was framed/worded, NOT by demographics: 'anxious' framing tripled psychological (vs organic) attribution (13.1% vs 4.5%; OR 3.2 vs stoic framing), risking relabeling organic disease as functional; a dismissive clinician anchor in the referral note significantly reduced acuity concordance (vignette-level p=0.01), mainly by downgrading urgency; race/ethnicity, SES and language barrier produced no detectable effect. Authors recommend separating objective clinical evidence from interpretive framing and treating urgency and psychological attribution as auditable safety signals. SETTING CAVEAT: this is rheumatology REFERRAL triage (clinician-facing referral notes determining specialist-access speed), not emergency or patient-facing everyday-language triage -- but the physician-authored-vignette + controlled-rephrasing + urgency-endpoint methodology, and the finding that framing beats demographics, directly parallel and support this study's register-sensitivity hypothesis.",
+   "source": "pubmed+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-16"
+  },
+  {
+   "title": "Sociodemographic bias in LLMs' clinical decision-making for dizziness",
+   "authors": "Tessler I, Omar M, Wolfovitz A, et al.",
+   "journal": "Journal of Vestibular Research",
+   "year": 2026,
+   "pmid": "42569795",
+   "doi": "10.1177/09574271261474218",
+   "url": "https://doi.org/10.1177/09574271261474218",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Cross-randomized in-silico vignette study of LLM recommendation robustness in an emergency-department presentation: 100 synthetic ED dizziness cases built on established diagnostic frameworks (TiTrATE, SAEM GRACE-3, Barany Society criteria), each tested neutral + 33 sociodemographic descriptor variants (34 total), across 12 instruction-tuned LLMs, 10 reps/cell = 2,040,000 responses. Models answered five binary decisions including TRIAGE DISPOSITION, neuroimaging, and mental-health referral. Sociodemographic descriptors shifted recommendations, largest for mental-health referral in diagnostically ambiguous cases (lower referral for Black transgender women -12.2 pp [95% CI -14.0 to -10.3], Black patients experiencing homelessness -9.1 pp, homelessness -7.7 pp; +4.0 pp neuroimaging for low-income descriptors); disparities attenuated when vignettes carried clearer diagnostic information. Bears on Topic 1: descriptor-sensitivity/robustness of LLM emergency triage-disposition recommendations, in a classic can't-miss ED presentation (dizziness masking posterior stroke); reinforces that structured/objective clinical detail mitigates input-framing effects -- complementary to the Omar 2026 finding that framing outweighs demographics (overlapping Mount Sinai / Klang group).",
+   "source": "pubmed+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-16"
+  },
+  {
+   "title": "Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental Injuries: A Systematic Review and Meta-Analysis",
+   "authors": "Tewari N, Kidwai AA, Wadhwani E, et al.",
+   "journal": "Dental Traumatology",
+   "year": 2026,
+   "pmid": "42581485",
+   "doi": "10.1111/edt.70113",
+   "url": "https://doi.org/10.1111/edt.70113",
+   "type": "review",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Systematic review + meta-analysis (Cochrane Handbook + CHART reporting tool, OSF-registered) of contemporary consumer chatbots answering patient questions about emergency care of traumatic dental injuries -- a time-critical presentation (e.g., avulsion has a short replantation window). 10 studies (2024-2025), 7 chatbots; pooled accuracy 65% (95% CI 52-78) for ChatGPT-3.5, 79% (61-93) for ChatGPT-4.0, 70% (60-79) for Gemini, with high heterogeneity (I2 ~86-89%). Authors conclude accuracy is only moderate and highly question-dependent and explicitly caution these figures 'should not be interpreted as evidence of clinical reliability, as even limited inaccuracies in emergency dental trauma advice may contribute to delayed or inappropriate management and adverse outcomes.' Topic 2 / patient-facing-AI: consumer-chatbot advice accuracy and its safety ceiling for an urgent, everyday-language health question.",
+   "source": "pubmed+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-16"
+  },
+  {
+   "title": "Deployment protocol and base model jointly determine residual risk in rule-based clinical LLM supervision",
+   "authors": "Wu K, Nagori A, Kamaleswaran R, et al.",
+   "journal": "Research Square (preprint)",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.21203/rs.3.rs-10464629/v1",
+   "url": "https://doi.org/10.21203/rs.3.rs-10464629/v1",
+   "type": "preprint",
+   "topics": [
+    "ai-safety-failure-modes",
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Evaluates a five-gate 'sentinel' rule-based supervisor over five models (Qwen 7B, Llama 8B, Meditron 7B, Gemma 4, Sonnet 4.5) on two clinical safety benchmarks under handoff-on/off protocols; residual safety depended on both deployment protocol and base model (strict violation rates 1.5-49.5%; handoff-off residual risk 0-50%). A multisite extension (Llama 70B, N=2935 encounter-derived scenarios) and HealthBench Hard (N=1000) reached ~0% deploy-violation under supervision. KEY physician-evaluation point for this study: a clinician-adjudication pilot (n=50) separated automated safety-rule compliance from clinical adequacy -- of 20 intercepted outputs none were rated harmful but ALL were flagged for missing critical information, while 5/30 ALLOWED outputs were rated potentially harmful (clinical-reasoning errors beyond the sentinel's scope). Supports the protocol's core thesis that physician-authored/adjudicated evaluation surfaces harms that automated compliance metrics miss. CAVEAT: preprint (Research Square), Scite-verified metadata/abstract; not peer-reviewed and no independent web corroboration this run.",
+   "source": "scite",
+   "design_overlap": false,
+   "date_added": "2026-08-16"
   }
  ]
 }
