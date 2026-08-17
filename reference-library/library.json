@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-16",
+  "last_updated": "2026-08-17",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -151,6 +151,11 @@
     "date": "2026-08-16",
     "added": 5,
     "notes": "Daily reconciler (canonical writer, main session). RECONCILE: git sync clean (HEAD at 157 refs / 5 alerts / last_updated 2026-08-15); WebFetched dashboard artifact 528465e1 and diffed it against git -- an EXACT match (157 refs, 5 alerts, zero divergence), so no multi-session fork to converge today. LIGHT RECENCY SCAN (the fresh-session daily scan published nothing new to the dashboard; run so the library does not stall): PubMed entry-date sweep 2026-08-08..2026-08-16 (28 hits, 25 screened -- most off the core question) plus targeted Scite sweeps. Added 5 verified references and 1 urgent alert. (1) MTS-Bench (openRxiv 10.64898/2026.08.04.26359651) -- Scite-verified; an LLM emergency-triage safety benchmark that reuses the Ramaswamy ChatGPT-Health scenarios and maps them to the Manchester Triage System with an undertriage/dangerous-miss primary endpoint and an anchoring manipulation (GPT-5.1 undertriaged 44.2%, 8/8 Red under a misleading referral anchor). HIGH design overlap -> URGENT ALERT raised (resolved:false), with caveats: preprint, and a partial product evaluation authored by the makers of DR. INFO (the system it reports as outperforming GPT-5.1) -- comparative claim treated as vendor-reported; openRxiv not in US WebSearch so no web corroboration this run. (2) Omar et al. 'AI-assisted rheumatology triage changes with referral framing' (Rheumatology (Oxford) 2026; PubMed PMID 42587430, Scite editorialNotices clean) -- 30 physician-authored vignettes x3 rephrasings, 5 LLMs, 200k+ queries; framing (anxious/dismissive-anchor) shifted acuity/psychologizing MORE than demographics; design_overlap:true (close register-manipulation parallel; setting is rheumatology referral, not ED/patient-facing). (3) Tessler et al. 'Sociodemographic bias in LLMs' clinical decision-making for dizziness' (J Vestib Res 2026; PMID 42569795, Scite clean) -- 100 synthetic ED dizziness vignettes x34 descriptor variants, 12 LLMs, 2.04M responses, triage-disposition endpoint; descriptor effects largest for mental-health referral under ambiguity, attenuated by clearer clinical detail. (4) Tewari et al. chatbot-advice-accuracy meta-analysis for traumatic dental injuries (Dent Traumatol 2026; PMID 42581485, Scite clean) -- patient-facing consumer-chatbot accuracy for a time-critical emergency (pooled 65-79%); authors caution moderate accuracy != clinical reliability. (5) Wu et al. 'Deployment protocol and base model jointly determine residual risk in rule-based clinical LLM supervision' (Research Square 10.21203/rs.3.rs-10464629/v1) -- Scite-verified preprint; clinician-adjudication pilot showed automated safety-compliance != clinical adequacy (5/30 allowed outputs potentially harmful), supporting the physician-authored-evaluation thesis. All PubMed items carry PubMed attribution + DOI links per PubMed terms; the two preprints have pmid:null (never invented). Screened-but-excluded: geriatric-trauma undertriage (Aging Clin Exp Res 10.1007/s40520-026-03465-6; non-AI, no confirmed PubMed PMID -- dropped rather than record an unverified id), JAMA Surgery military binary triage (no AI), JAVMA feline-fracture LLM triage (veterinary, out of clinical scope), plus off-topic ED/AI hits (delirium prediction, EICU diagnosis, decisional-capacity, NLP knowledge graphs, Hajj mental-health screening, paediatric-allergy review). Library 157 -> 162; alerts 5 -> 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). A Gmail draft of the MTS-Bench urgent alert was prepared for the PI per the alert protocol (manual send)."
+   },
+   {
+    "date": "2026-08-17",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session). DATING NOTE: the prior commit (d87ab3a, labeled 'daily scan 2026-08-16', +5 refs incl. the MTS-Bench urgent alert) was the 2026-08-16 scan reconciled ~a day late across a context-compaction gap; this entry is the on-time 2026-08-17 run (verified wall-clock 2026-08-17 14:06 UTC). RECONCILE: git in sync (origin=local at 162 refs / 6 alerts / last_updated 2026-08-16); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (162 refs, 6 alerts, zero divergence), so no multi-session fork to converge; the 2026-08-17 fresh-session scan published nothing new (its push 403s and it left no scan report). LIGHT RECENCY SCAN so the library does not stall: (a) PubMed entry-date sweeps 2026-08-16..2026-08-17 returned only off-core work -- screened and EXCLUDED a cardiac-anesthesia/TEE claims study (10.1007/s00540-026-03869-8), an LLM inhaler-technique-counselling accuracy study (10.1177/20552076261478506; patient education, not triage), a Polish anesthesiology exam-MCQ benchmark (10.7759/cureus.112868), and a Japanese brain-tumor AI review (10.11477/mf.030126030540040879); (b) a targeted Scite recent-literature sweep (date_from 2026-08-14) surfaced 2 genuinely on-core, peer-reviewed captures NOT in the library. Added both after full verification (PubMed metadata + Scite editorialNotices clean; neither retracted/corrected): (1) Sheppert et al. 'Large language models exhibit greater diagnostic anchoring than physicians in a forced-choice vignette study' (Int J Med Inform 2026;219:106550; PMID 42335861) -- 9 anchored/control IM vignette pairs; LLMs ranked the planted (lay-stated) anchor first 55.6% vs residents 21.2% / attendings 10.0% (OR ~4, P<0.001); bears on the anchoring/false-reassurance theme and on the standing Fraile Navarro forced-choice-format alert (LLMs anchor more than humans within the same forced-choice paradigm); design_overlap false (IM DDx ranking, not triage-acuity). (2) Ada et al. 'Clinical safety of LLM responses to matched patient-language and clinician-language Turkish obstetric and gynecologic triage prompts' (Eur J Obstet Gynecol Reprod Biol 2026;326:115351; PMID 42561577) -- 30 scenarios x matched lay/clinician register x 4 LLMs, 5 specialists, 1,200 ratings; register did NOT significantly change expert-rated safety (GCCS=2 89.3% vs 91.3%; cOR 0.78, p=0.115) -- a NULL/CONTRASTING dual-register result; design_overlap true (direct match to the protocol's dual-register design), NOT alerted (null result, single specialty, expert-rated). Both PubMed items carry PubMed attribution + DOI links. Library 162 -> 164; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No Gmail draft this run (no urgent-alert-level finding)."
    }
   ],
   "alerts": [
@@ -3280,6 +3285,49 @@
    "source": "scite",
    "design_overlap": false,
    "date_added": "2026-08-16"
+  },
+  {
+   "title": "Large language models exhibit greater diagnostic anchoring than physicians in a forced-choice vignette study",
+   "authors": "Sheppert A, Shen C, Geissal E, et al.",
+   "journal": "International Journal of Medical Informatics",
+   "year": 2026,
+   "pmid": "42335861",
+   "doi": "10.1016/j.ijmedinf.2026.106550",
+   "url": "https://doi.org/10.1016/j.ijmedinf.2026.106550",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "physician-evaluation",
+    "benchmark-methodology",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "Head-to-head LLM-vs-physician test of the anchoring failure mode that is central to this protocol (anchoring on a plausible benign explanation / false reassurance). Forced-choice ranking over 9 pairs of internal-medicine outpatient vignettes, each pair an anchored version (a PATIENT STATEMENT suggesting a plausible-but-unlikely diagnosis) vs a matched control; 20 PGY1-3 IM residents + 5 attendings (225 responses) vs 8 LLMs (144 outputs). Primary endpoint = proportion ranking the anchor first: LLMs 55.6% (40/72) vs residents 21.2% (17/80) vs attendings 10.0% (2/20); LLMs' odds of ranking the anchor first were ~4x physicians' (vs residents OR 3.94, 95% CI 2.32-7.33; vs attendings OR 4.07, 2.47-7.21; both P<0.001), and LLMs put the anchor in the top-5 in 97.2% of outputs (vs 67.5%/65.0%). Directly supports the study's premise that a lay-phrased benign cue can distort AI reasoning more than clinicians'. Also bears on the standing Fraile Navarro alert (which argues forced-choice exam format inflates LLM triage failures): here, within the SAME forced-choice paradigm, LLMs anchor substantially more than humans, i.e. the format does not equalize them. CAVEAT: internal-medicine differential-diagnosis ranking, not emergency triage-acuity or a harm-weighted endpoint; authors call for open-ended real-world follow-up.",
+   "source": "pubmed+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-17"
+  },
+  {
+   "title": "Clinical safety of large language model responses to matched patient-language and clinician-language Turkish obstetric and gynecologic triage prompts: a model-blinded paired-scenario study",
+   "authors": "Ada O, Dagli U, Bilen E, et al.",
+   "journal": "European Journal of Obstetrics & Gynecology and Reproductive Biology",
+   "year": 2026,
+   "pmid": "42561577",
+   "doi": "10.1016/j.ejogrb.2026.115351",
+   "url": "https://doi.org/10.1016/j.ejogrb.2026.115351",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "lay-language",
+    "emergency-triage-ai",
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Direct methodological parallel to this protocol's DUAL-REGISTER design: 30 obstetric/gynecologic triage scenarios presented in MATCHED patient-language vs clinician-language (Turkish) formats to 4 LLMs, with 5 specialists blindly rating 240 responses (1,200 ratings) on a Global Clinical Confidence Score (GCCS 0-2) plus five secondary safety/appropriateness scales, analyzed with ordinal GEE adjusted for model and evaluator. Result is a NOTABLE NULL/CONTRASTING finding: clinically reliable responses (GCCS=2) were 89.3% clinician-language vs 91.3% patient-language, and lay phrasing was NOT significantly associated with overall confidence (cumulative OR 0.78, 95% CI 0.57-1.06; p=0.115); if anything patient-language had fewer unsafe (GCCS=0) ratings (OR 0.66, p=0.031; McNemar ns) and higher evaluator-level triage-appropriateness and clinical-applicability after FDR correction. This is important for methods differentiation and interpretation: it is a specialty (OB/GYN), specialist-RATED (not physician-authored patient-facing everyday-language) triage study whose register-invariance CONTRASTS with the register-sensitivity reported for framing (Omar 2026) and symptom-report quality (Reis 2026); the protocol should engage it directly. design_overlap flagged true (matched lay-vs-clinician paired-scenario triage-safety design). NOT raised as an urgent alert: null result, single specialty, expert-rated rather than an ED patient-facing critical-miss benchmark.",
+   "source": "pubmed+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-17"
   }
  ]
 }

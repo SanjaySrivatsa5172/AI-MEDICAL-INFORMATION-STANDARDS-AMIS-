@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-16
-total-references: 162
+last-updated: 2026-08-17
+total-references: 164
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-16** · 162 references.
+Updated daily by automated scan. Last scan: **2026-08-17** · 164 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -58,6 +58,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Gokhale 2026 — Reducing Under-Triage Risk in Large Language Model Based Clinical…]] — *medRxiv preprint* 2026
 - [[Ravichandran 2026 — MTS-Bench A Manchester Triage System Benchmark for Language Model…]] — *openRxiv (preprint)* 2026
 - [[Omar 2026 — AI-assisted rheumatology triage changes with referral framing]] — *Rheumatology (Oxford)* 2026
+- [[Ada 2026 — Clinical safety of large language model responses to matched…]] — *European Journal of Obstetrics & Gynecology and Reproductive Biology* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -122,6 +123,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Zhang 2026 — Locally Deployable Small Language Models for Emergency Department…]] (2026)
 - [[Ravichandran 2026 — MTS-Bench A Manchester Triage System Benchmark for Language Model…]] (2026)
 - [[Tessler 2026 — Sociodemographic bias in LLMs' clinical decision-making for dizziness]] (2026)
+- [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -182,6 +184,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Niu 2026 — AIPatient Arena EHR-grounded evaluation of large language models in…]] (2026)
 - [[Maw 2026 — Iterative Multidisciplinary Development and Evaluation of a…]] (2026)
 - [[Tewari 2026 — Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental…]] (2026)
+- [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -233,6 +236,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ravichandran 2026 — MTS-Bench A Manchester Triage System Benchmark for Language Model…]] (2026)
 - [[Omar 2026 — AI-assisted rheumatology triage changes with referral framing]] (2026)
 - [[Wu 2026 — Deployment protocol and base model jointly determine residual risk in…]] (2026)
+- [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
+- [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -289,6 +294,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tessler 2026 — Sociodemographic bias in LLMs' clinical decision-making for dizziness]] (2026)
 - [[Tewari 2026 — Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental…]] (2026)
 - [[Wu 2026 — Deployment protocol and base model jointly determine residual risk in…]] (2026)
+- [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
+- [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -349,6 +356,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tessler 2026 — Sociodemographic bias in LLMs' clinical decision-making for dizziness]] (2026)
 - [[Tewari 2026 — Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental…]] (2026)
 - [[Wu 2026 — Deployment protocol and base model jointly determine residual risk in…]] (2026)
+- [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
