@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-17",
+  "last_updated": "2026-08-18",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -156,6 +156,11 @@
     "date": "2026-08-17",
     "added": 2,
     "notes": "Daily reconciler (canonical writer, main session). DATING NOTE: the prior commit (d87ab3a, labeled 'daily scan 2026-08-16', +5 refs incl. the MTS-Bench urgent alert) was the 2026-08-16 scan reconciled ~a day late across a context-compaction gap; this entry is the on-time 2026-08-17 run (verified wall-clock 2026-08-17 14:06 UTC). RECONCILE: git in sync (origin=local at 162 refs / 6 alerts / last_updated 2026-08-16); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (162 refs, 6 alerts, zero divergence), so no multi-session fork to converge; the 2026-08-17 fresh-session scan published nothing new (its push 403s and it left no scan report). LIGHT RECENCY SCAN so the library does not stall: (a) PubMed entry-date sweeps 2026-08-16..2026-08-17 returned only off-core work -- screened and EXCLUDED a cardiac-anesthesia/TEE claims study (10.1007/s00540-026-03869-8), an LLM inhaler-technique-counselling accuracy study (10.1177/20552076261478506; patient education, not triage), a Polish anesthesiology exam-MCQ benchmark (10.7759/cureus.112868), and a Japanese brain-tumor AI review (10.11477/mf.030126030540040879); (b) a targeted Scite recent-literature sweep (date_from 2026-08-14) surfaced 2 genuinely on-core, peer-reviewed captures NOT in the library. Added both after full verification (PubMed metadata + Scite editorialNotices clean; neither retracted/corrected): (1) Sheppert et al. 'Large language models exhibit greater diagnostic anchoring than physicians in a forced-choice vignette study' (Int J Med Inform 2026;219:106550; PMID 42335861) -- 9 anchored/control IM vignette pairs; LLMs ranked the planted (lay-stated) anchor first 55.6% vs residents 21.2% / attendings 10.0% (OR ~4, P<0.001); bears on the anchoring/false-reassurance theme and on the standing Fraile Navarro forced-choice-format alert (LLMs anchor more than humans within the same forced-choice paradigm); design_overlap false (IM DDx ranking, not triage-acuity). (2) Ada et al. 'Clinical safety of LLM responses to matched patient-language and clinician-language Turkish obstetric and gynecologic triage prompts' (Eur J Obstet Gynecol Reprod Biol 2026;326:115351; PMID 42561577) -- 30 scenarios x matched lay/clinician register x 4 LLMs, 5 specialists, 1,200 ratings; register did NOT significantly change expert-rated safety (GCCS=2 89.3% vs 91.3%; cOR 0.78, p=0.115) -- a NULL/CONTRASTING dual-register result; design_overlap true (direct match to the protocol's dual-register design), NOT alerted (null result, single specialty, expert-rated). Both PubMed items carry PubMed attribution + DOI links. Library 162 -> 164; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No Gmail draft this run (no urgent-alert-level finding)."
+   },
+   {
+    "date": "2026-08-18",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-18 14:08 UTC). RECONCILE: git in sync (origin=local at 164 refs / 6 alerts / last_updated 2026-08-17); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (164 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-18 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-17..2026-08-18 (two angles) returned mostly off-core work -- screened and EXCLUDED abdominal-radiology Gemini decision support (10.1016/j.ejrad.2026.113166), a vegetarian/vegan-nutrition chatbot-advice safety study (10.3389/fpubh.2026.1921819), a bimodal patient-education LLM RCT (10.1016/j.medj.2026.101263), a psychotherapy-AI framework (10.1037/abn0001148), prostate-MRI-reporting LLM governance (10.1007/s00261-026-05719-3), a PFPS chatbot-QA study (10.1016/j.msksp.2026.103636), an adolescent-suicide-prevention LLM mini-review (10.3389/fpubh.2026.1872450), a cancer-diagnostics multi-agent framework (10.3389/fsysb.2026.1892418), the already-excluded inhaler-counselling study, and an off-topic buffalo-brain genomics paper. A targeted Scite sweep (date_from 2026-08-16) surfaced only already-captured (Ada et al. 10.1016/j.ejogrb.2026.115351, added 2026-08-17) or off-core items (oncology/nursing AI-governance reviews, medication-list OCR, anticoagulant-Q&A, TCM scoping review). ADDED 1 on-core reference: Gwozdz-Broczkowska, 'AI-generated patient instructions as safety-critical communication: a provisional evidence-informed framework for clinical deployment' (Int J Med Inform 2026;221:106645; PMID 42607431) -- a peer-reviewed 7-domain safety framework for AI patient-facing outputs whose ESCALATION/safety-netting and HEALTH-LITERACY-alignment domains map onto this study's false-reassurance and lay-language concerns; physician/pharmacist review is emphasized for catching harms readability misses. Verification: PubMed metadata only (source pubmed-verified); the DOI is not yet in Scite's index (confirmed 'not present'), and it is a brand-new review so no editorial notice exists -- no DOI/PMID invented. Library 164 -> 165; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; no Gmail draft this run."
    }
   ],
   "alerts": [
@@ -3328,6 +3333,27 @@
    "source": "pubmed+scite-verified",
    "design_overlap": true,
    "date_added": "2026-08-17"
+  },
+  {
+   "title": "AI-generated patient instructions as safety-critical communication: a provisional evidence-informed framework for clinical deployment",
+   "authors": "Gwóźdź-Broczkowska A.",
+   "journal": "International Journal of Medical Informatics",
+   "year": 2026,
+   "pmid": "42607431",
+   "doi": "10.1016/j.ijmedinf.2026.106645",
+   "url": "https://doi.org/10.1016/j.ijmedinf.2026.106645",
+   "type": "review",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "lay-language",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Narrative/interpretative review that reframes AI-generated patient-facing instructions (discharge summaries, medication explanations, portal messages, plain-language materials) as a SAFETY-CRITICAL informatics intervention rather than a readability tool: patients may act on fluent, incomplete, or contextually unsafe AI text without the clinical knowledge to detect the error, and physician/pharmacist review of such outputs has found omissions, inaccuracies, newly-introduced actions, medication problems, and potentially harmful safety issues (especially in complex discharge contexts). Proposes a seven-domain safety framework -- factual accuracy, clinical completeness, actionability, medication clarity, ESCALATION and safety-netting, health-literacy alignment, and accountability/auditability -- to support implementation, local evaluation, and reviewer assessment, and calls for human verification, traceability, equity testing, and post-deployment monitoring for high-risk outputs. Bears on this protocol's patient-facing-AI-safety framing: the escalation/safety-netting domain is precisely the mechanism against false reassurance / failure to advise urgent care, health-literacy alignment is the everyday-/lay-language dimension, and the finding that physician/pharmacist review catches harms readability metrics miss echoes the study's physician-authored-evaluation rationale. CAVEAT: single-author narrative review proposing a PROVISIONAL framework (explicitly not a formal consensus guideline and not an empirical evaluation); PubMed-verified metadata only -- too recent for Scite indexing this run, so no Scite editorialNotices/citation check was available.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-18"
   }
  ]
 }

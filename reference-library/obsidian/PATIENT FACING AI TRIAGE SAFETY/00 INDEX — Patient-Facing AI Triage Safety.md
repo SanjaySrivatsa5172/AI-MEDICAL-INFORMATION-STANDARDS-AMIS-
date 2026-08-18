@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-17
-total-references: 164
+last-updated: 2026-08-18
+total-references: 165
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-17** · 164 references.
+Updated daily by automated scan. Last scan: **2026-08-18** · 165 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -185,6 +185,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Maw 2026 — Iterative Multidisciplinary Development and Evaluation of a…]] (2026)
 - [[Tewari 2026 — Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental…]] (2026)
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
+- [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -238,6 +239,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Wu 2026 — Deployment protocol and base model jointly determine residual risk in…]] (2026)
 - [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
+- [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -357,6 +359,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tewari 2026 — Accuracy of Chatbot-Based Health Advice Related to Traumatic Dental…]] (2026)
 - [[Wu 2026 — Deployment protocol and base model jointly determine residual risk in…]] (2026)
 - [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
+- [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
