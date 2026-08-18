@@ -114,7 +114,8 @@ ai-medical-information-standards/
 │   ├── source_hierarchy.yaml          # 5-tier hierarchy
 │   ├── uncertainty_calibration.yaml   # Confidence thresholds
 │   ├── harm_cascade.json              # Decision tree
-│   └── validation_schema.json         # JSON Schema for compliance
+│   ├── validation_schema.json         # JSON Schema for compliance
+│   └── imaging_ml_evidence.yaml       # Appraisal of ML diagnostic imaging claims
 │
 ├── implementation/                    # Reference implementations
 │   ├── python/
@@ -130,10 +131,26 @@ ai-medical-information-standards/
 │   ├── implementation_guide.md        # Adoption guide
 │   └── compliance_checklist.md        # Self-assessment
 │
-└── examples/
-    ├── compliant_output.md            # What good looks like
-    └── non_compliant_output.md        # Documented failures
+├── examples/
+│   ├── compliant_output.md            # What good looks like
+│   └── non_compliant_output.md        # Documented failures
+│
+└── evidence-reviews/                  # Standards applied to real questions
+    ├── README.md                      # Conformance requirements
+    └── lipoedema-ultrasound-ml.md     # ML for ultrasound detection of lipoedema
 ```
+
+---
+
+## Evidence Reviews
+
+[evidence-reviews/](evidence-reviews/) contains worked applications of the standards to real clinical questions — sources tier-classified, confidence capped by the evidence actually located, negative claims scoped to the search that produced them, and a harm cascade recorded before the answer is published.
+
+| Review | Question | Highest tier located | Confidence ceiling |
+|---|---|---|---|
+| [Lipoedema ultrasound + ML](evidence-reviews/lipoedema-ultrasound-ml.md) | Is there a published study applying machine learning to ultrasound detection of lipoedema? | Tier 3 | Uncertain |
+
+Reviews that assess machine-learning diagnostic models also apply [standards/imaging_ml_evidence.yaml](standards/imaging_ml_evidence.yaml), which extends Standards 2 and 3 to a failure mode tier classification alone does not catch: a model can report excellent discrimination and still be clinically useless, because the reported metric was computed on the data that selected it, or because the model learned an acquisition artefact rather than the disease.
 
 ---
 

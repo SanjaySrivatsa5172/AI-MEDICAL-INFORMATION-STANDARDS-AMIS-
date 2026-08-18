@@ -1,0 +1,227 @@
+# AI Medical Information Standards
+# Appraisal Criteria for Machine-Learning Diagnostic Imaging Claims
+# Version 1.0.0
+
+metadata:
+  version: "1.0.0"
+  last_updated: "2026-08-18"
+  description: >
+    Criteria an AI medical information system MUST apply before repeating,
+    summarising, or endorsing a claim that a machine-learning model detects,
+    classifies, or diagnoses a condition from medical images.
+  author: "S. Sanjay Srivatsa, MD"
+  license: "CC-BY-4.0"
+  extends: "SPECIFICATION.md Standard 2 (Source Quality Hierarchy) and Standard 3 (Mandatory Uncertainty Disclosure)"
+
+rationale: >
+  Diagnostic-model claims fail differently from therapeutic claims. A model can
+  report excellent discrimination and still be clinically useless, because the
+  reported metric was computed on the same data that selected the model, or
+  because the model learned an acquisition artefact rather than the disease.
+  Source tier alone does not detect this: a methodologically weak ML paper and a
+  strong one occupy the same journal tier. These criteria are therefore applied
+  IN ADDITION TO tier classification, never instead of it.
+
+# ---------------------------------------------------------------------------
+# Claim classification
+# ---------------------------------------------------------------------------
+claim_types:
+  segmentation_quantification:
+    description: "Model delineates or measures a structure (volume, thickness, area)."
+    reports: ["Dice", "IoU", "Hausdorff distance", "mm deviation"]
+    permitted_inference: "Measurement automation only."
+    prohibited_inference: >
+      MUST NOT be described as detecting, diagnosing, or distinguishing a
+      disease. A high Dice score is not diagnostic accuracy.
+
+  diagnostic_classification:
+    description: "Model assigns a disease label or probability."
+    reports: ["AUC", "sensitivity", "specificity", "PPV", "NPV", "calibration"]
+    permitted_inference: "Diagnostic discrimination, bounded by validation design."
+
+  prognostic_prediction:
+    description: "Model predicts future state, severity, or treatment response."
+    reports: ["C-index", "calibration slope", "decision curve analysis"]
+    permitted_inference: "Risk stratification only; not diagnosis."
+
+# ---------------------------------------------------------------------------
+# Validation design ceiling: caps the confidence language permitted
+# ---------------------------------------------------------------------------
+validation_design:
+  none_reported:
+    confidence_ceiling: "speculative"
+    note: "Metrics reported on training data or design unstated."
+
+  internal_split_or_cross_validation:
+    confidence_ceiling: "uncertain"
+    note: >
+      Single-centre split or k-fold. Cut-offs derived and evaluated in the same
+      cohort are optimistically biased. Requires explicit statement that the
+      threshold is un-validated.
+
+  temporal_or_internal_holdout:
+    confidence_ceiling: "uncertain"
+
+  external_validation_single_centre:
+    confidence_ceiling: "qualified"
+
+  external_validation_multicentre_multidevice:
+    confidence_ceiling: "qualified_definitive"
+
+  prospective_multicentre_with_blinded_reference_standard:
+    confidence_ceiling: "definitive"
+    note: "Definitive language permitted only when corroborated per Standard 2."
+
+# ---------------------------------------------------------------------------
+# Mandatory disclosures — omission caps confidence at "uncertain"
+# ---------------------------------------------------------------------------
+required_disclosures:
+  - id: "reference_standard"
+    requirement: >
+      How the ground-truth label was established, by whom, and whether the
+      labeller was blinded to the index test.
+    failure_mode: >
+      Where the reference standard is clinical diagnosis by the same team that
+      acquired the images, the model may reproduce that team's diagnostic habits
+      rather than the disease.
+
+  - id: "sample_size_and_class_balance"
+    requirement: "n per class, and events-per-variable for tabular feature models."
+    failure_mode: >
+      Small or imbalanced samples inflate apparent discrimination and produce
+      unstable thresholds.
+
+  - id: "acquisition_confounding"
+    requirement: >
+      Device model, transducer frequency, operator count, and any gain or
+      depth normalisation applied.
+    failure_mode: >
+      In ultrasound, B-mode pixel intensity is not an absolute physical
+      quantity. It varies with gain, time-gain compensation, depth, transducer
+      frequency, and vendor post-processing. A model trained on raw echogenicity
+      across scanners can learn the device signature instead of the tissue.
+      Internally referenced measures (for example a dermis-to-subcutaneous
+      echogenicity RATIO) mitigate this; absolute intensity does not.
+    mitigations_recognised:
+      - "Internally referenced ratios rather than absolute intensity"
+      - "Fixed acquisition protocol with locked gain and depth"
+      - "Multi-device training with device held out at validation"
+      - "Explicit device-shift testing"
+
+  - id: "case_mix_and_matching"
+    requirement: >
+      Whether controls were matched on the confounders that plausibly drive the
+      signal (for example BMI, age, sex).
+    failure_mode: >
+      Unmatched controls let a model separate groups on the confounder. A model
+      that has learned body mass has not learned the disease.
+
+  - id: "operator_and_reader_variability"
+    requirement: "Inter- and intra-operator reproducibility of the input measurements."
+
+  - id: "threshold_provenance"
+    requirement: >
+      Whether the reported cut-off was pre-specified or derived from the same
+      data used to evaluate it.
+
+  - id: "calibration"
+    requirement: >
+      Calibration of predicted probabilities, not discrimination alone.
+    failure_mode: "AUC is insensitive to systematic mis-calibration."
+
+# ---------------------------------------------------------------------------
+# Interpretation floors — protect against metric theatre
+# ---------------------------------------------------------------------------
+interpretation_rules:
+  - id: "auc_is_not_a_verdict"
+    rule: >
+      Discrimination in the 0.70-0.80 range MUST be described as modest and
+      adjunctive. It MUST NOT be presented as a diagnostic test, a confirmation,
+      or an exclusion.
+
+  - id: "report_both_operating_characteristics"
+    rule: >
+      Sensitivity MUST NOT be quoted without the paired specificity at the same
+      threshold, and vice versa. A high sensitivity paired with a specificity
+      near 50 percent has little capacity to rule a condition in.
+
+  - id: "prevalence_dependence"
+    rule: >
+      Where predictive values are quoted, the prevalence assumed MUST be stated.
+      Case-control designs do not yield transferable PPV or NPV.
+
+  - id: "segmentation_is_not_diagnosis"
+    rule: >
+      A quantification model MUST NOT be cited as evidence that the condition
+      can be detected by AI.
+
+  - id: "adjacent_condition_substitution"
+    rule: >
+      Evidence for a related condition MUST NOT be presented as evidence for the
+      condition asked about. Systems MUST name the studied condition explicitly.
+
+  - id: "registry_entries_are_not_results"
+    rule: >
+      A registered but unreported trial establishes that a question is being
+      studied. It MUST NOT be cited as evidence of an answer.
+
+# ---------------------------------------------------------------------------
+# Negative claims — asserting that evidence does not exist
+# ---------------------------------------------------------------------------
+absence_of_evidence:
+  requirement: >
+    A statement that no study exists is itself a claim, and MUST carry its own
+    warrant.
+  MUST_state:
+    - "The databases and indexes actually searched"
+    - "The date of the search"
+    - "The search terms, including spelling variants"
+    - "Any access limitation that constrained the search"
+  MUST_phrase_as: >
+    "No such study was identified in the sources searched" rather than
+    "no such study exists".
+  rationale: >
+    Preprints, non-English literature, conference abstracts, and newly indexed
+    work are routinely missed. Overstating a negative discourages clinicians
+    from looking and can suppress legitimate emerging work.
+
+# ---------------------------------------------------------------------------
+# Harm cascade triggers specific to diagnostic-model claims
+# ---------------------------------------------------------------------------
+harm_triggers:
+  false_reassurance:
+    description: >
+      A patient told that an AI-assisted scan can exclude a condition may stop
+      seeking a diagnosis.
+    severity: "high where the condition is progressive or commonly dismissed"
+
+  procedural_escalation:
+    description: >
+      An overstated diagnostic claim can justify an irreversible or
+      self-funded procedure.
+    severity: "high where the associated intervention is surgical"
+
+  diagnostic_delay_amplification:
+    description: >
+      In conditions already characterised by long diagnostic delay, a
+      false-negative AI claim compounds the existing harm.
+
+  commercial_capture:
+    description: >
+      Unvalidated diagnostic claims are readily repurposed as clinic marketing.
+    mitigation: "Name the validation status in the same sentence as the metric."
+
+# ---------------------------------------------------------------------------
+# Conformance
+# ---------------------------------------------------------------------------
+conformance:
+  level_1_minimum:
+    - "Claim type correctly classified"
+    - "Confidence language capped by validation_design ceiling"
+    - "Negative claims scoped per absence_of_evidence"
+  level_2_standard:
+    - "All required_disclosures checked and missing items named"
+    - "All interpretation_rules applied"
+  level_3_full:
+    - "Harm cascade documented per SPECIFICATION.md Section 8"
+    - "Per-claim source tier and validation design recorded in a traceable table"
