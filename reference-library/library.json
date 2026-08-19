@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-18",
+  "last_updated": "2026-08-19",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -161,6 +161,11 @@
     "date": "2026-08-18",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-18 14:08 UTC). RECONCILE: git in sync (origin=local at 164 refs / 6 alerts / last_updated 2026-08-17); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (164 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-18 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-17..2026-08-18 (two angles) returned mostly off-core work -- screened and EXCLUDED abdominal-radiology Gemini decision support (10.1016/j.ejrad.2026.113166), a vegetarian/vegan-nutrition chatbot-advice safety study (10.3389/fpubh.2026.1921819), a bimodal patient-education LLM RCT (10.1016/j.medj.2026.101263), a psychotherapy-AI framework (10.1037/abn0001148), prostate-MRI-reporting LLM governance (10.1007/s00261-026-05719-3), a PFPS chatbot-QA study (10.1016/j.msksp.2026.103636), an adolescent-suicide-prevention LLM mini-review (10.3389/fpubh.2026.1872450), a cancer-diagnostics multi-agent framework (10.3389/fsysb.2026.1892418), the already-excluded inhaler-counselling study, and an off-topic buffalo-brain genomics paper. A targeted Scite sweep (date_from 2026-08-16) surfaced only already-captured (Ada et al. 10.1016/j.ejogrb.2026.115351, added 2026-08-17) or off-core items (oncology/nursing AI-governance reviews, medication-list OCR, anticoagulant-Q&A, TCM scoping review). ADDED 1 on-core reference: Gwozdz-Broczkowska, 'AI-generated patient instructions as safety-critical communication: a provisional evidence-informed framework for clinical deployment' (Int J Med Inform 2026;221:106645; PMID 42607431) -- a peer-reviewed 7-domain safety framework for AI patient-facing outputs whose ESCALATION/safety-netting and HEALTH-LITERACY-alignment domains map onto this study's false-reassurance and lay-language concerns; physician/pharmacist review is emphasized for catching harms readability misses. Verification: PubMed metadata only (source pubmed-verified); the DOI is not yet in Scite's index (confirmed 'not present'), and it is a brand-new review so no editorial notice exists -- no DOI/PMID invented. Library 164 -> 165; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; no Gmail draft this run."
+   },
+   {
+    "date": "2026-08-19",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-19 14:09 UTC). RECONCILE: git in sync (origin=local at 165 refs / 6 alerts / last_updated 2026-08-18); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (165 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-19 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-18..2026-08-19 (two angles) surfaced mostly off-core work -- screened and EXCLUDED an LLM-as-rater communication-skills study (10.1016/j.pec.2026.109829), a Cedars-Sinai nuclear-cardiology board-exam LLM study (10.1016/j.nuclcard.2026.102946; exam MCQs, not triage -- noted for institutional interest only), an AMD multimodal-LLM imaging paper (10.1016/j.oret.2026.08.010), BBB-permeability cheminformatics (10.1021/acs.est.6c06459), postconcussion-headache forecasting (10.1097/HTR.0000000000001206), a ChatGPT urology-tumour-board evaluation (10.1007/s12094-026-04548-6; clinician-facing oncology MDT, though its 'concordance != safety, 3.8% potentially-harmful errors' point is noted), a VCD patient-education Q&A study (10.1002/wjo2.70158), a psychiatric-symptom-assessment physician-AI-trust study (10.30773/pi.2025.0330), plus already-excluded prior-day items and off-topic case reports. A targeted Scite sweep (date_from 2026-08-16) returned only already-captured or off-core items. ADDED 2 on-core references, both PubMed-metadata-verified (their DOIs are not yet in Scite's index -- brand-new, so no editorialNotices check was possible; no identifier invented): (1) Sharma et al. 'ED-triage-agent: a multi-agent framework for human-in-the-loop emergency triage' (Int J Med Inform 2026;221:106652; PMID 42612553) -- multi-agent LLM ESI-triage system with SYMPTOM-ONLY pre-vital queue prioritisation and explicit undertriage/overtriage + high-priority-sensitivity endpoints (Phase 2: 0.00% significant over-triage, 0.46% under-triage vs 10.00% for a chain-of-thought baseline on standardized ESI cases); Topic 1, design_overlap false (triage SYSTEM + external benchmark, not a physician-authored dual-register eval). (2) Ding & Wang 'Generative AI-Assisted Self-Diagnosis and the Patient-Physician Relationship' (J Med Internet Res 2026;28:e95072; PMID 42612039) -- mixed-methods study of how real patients use consumer generative AI for symptom interpretation and INFORMAL TRIAGE / illness-severity appraisal (directly on the everyday-language/self-triage core), design_overlap false. Library 165 -> 167; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; no Gmail draft this run."
    }
   ],
   "alerts": [
@@ -3354,6 +3359,47 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-18"
+  },
+  {
+   "title": "ED-triage-agent: a multi-agent framework for human-in-the-loop emergency triage",
+   "authors": "Sharma K, Sivadas H, Edwards C, et al.",
+   "journal": "International Journal of Medical Informatics",
+   "year": 2026,
+   "pmid": "42612553",
+   "doi": "10.1016/j.ijmedinf.2026.106652",
+   "url": "https://doi.org/10.1016/j.ijmedinf.2026.106652",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology",
+    "triage-standards",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Multi-agent LLM emergency-triage architecture (ED-Triage-Agent / ETA): five specialised agents orchestrated via LangGraph, grounded in the ESI Implementation Handbook v4 by retrieval-augmented generation, calibrated on 30 ESI Handbook Practice Cases. Two-phase design directly relevant to this protocol's endpoints: Phase 1 produces a provisional ESI-scaled acuity signal from SYMPTOM-ONLY data for pre-vital queue prioritisation (deciding who is seen next before vital signs exist -- an information-incomplete, symptom-text setting close to patient-facing lay-language triage); Phase 2 gives a criterion-linked ESI recommendation once vitals are available. On the external TRIAGEAGENT benchmark: Phase 1 76.39% exact-match (quadratic-weighted kappa 0.8787) with 95.52% high-priority sensitivity; Phase 2 87.04% exact-match (kappa 0.9090) with 0.00% significant over-triage and 0.46% significant under-triage (97.22% of misclassifications within +/-1 ESI level), versus 10.00% significant under-triage for a chain-of-thought baseline. Bears on Topic 1 (ESI-scaled undertriage/overtriage and high-priority sensitivity as safety endpoints; the CoT-vs-agentic contrast quantifies architecture-driven undertriage). CAVEAT: technical-feasibility study on standardized ESI Handbook / benchmark cases, not real ED data or clinician users; the authors state clinical utility, safety, and workflow integration remain to be established by prospective validation. Verified via PubMed metadata (source pubmed-verified); DOI not yet in Scite's index this run (brand-new), so no Scite editorialNotices check -- none can exist for a day-old article.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-19"
+  },
+  {
+   "title": "Generative Artificial Intelligence (AI)-Assisted Self-Diagnosis and the Patient-Physician Relationship: Mixed Methods Study of Calibration, Participation, and Trust",
+   "authors": "Ding W, Wang J.",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "42612039",
+   "doi": "10.2196/95072",
+   "url": "https://doi.org/10.2196/95072",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "lay-language",
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Exploratory sequential mixed-methods study (48 semistructured interviews + 546-person web survey, Chinese adults who had used generative AI to interpret symptoms within the prior 6-12 months) of how consumer generative-AI self-diagnosis is folded into real-world care-seeking -- the exact patient-facing, everyday-language behavior at the heart of this protocol's core question. Qualitatively, AI-assisted self-diagnosis was used in a 'prediagnostic gray zone for preliminary orientation, INFORMAL TRIAGE, and interim self-management,' helping patients appraise illness severity, prepare for consultations, ask questions, and understand physicians' reasoning. Quantitatively, perceived AI quality was associated with calibrated illness appraisal (beta 0.57, 95% CI 0.49-0.64) which was associated with greater patient participation (beta 0.35), and with diagnosis validation/comprehension which were associated with higher trust in physicians; authors frame AI as an informational intermediary rather than something that undermines medical authority. Bears on the everyday-language / self-triage / illness-severity-appraisal dimension: characterizes how patients actually use whatever consumer chatbot is at hand to gauge whether symptoms need care. CAVEAT: self-report, purposive/convenience sampling in China, correlational (mediation) design -- it measures perceptions, participation, and trust, NOT triage accuracy, undertriage, or harm. Verified via PubMed metadata (source pubmed-verified); DOI not yet in Scite's index this run (brand-new).",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-19"
   }
  ]
 }
