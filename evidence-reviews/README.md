@@ -16,6 +16,8 @@ They serve three purposes:
 |---|---|---|---|
 | [lipoedema-ultrasound-ml.md](lipoedema-ultrasound-ml.md) | Is there a published study applying machine learning to ultrasound detection of lipoedema? | Tier 3 | Uncertain |
 
+The lipoedema review was revised on 2026-08-19 after its stated access limitation was lifted and the PubMed search it called for was completed. The negative finding held; the revision records the confirming search and the additional evidence it surfaced.
+
 ## Conformance requirements
 
 A review in this directory MUST:

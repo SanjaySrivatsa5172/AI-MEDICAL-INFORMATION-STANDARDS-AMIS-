@@ -1,10 +1,10 @@
 # AI Medical Information Standards
 # Appraisal Criteria for Machine-Learning Diagnostic Imaging Claims
-# Version 1.0.0
+# Version 1.1.0
 
 metadata:
-  version: "1.0.0"
-  last_updated: "2026-08-18"
+  version: "1.1.0"
+  last_updated: "2026-08-19"
   description: >
     Criteria an AI medical information system MUST apply before repeating,
     summarising, or endorsing a claim that a machine-learning model detects,
@@ -107,6 +107,17 @@ required_disclosures:
       - "Fixed acquisition protocol with locked gain and depth"
       - "Multi-device training with device held out at validation"
       - "Explicit device-shift testing"
+
+  - id: "region_of_interest_specification"
+    requirement: >
+      Where a measurement is taken from a region of interest rather than the
+      whole image, the ROI's anatomical landmark, depth, size, and placement
+      rule MUST be reported.
+    failure_mode: >
+      An under-specified ROI cannot be reproduced by another operator or
+      centre, so the resulting measurement is not transferable and a model
+      trained on it cannot be externally validated. This has been identified
+      as an active defect in published elastography literature.
 
   - id: "case_mix_and_matching"
     requirement: >

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Review date | 2026-08-18 |
+| Review date | 2026-08-18 (revised 2026-08-19 after direct PubMed search) |
 | AMIS conformance | Level 3 (Full) |
 | Standards applied | SPECIFICATION.md Standards 1-5; `standards/imaging_ml_evidence.yaml` v1.0.0 |
 | Highest source tier located | Tier 3 |
@@ -18,6 +18,8 @@
 **No study was identified, in the sources searched, that trains or validates a machine-learning model on ultrasound images to detect or classify lipoedema.**
 
 This negative claim is scoped per `imaging_ml_evidence.yaml § absence_of_evidence`; the search boundary is stated in §6. It means *not identified in these sources on this date*, not *does not exist*.
+
+**Confirmed against PubMed directly (2026-08-19).** The initial review recorded a network block on PubMed as its principal limitation. That search has now been run. The intersection query — lipoedema AND ultrasound AND machine-learning terms — returns **exactly one** PubMed record, and that record is Nowak et al. (2022), an **MRI** segmentation study that matches only because PubMed expands `ultrasound` to the `diagnostic imaging` MeSH subheading. There is no ultrasound-plus-machine-learning lipoedema literature indexed in PubMed.
 
 Three adjacent bodies of work do exist, and are routinely conflated with the question. They are distinguished in §2, §3 and §4.
 
@@ -45,7 +47,7 @@ Applying `imaging_ml_evidence.yaml § interpretation_rules`:
 
 ---
 
-## 3. What exists: objective quantification of ultrasound *appearance*
+## 3. What exists: objective quantification of ultrasound *appearance* and tissue properties
 
 This addresses the second half of the question — identification from ultrasound appearance rather than thickness alone.
 
@@ -73,6 +75,21 @@ Per `imaging_ml_evidence.yaml § acquisition_confounding`: B-mode pixel intensit
 
 Iker et al.'s use of a **ratio** is the mitigation — it references dermis against subcutaneous fat within the same image, cancelling much of the machine-dependent scaling. Any future model should inherit that design property, and any study reporting absolute intensity features across devices without normalisation should be appraised as confounded until it demonstrates otherwise.
 
+### 3.3 Shear-wave elastography: a decisive negative
+
+The direct PubMed search surfaced a second appearance-adjacent modality that the first pass under-covered — and its central result cuts against using tissue stiffness as a discriminative feature.
+
+| Study | Design and n | Result | Tier |
+|---|---|---|---|
+| Ozturk et al. (2025), *Phlebology* | Cross-sectional, 71 participants (35 lipoedema, 36 healthy) | **No statistically significant difference in elastic modulus between lipoedema and healthy subjects** within BMI strata (25–29.9 and ≥30 kg/m²). Only right pre-tibial stage 2 exceeded stage 1 at BMI 25–29.9. Authors conclude pain characteristics "may be more distinctive than the elastic properties of adipose tissue." | 3 |
+| Yaman & Mansız-Kaplan (2026), *Int J Obes* | Cross-sectional, 35 patients | SWE measures **not** correlated with subcutaneous adipose tissue thickness. Thigh SWE-elasticity correlated with VAS pain (r = 0.35, p = 0.03); PainDetect correlated with thigh SWE-velocity (r = 0.38–0.47) and SWE-elasticity (r = 0.44). | 3 |
+| Simarro (2026), *Int J Obes* (Letter) | Methodological critique | Argues region-of-interest acquisition in lipoedema SWE studies is **under-specified**, limiting anatomical interpretation. | 4 |
+| Novo Rigueiro et al. (2026), *Phlebology* | Prospective within-patient, 12 completers | After shockwave therapy, clinical and quality-of-life measures improved significantly while **ultrasound thickness, elastography and bioimpedance detected no change**. | 3 |
+
+**Reading.** Elastography in lipoedema appears to track *pain and neuropathic symptom burden* rather than the presence of the disease or the amount of tissue. When BMI is controlled, it does not separate cases from controls. A model handed stiffness as a discriminative feature would therefore be building on a measure that the strongest available comparison found non-discriminative — and, per Simarro, one whose acquisition protocol is not yet standardised enough for the measurement to be reproducible across centres.
+
+This is recorded as a caution, not a refutation: the samples are small (35 and 71), and absence of a significant difference in a study of this size is weak evidence of absence.
+
 ---
 
 ## 4. What exists: machine learning in lipoedema, on other data
@@ -80,13 +97,28 @@ Iker et al.'s use of a **ratio** is the mitigation — it references dermis agai
 | Study | Data | Method | What it is | What it is **not** |
 |---|---|---|---|---|
 | Nowak et al. (2022), *European Radiology* | **MRI** (3D DIXON MR-lymphangiography), 45 patients | EfficientNet-B1 ensemble for landmarks + U-Net for segmentation. Landmark z-deviation 4.5 ± 3.1 mm; Dice 0.989 (subcutaneous) / 0.994 (subfascial) | Automated **quantification** of tissue volume in lipoedema and lymphoedema | Not a diagnostic classifier, and not ultrasound. Test set was 5 patients. |
-| Straub et al. (2025), *Metabolism* | Serum multi-omics | Prediction models from serum factors | A **non-imaging** diagnostic model | Not imaging-based |
+| Straub et al. (2025), *Metabolism* | Serum multi-omics (transcriptomic, proteomic, metabolomic, lipidomic) | Benchmarked serum Lipedema Prediction Models (sLPM); ElasticNet, random forest and support vector machine | A **non-imaging** diagnostic model, plus candidate markers of progression | Not imaging-based |
 | Jeziorek et al. (2024), *Metabolites* | Anthropometry and body composition, 119 women | PCA plus SVR / random-forest / kNN regression; best MAPE 10.78% | Resting metabolic rate **prediction** for treatment planning | Not diagnosis, not imaging |
 | Strohmeier et al. (2022), *Biomedicines* | Immunofluorescence **microscopy** of cultured endothelial cells | ML analysis of CD31 / ZO-1 cellular junction morphology | ML on images in lipoedema research | Microscopy of cultured cells, not clinical ultrasound |
 | Matei et al. (2025), *Biomedicines* | Systematic review, 9 studies, > 1000 patients | AI in venous pathology; accuracy > 90% | Evidence AI works in **venous** ultrasound | Lipoedema is named only as a future application |
+| Alkhalfan et al. (2025), *Obesity Medicine* | Plasma metabolomics, 38 BMI-matched discovery + 198 validation | ML biomarker selection | Uric acid differed across lipoedema (5.05 mg/dL), lymphoedema (5.4) and overweight controls (4.6); uric-acid-to-cystatin-C ratio separated all three | **Significance lost after adjustment for renal function** — the authors themselves downgrade it. Not imaging. |
 | Urooj et al. (2026), *Biomedical Journal* | Review | Lymphoedema imaging and AI | Review of the adjacent condition | Not lipoedema-specific primary evidence |
 
 Per `imaging_ml_evidence.yaml § segmentation_is_not_diagnosis` and `§ adjacent_condition_substitution`, none of the above may be cited as evidence that lipoedema can be detected by AI from ultrasound. Nowak et al. is the one most often mis-cited this way: a Dice score of 0.989 is a measurement result, not diagnostic accuracy.
+
+### 4.1 The AI that does exist in lipoedema is language and image *generation*, not diagnosis
+
+The direct PubMed search showed that the published "AI in lipoedema" literature is dominated by large language models and generative imagery — a category distinct from diagnostic modelling, and one where the findings are cautionary.
+
+| Study | What was evaluated | Result |
+|---|---|---|
+| Özbek et al. (2026), *Phlebology* | Generative AI asked to produce images of the five Schmeller anatomical lipoedema types; 300 images, blinded classification by two clinicians | Sensitivity 1.00 for Types I–III but **0.00 for Type IV (arm-predominant) and Type V (calf-isolated)** — all such requests were rendered as Type III. Overall accuracy 0.600; specificity for Type III only 0.50. Authors conclude current systems "encode lipedema as a single visual phenotype rather than a distributed anatomical entity." |
+| Özbek & Özduran (2026), *Phlebology* | ChatGPT-5o, Gemini-3 and Perplexity answering 30 guideline-based lipoedema questions | Significant differences in reliability (Perplexity 4.95 ± 1.20 vs ChatGPT-5o 4.38 ± 1.05); ChatGPT-5o best on source verifiability and bibliographic precision. Readability required a high educational level, flagged as a barrier for limited e-health literacy. No significant difference in clinical accuracy. |
+| Leypold et al. (2024), *Life* | GPT-4 as a consultation assistant across six simulated lipoedema scenarios, expert Likert scoring | Mean 4.24 / 5. |
+
+**Why this matters for the question asked.** Özbek et al. is the closest published work to "identifying lipoedema on the basis of appearance" by an AI system — and it documents a systematic failure at exactly the subtypes that the ultrasound literature is currently trying to characterise (Barros et al. address upper-extremity Type IV). A generative model that cannot represent arm-predominant disease is evidence about *learned visual priors*, not about diagnostic capability, and MUST NOT be cited in either direction as diagnostic evidence. It is recorded here because it is routinely encountered when searching this question.
+
+The two LLM-evaluation studies fall squarely within the AMIS remit: they assess AI-generated medical information about lipoedema, and both stop short of endorsing autonomous use.
 
 ---
 
@@ -109,11 +141,12 @@ Per SPECIFICATION.md §5.2 and the `validation_design` ceilings:
 
 | Field | Value |
 |---|---|
-| Date of search | 2026-08-18 |
-| Sources searched | scite.ai literature index (approx. 210M records, including full-text and Smart Citation excerpts); general web search |
-| Terms | `lipedema`/`lipoedema` crossed with `ultrasound`, `ultrasonography`, `sonograph*`, `machine learning`, `deep learning`, `artificial intelligence`, `radiomics`, `neural network`, `convolutional`, `texture analysis`, `classifier`, `echogenicity`, `echotexture`, `computer-aided`; both UK and US spellings throughout |
-| Access limitations | Direct PubMed, PMC, Europe PMC, doi.org and ClinicalTrials.gov queries were **blocked by the executing environment's network egress policy**. Coverage therefore rests on the scite index plus web search. A repeat search with direct database access is warranted before treating this negative as settled. |
-| Not systematically covered | Non-English literature, conference abstracts, dissertations, preprint servers |
+| Dates of search | 2026-08-18 (scite + web); **2026-08-19 (PubMed, direct)** |
+| Sources searched | **PubMed (direct query)**; scite.ai literature index (approx. 210M records, including full-text and Smart Citation excerpts); general web search |
+| Terms | `lipedema`/`lipoedema` crossed with `ultrasound`, `ultrasonography`, `sonography`, `sonographic`, `echography`, `machine learning`, `deep learning`, `artificial intelligence`, `radiomics`, `neural network`, `convolutional`, `texture analysis`, `classifier`, `computer-aided`, `echogenicity`, `echotexture`, `elastography`, `quantitative ultrasound`, `grayscale`; both UK and US spellings throughout |
+| PubMed yields | lipoedema ∩ ultrasound = 111 records. lipoedema ∩ ML terms (title/abstract) = 8 records. lipoedema ∩ ultrasound ∩ ML terms = **1 record**, which is Nowak et al. (2022), an MRI study matching only via the `diagnostic imaging` MeSH expansion of `ultrasound`. lipoedema ∩ echogenicity/elastography/quantitative-ultrasound = 8 records. |
+| Access limitations | **Resolved for PubMed.** The 2026-08-18 pass ran under a network egress policy that blocked PubMed, PMC, Europe PMC, doi.org and ClinicalTrials.gov; the PubMed block no longer applies and that search has been completed. PMC, Europe PMC and ClinicalTrials.gov remain unqueried directly. |
+| Not systematically covered | Non-English literature, conference abstracts, dissertations, preprint servers (arXiv/medRxiv), and databases outside PubMed and the scite index. A machine-learning ultrasound method published in an engineering venue not indexed in PubMed would not be captured. |
 
 ---
 
@@ -146,10 +179,11 @@ Recorded as design requirements, not as findings. A study that would answer the 
 
 1. **Reference standard** — blinded clinical diagnosis by assessors independent of image acquisition. Without this, a model learns the acquiring team's diagnostic habits.
 2. **Case mix** — BMI-matched controls, as in Barros et al. Unmatched controls let a model separate groups on body mass and call it lipoedema.
-3. **Device control** — internally referenced features (ratios) rather than absolute echogenicity; locked gain and depth; device held out at validation.
+3. **Device control** — internally referenced features (ratios) rather than absolute echogenicity; locked gain and depth; device held out at validation. Region-of-interest placement MUST be specified to the level of anatomical landmark, depth and size; Simarro (2026) identifies under-specified ROI acquisition as an active defect in the existing lipoedema elastography literature.
 4. **Sample size** — the largest ultrasound series identified here is 102 subjects. This is well below what a convolutional model on raw images requires; a feature-based classifier over the Amato/Barros standardised points plus the Iker subcutaneous echogenicity measures is the proportionate starting design.
-5. **Threshold provenance and external validation** — pre-specified thresholds, and at minimum single-centre external validation, before any confidence above "uncertain" is permitted.
-6. **Reporting** — TRIPOD+AI and STARD; calibration reported alongside discrimination, per `§ calibration`.
+5. **Feature selection informed by the negatives** — two candidate features that look attractive should be treated as unproven or non-discriminative on current evidence: the *dermal* echogenicity ratio (§3.1, discriminates lymphoedema rather than lipoedema) and *shear-wave stiffness* (§3.3, no significant case–control difference within BMI strata; tracks pain instead). Including either requires justification, not assumption.
+6. **Threshold provenance and external validation** — pre-specified thresholds, and at minimum single-centre external validation, before any confidence above "uncertain" is permitted.
+7. **Reporting** — TRIPOD+AI and STARD; calibration reported alongside discrimination, per `§ calibration`.
 
 The proportionate honest claim such a study could make, if successful, is *adjunctive discrimination*, not diagnosis.
 
@@ -157,7 +191,9 @@ The proportionate honest claim such a study could make, if successful, is *adjun
 
 ## References
 
-*Note on author lists: the indexing source used for this review returns the first three authors per record. Entries below therefore list up to three named authors and may omit further co-authors. Verify the full author list against the publisher record before reusing these citations in a manuscript.*
+*Records added in the 2026-08-19 revision were retrieved from PubMed. Note on author lists: the indexing source used for this review returns the first three authors per record. Entries below therefore list up to three named authors and may omit further co-authors. Verify the full author list against the publisher record before reusing these citations in a manuscript.*
+
+Alkhalfan, F., Sangwan, N., & Aggarwal, A. (2025). Exploring uric acid as a biomarker in lipedema and lymphedema: A metabolomics study with prospective validation. *Obesity Medicine, 55*. https://doi.org/10.1016/j.obmed.2025.100618
 
 Amato, A. C. M., Saucedo, D. Z., Santos, K. da S., & Benitti, D. A. (2021). Ultrasound criteria for lipedema diagnosis. *Phlebology: The Journal of Venous Disease*. https://doi.org/10.1177/02683555211002340
 
@@ -171,12 +207,26 @@ Jeziorek, M., Wronowicz, J., & Janek, Ł. (2024). Development of new predictive 
 
 Kempa, S., Tessmann, V., & Prantl, L. (2024). The value of sonographic microvascular imaging in the diagnosis of lipedema. *Clinical Hemorheology and Microcirculation*. https://doi.org/10.3233/ch-238103
 
+Leypold, T., Lingens, L. F., Beier, J. P., & Boos, A. M. (2024). Integrating AI in lipedema management: Assessing the efficacy of GPT-4 as a consultation assistant. *Life, 14*(5), 646. https://doi.org/10.3390/life14050646
+
 Matei, S.-C., Olariu, S., & Ungureanu, A.-M. (2025). Does artificial intelligence bring new insights in diagnosing phlebological diseases?—A systematic review. *Biomedicines, 13*(4), 776. https://doi.org/10.3390/biomedicines13040776
 
+Novo Rigueiro, M., Bravo González, M., & Prado Moraña, T. (2026). Clinical, ultrasound, elastography and bioimpedance changes after radial extracorporeal shock wave therapy in patients with lipedema: A prospective within-patient study. *Phlebology*. https://doi.org/10.1177/02683555261451555
+
 Nowak, S., Henkel, A., & Theis, M. (2022). Deep learning for standardized, MRI-based quantification of subcutaneous and subfascial tissue volume for patients with lipedema and lymphedema. *European Radiology, 33*(2), 884-892. https://doi.org/10.1007/s00330-022-09047-0
+
+Özbek, İ. C., & Özduran, E. (2026). Artificial intelligence in the management of chronic pain and lipedema: A comparative analysis of ChatGPT-5o, Gemini-3, and Perplexity AI in terms of readability and academic reliability. *Phlebology*. https://doi.org/10.1177/02683555261460252
+
+Özbek, I. C., Alyanak, B., & Dede, B. T. (2026). Evaluation of generative artificial intelligence in producing anatomically distinct lipedema subtypes: A diagnostic accuracy study. *Phlebology*. https://doi.org/10.1177/02683555261467340
+
+Ozturk, G., Kahraman, A. N., & Akpinar, P. (2025). Relationship of the tissue stiffness measured using shear wave elastography with the pain threshold and quality of life of patients with lipedema: A cross-sectional study. *Phlebology, 40*(8), 627-637. https://doi.org/10.1177/02683555251357094
+
+Simarro, J. L. (2026). Lipedema and shear-wave elastography: Under-specification of ROI acquisition limits anatomical interpretation [Letter]. *International Journal of Obesity*. https://doi.org/10.1038/s41366-026-02163-7
 
 Straub, L. G., Funcke, J.-B., & Joffin, N. (2025). Defining lipedema's molecular hallmarks by multi-omics approach for disease prediction in women. *Metabolism, 168*, 156191. https://doi.org/10.1016/j.metabol.2025.156191
 
 Strohmeier, K., Hofmann, M., & Jacak, J. (2022). Multi-level analysis of adipose tissue reveals the relevance of perivascular subpopulations and an increased endothelial permeability in early-stage lipedema. *Biomedicines, 10*(5), 1163. https://doi.org/10.3390/biomedicines10051163
 
 Urooj, B., Ali, S., & Xiao, F. (2026). Lymphedema imaging and AI: A review of diagnostic modalities, biomarkers, and clinical integration. *Biomedical Journal, 49*(3), 100932. https://doi.org/10.1016/j.bj.2025.100932
+
+Yaman, A., & Mansız-Kaplan, B. (2026). Assessment of the elasticity of lipedematous tissue and the examination of the relationship between pain and fibrosis in lipedema. *International Journal of Obesity, 50*(5), 1136-1141. https://doi.org/10.1038/s41366-026-02049-8
