@@ -10,6 +10,7 @@
 | Highest source tier located | Tier 3 |
 | Permitted confidence ceiling | **Uncertain** (see §5) |
 | Therapeutic intent | None. This document is an evidence appraisal, not clinical guidance. |
+| Derived analysis | §10 contains calculations performed for this review (Hanley-McNeil AUC precision; Bayes projection of predictive values). These are arithmetic on published operating points, clearly marked, and are not findings of the cited studies. |
 
 ---
 
@@ -21,7 +22,7 @@ This negative claim is scoped per `imaging_ml_evidence.yaml § absence_of_eviden
 
 **Confirmed against PubMed directly (2026-08-19).** The initial review recorded a network block on PubMed as its principal limitation. That search has now been run. The intersection query — lipoedema AND ultrasound AND machine-learning terms — returns **exactly one** PubMed record, and that record is Nowak et al. (2022), an **MRI** segmentation study that matches only because PubMed expands `ultrasound` to the `diagnostic imaging` MeSH subheading. There is no ultrasound-plus-machine-learning lipoedema literature indexed in PubMed.
 
-Three adjacent bodies of work do exist, and are routinely conflated with the question. They are distinguished in §2, §3 and §4.
+Three adjacent bodies of work do exist, and are routinely conflated with the question. They are distinguished in §2, §3 and §4. **§10 draws the consequences** — a feature-discrimination audit, the sample size the existing cohorts fall short of, and what the published operating point does at realistic prevalence.
 
 ---
 
@@ -186,6 +187,95 @@ Recorded as design requirements, not as findings. A study that would answer the 
 7. **Reporting** — TRIPOD+AI and STARD; calibration reported alongside discrimination, per `§ calibration`.
 
 The proportionate honest claim such a study could make, if successful, is *adjunctive discrimination*, not diagnosis.
+
+---
+
+## 10. Synthesis: what this evidence base can and cannot support
+
+Sections 2-4 catalogue what exists. This section draws the consequences, and is the part most relevant to anyone deciding whether to build the model the question implies.
+
+### 10.1 Feature-discrimination audit
+
+The literature reads as though ultrasound offers a rich feature set for lipoedema. Audited against the question *has this feature been shown to separate lipoedema from controls?*, it does not.
+
+| Candidate feature | Tested against controls? | Outcome |
+|---|---|---|
+| Subcutaneous thickness, upper limb | Yes — 51 v 51, age- and BMI-matched (Barros) | **Separates.** AUC 0.73-0.74 across four of six sites, independent of BMI |
+| Subcutaneous / dermal thickness, lower limb | Yes — 63 v 26 (Amato) | **Separates** at pre-tibial, thigh, lateral leg; malleolar at BMI > 25 |
+| Dermal-to-subcutaneous echogenicity ratio | Yes — 12 v 8 limbs (Iker) | **Does not separate** lipoedema from control (§3.1). Separates lymphoedema |
+| Shear-wave stiffness | Yes — 35 v 36, BMI-stratified (Ozturk) | **Does not separate** within BMI strata (§3.3); tracks pain instead |
+| Subcutaneous fat echogenicity | Partially — reported as reduced in lipoedema, control contrast not quantified | **Indeterminate** |
+| Microvascular flow grade (UMA) | No — patients graded, controls not (Kempa) | **Discrimination not computable** from published data |
+| Nodularity / "snowstorm" texture | No — described qualitatively only | **Untested** |
+| Site-to-site disproportion ratios | No — not constructed in any located study | **Untested** (see §10.5) |
+
+**The consequence.** Of every ultrasound-derived measure that has been put to a case-control test in lipoedema, exactly one class has passed: **tissue thickness**. The two features that most resemble "identifying lipoedema on the basis of ultrasound appearance" — dermal echogenicity and tissue stiffness — have each been tested and each failed to separate cases from controls. A machine-learning model over currently validated ultrasound features would therefore be, in substance, a multivariate thickness model.
+
+That matters, because thickness measurements taken at standardised sites on the same limb are strongly correlated: they are repeated samples of one underlying construct. Correlated inputs contribute little independent information, so the gain from combining them is bounded well below what the number of features suggests. The realistic expectation is incremental improvement on AUC 0.74 — not a step change.
+
+### 10.2 The precision problem
+
+The published operating points are estimated too imprecisely to support the comparisons a model-development programme would need to make.
+
+At the largest existing sample (51 v 51), the 95% confidence interval on an AUC of 0.74 spans roughly **0.64 to 0.84** (Hanley-McNeil, balanced groups). An interval that wide cannot distinguish "barely better than chance" from "clinically useful", and cannot detect the incremental gain a model would be built to deliver.
+
+Sample sizes for a given precision on the AUC estimate, balanced groups:
+
+| Target AUC | Half-width | n per group | Total |
+|---|---|---|---|
+| 0.74 | ± 0.05 | 188 | 376 |
+| 0.80 | ± 0.05 | 151 | 302 |
+| 0.80 | ± 0.075 | 68 | 136 |
+| 0.85 | ± 0.05 | 117 | 234 |
+
+A development cohort adequate to estimate AUC 0.80 to ± 0.05 needs roughly **300 participants — about three times the largest lipoedema ultrasound series published**. This is before any allowance for a held-out external validation set, which the standard requires before confidence may rise above "uncertain".
+
+*These are precision calculations for estimating a single AUC, not formal prediction-model sample-size calculations (for which Riley et al.'s criteria apply and generally demand more). They are a floor, not a target.*
+
+### 10.3 The prevalence problem
+
+Every located study uses a case-control design at roughly 1:1. Per `imaging_ml_evidence.yaml § prevalence_dependence`, predictive values from such designs do not transfer to a clinic population. The following is therefore an **illustrative projection, not a reported result** — it shows what the best published operating point (sensitivity 82.4%, specificity 51.9%) would imply if applied where lipoedema is not half the population:
+
+| Pre-test probability | Post-test if positive | Post-test if negative |
+|---|---|---|
+| 50% | 63.1% | 25.3% |
+| 30% | 42.3% | 12.7% |
+| 20% | 30.0% | 7.8% |
+| 10% | 16.0% | 3.6% |
+
+Likelihood ratios: **LR+ = 1.71, LR- = 0.34**.
+
+**The consequence.** At a plausible clinic prevalence, a positive result moves the probability of lipoedema from 10% to 16%. That is not a diagnostic test; it is barely a nudge. The negative direction is more useful — 10% down to 3.6% — which means the published thresholds behave as a weak **rule-out**, not a rule-in.
+
+This asymmetry is the opposite of what the clinical context needs. The documented harm in lipoedema is *under*-recognition and diagnostic delay; a weak rule-out is the tool most likely to compound it, and a marketed "AI scan" that returns negatives with this profile would do real damage. Section 8's direct-harm analysis is not hypothetical — it falls out of the arithmetic.
+
+### 10.4 The reference-standard ceiling
+
+Lipoedema has no biomarker and no histological gold standard. Every study here uses expert clinical diagnosis as ground truth. A supervised model trained against that label can, at its theoretical best, **reproduce expert clinical judgement — never exceed it**.
+
+There is a further circularity worth stating plainly: clinical diagnosis rests partly on inspecting and palpating the same tissue the transducer images. A model trained on those images against those labels may be learning the clinician's heuristic rather than an independent tissue signature. Nothing in the located literature distinguishes these two possibilities, and no study reports whether the labelling clinician was blinded to the imaging.
+
+This caps the honest claim available to any such project at *concordance with expert assessment*, and makes blinded, independent labelling the single most important design decision — more important than the choice of model.
+
+### 10.5 The feature nobody has built
+
+One observation from this audit is actionable. Lipoedema's cardinal clinical sign is **disproportion** — the abrupt demarcation at the malleoli, the spared foot, the mismatch between trunk and limb. It is a *relational* property.
+
+Every located ultrasound study measures **absolute** thickness at anatomical sites and derives per-site cut-offs. None constructs the derived ratio — proximal-to-distal, affected-to-spared, limb-to-trunk — that would mirror the sign clinicians actually pattern-match on.
+
+A ratio feature is attractive for the same reason Iker et al.'s echogenicity ratio was: it is **internally referenced**, so it cancels the two confounders this review has identified as most dangerous. It divides out body-mass scaling (addressing the case-mix problem in §2.1), and because both terms come from the same image and machine settings, it divides out device gain (addressing §3.2). It is the design logic of §3.2 applied to geometry instead of intensity.
+
+This is a hypothesis generated by the review, not a finding. It has not been tested, and it is recorded here as the most promising untested direction rather than as evidence of anything.
+
+### 10.6 Bottom line
+
+The honest summary for a clinician asking this question:
+
+- Ultrasound thickness measurement in lipoedema is real, replicated by independent groups, and **modestly discriminative** — an adjunct to clinical assessment, at roughly AUC 0.74.
+- No machine-learning model has been built on it, and the feature set available to one is narrower than the literature's breadth implies.
+- The existing cohorts are roughly a third of the size needed to estimate performance precisely, let alone to validate it.
+- The published operating point functions as a weak rule-out, which is the wrong direction for a condition whose documented harm is under-diagnosis.
+- The binding constraint is not the algorithm. It is the reference standard, the sample size, and the absence of a feature that encodes disproportion.
 
 ---
 
