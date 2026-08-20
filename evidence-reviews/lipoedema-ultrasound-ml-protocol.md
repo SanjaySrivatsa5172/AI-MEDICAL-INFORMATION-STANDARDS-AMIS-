@@ -310,9 +310,34 @@ Two practical implications:
 
 Assume no RF until GE confirms otherwise, and design the primary analysis so it does not depend on it.
 
-### 4.10 Probe assignment — and one rule that must not be broken
+### 4.10 Probe inventory and assignment — and one rule that must not be broken
 
-A curvilinear abdominal transducer (GE C1-6 class, **1–6 MHz**, up to 35 cm depth) is also available. It has a role, but **not** in the primary measurement.
+Three transducers are available. Only one can carry the primary measurement.
+
+| Probe | Type | Band | Role in this study |
+|---|---|---|---|
+| **12L-RS** | Linear array, 38–39 mm FOV | 5–13 MHz | **All characterisation (sparkle) acquisitions. All limb and abdominal texture analysis.** Survey views at the low end of the band. |
+| **C1-6 class** | Curvilinear/convex | 1–6 MHz | Deep abdominal **thickness only**, where the linear probe cannot penetrate. Excluded from all texture analysis. Connector compatibility unconfirmed (§4.10.4). |
+| **3S-RS** | Phased array sector, 90°, 19.3 × 27.6 mm | 1.5–4.0 MHz | **No role in the primary study.** Fallback for deep abdominal thickness only if no compatible curvilinear exists (§4.10.5). |
+
+#### 4.10.0 Speckle cell across the available hardware
+
+Sparkle is a fine-scale phenomenon, so resolution is the binding constraint. Independent speckle cells available in a 10 × 10 mm ROI, against the ~100-sample minimum for a stable Nakagami fit:
+
+| Probe / setting | Speckle cell | Cells in 10×10 mm ROI | Adequate for envelope statistics? |
+|---|---|---|---|
+| **12L-RS @ 13 MHz** | **0.17 mm²** | **~594** | **Yes — the reference configuration** |
+| 12L-RS @ 7 MHz | 0.58 mm² | ~172 | Marginal |
+| C1-6 @ 6 MHz | 0.79 mm² | ~126 | Marginal, and geometry disqualifies it |
+| 12L-RS @ 5 MHz | 1.14 mm² | ~88 | **No** |
+| 3S-RS @ 4 MHz | 1.78 mm² | ~56 | **No** |
+| 3S-RS @ 1.5 MHz | 12.65 mm² | ~8 | **No** |
+
+**A trap this table exposes.** The penetration-mode survey preset recommended in §4.9.1(b) sits near 5 MHz and yields only ~88 independent cells — **inadequate for envelope statistics**. Survey-preset images are for **thickness measurement and anatomy only**. Envelope statistics, bright-spot density and texture features must **never** be computed on survey acquisitions. This is a protocol-level exclusion, not a caution.
+
+---
+
+A curvilinear abdominal transducer (GE C1-6 class, **1–6 MHz**, up to 35 cm depth) and a phased array cardiac probe are also available. Both have limited roles, and **neither touches the primary measurement**.
 
 #### 4.10.1 The rule
 
@@ -351,7 +376,22 @@ As you have already noted, the **C1-6-D / C1-6VN-D are D-port transducers** inte
 
 If no compatible curvilinear exists on these consoles, the protocol is unaffected in its primary endpoint: only the deep abdominal thickness covariate is lost, and that is recorded as missing data (§4.9.1b).
 
-#### 4.10.5 Optional sub-study: frequency dependence of sparkle
+#### 4.10.5 The 3S-RS phased array — why it has no role here
+
+Specification: phased array sector, **1.5–4.0 MHz**, 90° field of view, 30 cm depth, footprint 19.3 × 27.6 mm. Confirmed compatible with Vivid 6 and the `-RS` connector family.
+
+It is a **cardiac probe**, and for subcutaneous tissue characterisation it is the least suitable of the three, for four independent reasons:
+
+1. **Resolution.** At 4 MHz the speckle cell is ~1.78 mm² — **10.6× larger** than the 12L-RS at 13 MHz; at 1.5 MHz it is ~75× larger. A 10 × 10 mm ROI yields ~56 independent cells at 4 MHz and ~8 at 1.5 MHz, both far below what a stable envelope-statistic fit requires. Sparkle would be entirely averaged away.
+2. **The near field is the region of interest.** Subcutaneous fat sits at roughly 0–5 cm. A phased array with a ~20 × 28 mm footprint is designed to image the heart at 8–20 cm through an intercostal window. At 1–3 cm the beam is poorly formed, the aperture is small relative to depth, and lens and matching-layer reverberation contaminate exactly the depths being measured.
+3. **Sector geometry is worse than convex.** Scan lines radiate from a virtual apex effectively at the probe face, so at shallow depth adjacent lines are very closely spaced while the actual beam remains wide. The result is dense but **highly correlated** sampling: the pixel count grossly overstates the number of independent observations, which silently invalidates Nakagami and homodyned-K estimation. Scan-conversion interpolation then dominates any texture measure.
+4. **Cardiac presets** apply aggressive adaptive and temporal processing and default to harmonics — the opposite of what §4.2 requires.
+
+**Permitted use.** One only: if no `-RS`-compatible curvilinear can be sourced (§4.10.4), the 3S-RS may substitute as the **deep abdominal thickness** probe in participants whose midline fat exceeds 12L-RS penetration. Thickness measurement is a boundary-detection task and tolerates poor speckle statistics. Even then it is excluded from every texture, sparkle and envelope analysis.
+
+**A useful incidental.** The 3S-RS being confirmed on Vivid 6 establishes the `-RS` connector family for these consoles, which supports sourcing a **4C-RS-class convex** probe rather than the D-port C1-6-D discussed in §4.10.4.
+
+#### 4.10.6 Optional sub-study: frequency dependence of sparkle
 
 This costs only extra presets and could be genuinely informative. Scattering behaviour depends on scatterer size relative to wavelength, so measuring how sparkle metrics change across the **12L-RS band alone** (e.g. 7, 10 and 13 MHz on the same marked ROI, back to back) constrains the effective size of the structures producing it.
 
