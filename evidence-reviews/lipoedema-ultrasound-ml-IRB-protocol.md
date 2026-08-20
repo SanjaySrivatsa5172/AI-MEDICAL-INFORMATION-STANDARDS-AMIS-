@@ -362,6 +362,48 @@ DICOM images from clinical consoles routinely carry **burned-in text in the pixe
 
 Class labels are held in a separate file keyed by study ID, containing **only** study ID and class. Clinical variables required for the statistical analyses (thickness covariate for H2, variant stratification, histology for H3) are held by the statistical team and are **never joined to the image set that the model sees**.
 
+## 7.1B Computing environment — local, air-gapped processing
+
+All image processing, feature extraction and model training are performed **locally on a dedicated NVIDIA DGX Spark workstation held within the institution**. `[Exact model, unified memory capacity and storage to be recorded.]`
+
+### 7.1B.1 No internet egress
+
+**No image, derived feature, or participant datum leaves the institutional environment at any point.**
+
+- The analysis workstation operates **without internet connectivity** for study processing; network isolation is enforced `[by air-gap / by firewall rule restricting all outbound traffic — specify]`
+- **No cloud computing, no third-party processing, no external application programming interfaces.** This includes an explicit prohibition on submitting any study image or derived data to any external artificial-intelligence, machine-learning or large-language-model service, whether commercial or academic
+- Software dependencies are obtained and installed during a controlled provisioning step, with library versions pinned and recorded; the machine is then isolated for study processing
+- **Model training occurs entirely on local hardware.** No federated, hosted or remote training is used
+
+This eliminates the largest category of data-protection risk in imaging research — transmission to and storage on third-party infrastructure — and is a material factor in the risk assessment at §9.5.
+
+### 7.1B.2 Pseudonymisation workflow
+
+1. Images are exported from the ultrasound console.
+2. **De-identification is performed first**: DICOM headers stripped of identifiers, burned-in pixel text masked (§7.1A).
+3. Each participant is then assigned a **unique study label identifier**, which is the only identifier present in the analysis dataset.
+4. The **linking key** mapping study identifier to participant identity is held **separately**, encrypted, on institutional storage distinct from the analysis workstation, accessible only to the PI and study coordinator.
+5. **The analysis workstation never holds the linking key.** A compromise of the analysis machine therefore does not permit re-identification.
+
+### 7.1B.3 Physical and logical security
+
+- The workstation is located in `[secure, access-controlled room]`
+- Full-disk encryption at rest; unique named user accounts, no shared credentials; multi-factor authentication where supported
+- Access limited to named analysis personnel listed in the protocol; access log maintained
+- **Backups** are held on encrypted institutional storage within the same security boundary — never on portable media, personal devices or consumer cloud services
+- On study completion, storage is **securely sanitised** per institutional policy, with a certificate of destruction retained
+
+### 7.1B.4 A caution: compute is not the limiting factor
+
+Dedicated GPU hardware makes deep learning technically straightforward, and that creates a temptation the protocol explicitly resists.
+
+**The binding constraint on model complexity is sample size, not compute.** With approximately 238 training participants, penalised regression or gradient boosting over interpretable parameters remains the *primary* model (§8.5.9). A high-capacity convolutional network trained on a few hundred participants will fit confounders — console, operator, session — more readily than disease, and the availability of hardware to train it is not an argument for doing so.
+
+Local compute does confer three genuine advantages, and these are the ones to exploit:
+- **Uncompressed DICOM and full cine sweeps can be retained and processed** without upload or storage-cost constraints, preserving the speckle information that lossy compression destroys
+- **Radiofrequency or IQ data can be handled** at volume if a research export is obtained, which is otherwise impractical
+- **The full pre-specified sensitivity analysis programme** (§8.5.8) — leave-one-console-out, leave-one-operator-out, site-restricted, variant-stratified, thickness-matched — can be run exhaustively rather than sampled
+
 ## 7.2 Storage and retention
 
 De-identified images and analysis data are stored on `[institutional secure server / encrypted institutional storage]`, access-controlled and audit-logged. No participant data is stored on personal devices, portable media or non-institutional cloud services. Data are retained for `[7 years / per institutional policy]` after publication, then destroyed per institutional procedure.
@@ -619,7 +661,7 @@ Some participants may find discussion of their diagnosis distressing, particular
 
 ## 9.5 Risk of loss of confidentiality — and mitigation
 
-The principal residual risk in the study is confidentiality, not physical harm. Mitigations are described in §7: DICOM de-identification including burned-in text, separately held encrypted linking key, access-controlled institutional storage, and a separate consent option for image sharing.
+The principal residual risk in the study is confidentiality, not physical harm. Mitigations are described in §7: DICOM de-identification including burned-in text, separately held encrypted linking key, access-controlled institutional storage, and a separate consent option for image sharing. **Critically, all processing is performed on an isolated local workstation with no internet egress and no third-party or cloud service involvement (§7.1B)**, removing the largest category of data-protection risk in imaging research. The analysis machine does not hold the linking key, so its compromise would not permit re-identification.
 
 ## 9.6 Incidental findings
 
@@ -742,6 +784,7 @@ If you withdraw, you can ask us to delete the information collected about you. W
 - Your name and other identifying details are **removed** from all scan pictures and data.
 - You are given a **study number** instead. The list linking your number to your name is kept separately, encrypted, and only the study leader and coordinator can see it.
 - Data is stored on secure `[institution]` computers, not on personal devices or laptops.
+- **The computer analysis is done entirely on a machine inside the hospital, with no internet connection.** Your scan pictures are never sent to any outside company, cloud service or website.
 - When we publish results, **no individual can be identified.**
 - Data will be kept for `[X]` years and then destroyed.
 
