@@ -20,6 +20,14 @@ Where a review performs its own arithmetic on published figures — precision ca
 
 The lipoedema review was revised on 2026-08-19 after its stated access limitation was lifted and the PubMed search it called for was completed. The negative finding held; the revision records the confirming search and the additional evidence it surfaced.
 
+## Derived design documents
+
+A review may spawn a design document that operationalises a hypothesis it generated. These are **not** evidence appraisals and are not held to the conformance requirements below; they must be labelled as drafts, state that they are not ethics-approved or statistician-reviewed, and carry the honest claim ceiling the underlying evidence supports.
+
+| Document | Derived from |
+|---|---|
+| [lipoedema-ultrasound-ml-protocol.md](lipoedema-ultrasound-ml-protocol.md) | lipoedema-ultrasound-ml.md §10.5 |
+
 ## Conformance requirements
 
 A review in this directory MUST:
