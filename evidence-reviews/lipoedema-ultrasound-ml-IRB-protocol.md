@@ -14,9 +14,9 @@
 | Co-investigators | `[Sonographer(s), statistician, pathologist, surgeon]` |
 | Sponsor | `[Institution / investigator-initiated]` |
 | Funding | `[Source or "unfunded / departmental"]` |
-| Design | Prospective, cross-sectional, case–control diagnostic accuracy study with a nested within-subject paired comparison, an embedded histological correlation sub-study, and a separate prospective validation cohort |
-| Population | Adults with clinically diagnosed lipoedema and four comparison groups |
-| Sample size | 391 development cohort (5 arms) + 90 independent test cohort + 30 histology sub-study participants (nested) |
+| Design | Prospective, cross-sectional, two-arm case–control **discovery / proof-of-concept** study, with a nested within-subject paired comparison and an embedded histological correlation sub-study. Independent validation is a planned subsequent phase, not part of this protocol |
+| Population | Adult women with clinically diagnosed lipoedema and BMI-matched controls without lipoedema |
+| Sample size | **100 participants: 50 lipoedema, 50 BMI-matched non-lipoedema controls.** Analysis unit is the **participant**, not the image. Histology sub-study nested within the lipoedema arm |
 | Duration | `[24–36 months anticipated]` |
 | Risk classification | **Minimal risk** for the imaging protocol. The nested histology sub-study uses tissue already being removed during clinically indicated surgery and adds no incision, anaesthesia or operative time |
 | Companion document | [lipoedema-ultrasound-ml-protocol.md](lipoedema-ultrasound-ml-protocol.md) — the technical acquisition standard, incorporated here by reference |
@@ -110,19 +110,38 @@ Prospective, cross-sectional, multi-arm case–control diagnostic accuracy study
 
 ## 3.1 Study arms
 
-| Arm | Description | n (development) |
-|---|---|---|
-| A | **Lipoedema** — clinically diagnosed, stratified by distribution variant | 68 |
-| B | **Healthy controls**, BMI-matched to Arm A | 68 |
-| C | **Obesity without lipoedema**, BMI-matched | 68 |
-| D | **Cellulite without lipoedema** | 68 |
-| E | **Lymphoedema** | 68 |
+**Two arms, 100 participants total.**
 
-**Why Arms C, D and E are scientifically necessary.** Arm C addresses the actual diagnostic dilemma — patients told they are simply obese. Arm D is essential because cellulite affects the same body regions in the same demographic and has its own documented ultrasound structural phenotypes; without this arm, any signature we identify could be attributed to cellulite and the study would be uninterpretable. Arm E tests specificity against the other condition characterised by adipose tissue remodelling.
+| Arm | Description | n |
+|---|---|---|
+| **A** | **Lipoedema** — clinically diagnosed, stratified by distribution variant | **50** |
+| **B** | **Non-lipoedema controls**, individually **BMI-matched** to Arm A participants (± 2 kg/m²) | **50** |
+
+### 3.1.1 Why BMI matching is non-negotiable
+
+If controls are not BMI-matched, any model will separate the groups on **adiposity** and the study will have demonstrated nothing about lipoedema. Matching is performed **individually**, participant to participant, and match quality is reported.
+
+### 3.1.2 Cellulite is handled as a covariate, not a separate arm
+
+Cellulite is common in BMI-matched women and affects the same body regions; a dedicated cellulite arm is not affordable at this sample size, and would in any case be partly redundant because many Arm B participants will have cellulite.
+
+**Cellulite is therefore graded in every participant in both arms** (Nürnberger–Müller scale) and:
+
+- entered as a **covariate** in the between-arm analysis
+- used in a pre-specified **sensitivity analysis restricted to cellulite-matched pairs**
+- reported by arm, so that any imbalance is visible
+
+This is more statistically efficient than a separate arm and directly answers the reviewer objection that the signature is merely cellulite.
+
+### 3.1.3 What this sample size defers
+
+Dedicated **lymphoedema** and **obesity-without-lipoedema** comparison arms are **not included** at n=100 and are identified as **planned future work**. Their absence is a declared limitation (§13A): this study establishes whether a signature exists against BMI-matched controls; it does not establish specificity against lymphoedema.
+
+Where a small convenience sample of lymphoedema participants is available, they may be imaged as an **exploratory descriptive addition**, reported separately and explicitly under-powered, with no formal hypothesis attached.
 
 ## 3.2 Distribution-variant stratification
 
-Lipoedema occurs in variants confined to the hips, extending from hips to knee, and extending from hips to ankle, with upper-limb involvement in a substantial minority. Arm A recruitment is stratified across these variants, and **the primary hypothesis is tested within every variant stratum**. A signature present only in distally extensive disease would fail the clinical requirement that motivates this study.
+Lipoedema occurs in variants confined to the hips, extending from hips to knee, and extending from hips to ankle, with upper-limb involvement in a substantial minority. Arm A recruitment is stratified across these variants, and the primary hypothesis is examined within variant strata. **At n = 50, individual variant strata are small and these analyses are exploratory**, powered to describe rather than to confirm. A signature apparently present only in distally extensive disease would be a flag for the validation phase, not a conclusion.
 
 ---
 
@@ -136,15 +155,11 @@ Lipoedema occurs in variants confined to the hips, extending from hips to knee, 
 
 ## 4.2 Arm-specific inclusion criteria
 
-**Arm A (lipoedema):** Clinical diagnosis of lipoedema established independently by two study clinicians per §5.1, with recorded stage (I–III) and distribution variant.
+**Arm A (lipoedema), n = 50:** Clinical diagnosis of lipoedema established by the PI per §5.1, with recorded stage (I–III) and distribution variant.
 
-**Arm B (healthy control):** No clinical evidence of lipoedema, lymphoedema or clinically significant cellulite; BMI matched to an Arm A participant within ±2 kg/m².
+**Arm B (BMI-matched control), n = 50:** No clinical features of lipoedema or lymphoedema; **individually BMI-matched** to a specific Arm A participant within ± 2 kg/m², and additionally matched on **age band (± 10 years)** and **sex**. Cellulite is permitted and graded, not excluded (§3.1.2).
 
-**Arm C (obesity without lipoedema):** BMI ≥ 30 kg/m² without clinical features of lipoedema; matched to an Arm A participant within ±2 kg/m².
-
-**Arm D (cellulite without lipoedema):** Clinically graded cellulite (Nürnberger–Müller scale) without features of lipoedema.
-
-**Arm E (lymphoedema):** Clinically diagnosed lymphoedema with recorded ISL stage.
+**Matching procedure.** Each Arm B participant is recruited against a named Arm A participant. Matching quality — mean and maximum absolute BMI difference, age difference — is reported in the participant flow table.
 
 ## 4.3 Exclusion criteria — all arms
 
@@ -165,7 +180,7 @@ Arm A participants already scheduled for **clinically indicated** liposuction, w
 
 ## 4.5 Sex distribution
 
-Lipoedema affects women almost exclusively. Recruitment is therefore expected to be overwhelmingly or entirely female across Arms A–D. This reflects the disease epidemiology and is not an exclusion. Men meeting criteria will be enrolled if identified and analysed descriptively. Arm E may include men.
+Lipoedema affects women almost exclusively. Recruitment is therefore expected to be overwhelmingly or entirely female in both arms. This reflects the disease epidemiology and is not an exclusion. Men meeting criteria will be enrolled if identified and analysed descriptively. 
 
 ## 4.6 Vulnerable populations
 
@@ -204,15 +219,47 @@ The phenomenon under investigation is an ultrasound appearance. The PI is an exp
 
 Residual limitation, which cannot be eliminated and will be stated in the publication: the PI's general diagnostic gestalt has been formed over a career that includes ultrasound exposure. Per-participant pre-imaging locking prevents contamination of individual labels; it does not undo the expert's accumulated experience. This is a limitation, not a fatal flaw, and honest disclosure is the appropriate response.
 
-### 5.1.4 Compensating safeguards for a single adjudicator
+### 5.1.4 Independent photographic adjudication by a second clinician
 
-A single rater means **inter-rater kappa cannot be computed**. Because label reliability bounds the meaning of any model performance figure, three substitutes are required:
+A single adjudicator means inter-rater kappa cannot be computed from the primary examination. This is addressed by an **independent second clinician who classifies every participant from standardised clinical photographs**, blinded to the PI's classification and to all ultrasound.
 
-**(a) Intra-rater reliability.** The PI re-classifies a random **20% subsample** from the recorded clinical documentation, **at least 3 months later**, blinded to the original classification. Intra-rater kappa is computed and reported. This measures the consistency of the criterion set in the hands of its user.
+This is a stronger safeguard than auditing the PI's own written documentation, because the second clinician assesses **primary visual data** rather than re-reading the first adjudicator's reasoning.
 
-**(b) Independent external audit — strongly recommended.** An external clinician experienced in lipoedema, **independent of the study and blinded to the PI's calls and to all imaging**, independently classifies a random **20% subsample** from the recorded clinical documentation and photographs. Agreement with the PI is reported. This does not require the external clinician to examine every participant, making it practical, while providing the external check that a single-adjudicator design otherwise lacks. **Without this, reviewers will treat the labels as unverified.**
+**Procedure**
 
-**(c) Structured, auditable documentation.** For every participant, each Appendix A criterion is recorded as present/absent/not assessable, with the classification derivable from the recorded criteria rather than resting on unrecorded impression. This makes the judgement reconstructible by a third party.
+1. Standardised photographs are taken of every participant at the study visit (§6.5A), before or independently of imaging.
+2. A second clinician experienced in lipoedema, **independent of the study team's imaging and analysis work**, classifies each participant as lipoedema or non-lipoedema from the photographs alone.
+3. The second clinician is blinded to: the PI's classification, all ultrasound data and images, and the participant's arm allocation.
+4. **Agreement between the two adjudicators is a reported study outcome**, not an internal check.
+
+**Statistics of agreement.** Because the development cohort is imbalanced (approximately 1:4), and kappa is prevalence-sensitive, the following are reported together: **Cohen's kappa**, **Gwet's AC1**, **prevalence-adjusted bias-adjusted kappa (PABAK)**, and **raw percentage agreement**, each with confidence intervals. Reporting AC1 alongside kappa follows the precedent set in the comparable cellulite phenotyping literature.
+
+**Pre-specified interpretation and action.**
+
+| Agreement | Interpretation | Pre-specified action |
+|---|---|---|
+| AC1 ≥ 0.80 | Strong | Proceed; labels well supported |
+| AC1 0.60–0.79 | Moderate | Proceed, with the **concordant-subset sensitivity analysis** (below) elevated to a co-primary report |
+| AC1 < 0.60 | Weak | **Model performance figures must be interpreted as bounded by label uncertainty.** The publication leads with this limitation. Additional adjudicators are sought before any diagnostic claim |
+
+**Concordant-subset sensitivity analysis (pre-specified).** The model is additionally trained and evaluated on the subset of participants where **both adjudicators agree**. This is the highest-label-confidence subset. Performance in the concordant subset versus the full cohort quantifies how much label noise is costing the model — a genuinely informative analysis that few diagnostic-AI studies perform.
+
+### 5.1.4A An important interpretive caveat about photograph-based agreement
+
+**Photographic classification is a harder task than in-person examination, and disagreement will partly reflect that rather than unreliability of either clinician.**
+
+Lipoedema assessment normally uses **palpation** — tissue texture, tenderness on pressure, the character of the fat, Stemmer sign. None of this is available from a photograph. The second clinician is therefore working from a **strictly reduced information set**.
+
+Consequences that must be stated in the publication:
+
+- Agreement between the two adjudicators is a **conservative lower bound** on the reliability of the PI's classification. It confounds inter-rater disagreement with the information difference between examination and photograph.
+- A moderate agreement statistic does **not** by itself establish that the PI's labels are unreliable.
+- Conversely, **high** agreement despite the reduced information set would be strong evidence that the classification is robust and largely visually determined.
+- To make this interpretable, the second clinician records **confidence (high / moderate / low / cannot assess)** for each case, and agreement is reported both overall and restricted to high-confidence calls.
+
+### 5.1.4B Intra-rater reliability
+
+Additionally, the PI re-classifies a random **20% subsample** from the recorded clinical documentation at least **3 months** later, blinded to the original classification. Intra-rater kappa is reported. This measures the consistency of the criterion set in the hands of its user, independent of the photographic comparison.
 
 ### 5.1.5 Declared limitation
 
@@ -440,64 +487,55 @@ Each participant contributes multiple regions of interest, multiple sites and bi
 
 Multiple sparkle metrics are evaluated. **A maximum of five co-primary metrics is pre-specified** (bright-spot density, Nakagami *m*, homodyned-K *k*, echo-free space fraction, high-percentile-to-median intensity ratio), with **Bonferroni correction to α = 0.01 two-sided** for the primary endpoint. All other parameters are exploratory, reported with false discovery rate control, and explicitly labelled as hypothesis-generating.
 
-## 8.4 Power calculations
+## 8.4 Power and precision at n = 50 + 50
 
-### H1 — primary endpoint (paired, within-subject)
+**The honest framing: this sample is well powered to establish whether a signal exists, and imprecise about how strong it is.** That is the correct trade-off for a discovery study, and it is stated as such rather than disguised.
 
-Effect expressed as Cohen's *d_z*. Two-sided α, Bonferroni-corrected to 0.01 for five co-primary metrics.
+### H1 — primary endpoint (paired, within-subject, n = 50 lipoedema)
 
-| Effect *d_z* | 80% power (α = 0.05) | 90% power (α = 0.05) | **90% power (α = 0.01)** |
-|---|---|---|---|
-| 0.4 | 50 | 66 | 93 |
-| **0.5** | 32 | 43 | **60** |
-| 0.6 | 22 | 30 | 42 |
-| 0.8 | 13 | 17 | 24 |
-| 1.0 | 8 | 11 | 15 |
+Smallest detectable paired effect (Cohen's *d_z*):
 
-**Assumption and justification.** A phenomenon described as recognisable casually and at a glance implies a large effect, plausibly *d_z* > 0.8. Powering at *d_z* = 0.5 (moderate) is deliberately conservative and provides headroom should the effect prove smaller than clinical impression suggests. **Requirement: 60 Arm A participants** for 90% power at the corrected α. Non-parametric fallback inflates this by approximately 5%.
-
-### H2 — between-arm discrimination
-
-Hanley–McNeil, balanced groups. Sample size per arm for a given AUC and confidence-interval half-width:
-
-| True AUC | ± 0.075 | ± 0.05 |
+| α | 80% power | 90% power |
 |---|---|---|
-| 0.75 | 82 | 182 |
-| **0.80** | **68** | 151 |
-| 0.85 | 53 | 117 |
-| 0.90 | 36 | 79 |
+| 0.05 | *d_z* = 0.40 | *d_z* = 0.46 |
+| **0.01** (Bonferroni, 5 co-primary metrics) | *d_z* = 0.48 | **_d_z_ = 0.55** |
 
-Power to reject AUC = 0.5 at 90% power, one-sided α = 0.05: 34 per arm at true AUC 0.70; 21 at 0.75; 14 at 0.80.
+**Verdict: comfortably powered.** A phenomenon described as recognisable casually and at a glance implies *d_z* well above 0.8. Detecting *d_z* = 0.55 at 90% power under a corrected α leaves substantial margin, and would still detect an effect roughly half the size clinical impression suggests.
 
-**Requirement: 68 per arm**, giving AUC estimated to ± 0.075 — precise enough to distinguish clinically useful from marginal discrimination, which the existing literature (51 per group, CI spanning roughly 0.64–0.84) cannot.
+### H2 — between-arm discrimination (50 vs 50)
+
+**Power to detect that discrimination exists** (reject AUC = 0.5, one-sided α = 0.05):
+
+| True AUC | Power |
+|---|---|
+| 0.65 | 84% |
+| 0.70 | 98% |
+| 0.75 | 100% |
+| 0.80 | 100% |
+
+**Precision of the AUC estimate** (Hanley–McNeil, 50 vs 50):
+
+| True AUC | 95% CI | Half-width |
+|---|---|---|
+| 0.70 | 0.60 – 0.80 | ± 0.102 |
+| 0.75 | 0.65 – 0.85 | ± 0.096 |
+| 0.80 | 0.71 – 0.89 | ± 0.087 |
+| 0.85 | 0.77 – 0.93 | ± 0.077 |
+
+**Interpretation, stated in advance.** The study can answer *"is there a detectable signature?"* with high confidence. It **cannot** answer *"is the AUC 0.78 or 0.86?"* — the interval is roughly ± 0.09 wide. Any published AUC will be reported with its confidence interval and described as an **imprecise first estimate requiring confirmation**, not as an established operating characteristic. Estimating an AUC of 0.80 to ± 0.05 would require approximately 151 per arm and is deferred to the validation phase.
 
 ### H3 — histological correlation
 
-Detecting a Pearson correlation at 80% power, two-sided α = 0.05: r = 0.4 requires 47 pairs; **r = 0.5 requires 30 pairs**; r = 0.6 requires 20 pairs.
+30 biopsy–scan pairs detect r = 0.5 at 80% power (α = 0.05, two-sided); 47 pairs detect r = 0.4. **Target: 30 pairs nested within the 50 lipoedema participants.** If fewer are obtainable, the analysis is reported as exploratory with its achieved precision stated.
 
-**Requirement: 30 biopsy–scan pairs.**
-
-### H4 — independent test cohort
-
-Precision of the frozen-model AUC:
-
-| True AUC | ± 0.075 | ± 0.10 |
-|---|---|---|
-| 0.80 | 68/class (136) | **39/class (78)** |
-| 0.85 | 53/class (106) | 30/class (60) |
-
-**Requirement: 78 participants** (39 per class), giving the headline AUC to ± 0.10.
-
-### Recruitment roll-up
+### Recruitment
 
 | Component | n | With 15% attrition |
 |---|---|---|
-| Development cohort, 5 arms × 68 | 340 | **391** |
-| Independent test cohort | 78 | **90** |
-| Histology sub-study (nested within Arm A) | 30 | 35 |
-| **Total to recruit** | | **~481** |
-
-The binding constraint is H2 at 68 per arm; this comfortably exceeds the 60 required for H1.
+| Arm A (lipoedema) | 50 | 58 |
+| Arm B (BMI-matched controls) | 50 | 58 |
+| **Total** | **100** | **~116 to recruit** |
+| Histology sub-study (nested in Arm A) | 30 | 35 |
 
 ## 8.5 Machine learning methodology — data partitions and model weights
 
@@ -524,19 +562,43 @@ This section is deliberately prescriptive. The commonest reason clinical machine
 
 Computing a feature scaler across the whole development cohort before splitting, or selecting features using all the data, leaks information from tuning into training and inflates apparent performance. This is subtle, extremely common, and invalidates results. In practice this means **the entire pipeline is fitted inside the cross-validation loop**, never before it.
 
-### 8.5.3 Partition specification with numbers
+### 8.5.3 Partition strategy at n = 100 — why there is no carved-out test set
 
-Analysed development cohort ≈ 340 participants (68 per arm × 5 arms; 391 recruited to allow 15% attrition). Classification task: **lipoedema (Arm A) vs non-lipoedema (Arms B–E pooled)**.
+**A held-out test set must not be taken from these 100 participants.** A 70/30 split would leave roughly 15 per class for testing, giving:
 
-| Partition | Arm A | Arms B–E | Total | Purpose |
-|---|---|---|---|---|
-| **Training** (70%) | 48 | 190 | **238** | Fit all parameters in §8.5.1 |
-| **Tuning / validation** (30%) | 20 | 82 | **102** | Hyperparameters, model selection, threshold, iteration |
-| **TEST (independent cohort)** | 39 | 39 | **78** | Single evaluation of frozen weights |
+| True AUC | 95% CI on a 15 v 15 test set |
+|---|---|
+| 0.75 | 0.57 – 0.93 (± 0.18) |
+| 0.80 | 0.64 – 0.96 (± 0.16) |
+| 0.85 | 0.71 – 0.99 (± 0.14) |
 
-**Class imbalance in development (1:4) must be handled and reported.** Options pre-specified: class-weighted loss, or balanced resampling within the training folds only. Because the development cohort is imbalanced while the test cohort is balanced, **precision–recall AUC and calibration are reported alongside ROC-AUC**, and the prevalence of each partition is stated explicitly wherever a predictive value is quoted.
+An interval that wide is uninformative — it would neither confirm nor refute anything, while simultaneously removing 30% of the data from development. **Carving out a test set here costs precision twice and buys nothing.**
 
-**Prevalence differs between development and test by design.** The decision threshold fixed on the tuning set is carried unchanged to the test set. **Post-hoc recalibration on the test set is prohibited** — it would convert the test set into a tuning set. Any miscalibration observed on test is *reported as a finding*, not corrected.
+**Adopted strategy.**
+
+| Stage | Data | Method |
+|---|---|---|
+| **Development** | All 100 participants | **Repeated stratified nested cross-validation** (e.g. 5×5 repeats), all folds split **by participant** |
+| **Final evaluation** | **A separate cohort recruited later** | Single-shot evaluation of frozen weights — a **subsequent protocol phase**, not part of this submission |
+
+**Nested cross-validation** is used specifically because the inner loop performs model and hyperparameter selection while the outer loop provides the performance estimate, so selection does not contaminate the reported figure. Every element of the pipeline in §8.5.1 — scalers, feature selection, thresholds, calibration — is fitted **inside the inner loop only**.
+
+**What this study reports.** Cross-validated performance on the development cohort, explicitly labelled as **development performance requiring independent validation**. This protocol does **not** report a held-out test result, and does not claim one.
+
+**Weight freezing still applies (§8.5.6).** At the end of development the model is frozen and hashed. That frozen artefact is what the subsequent validation phase will evaluate — which is precisely the design intent of "test on new subjects."
+
+### 8.5.3A Per-participant analysis — the aggregation rule
+
+**The unit of analysis is the participant, never the image.** Each participant contributes six sites, bilateral limbs, and many frames per cine sweep — plausibly several hundred images. Treating images as independent observations would imply a sample of many thousands and inflate every statistic catastrophically.
+
+**Aggregation is pre-specified:**
+
+1. Features are computed per **region of interest**.
+2. ROI-level values are aggregated to a **site-level** value per participant (median across ROIs, which is robust to occasional artefactual ROIs).
+3. Site-level values are combined into a **single participant-level prediction**.
+4. The combination rule (mean of site probabilities, median, or attention-weighted multiple-instance learning) is **selected within the inner cross-validation loop** and reported.
+
+**Every reported statistic — AUC, sensitivity, specificity, ICC — is computed over 100 participant-level observations.** Any figure implying a larger denominator is an error and will not be reported.
 
 ### 8.5.4 Splitting rules
 
@@ -845,7 +907,7 @@ The study is conducted per the **Declaration of Helsinki**, ICH Good Clinical Pr
 
 ## 11.2 Justice and participant selection
 
-Participants are selected on scientific grounds. Recruitment is expected to be predominantly female because lipoedema is predominantly a disease of women; this reflects disease epidemiology, not exclusion. `[Recruitment materials should be reviewed to ensure access across socioeconomic and ethnic groups within the catchment population, and interpretation provided where needed.]`
+Participants are selected on scientific grounds; controls are individually BMI- and age-matched to cases. Recruitment is expected to be female because lipoedema is overwhelmingly a disease of women; this reflects disease epidemiology, not exclusion. `[Recruitment materials should be reviewed to ensure access across socioeconomic and ethnic groups within the catchment population, and interpretation provided where needed.]`
 
 ## 11.3 Avoiding coercion
 
@@ -926,7 +988,7 @@ Clinicians recognise a characteristic sparkling appearance of lipoedematous fat.
 
 ## 13.3 What the study will not claim
 
-Even if entirely successful, this study will support **adjunctive concordance with a single expert's clinical assessment**, in the population studied, on the equipment studied. It will not support the claim that ultrasound artificial intelligence diagnoses lipoedema. A single-centre study with internal validation permits only cautious language; multicentre prospective evaluation would be required before stronger claims are appropriate. This limitation is stated in the protocol so that it appears in the publication rather than being extracted by a reviewer.
+Even if entirely successful, this study is a **discovery / proof-of-concept study**. It will support the claim that a quantifiable ultrasound tissue signature exists and is associated with a single expert's clinical classification, in the population and on the equipment studied, with an imprecise effect estimate. It will **not** support a diagnostic-accuracy claim, and independent prospective validation is required before one is made. It will not support the claim that ultrasound artificial intelligence diagnoses lipoedema. A single-centre study with internal validation permits only cautious language; multicentre prospective evaluation would be required before stronger claims are appropriate. This limitation is stated in the protocol so that it appears in the publication rather than being extracted by a reviewer.
 
 ---
 
@@ -936,11 +998,13 @@ Stated here so they appear in the protocol and the publication rather than being
 
 1. **Single-expert reference standard.** All labels derive from one clinician. The study measures concordance with one expert's clinical classification, not with a consensus or an independent gold standard. Mitigated by pre-imaging database locking, intra-rater kappa, and an independent external audit of a 20% subsample (§5.1).
 2. **No histological gold standard for the disease itself.** Lipoedema has no diagnostic biopsy. The histology sub-study correlates ultrasound with tissue features; it does not establish a gold-standard diagnosis.
-3. **Single centre, two consoles, three operators.** Generalisation to other equipment, settings and operators is unestablished. Mitigated by leave-one-console-out and leave-one-operator-out analyses, but not eliminated.
-4. **Dermal characterisation is out of reach.** The available probe ceiling (13 MHz) does not resolve dermal texture. The study is scoped to subcutaneous fat.
-5. **Radiofrequency data is likely unavailable** on this platform, restricting the study to phantom-calibrated B-mode rather than full spectral quantitative ultrasound.
-6. **The internal control assumes upper abdominal sparing**, which is a clinical generalisation. The Phase 1 pilot tests this; if it fails, the primary endpoint requires redesign.
-7. **Cross-sectional design.** No inference about progression, staging or treatment response is supported.
+3. **Discovery-scale sample (n = 100).** Well powered to detect whether a signature exists; imprecise about its magnitude (AUC interval approximately ± 0.09). No held-out test set is taken from this cohort, because a 15-per-class test would be uninformative; cross-validated development performance is reported and independent validation deferred to a subsequent phase.
+4. **No lymphoedema or obesity-without-lipoedema arm.** Specificity against those conditions is not established here. Cellulite is controlled as a covariate rather than an arm.
+5. **Single centre, two consoles, three operators.** Generalisation to other equipment, settings and operators is unestablished. Mitigated by leave-one-console-out and leave-one-operator-out analyses, but not eliminated.
+6. **Dermal characterisation is out of reach.** The available probe ceiling (13 MHz) does not resolve dermal texture. The study is scoped to subcutaneous fat.
+7. **Radiofrequency data is likely unavailable** on this platform, restricting the study to phantom-calibrated B-mode rather than full spectral quantitative ultrasound.
+8. **The internal control assumes upper abdominal sparing**, which is a clinical generalisation. The Phase 1 pilot tests this; if it fails, the primary endpoint requires redesign.
+9. **Cross-sectional design.** No inference about progression, staging or treatment response is supported.
 
 ---
 
@@ -950,9 +1014,9 @@ Stated here so they appear in the protocol and the publication rather than being
 |---|---|---|
 | 0 | 3 months | IRB approval, registry registration, phantom procurement, preset creation and validation, sonographer training |
 | 1 | 3 months | **Pilot (n ≈ 20–30)**: verify deep fascia visualisation in the thickest participants; verify upper abdominal fat is not itself abnormal; estimate effect size and ICCs; finalise statistical analysis plan |
-| 2 | 12–18 months | Development cohort recruitment and imaging (n ≈ 391) |
-| 3 | 3 months | Reproducibility analysis, feature screening, model development, **weight freeze and hash** |
-| 4 | 6–9 months | Independent test cohort recruitment and single-shot evaluation (n ≈ 90) |
+| 2 | 12–18 months | Cohort recruitment and imaging (n = 100; ~116 recruited for attrition) |
+| 3 | 3 months | Reproducibility analysis, feature screening, nested cross-validated model development, **weight freeze and hash** |
+| 4 | — | **Independent validation is a separate subsequent protocol**, not part of this submission. The frozen model from Phase 3 is its input |
 | 5 | 3 months | Histology analysis, synthesis, manuscript preparation |
 
 **The Phase 1 pilot is a gate, not a formality.** If upper abdominal fat proves abnormal in lipoedema, the primary endpoint requires redesign before the main study proceeds.
