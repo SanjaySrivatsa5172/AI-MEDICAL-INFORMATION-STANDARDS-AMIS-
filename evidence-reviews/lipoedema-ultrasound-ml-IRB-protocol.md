@@ -135,7 +135,7 @@ This is more statistically efficient than a separate arm and directly answers th
 
 ### 3.1.3 What this sample size defers
 
-Dedicated **lymphoedema** and **obesity-without-lipoedema** comparison arms are **not included** at n=100 and are identified as **planned future work**. Their absence is a declared limitation (§13A): this study establishes whether a signature exists against BMI-matched controls; it does not establish specificity against lymphoedema.
+Dedicated **lymphoedema** and **obesity-without-lipoedema** comparison arms are **not included** at n=100 and are identified as **planned future work**. Their absence is a declared limitation (§14): this study establishes whether a signature exists against BMI-matched controls; it does not establish specificity against lymphoedema.
 
 Where a small convenience sample of lymphoedema participants is available, they may be imaged as an **exploratory descriptive addition**, reported separately and explicitly under-powered, with no formal hypothesis attached.
 
@@ -970,7 +970,7 @@ Please initial each box:
 | Participant name | Signature | Date |
 | Person taking consent | Signature | Date |
 
-*One copy for the participant, one for the研究 file, one for the medical record.*
+*One copy for the participant, one for the study file, one for the medical record.*
 
 ---
 
@@ -1067,45 +1067,7 @@ Even if entirely successful, this study is a **discovery / proof-of-concept stud
 
 ---
 
-# 12A. Handover Brief for the Study Statistician
-
-The calculations in §8 are computed and reproducible, not estimated, and the code is available. They are intended to give the statistician a working draft to check and correct in an hour rather than derive from scratch. **They are not a substitute for statistical sign-off, and the following are open questions where the statistician's judgement should override this document.**
-
-## 12A.1 Known limitations of the calculations as presented
-
-| Issue | Why it matters |
-|---|---|
-| **H1 power assumes a simple paired *t*-test** | The actual primary analysis is a mixed-effects **arm × site interaction** with participant as a random effect. Effective power depends on the within-participant intraclass correlation across ROIs and sites, which is **unknown until the pilot**. The paired-*t* figure is an approximation and is likely optimistic or pessimistic depending on that ICC |
-| **Hanley–McNeil is for a single AUC** | Comparing the model against thickness-alone and bright-spot-density-alone uses **correlated** AUCs on the same participants. Power for that comparison requires a **DeLong-based calculation**, which is not presented here |
-| **Distributional form of the metrics is unknown** | Nakagami *m* is bounded below at zero and typically right-skewed; bright-spot density is a count per unit area and may be better modelled as Poisson or negative binomial. **Transformation or a generalised linear mixed model may be required**, which changes the effect-size scale on which power was computed |
-| **Bonferroni across 5 co-primary metrics is conservative** | The metrics are correlated — they measure related aspects of the same phenomenon. A **hierarchical or gatekeeping procedure**, or a single pre-specified primary metric with the others as secondary, may preserve more power. This is a real decision to make |
-| **"Independent speckle cells" is a rule of thumb** | The ~100-sample minimum for a stable Nakagami fit, and the ~0.17 mm² speckle cell derived from axial ≈ 2λ and lateral ≈ 6λ, are engineering approximations. Actual lateral resolution depends on aperture and depth |
-| **Attrition assumed at 15%** | Not evidence-based; a placeholder |
-| **Group-sequential boundaries quoted from standard tables** | If an unblinded interim is adopted, boundaries should be computed for the actual design and information fractions |
-
-## 12A.2 Specific decisions requested from the statistician
-
-1. **Specify the primary analysis model formally** — the mixed-effects structure, the random-effects specification, and the exact form of the arm × site interaction test.
-2. **Choose the multiplicity strategy**: five co-primary metrics with Bonferroni, versus one designated primary metric with the rest secondary. The latter would materially increase power and may be preferable.
-3. **Rule on transformations** for each metric, ideally after the pilot provides distributional data.
-4. **Compute DeLong-based power** for the model-versus-baseline comparison.
-5. **Confirm or revise the blinded re-estimation trigger** (currently n = 60) and the re-estimation formula.
-6. **Adjudicate the nested cross-validation scheme** — repeats, folds, and whether the outer-loop estimate is reported with a proper confidence interval given fold dependence.
-7. **Set the ICC threshold** for the reproducibility gate (currently 0.75, a convention rather than a derivation).
-8. **Own the blind.** Blinded sample size re-estimation requires someone who is not the PI and not the analysis team to hold the group allocation. **This must be the statistician**, and the protocol assigns it to them (§8.4A.5).
-9. **Sign the Statistical Analysis Plan** (Appendix E) before recruitment opens.
-
-## 12A.3 What is deliberately fixed and should not be relaxed
-
-These are design commitments rather than statistical preferences, and changing them would undermine the study's defensibility:
-
-- **Participant-level analysis and participant-level splitting**, never image-level
-- **All data-estimated parameters fitted inside the cross-validation loop**, including scalers and thresholds
-- **Pre-specification before recruitment**, with the SAP deposited
-- **No held-out test set carved from n = 100** — validation is a separate phase
-- **Publication irrespective of outcome**
-
-# 13A. Declared Limitations
+# 14. Declared Limitations
 
 Stated here so they appear in the protocol and the publication rather than being extracted by a reviewer.
 
@@ -1121,7 +1083,45 @@ Stated here so they appear in the protocol and the publication rather than being
 
 ---
 
-# 14. Study Timeline
+# 15. Handover Brief for the Study Statistician
+
+The calculations in §8 are computed and reproducible, not estimated, and the code is available. They are intended to give the statistician a working draft to check and correct in an hour rather than derive from scratch. **They are not a substitute for statistical sign-off, and the following are open questions where the statistician's judgement should override this document.**
+
+## 15.1 Known limitations of the calculations as presented
+
+| Issue | Why it matters |
+|---|---|
+| **H1 power assumes a simple paired *t*-test** | The actual primary analysis is a mixed-effects **arm × site interaction** with participant as a random effect. Effective power depends on the within-participant intraclass correlation across ROIs and sites, which is **unknown until the pilot**. The paired-*t* figure is an approximation and is likely optimistic or pessimistic depending on that ICC |
+| **Hanley–McNeil is for a single AUC** | Comparing the model against thickness-alone and bright-spot-density-alone uses **correlated** AUCs on the same participants. Power for that comparison requires a **DeLong-based calculation**, which is not presented here |
+| **Distributional form of the metrics is unknown** | Nakagami *m* is bounded below at zero and typically right-skewed; bright-spot density is a count per unit area and may be better modelled as Poisson or negative binomial. **Transformation or a generalised linear mixed model may be required**, which changes the effect-size scale on which power was computed |
+| **Bonferroni across 5 co-primary metrics is conservative** | The metrics are correlated — they measure related aspects of the same phenomenon. A **hierarchical or gatekeeping procedure**, or a single pre-specified primary metric with the others as secondary, may preserve more power. This is a real decision to make |
+| **"Independent speckle cells" is a rule of thumb** | The ~100-sample minimum for a stable Nakagami fit, and the ~0.17 mm² speckle cell derived from axial ≈ 2λ and lateral ≈ 6λ, are engineering approximations. Actual lateral resolution depends on aperture and depth |
+| **Attrition assumed at 15%** | Not evidence-based; a placeholder |
+| **Group-sequential boundaries quoted from standard tables** | If an unblinded interim is adopted, boundaries should be computed for the actual design and information fractions |
+
+## 15.2 Specific decisions requested from the statistician
+
+1. **Specify the primary analysis model formally** — the mixed-effects structure, the random-effects specification, and the exact form of the arm × site interaction test.
+2. **Choose the multiplicity strategy**: five co-primary metrics with Bonferroni, versus one designated primary metric with the rest secondary. The latter would materially increase power and may be preferable.
+3. **Rule on transformations** for each metric, ideally after the pilot provides distributional data.
+4. **Compute DeLong-based power** for the model-versus-baseline comparison.
+5. **Confirm or revise the blinded re-estimation trigger** (currently n = 60) and the re-estimation formula.
+6. **Adjudicate the nested cross-validation scheme** — repeats, folds, and whether the outer-loop estimate is reported with a proper confidence interval given fold dependence.
+7. **Set the ICC threshold** for the reproducibility gate (currently 0.75, a convention rather than a derivation).
+8. **Own the blind.** Blinded sample size re-estimation requires someone who is not the PI and not the analysis team to hold the group allocation. **This must be the statistician**, and the protocol assigns it to them (§8.4A.5).
+9. **Sign the Statistical Analysis Plan** (Appendix E) before recruitment opens.
+
+## 15.3 What is deliberately fixed and should not be relaxed
+
+These are design commitments rather than statistical preferences, and changing them would undermine the study's defensibility:
+
+- **Participant-level analysis and participant-level splitting**, never image-level
+- **All data-estimated parameters fitted inside the cross-validation loop**, including scalers and thresholds
+- **Pre-specification before recruitment**, with the SAP deposited
+- **No held-out test set carved from n = 100** — validation is a separate phase
+- **Publication irrespective of outcome**
+
+# 16. Study Timeline
 
 | Phase | Duration | Activity |
 |---|---|---|
@@ -1136,7 +1136,7 @@ Stated here so they appear in the protocol and the publication rather than being
 
 ---
 
-# 15. Appendices
+# 17. Appendices
 
 - **Appendix A** — Clinical diagnostic criterion set for reference-standard classification `[to be finalised]`
 - **Appendix B** — Console preset specification and settings photographs `[to be attached]`

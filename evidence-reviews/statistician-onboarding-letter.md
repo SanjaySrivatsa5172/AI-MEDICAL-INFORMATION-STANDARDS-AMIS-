@@ -1,6 +1,6 @@
 # Onboarding Letter — Study Statistician
 
-> **Template for completion.** Replace all `[bracketed]` fields. Intended to be sent with the IRB protocol and the handover brief (§12A) attached. Written to be readable in one sitting.
+> **Template for completion.** Replace all `[bracketed]` fields. Intended to be sent with the IRB protocol and the handover brief (§15) attached. Written to be readable in one sitting.
 
 ---
 
@@ -61,7 +61,7 @@ In short: a clinical gestalt with a known physical correlate, a plausible tissue
 
 To save your time rather than to constrain you, the protocol contains **draft power calculations for every endpoint**, computed with standard methods and fully reproducible; the code is available.
 
-**These are a starting point, not a position.** The protocol includes a section (§12A) listing what I believe is soft about them, including:
+**These are a starting point, not a position.** The protocol includes a section (§15) listing what I believe is soft about them, including:
 
 - H1 power assumes a simple paired *t*-test, whereas the actual analysis is a mixed-effects interaction whose power depends on a within-participant ICC that is unknown until the pilot
 - Power for the model-versus-baseline comparison requires a DeLong-based calculation that has not been done
@@ -95,7 +95,7 @@ Should the work extend to the planned validation phase, I would hope to continue
 
 ## Enclosures
 
-1. Full IRB protocol, including §8 (statistics and power) and §12A (handover brief listing open questions)
+1. Full IRB protocol, including §8 (statistics and power) and §15 (handover brief listing open questions)
 2. Technical acquisition standard
 3. Evidence review establishing the gap in the literature
 4. Power calculation code
