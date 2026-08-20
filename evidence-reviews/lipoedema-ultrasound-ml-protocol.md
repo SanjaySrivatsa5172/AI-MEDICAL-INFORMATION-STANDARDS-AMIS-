@@ -310,6 +310,55 @@ Two practical implications:
 
 Assume no RF until GE confirms otherwise, and design the primary analysis so it does not depend on it.
 
+### 4.10 Probe assignment — and one rule that must not be broken
+
+A curvilinear abdominal transducer (GE C1-6 class, **1–6 MHz**, up to 35 cm depth) is also available. It has a role, but **not** in the primary measurement.
+
+#### 4.10.1 The rule
+
+> **All characterisation (sparkle) acquisitions — limb and abdomen alike — are made with the 12L-RS at one fixed frequency setting.**
+
+The within-subject affected-versus-spared contrast (§6.4) is the primary endpoint and the decisive defence against the gain-artifact objection (§3A.5). That defence only works if both sides of the comparison are acquired **identically**. Measuring limb sparkle on a linear probe and trunk "control" sparkle on a curvilinear would confound the primary endpoint with probe geometry and destroy the argument. The abdominal characterisation view (S4) is therefore a **12L-RS acquisition**, using the same preset as the limbs.
+
+#### 4.10.2 Why the curvilinear cannot carry sparkle
+
+**Resolution.** Sparkle is a fine-scale phenomenon. Discrete reflectors smaller than the resolution cell merge into the diffuse background — the sparkle is literally averaged away:
+
+| Probe / setting | Axial (mm) | Lateral (mm) | Speckle cell |
+|---|---|---|---|
+| 12L-RS @ 13 MHz | 0.24 | 0.71 | **0.17 mm²** |
+| 12L-RS @ 7 MHz | 0.44 | 1.32 | 0.58 mm² |
+| C1-6 @ 6 MHz | 0.51 | 1.54 | 0.79 mm² |
+| C1-6 @ 3 MHz | 1.03 | 3.08 | 3.16 mm² |
+
+The resolution cell is **~4.7× larger** at 6 MHz curvilinear than at 13 MHz linear, and ~19× larger at 3 MHz.
+
+**Non-comparable statistics.** Nakagami *m*, bright-spot density and every texture descriptor depend on the point spread function. Values from a 13 MHz linear and a 6 MHz curvilinear acquisition are **different measurands**, not the same measurand with more noise. They must never be pooled or compared.
+
+**Convex geometry.** On a curvilinear array the beam lines diverge, so lateral resolution degrades with depth and the scan-converted image has a spatially varying relationship between pixels and beam lines. Texture features computed on scan-converted convex images are therefore **position-dependent** in a way linear-array images are not. This is an under-appreciated confounder in texture work and a further reason to keep the primary measurement on the linear probe.
+
+#### 4.10.3 What the curvilinear is genuinely useful for
+
+- **Deep abdominal survey.** Where subcutaneous fat at the midline exceeds what the 12L-RS can penetrate even in penetration mode, the C1-6 reliably resolves the full layer to the rectus sheath. This supplies the thickness covariate in participants where the linear probe cannot.
+- **Anatomical context and site documentation** at S4.
+- **Confirming layer identification** at depth before placing the linear-probe characterisation ROI.
+
+Record probe identity on every acquisition. Curvilinear images enter thickness and anatomical analyses only, and are **excluded by protocol** from all sparkle, envelope-statistic and texture analyses.
+
+#### 4.10.4 Connector compatibility — verify before purchase or planning
+
+As you have already noted, the **C1-6-D / C1-6VN-D are D-port transducers** intended for GE's newer digital architecture (Vivid E95 / S70, LOGIQ E9) rather than legacy Vivid consoles. Before the protocol depends on it, **confirm which curvilinear actually connects to your Vivid 6 and 7** — on the `-RS` connector family this is typically a 4C-RS-class convex probe rather than a C1-6-D.
+
+If no compatible curvilinear exists on these consoles, the protocol is unaffected in its primary endpoint: only the deep abdominal thickness covariate is lost, and that is recorded as missing data (§4.9.1b).
+
+#### 4.10.5 Optional sub-study: frequency dependence of sparkle
+
+This costs only extra presets and could be genuinely informative. Scattering behaviour depends on scatterer size relative to wavelength, so measuring how sparkle metrics change across the **12L-RS band alone** (e.g. 7, 10 and 13 MHz on the same marked ROI, back to back) constrains the effective size of the structures producing it.
+
+- Rigorous effective-scatterer-size estimation needs RF and the reference phantom, so treat this as **exploratory** unless GE confirms an RF export (§4.9.4).
+- Even without RF, a reproducible frequency trend in bright-spot density and Nakagami *m* is a mechanistic clue and strengthens the histological correlation in §6.5.
+- Strictly within one probe. This sub-study is **not** an argument for comparing linear against curvilinear.
+
 ---
 
 ## 5. Scan protocol — anatomical sites
@@ -321,7 +370,7 @@ Five regions, each with survey and characterisation views. Sweeps are recorded a
 | S1 | **Distal leg / ankle transition** | Continuous sweep, medial aspect: mid-calf → over medial malleolus → onto dorsum of foot | Captures the affected-to-spared transition where it exists. Foot dorsum acts as a **distal internal control**. |
 | S2 | **Medial thigh** | Sweep, knee → inguinal region along the medial aspect ("trouser crease") | Principal affected territory across nearly all variants. |
 | S3 | **Distal third of thigh** | Focused static acquisitions, survey + characterisation | Where lipoedema is most obvious morphologically; highest expected signal. |
-| S4 | **Abdominal midline, sagittal** | 6 inches below umbilicus → 6 inches above | **Primary internal control** — see §6.4. Trunk fat is typically spared. |
+| S4 | **Abdominal midline, sagittal** | 6 inches below umbilicus → 6 inches above | **Primary internal control** — see §6.4. Trunk fat is typically spared. Characterisation view **must** be 12L-RS at the same preset as the limbs (§4.10.1); curvilinear used only for deep thickness if the linear probe cannot penetrate. |
 | S5 | **Posterior arm** | Sweep, elbow → shoulder, posterior aspect | Upper-limb involvement (Type IV); tests distribution-independence of the signature. |
 
 At **every** site: the survey view is used to measure skin surface → subcutaneous/muscle fascial boundary, and the characterisation view is centred on the subcutaneous layer.
