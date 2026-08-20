@@ -1,4 +1,6 @@
-# Draft Protocol: Standardised Research Ultrasound Acquisition and Machine-Learning Tissue Characterisation of Skin and Subcutaneous Fat in Lipoedema
+# Draft Protocol: Standardised Research Ultrasound Acquisition and Machine-Learning Tissue Characterisation of Subcutaneous Fat in Lipoedema
+
+### Quantifying the "sparkling" appearance of lipoedematous fat
 
 **Status: draft design document. Not ethics-approved, not statistician-reviewed, not registered. A starting point for those conversations, not a substitute for them.**
 
@@ -51,7 +53,7 @@ The publishable claim is not "AI detects lipoedema." It is: *a standardised acqu
 
 ## 3. Hypotheses
 
-**H1 (primary).** Lipoedematous subcutaneous fat carries a reproducible quantitative ultrasound signature distinguishable from that patient's own unaffected trunk fat, independent of layer thickness.
+**H1 (primary).** The characteristic **sparkling appearance** of lipoedematous subcutaneous fat (§3A) is a reproducible, quantifiable acoustic phenomenon that distinguishes affected fat from that patient's own unaffected trunk fat, independent of layer thickness.
 
 **H2.** That signature distinguishes lipoedema from BMI-matched controls, from cellulite without lipoedema, and from lymphoedema.
 
@@ -60,6 +62,70 @@ The publishable claim is not "AI detects lipoedema." It is: *a standardised acqu
 **H4.** Quantitative features outperform blinded expert visual grading (SEG/SEF and echotexture/fibrosis/oedema) of the same images.
 
 **Biological rationale.** Lipoedema histology describes adipocyte hypertrophy, interstitial fluid accumulation, septal fibrosis and altered microvasculature. Each has a predicted acoustic consequence: larger scatterers alter backscatter magnitude and envelope statistics; interstitial fluid creates anechoic clefts, raising heterogeneity and echo-free space; fibrotic septa raise stromal echogenicity and structural anisotropy. These are directional predictions, not a blind feature dump.
+
+---
+
+## 3A. The index phenomenon: the "sparkling" appearance
+
+The clinical observation driving this study is that lipoedematous fat has a **characteristic sparkling appearance recognisable casually, at a glance, on general settings**. This is the phenomenon to quantify. Naming it precisely matters more than any modelling choice, because it converts a gestalt into a measurand.
+
+### 3A.1 What "sparkly" is, acoustically
+
+Sparkle is the visual impression of **numerous discrete, bright, punctate echoes scattered through an otherwise hypoechoic background**. In scattering terms this is a departure from *fully developed speckle*.
+
+When a resolution cell contains many small, randomly positioned scatterers of similar strength, the echo envelope follows a **Rayleigh** distribution — smooth, featureless speckle. Adding a population of **discrete, high-amplitude, coherent reflectors** shifts the envelope into the **post-Rayleigh (Rician)** regime. That shift *is* sparkle.
+
+This is not a novel idea requiring invention; it is exactly what envelope statistics were developed to measure:
+
+| Parameter | Behaviour | Interpretation |
+|---|---|---|
+| **Nakagami *m*** | *m* < 1 pre-Rayleigh; *m* = 1 Rayleigh; ***m* > 1 post-Rayleigh** | The classical single-parameter sparkle index |
+| **Homodyned-K *k*** (coherent-to-diffuse ratio) | Rises with coherent component | The principled decomposition — separates the "sparkle" from the diffuse background explicitly |
+
+**The clinician's eye and the estimator are measuring the same physics.** That alignment is the strongest asset this study has.
+
+### 3A.2 The quantification ladder — most interpretable first
+
+1. **Bright-spot density** — count of local intensity maxima exceeding a phantom-normalised threshold, per mm² of subcutaneous ROI, with multi-scale blob detection (Laplacian-of-Gaussian) to capture sparkle size. This is the most literal translation of what the eye sees, is trivially explainable to a clinician, and should be reported whatever else is used.
+2. **Envelope statistics** — Nakagami *m*, homodyned-K *k*.
+3. **Intensity distribution shape** — skewness and kurtosis of the envelope histogram; ratio of the 95th–99th percentile to the median ("how bright are the bright bits relative to background"). Sparkle predicts a heavy right tail.
+4. **Scatterer spacing** — cepstral or autocorrelation analysis, testing whether sparkles are quasi-regularly spaced, as lobular architecture would predict.
+5. **Generic texture** — GLCM contrast, entropy, run-length. Included as a comparator, but expected to be a blunter instrument than the targeted parameters above.
+
+### 3A.3 Recovering envelope statistics without RF
+
+Envelope statistics are classically computed on the **uncompressed envelope**. B-mode display data is **log-compressed and post-processed**, which distorts the distribution.
+
+This is recoverable, and it is the specific reason the §4.2 settings lock matters:
+
+- With **dynamic range (Compress) and grey map fixed and known**, the log compression can be inverted to approximate the linear envelope before fitting.
+- The mapping must be **characterised once against the reference phantom** at the study settings, and that characterisation applied identically to every image.
+- GE's TruScan raw-data archive (§4.9.4) helps, provided every study is exported through one fixed configuration.
+
+Without locked compression settings, envelope-statistic estimates are uninterpretable. The acquisition standard is not hygiene — it is what makes the primary measurand recoverable.
+
+### 3A.4 Predicted histological substrate
+
+Leading hypothesis, testable directly in the liposuction sub-study (§6.5): sparkle reflects **increased density and impedance contrast of septal and interstitial interfaces, set against an anechoic background of interstitial fluid**. Fibrotic and thickened septa supply the bright discrete reflectors; interstitial fluid supplies the dark background that makes them conspicuous. This predicts that bright-spot density correlates with septal fibrosis grade, and that the *contrast* between spots and background correlates with interstitial fluid.
+
+The related descriptors already in circulation — "snowstorm", "starry sky", "pebbles in cotton wool" — are almost certainly describing the same phenomenon, and none has been quantified.
+
+### 3A.5 The confound that will be attacked first, and the defence
+
+**Sparkle is exquisitely sensitive to gain, dynamic range, focus position and depth.** Raise the gain or narrow the dynamic range and everything looks sparklier. This is the first objection any reviewer will raise, and it would be fatal if unaddressed.
+
+Three defences, all built into this protocol:
+
+1. **Locked gain, compression and grey map** (§4.2) — sparkle cannot be manufactured by console adjustment if the console cannot be adjusted.
+2. **The within-subject abdominal control** (§6.4) — sparkle present in limb fat but absent in trunk fat *of the same patient, in the same session, at identical settings* cannot be a gain artifact. This is the decisive argument and the reason S4 is the primary comparator.
+3. **Standardised analysis depth and fixed focal zone** — sparkle appearance varies with depth through attenuation and with distance from focus through resolution. ROIs are taken at a fixed depth below the dermis, with focus fixed at that depth.
+
+### 3A.6 What this changes about the study
+
+If the phenomenon is visible casually, the effect size is probably large, which is good news for feasibility. Two consequences:
+
+- **The pilot must first establish that the visual phenomenon is real and reproducible between observers.** Two or more clinicians, blinded, grade "sparkle present / absent / equivocal" on de-identified single frames. Report the agreement statistic. For calibration, the closest published comparator — clinical versus ultrasound classification of cellulite — achieved only moderate agreement (Gwet's AC1 = 0.444). If blinded sparkle grading beats that, the phenomenon is robust and the quantification programme is justified.
+- **The paper's narrative becomes clean and strong**: clinicians recognise a characteristic sparkling appearance of lipoedematous fat; we define it physically, quantify it under a standardised acquisition protocol, show it has a histological substrate, and show it discriminates independently of tissue thickness.
 
 ---
 
@@ -112,12 +178,14 @@ Without a phantom, cross-session and cross-machine comparison is not defensible,
 
 ### 4.4 Two view classes per site
 
-| View | Purpose | Frequency | Depth | Focus |
+| View | Purpose | Frequency mode | Depth | Focus |
 |---|---|---|---|---|
-| **Survey (low magnification)** | Structural measurement: skin surface → subcutaneous/muscle fascial boundary; layer identification; site documentation | 10–15 MHz linear | Sufficient to include deep fascia (typically 4–6 cm) | Mid-subcutaneous |
-| **Characterisation (high magnification)** | Texture and QUS analysis of the subcutaneous layer | 18–24 MHz linear | 2–3 cm | Mid-subcutaneous layer |
+| **Survey (low magnification)** | Structural measurement: skin surface → subcutaneous/muscle fascial boundary; layer identification; site documentation | Lowest available on the probe (penetration mode) | Sufficient to include deep fascia | Mid-subcutaneous |
+| **Characterisation (high magnification)** | Texture analysis of the subcutaneous layer | Highest available on the probe (resolution mode) | 2–3 cm | Mid-subcutaneous layer |
 
 The survey view supplies the thickness covariate and the anatomical context. The characterisation view supplies the tissue signature. They are separate acquisitions with separate presets, not the same image at two zooms.
+
+Absolute frequencies are set by the available probe — see §4.9, which is binding for this study.
 
 ### 4.5 The magnification trap — read this before piloting
 
@@ -149,6 +217,98 @@ Mandatory mitigations:
 - **Uncompressed DICOM.** Never JPEG or lossy video. Lossy compression is specifically destructive to speckle texture and silently invalidates the measurand.
 - **Cine loops** for sweeps, with frame-level metadata and full acquisition parameters embedded.
 - **RF or IQ data if the platform provides a research export.** This is the single highest-value capability upgrade available: RF enables true spectral QUS — backscatter coefficient, attenuation coefficient, effective scatterer size, and envelope statistics (Nakagami, homodyned-K) — which are physical, machine-independent, and far more defensible than B-mode texture. If a research package can be obtained, obtain it before starting.
+
+### 4.9 Platform-specific implementation: GE Vivid 6 / Vivid 7 with 12L-RS
+
+This is the hardware actually available, and it constrains the study in ways that must be designed around rather than discovered during analysis.
+
+**Probe — confirmed specification.** GE 12L-RS wideband linear array:
+
+| Spec | Value |
+|---|---|
+| Frequency bandwidth | **5.0 – 13.0 MHz** |
+| Field of view | 38 – 39 mm |
+| Footprint | ~42 × 7 mm (housing ~47 × 14 mm) |
+| Modes | 2D, colour Doppler, PW Doppler, harmonics, **SRI** |
+
+The small footprint is an advantage for the malleolar and foot-dorsum contours in S1. The 38–39 mm field of view constrains ROI width and requires generous frame overlap on the long sweeps (S2, S5).
+
+#### 4.9.1 Three consequences that change the study
+
+**(a) Dermal texture analysis is out of reach — scope honestly to subcutaneous fat.**
+The cellulite structural work that provides our closest precedent used a **20 MHz** probe. At a ceiling near 13 MHz, axial resolution is roughly 0.2–0.3 mm against a dermal thickness of 1–3 mm, so the dermis spans only a few resolution cells. That is enough to *measure* dermal thickness; it is not enough to characterise dermal texture.
+
+The study should therefore be titled and framed around **subcutaneous adipose tissue**, not skin. This is not fatal — the lymphoedema histological work (Piyaman et al.) used 6–18 MHz conventional HFUS and successfully graded subcutaneous echogenicity and echo-free space, which is precisely our target. If dermal characterisation becomes a priority later, it requires a higher-frequency probe (a hockey-stick or small-parts linear in the 15–20+ MHz class); check with GE which high-frequency `-RS` transducers are compatible with your consoles before assuming availability.
+
+**(b) Deep fascia in the thigh: probably reachable, but verify in the pilot.**
+Reported medial proximal thigh subcutaneous thickness in this population reaches ~48 mm. In **resolution mode near 13 MHz this will not penetrate**, but the confirmed 5 MHz lower bound is genuinely useful: a dedicated survey preset at the bottom of the band should reach 5–6 cm and visualise the deep fascia in most participants.
+
+- Use a **survey preset at the lowest available frequency** (penetration mode), separate from the characterisation preset
+- **Verify in the pilot on the thickest participants specifically** — do not assume, and do not discover this at analysis
+- Where the fascial boundary still cannot be resolved, record it as a **pre-specified missing-data category** rather than forcing a measurement
+- Only if the pilot shows systematic failure is a curvilinear or lower-frequency probe needed, and then for the survey view alone — characterisation stays on the 12L-RS
+
+**(c) Two consoles means a cross-device study from day one.**
+Vivid 6 and Vivid 7 are different machines with different processing. This is not a defect — handled properly it strengthens generalisability, which most single-centre radiomics papers lack. It makes three things mandatory:
+- The **reference phantom (§4.3) is compulsory, not optional** — it is the only way to harmonise the two consoles
+- **Console identity is recorded per acquisition** and entered as a covariate, with device held out at validation
+- **Scan a subset of participants on both consoles in the same session.** This yields a direct cross-device transferability measurement — cheap to collect, and a publishable methodological result in its own right
+
+#### 4.9.2 GE-specific control names to lock
+
+The generic table in §4.2 maps onto the Vivid console as follows. Save as named presets and photograph the control panel.
+
+| Generic parameter | GE Vivid control | Required setting |
+|---|---|---|
+| Speckle reduction | **SRI** (Speckle Reduction Imaging) | **OFF / level 0** — this is the single most important switch; SRI destroys the texture signal |
+| Spatial compounding | **CrossXBeam / CRI** | **OFF** |
+| Tissue harmonics | **Octave / Harmonics** | **OFF** (or fixed ON for every acquisition — do not mix) |
+| Frequency selection | **Pen / Gen / Res** | **Res** for characterisation; **Pen** for deep survey. Record which |
+| Dynamic range | **Compress / DR** | Fixed numeric value |
+| Grey map | **Map** (named curve) | Fixed named map |
+| Edge enhancement | **Edge Enhance** | Fixed, minimum |
+| Frame averaging | **Frame Average / Persistence** | Fixed, minimum |
+| Overall gain | **2D Gain** (numeric readout) | Fixed numeric value, never adjusted per patient |
+| Depth-dependent gain | **TGC sliders** | All at centre detent; photograph the slider bank each session |
+| Depth | **Depth** | Fixed per site |
+| Focus | **Focus** | Single zone, fixed depth |
+
+#### 4.9.3 Resolution cell and minimum ROI size — derived for this probe
+
+Sparkle quantification and envelope-statistic fitting both require an ROI containing enough **independent speckle cells** for a stable estimate. Nakagami *m* is generally considered to need on the order of 100+ independent samples.
+
+Taking c = 1540 m/s, axial resolution ≈ 2λ and lateral resolution ≈ 6λ (F-number ~3):
+
+| Frequency | λ (mm) | Axial res (mm) | Approx. lateral res (mm) |
+|---|---|---|---|
+| 5 MHz | 0.308 | 0.62 | 1.85 |
+| 9 MHz | 0.171 | 0.34 | 1.03 |
+| 13 MHz | 0.118 | **0.24** | **0.71** |
+
+At 13 MHz the speckle cell is roughly 0.24 × 0.71 mm ≈ **0.17 mm²**, giving:
+
+| ROI | Area | Independent speckle cells |
+|---|---|---|
+| 5 × 5 mm | 25 mm² | ~150 |
+| **10 × 10 mm** | 100 mm² | **~590** |
+| 15 × 15 mm | 225 mm² | ~1340 |
+
+**Specification: minimum ROI 5 × 5 mm; preferred 10 × 10 mm.** A 10 mm box fits comfortably within the 38 mm field of view and within the subcutaneous layer at most sites, while giving ample samples for stable envelope-statistic estimation.
+
+Two corollaries:
+- **Texture kernels must be defined in millimetres and must exceed the speckle cell size**; a kernel smaller than ~0.7 mm laterally at 13 MHz is measuring the point spread function, not the tissue.
+- **Sparkle features are frequency-dependent.** Because resolution changes across the band, all characterisation acquisitions must use the **same** frequency setting. Comparing sparkle between a 9 MHz and a 13 MHz image is not valid.
+
+#### 4.9.4 Raw data — what is and is not available
+
+**Do not assume RF or IQ export.** GE's **TruScan Architecture with Raw Data** is a proprietary archive format that preserves pre-processing data so an archived study can be re-opened and re-processed with different scan controls. It is genuinely useful here, but it is **not calibrated radiofrequency data** and does not by itself enable spectral QUS.
+
+Two practical implications:
+
+- **Enable TruScan raw-data archiving**, and export every study for analysis through a **single fixed post-processing configuration**. The ability to re-apply controls post-hoc is a benefit only if it is used to enforce uniformity; if different operators re-export with different maps or gain, it becomes another source of drift.
+- **Ask GE directly whether an RF or IQ research export exists for your Vivid consoles**, ideally under a research agreement. If it does, the spectral QUS parameters in §7.1 (backscatter coefficient, attenuation coefficient, effective scatterer size) become available and the study's ceiling rises substantially. If it does not — the likely answer for this platform — the study proceeds on phantom-calibrated B-mode, which is exactly what the lymphoedema precedent used.
+
+Assume no RF until GE confirms otherwise, and design the primary analysis so it does not depend on it.
 
 ---
 
@@ -224,12 +384,16 @@ This converts the claim from "a model separates groups" to "a measurable acousti
 
 ### 7.1 Feature families, in order of defensibility
 
-1. **Spectral QUS (requires RF/IQ):** backscatter coefficient, attenuation coefficient (dB/cm/MHz), effective scatterer diameter. Physical, machine-independent after phantom calibration. Highest publication value.
-2. **Envelope statistics:** Nakagami *m*, homodyned-K parameters. Sensitive to scatterer density and regularity — the predicted correlate of adipocyte hypertrophy.
-3. **Calibrated B-mode intensity:** phantom-normalised mean echogenicity, and the **echo-free space fraction** operationalising Piyaman's SEF quantitatively.
-4. **Texture:** GLCM, run-length, LBP, wavelet energies — computed only after resampling to common physical resolution (§4.5), with kernels defined in millimetres.
-5. **Structural:** septal density, thickness and orientation anisotropy; dermal–subcutaneous interface regularity.
-6. **Deep features:** CNN embeddings on calibrated, resolution-normalised patches — reported alongside, not instead of, interpretable parameters.
+Ordered for **this platform**, where RF export should be assumed unavailable (§4.9.4). The sparkle parameters (§3A.2) are primary, not exploratory.
+
+1. **Sparkle quantification — PRIMARY.** Bright-spot density per mm² by multi-scale local-maximum / Laplacian-of-Gaussian detection at a phantom-normalised threshold, with spot size distribution and spot-to-background contrast. Directly operationalises the index phenomenon and is interpretable to a clinician without translation.
+2. **Envelope statistics — PRIMARY.** Nakagami *m* and homodyned-K *k*, fitted after inverting the known log compression (§3A.3). *m* > 1 is the formal signature of the coherent scattering that produces sparkle.
+3. **Intensity distribution shape.** Skewness, kurtosis, and high-percentile-to-median ratios of the envelope histogram.
+4. **Calibrated B-mode intensity and echo-free space.** Phantom-normalised mean echogenicity, and an **echo-free space fraction** quantifying Piyaman's SEF — the dark background against which sparkle is conspicuous.
+5. **Structural.** Septal density, thickness and orientation anisotropy; dermal–subcutaneous interface regularity.
+6. **Generic texture.** GLCM, run-length, LBP, wavelet energies — computed only after resampling to common physical resolution (§4.5), with kernels in millimetres exceeding the speckle cell (§4.9.3). Included as a comparator; expected to be blunter than 1–2.
+7. **Spectral QUS — conditional.** Backscatter coefficient, attenuation coefficient (dB/cm/MHz), effective scatterer diameter. Available **only if** GE confirms an RF/IQ research export. If obtainable, these are the most defensible parameters in the whole study and should be promoted to primary.
+8. **Deep features.** CNN embeddings on calibrated, resolution-normalised patches — reported alongside, never instead of, the interpretable parameters. A model that beats bright-spot density but cannot say why is a weaker paper, not a stronger one.
 
 ### 7.2 Modelling constraints
 
