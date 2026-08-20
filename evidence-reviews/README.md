@@ -24,9 +24,12 @@ The lipoedema review was revised on 2026-08-19 after its stated access limitatio
 
 A review may spawn a design document that operationalises a hypothesis it generated. These are **not** evidence appraisals and are not held to the conformance requirements below; they must be labelled as drafts, state that they are not ethics-approved or statistician-reviewed, and carry the honest claim ceiling the underlying evidence supports.
 
-| Document | Derived from |
+| Document | Purpose |
 |---|---|
-| [lipoedema-ultrasound-ml-protocol.md](lipoedema-ultrasound-ml-protocol.md) | lipoedema-ultrasound-ml.md §10.5 |
+| [lipoedema-ultrasound-ml.md](lipoedema-ultrasound-ml.md) | Evidence review — the appraisal that established the gap |
+| [lipoedema-ultrasound-ml-protocol.md](lipoedema-ultrasound-ml-protocol.md) | Technical acquisition standard and study design |
+| [lipoedema-ultrasound-ml-IRB-protocol.md](lipoedema-ultrasound-ml-IRB-protocol.md) | Full protocol for institutional review, with power calculations, consent form and ethics |
+| [statistician-onboarding-letter.md](statistician-onboarding-letter.md) | Template letter inviting a university statistician to join |
 
 ## Conformance requirements
 
