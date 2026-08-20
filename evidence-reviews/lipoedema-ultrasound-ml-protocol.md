@@ -117,7 +117,7 @@ The related descriptors already in circulation — "snowstorm", "starry sky", "p
 Three defences, all built into this protocol:
 
 1. **Locked gain, compression and grey map** (§4.2) — sparkle cannot be manufactured by console adjustment if the console cannot be adjusted.
-2. **The within-subject abdominal control** (§6.4) — sparkle present in limb fat but absent in trunk fat *of the same patient, in the same session, at identical settings* cannot be a gain artifact. This is the decisive argument and the reason S4 is the primary comparator.
+2. **The within-subject abdominal control** (§6.4) — sparkle present in limb fat but absent in upper abdominal fat *of the same patient, in the same session, at identical settings* cannot be a gain artifact. This is the decisive argument and the reason S4a is the primary comparator.
 3. **Standardised analysis depth and fixed focal zone** — sparkle appearance varies with depth through attenuation and with distance from focus through resolution. ROIs are taken at a fixed depth below the dermis, with focus fixed at that depth.
 
 ### 3A.6 What this changes about the study
@@ -410,12 +410,31 @@ Five regions, each with survey and characterisation views. Sweeps are recorded a
 | S1 | **Distal leg / ankle transition** | Continuous sweep, medial aspect: mid-calf → over medial malleolus → onto dorsum of foot | Captures the affected-to-spared transition where it exists. Foot dorsum acts as a **distal internal control**. |
 | S2 | **Medial thigh** | Sweep, knee → inguinal region along the medial aspect ("trouser crease") | Principal affected territory across nearly all variants. |
 | S3 | **Distal third of thigh** | Focused static acquisitions, survey + characterisation | Where lipoedema is most obvious morphologically; highest expected signal. |
-| S4 | **Abdominal midline, sagittal** | 6 inches below umbilicus → 6 inches above | **Primary internal control** — see §6.4. Trunk fat is typically spared. Characterisation view **must** be 12L-RS at the same preset as the limbs (§4.10.1); curvilinear used only for deep thickness if the linear probe cannot penetrate. |
+| **S4a** | **Upper abdomen, midline sagittal** | **Umbilicus → xiphisternum** | **PRIMARY INTERNAL CONTROL** — see §5.1 and §6.4. Characterisation view **must** be 12L-RS at the same preset as the limbs (§4.10.1). |
+| S4b | Lower abdomen, midline sagittal | Umbilicus → suprapubic | **Secondary/exploratory only.** Tests whether involvement is graded across the trunk. Not the control. |
 | S5 | **Posterior arm** | Sweep, elbow → shoulder, posterior aspect | Upper-limb involvement (Type IV); tests distribution-independence of the signature. |
 
 At **every** site: the survey view is used to measure skin surface → subcutaneous/muscle fascial boundary, and the characterisation view is centred on the subcutaneous layer.
 
 Sites are scanned in a fixed order, and the phantom is scanned before S1 and after S5.
+
+### 5.1 Why the control site is the UPPER abdomen
+
+The internal control was revised from a symmetric window around the umbilicus to **umbilicus → xiphisternum**. Four reasons, and the change materially improves the design:
+
+1. **Upper abdominal fat is the most reliably spared depot.** Lipoedema is a gynoid-pattern disorder of limbs, hips and buttocks. **Infraumbilical** fat is gynoid-adjacent and more likely to be involved; **epigastric** fat is android-pattern and the cleanest available "unaffected" reference in the same patient.
+2. **It avoids the panniculus.** In any participant carrying weight, the infraumbilical apron shows dependent lymphatic congestion, stretch-related fibrosis and highly variable thickness — all of which contaminate a control meant to represent normal fat.
+3. **Bony landmarks beat absolute distances.** Umbilicus-to-xiphisternum is defined by two fixed landmarks and scales with the participant. "Six inches" does not, and would sample different anatomy across a BMI range — a reproducibility defect.
+4. **The fat is thinner, so the 12L-RS reaches it.** Epigastric subcutaneous fat is generally thinner than infraumbilical, so the linear probe reliably resolves the full layer to the deep boundary. This reduces dependence on a curvilinear probe whose connector compatibility is unconfirmed (§4.10.4).
+
+**Technical requirements specific to this site:**
+
+- **Subcutaneous compartment only.** The ROI lies **superficial to the linea alba / anterior rectus sheath**. Preperitoneal and visceral fat are different tissue and are excluded by definition. In the midline sagittal plane the linea alba is a bright, consistent deep landmark, which is an advantage — it makes the deep boundary of the ROI unambiguous.
+- **Suspended respiration**, end-expiration, non-forced, for all characterisation frames. Upper abdominal respiratory motion is greater than at the sites originally proposed and will otherwise blur speckle.
+- **Stay below the costal margin** to avoid rib and xiphoid shadowing at the superior extent.
+- **Optional paramedian sample** 2–3 cm lateral to midline where a thicker fat pad is wanted, provided it is acquired at the identical preset and recorded as a distinct site.
+
+**S4b (lower abdomen) is retained but demoted.** Acquiring it costs one extra sweep and allows a within-patient upper-versus-lower comparison. If lower abdominal fat shows intermediate sparkle, that is mechanistically informative about how the disorder is distributed. It is explicitly **not** the control, and must not be substituted for S4a in the primary endpoint.
 
 ---
 
@@ -446,7 +465,7 @@ As in the review's §10.4 — blinded, independent, and measured:
 
 ### 6.4 The within-subject paired design — the strongest feature of this protocol
 
-The abdominal midline scan (S4) is not merely a sixth site. It is the **internal reference** that makes the whole study defensible, and it solves three problems at once:
+The upper abdominal scan (S4a, umbilicus → xiphisternum; see §5.1) is not merely another site. It is the **internal reference** that makes the whole study defensible, and it solves three problems at once:
 
 1. **Device and session confounding.** Affected-site fat and spared trunk fat are acquired in the same patient, on the same machine, in the same session, at the same locked settings. Any residual console drift is common to both and cancels in the paired contrast.
 2. **Between-subject variation.** Age, skin type, hydration and body composition are held constant within the pair.
@@ -454,7 +473,7 @@ The abdominal midline scan (S4) is not merely a sixth site. It is the **internal
 
 **The primary endpoint is the within-subject affected-versus-spared tissue-signature contrast**, which is also statistically far more efficient than between-subject classification. Between-subject discrimination (H2) is secondary.
 
-*Caveat requiring pilot confirmation: trunk sparing in lipoedema is a clinical generalisation, not an established histological fact. The pilot must verify that trunk fat in lipoedema patients is not itself abnormal — if it is, the internal reference is contaminated and S4 becomes a comparison site rather than a control. This is a genuine risk to the design and should be resolved before the main study.*
+*Caveat requiring pilot confirmation: trunk sparing in lipoedema is a clinical generalisation, not an established histological fact. The pilot must verify that upper abdominal fat in lipoedema patients is not itself abnormal — if it is, the internal reference is contaminated and S4a becomes a comparison site rather than a control. Selecting the epigastric depot (§5.1) makes this the least likely of the available trunk sites to be involved, but does not eliminate the risk. Resolve it before the main study.*
 
 ### 6.5 Histological sub-study — the element that lifts this above pattern-matching
 
