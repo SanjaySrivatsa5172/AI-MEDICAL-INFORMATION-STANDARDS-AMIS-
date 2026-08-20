@@ -59,7 +59,9 @@ The publishable claim is not "AI detects lipoedema." It is: *a standardised acqu
 
 **H3.** The signature correlates with histological adipose tissue remodelling — adipocyte diameter, septal fibrosis, inflammatory infiltrate, interstitial fluid — in tissue biopsied from the scanned site.
 
-**H4.** Quantitative features outperform blinded expert visual grading (SEG/SEF and echotexture/fibrosis/oedema) of the same images.
+**H4.** A machine-learning model trained on standardised images, against **expert clinical classification of the subject** as the label, outperforms simple interpretable baselines (subcutaneous thickness alone; bright-spot density alone) on an independent, never-iterated test cohort.
+
+*Note on labels:* human experts classify **subjects** as lipoedema or non-lipoedema on clinical grounds. Humans do **not** adjudicate ultrasound appearance, and no human image-grading comparator is used. This deliberately avoids the circularity of asking readers to grade the same images the model sees, and it makes the machine responsible for discovering the image signature rather than reproducing a human reading of it.
 
 **Biological rationale.** Lipoedema histology describes adipocyte hypertrophy, interstitial fluid accumulation, septal fibrosis and altered microvasculature. Each has a predicted acoustic consequence: larger scatterers alter backscatter magnitude and envelope statistics; interstitial fluid creates anechoic clefts, raising heterogeneity and echo-free space; fibrotic septa raise stromal echogenicity and structural anisotropy. These are directional predictions, not a blind feature dump.
 
@@ -456,12 +458,13 @@ Recruitment is stratified across variants, and **H1 is tested within every varia
 
 ### 6.3 Reference standard
 
-As in the review's §10.4 — blinded, independent, and measured:
+The label is **expert clinical classification of the subject** as lipoedema or non-lipoedema. Humans classify people, not images (§3, H4).
 
-- Two clinicians independent of image acquisition, **blinded to all ultrasound**, applying a pre-specified criterion set
+- Two clinicians independent of image acquisition classify each **subject** on clinical grounds, using a pre-specified criterion set, **blinded to the ultrasound**
 - Blinded third-clinician adjudication of disagreements
-- **Inter-rater kappa reported**, so the ceiling on achievable model performance is quantified rather than assumed
-- Sonographers blinded to clinical diagnosis at acquisition
+- **Inter-rater kappa reported.** This quantifies label quality: the model is trained against these labels, so their reliability bounds what any honest test result can mean. If clinicians agree only moderately on who has lipoedema, a model reporting near-perfect test accuracy is suspect
+- Sonographers blinded to clinical classification at acquisition, so acquisition cannot be unconsciously tailored to the known diagnosis
+- **No human grades the ultrasound appearance.** The machine is solely responsible for the image signature; there is no human image-reading comparator to reproduce or to be limited by
 
 ### 6.4 The within-subject paired design — the strongest feature of this protocol
 
@@ -503,6 +506,37 @@ Ordered for **this platform**, where RF export should be assumed unavailable (§
 7. **Spectral QUS — conditional.** Backscatter coefficient, attenuation coefficient (dB/cm/MHz), effective scatterer diameter. Available **only if** GE confirms an RF/IQ research export. If obtainable, these are the most defensible parameters in the whole study and should be promoted to primary.
 8. **Deep features.** CNN embeddings on calibrated, resolution-normalised patches — reported alongside, never instead of, the interpretable parameters. A model that beats bright-spot density but cannot say why is a weaker paper, not a stronger one.
 
+### 7.1A Cohort splitting and the training protocol
+
+The agreed architecture is **development cohort → iterate → independent new-subject cohort for final evaluation**. That is sound and publishable. One naming and discipline change is required for it to survive review.
+
+#### The one change that matters
+
+> A 30% partition that you **retrain against after adjudicating performance** is not a test set. It is a **tuning (validation) set**. Any figure reported from it is optimistically biased, and reviewers will identify this immediately.
+
+This does not change the plan — it changes the labels and where the headline number comes from:
+
+| Partition | Name | Use |
+|---|---|---|
+| 70% of development cohort | **Training set** | Fit model weights |
+| 30% of development cohort | **Tuning / validation set** — *not* "test" | Model selection, hyperparameters, the iterate-and-retrain loop. Performance here is reported as **development performance only**, explicitly flagged as optimistic |
+| **New subjects, recruited separately** | **TEST SET** | **Single evaluation. Weights frozen beforehand. No iteration afterwards.** This is the headline result |
+
+**Lock the weights before the test cohort is touched.** Record the frozen model hash or file, with a timestamp, before any test-cohort image is analysed. If the test cohort is used more than once, it becomes a second tuning set and a further cohort is needed for an unbiased figure.
+
+**Log every iteration.** Pre-specify a maximum number of train-adjudicate-retrain cycles and report the actual number. Undocumented iteration is the main reason clinical ML results fail to replicate.
+
+#### Three leakage traps specific to this design
+
+1. **Split by PATIENT, never by image.** Each participant contributes multiple sites, multiple frames and bilateral limbs. Frames from one cine sweep are near-duplicates. A naive 70/30 split over images would place the same patient in both partitions and produce spectacular, meaningless accuracy. All splitting, at every stage, is at the level of the participant.
+2. **Stratify the split** by diagnosis, distribution variant, BMI band **and console** (Vivid 6 vs Vivid 7).
+3. **The console confound is the most dangerous failure mode in this study.** If lipoedema participants are scanned disproportionately on one console and controls on the other, a model will learn the machine and report near-perfect accuracy. Three defences: **randomise console assignment** at recruitment; **stratify** every split by console; and run a **leave-one-console-out sensitivity analysis**. The per-patient S4a internal reference (§5.1, §6.4) is a further mitigation, since normalising each limb measurement to that patient's own upper abdominal fat removes much of the console signature.
+
+#### Two efficiency recommendations
+
+- **Use repeated stratified cross-validation within the development cohort** for model selection rather than a single 70/30 draw. It uses the data far more efficiently and gives a stability estimate. The independent new-subject cohort remains the test set either way. With modest sample sizes a single 30% partition yields uncomfortably wide confidence intervals.
+- **Make the test cohort as independent as practical** — later in time, and ideally different operators, so it tests transportability rather than a re-split of the same conditions.
+
 ### 7.2 Modelling constraints
 
 - **Patient-level splits, always.** Frames from a cine sweep are near-duplicates; any frame from a patient in training must exclude that patient from test. This is the most common fatal leak in cine-based studies.
@@ -511,11 +545,11 @@ Ordered for **this platform**, where RF export should be assumed unavailable (§
 - **Model class proportionate to n.** Penalised regression or gradient boosting over interpretable QUS/texture features is primary. A deep model on raw B-mode is secondary and only defensible with the larger sample and multi-device validation.
 - **Device held out** at validation wherever multi-device data exists.
 
-### 7.3 The human comparator (H4)
+### 7.3 Interpretable baselines (H4)
 
-Two blinded readers grade every characterisation image for SEG and SEF (Piyaman) and echotexture, fibrosis and oedema (Intagliata). Inter-rater agreement is reported. The quantitative model must beat the human read on the same images.
+The model is not compared to a human reading the images (that comparison is deliberately excluded — see §6.3). It is compared to **simple interpretable models** on the frozen-weights test cohort: subcutaneous thickness alone, and bright-spot density alone. A complex model that cannot beat bright-spot density has not earned its complexity, and saying so plainly strengthens rather than weakens the paper.
 
-Intagliata et al.'s Gwet's AC1 of 0.444 for clinical-versus-ultrasound classification suggests the visual bar is only moderate — which is itself the argument for quantitation, and a clean framing for the paper.
+The published cellulite comparator (Intagliata et al., clinical-vs-ultrasound Gwet's AC1 = 0.444) is cited only to motivate why quantitation is needed, not as a comparator arm.
 
 ---
 
@@ -525,7 +559,7 @@ Intagliata et al.'s Gwet's AC1 of 0.444 for clinical-versus-ultrasound classific
 2. **H1**: paired within-subject contrast, affected site versus S4, per variant stratum.
 3. **H2**: between-arm discrimination, with thickness entered as a covariate to demonstrate the signature is not a proxy for thickness.
 4. **H3**: ultrasound–histology correlation in the liposuction sub-study.
-5. **H4**: model versus blinded visual grading on identical images.
+5. **H4**: model on the frozen-weights independent test cohort versus interpretable baselines (thickness-alone; bright-spot-density-alone) on the same cohort. No human image-grading arm.
 6. **Thresholds pre-specified**; **calibration reported alongside discrimination**; external validation on a second centre and device before any confidence claim above *uncertain*.
 
 **Sample size.** A pilot of roughly 20–30 per arm is required first, to estimate the paired effect size and the ICCs; the main study is then powered on those. Publishing a between-subject AUC target now would be guesswork. The review's precision analysis gives the between-subject floor (~150/group for AUC 0.80 ± 0.05), but the paired primary endpoint should need materially fewer. A statistician must set the final number.
