@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-20",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -166,6 +166,11 @@
     "date": "2026-08-19",
     "added": 2,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-19 14:09 UTC). RECONCILE: git in sync (origin=local at 165 refs / 6 alerts / last_updated 2026-08-18); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (165 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-19 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-18..2026-08-19 (two angles) surfaced mostly off-core work -- screened and EXCLUDED an LLM-as-rater communication-skills study (10.1016/j.pec.2026.109829), a Cedars-Sinai nuclear-cardiology board-exam LLM study (10.1016/j.nuclcard.2026.102946; exam MCQs, not triage -- noted for institutional interest only), an AMD multimodal-LLM imaging paper (10.1016/j.oret.2026.08.010), BBB-permeability cheminformatics (10.1021/acs.est.6c06459), postconcussion-headache forecasting (10.1097/HTR.0000000000001206), a ChatGPT urology-tumour-board evaluation (10.1007/s12094-026-04548-6; clinician-facing oncology MDT, though its 'concordance != safety, 3.8% potentially-harmful errors' point is noted), a VCD patient-education Q&A study (10.1002/wjo2.70158), a psychiatric-symptom-assessment physician-AI-trust study (10.30773/pi.2025.0330), plus already-excluded prior-day items and off-topic case reports. A targeted Scite sweep (date_from 2026-08-16) returned only already-captured or off-core items. ADDED 2 on-core references, both PubMed-metadata-verified (their DOIs are not yet in Scite's index -- brand-new, so no editorialNotices check was possible; no identifier invented): (1) Sharma et al. 'ED-triage-agent: a multi-agent framework for human-in-the-loop emergency triage' (Int J Med Inform 2026;221:106652; PMID 42612553) -- multi-agent LLM ESI-triage system with SYMPTOM-ONLY pre-vital queue prioritisation and explicit undertriage/overtriage + high-priority-sensitivity endpoints (Phase 2: 0.00% significant over-triage, 0.46% under-triage vs 10.00% for a chain-of-thought baseline on standardized ESI cases); Topic 1, design_overlap false (triage SYSTEM + external benchmark, not a physician-authored dual-register eval). (2) Ding & Wang 'Generative AI-Assisted Self-Diagnosis and the Patient-Physician Relationship' (J Med Internet Res 2026;28:e95072; PMID 42612039) -- mixed-methods study of how real patients use consumer generative AI for symptom interpretation and INFORMAL TRIAGE / illness-severity appraisal (directly on the everyday-language/self-triage core), design_overlap false. Library 165 -> 167; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; no Gmail draft this run."
+   },
+   {
+    "date": "2026-08-20",
+    "added": 4,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-20 14:09 UTC). RECONCILE: git in sync (origin=local at 167 refs / 6 alerts / last_updated 2026-08-19); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (167 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-20 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-19..2026-08-20 (two angles, 15 unique hits) -- most off-core (HEMS trauma epidemiology, mammography AI double-reading, surgical-robot FDA recalls, anaerobic-digestion LLM, pediatric-empyema/coronary-stent/RCC-ablation reviews, antithrombotic-anesthesia guideline-adherence LLM + its correction, AI health-spending value, pharmaceutical-formulation AI). ADDED 4 on-core references. Verification: all four confirmed via PubMed metadata; the Patwardhan PHA study additionally Scite-confirmed (preprint record, no editorialNotices) -> pubmed+scite-verified; the other three are brand-new 2026-08-19 entries not yet in Scite's index (pubmed-verified; day-old, no retraction possible; no identifier invented). (1) Leibovitch et al. 'Prospective evaluation of a large language model clinical decision support system in the emergency department' (Nat Med 2026; PMID 42618632; 10.1038/s41591-026-04601-5) -- DECIDE-AI stage 1 prospective ED evaluation of the SHAKED multi-LLM CDSS (1,138 patients; adoption fell 68%->30% on workload; 99/100 outputs expert-rated appropriate; no adverse events; 'engagement, not accuracy' the key barrier; NCT06902675); Topic 1, design_overlap false (clinician-facing, not patient-facing). (2) Patwardhan et al. 'Patient-Facing AI System for Symptom Guidance ... and Physician Review: Analytical Validation Study' (JMIR Form Res 2026; PMID 42615486; 10.2196/103419) -- Verily Health PHA predeployment validation; 772 synthetic telephone-triage-protocol cases, multiturn patient conversations, 5 BLINDED physicians setting level-of-care ground truth, prespecified undertriage/overtriage criteria (urgent undertriage 6.9% missed the <5% bar; nonurgent 18.4% missed <15%; overtriage 11.0% met <30%; undertriage the principal gap). CLOSEST design parallel yet (physician-panel-adjudicated patient-facing triage with undertriage/overtriage endpoints); flagged design_overlap:true and surfaced to the PI, but NOT auto-escalated to a formal urgent alert (single commercial product, synthetic cases/simulated conversations, no dual-register or harm-weighting) -- PI to decide on escalation. (3) Clusmann et al. 'Safety and security of large language models in healthcare' (Nature 2026; PMID 42618758; 10.1038/s41586-026-10687-1) -- landmark-venue systematic LLM-clinical-safety/security review; ai-safety-failure-modes framing reference. (4) Yang et al. 'The Reliability of Human Evaluation of LLMs in Health Care Settings: Scoping Review' (J Med Internet Res 2026; PMID 42618044; 10.2196/98184) -- PRISMA-ScR map of human-evaluation methodology (71 studies), foundational for the study's physician-authored-evaluation rubric/panel design. Library 167 -> 171; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No formal urgent alert this run (the Patwardhan PHA design-overlap surfaced to the PI for an escalation decision); no Gmail draft."
    }
   ],
   "alerts": [
@@ -3400,6 +3405,88 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-19"
+  },
+  {
+   "title": "Prospective evaluation of a large language model clinical decision support system in the emergency department",
+   "authors": "Leibovitch L, Ahituv A, Gorenshtein A, et al.",
+   "journal": "Nature Medicine",
+   "year": 2026,
+   "pmid": "42618632",
+   "doi": "10.1038/s41591-026-04601-5",
+   "url": "https://doi.org/10.1038/s41591-026-04601-5",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "physician-evaluation",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "One of the few PROSPECTIVE in-ED evaluations of an LLM clinical decision support system (Topic 1). DECIDE-AI stage 1 evaluation of SHAKED (a CDSS built on multiple LLMs) in a tertiary emergency department: 1,138 patients over 4 weeks across two parallel units (one using SHAKED, one routine). Findings: clinical adoption declined from 68% to 30% (workload-sensitive disengagement, OR 0.72 per shift hour, 95% CI 0.62-0.83); physicians preferred SHAKED for radiology consultations (OR 2.98, 95% CI 1.58-5.63); NO adverse events, and expert review rated 99/100 sampled outputs clinically appropriate; ED length of stay unchanged (4.9 h both wings, p=0.99); a non-significant trend toward shorter consultation cycle time (-9.4 min, p=0.077). The authors conclude that sustained clinician engagement -- not algorithmic accuracy -- may be the key barrier to effective clinical AI in EDs, and that the results inform randomized trial design but 'do not justify clinical deployment at this stage' (ClinicalTrials.gov NCT06902675). Complements the Taylor (NEJM AI) implementation study and Cotte (NEJM AI) real-world study in the real-world-ED-evaluation strand. CAVEAT: clinician-facing ED decision support (not patient-facing / lay-language triage), single tertiary center, stage-1 feasibility. Verified via PubMed metadata (source pubmed-verified); not yet in Scite's index (brand-new 2026-08-19).",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-20"
+  },
+  {
+   "title": "Patient-Facing AI System for Symptom Guidance Using Simulated Encounters and Physician Review: Analytical Validation Study",
+   "authors": "Patwardhan A, Verma N, Barman P, et al.",
+   "journal": "JMIR Formative Research",
+   "year": 2026,
+   "pmid": "42615486",
+   "doi": "10.2196/103419",
+   "url": "https://doi.org/10.2196/103419",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "physician-evaluation",
+    "emergency-triage-ai",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "CLOSEST design parallel to this protocol surfaced to date: a physician-panel-adjudicated, PATIENT-FACING symptom-guidance triage-safety validation with prespecified undertriage/overtriage endpoints. Predeployment analytical validation of a locked configuration of Verily Health's Personal Health Assistant (PHA), an LLM-enabled patient-facing symptom-guidance tool: 772 synthetic cases built from published TELEPHONE-TRIAGE protocols plus persona-based, LLM-assisted case generation, each with a clinical vignette, structured history, and a simulated MULTITURN patient conversation; a panel of 5 independent physicians (BLINDED to PHA outputs) set case-level level-of-care ground truth via prespecified plurality/tie-handling rules. Against prespecified criteria: urgent undertriage 6.9% (95% CI 4.6-9.8; criterion <5% -- NOT met), nonurgent undertriage 18.4% (95% CI 14.2-23.2; criterion <15% -- NOT met), overtriage 11.0% (95% CI 8.0-14.7; criterion <30% -- met); undertriage was identified as the principal performance gap. This shares the protocol's physician-panel-adjudicated, patient-facing, undertriage/overtriage-endpoint design and telephone-triage-protocol case basis -- the study should CITE AND DIFFERENTIATE on the axes that keep it distinct: physician-AUTHORED NEW scenarios (vs synthetic/persona-generated), pre-specified DUAL-REGISTER lay-vs-clinician presentation, and HARM-WEIGHTED / Critical-Miss-Rate primary scoring. Flagged design_overlap:true and surfaced to the PI. NOT auto-escalated to a formal urgent alert: it is a predeployment analytical validation of a single commercial product on SYNTHETIC cases and simulated conversations (JMIR Formative Research), lacking dual-register and harm-weighting -- but it is the strongest design match yet and the PI may wish to escalate. Verified via PubMed metadata + Scite (Scite holds the preprint record 'Validation of a Patient-Facing AI System for Symptom Guidance: A Simulation Study With Physician Review'; authors Patwardhan/Verma/Barman; no editorialNotices / retraction).",
+   "source": "pubmed+scite-verified",
+   "design_overlap": true,
+   "date_added": "2026-08-20"
+  },
+  {
+   "title": "Safety and security of large language models in healthcare",
+   "authors": "Clusmann J, Freyer O, Ostermann M, et al.",
+   "journal": "Nature",
+   "year": 2026,
+   "pmid": "42618758",
+   "doi": "10.1038/s41586-026-10687-1",
+   "url": "https://doi.org/10.1038/s41586-026-10687-1",
+   "type": "review",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai",
+    "policy-regulation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Nature systematic review of the safety and security of clinical large language models -- a landmark-venue framing reference for this protocol's LLM-safety context. Maps security hazards to the development stages of clinical AI systems (design, data, model, inference, environment); identifies safety layers from core optimization objectives, knowledge integrity, and alignment through interaction with humans and systems; classifies threats by current clinical relevance; and surveys mitigation techniques with the corresponding stakeholder responsibilities. Broader than triage, but directly relevant to the study's safety rationale and to the failure surfaces (alignment, human-interaction, inference-time manipulation) that a patient-facing emergency-triage AI must withstand. CAVEAT: comprehensive review across all clinical LLM use, not triage-specific. Verified via PubMed metadata (source pubmed-verified); not yet in Scite's index (brand-new 2026-08-19).",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-20"
+  },
+  {
+   "title": "The Reliability of Human Evaluation of Large Language Models in Health Care Settings: Scoping Review",
+   "authors": "Yang E, Ko S, Woo H.",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "42618044",
+   "doi": "10.2196/98184",
+   "url": "https://doi.org/10.2196/98184",
+   "type": "review",
+   "topics": [
+    "physician-evaluation",
+    "benchmark-methodology",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "PRISMA-ScR scoping review (71 studies, Jan 2016-Jul 2025) mapping how HUMAN EVALUATION of clinical LLM reliability is actually operationalized -- methodologically foundational for this protocol's physician-authored-evaluation design. Six reliability indicators recur (accuracy, relevance, completeness, clarity, safety, consistency); clinical-domain evaluations emphasized guideline concordance, internal consistency, and structural coherence, whereas public-health evaluations emphasized understandability, harm potential, and repeat-response consistency; single-specialty clinicians were the most common evaluators, evaluator panels were generally 5 or fewer members, and 5-point Likert scales with researcher-defined rubrics were the common approach. Key limitations across the field: evaluator subjectivity, nonstandardized indicators, and limited evaluation scope/settings -- leading the authors to conclude human LLM evaluation is insufficiently standardized and to call for domain-specific standardized frameworks (indicator definitions, judgment criteria, evaluator guidance, and procedures). Directly informs the study's rubric design, evaluator-panel construction, and indicator standardization. CAVEAT: a scoping review of evaluation METHODOLOGY, not an evaluation of triage performance. Verified via PubMed metadata (source pubmed-verified); not yet in Scite's index (brand-new 2026-08-19).",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-20"
   }
  ]
 }

@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-19
-total-references: 167
+last-updated: 2026-08-20
+total-references: 171
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-19** · 167 references.
+Updated daily by automated scan. Last scan: **2026-08-20** · 171 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -59,6 +59,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ravichandran 2026 — MTS-Bench A Manchester Triage System Benchmark for Language Model…]] — *openRxiv (preprint)* 2026
 - [[Omar 2026 — AI-assisted rheumatology triage changes with referral framing]] — *Rheumatology (Oxford)* 2026
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] — *European Journal of Obstetrics & Gynecology and Reproductive Biology* 2026
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] — *JMIR Formative Research* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -126,6 +127,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Sharma 2026 — ED-triage-agent a multi-agent framework for human-in-the-loop…]] (2026)
 - [[Ding 2026 — Generative Artificial Intelligence (AI)-Assisted Self-Diagnosis and…]] (2026)
+- [[Leibovitch 2026 — Prospective evaluation of a large language model clinical decision…]] (2026)
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -189,6 +192,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
 - [[Ding 2026 — Generative Artificial Intelligence (AI)-Assisted Self-Diagnosis and…]] (2026)
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
+- [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -243,6 +248,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
+- [[Leibovitch 2026 — Prospective evaluation of a large language model clinical decision…]] (2026)
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
+- [[Yang 2026 — The Reliability of Human Evaluation of Large Language Models in…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -302,6 +310,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
 - [[Ada 2026 — Clinical safety of large language model responses to matched…]] (2026)
 - [[Sharma 2026 — ED-triage-agent a multi-agent framework for human-in-the-loop…]] (2026)
+- [[Leibovitch 2026 — Prospective evaluation of a large language model clinical decision…]] (2026)
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
+- [[Yang 2026 — The Reliability of Human Evaluation of Large Language Models in…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -365,6 +376,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Sheppert 2026 — Large language models exhibit greater diagnostic anchoring than…]] (2026)
 - [[Gwóźdź-Broczkowska 2026 — AI-generated patient instructions as safety-critical communication a…]] (2026)
 - [[Sharma 2026 — ED-triage-agent a multi-agent framework for human-in-the-loop…]] (2026)
+- [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
+- [[Yang 2026 — The Reliability of Human Evaluation of Large Language Models in…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -390,6 +403,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Young 2026 — EQUITRIAGE A Fairness Audit of Gender Bias in LLM-Based Emergency…]] (2026)
 - [[Ravichandran 2026 — MTS-Bench A Manchester Triage System Benchmark for Language Model…]] (2026)
 - [[Sharma 2026 — ED-triage-agent a multi-agent framework for human-in-the-loop…]] (2026)
+- [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
 - [[Ho 2025 — Evaluation of Generative Artificial Intelligence Models in Predicting…]] (2025)
 - [[Wandl 2025 — Diagnostic test accuracy of the Emergency Severity Index a systematic…]] (2025)
 - [[Sax 2024 — Emergency Severity Index Version 4 and Triage of Pediatric Emergency…]] (2024)
@@ -413,6 +427,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Alamoudi 2026 — AI Triage in Primary Care Building Safer and More Equitable…]] (2026)
 - [[Tiller 2026 — Generative artificial intelligence-driven chatbots and medical…]] (2026)
 - [[Liaw 2026 — Maturity, Safety, and Equity of AI-Enabled Systems and Triage in…]] (2026)
+- [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
 - [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
