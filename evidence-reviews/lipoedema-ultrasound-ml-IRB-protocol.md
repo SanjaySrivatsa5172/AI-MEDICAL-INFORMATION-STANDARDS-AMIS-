@@ -178,6 +178,12 @@ Lipoedema occurs in variants confined to the hips, extending from hips to knee, 
 
 Arm A participants already scheduled for **clinically indicated** liposuction, who consent separately to the sub-study. Enrolment in the sub-study is **not** a condition of participation in the main study, and the decision to undergo liposuction is made independently of this research, on clinical grounds, by the treating surgeon.
 
+**Who may take this consent, and when.** Consent for the tissue sub-study is taken by a member of the research team who has **no role in the participant's surgery**, and is **not taken on the day of surgery** — a minimum interval of `[7]` days is required between consent and the operative date. Consent taken by the operating surgeon, or in the immediate pre-operative period, creates a recognised risk of coercion and therapeutic misconception and is prohibited under this protocol.
+
+**Declaration of interest.** Any financial or professional interest held by an investigator in the liposuction service from which participants are drawn is declared in the protocol, to the IRB, in the participant information sheet, and in any publication. `[Investigator interests to be declared here — state explicitly, including "none" if none.]`
+
+**Tissue governance.** Specimens are retained under `[institutional tissue authority / HTA licence reference]`. Retention period, destruction policy, and whether any residual tissue is banked for future unspecified research — which requires its own separate and explicitly optional consent — are stated in §7 and in the consent form.
+
 ## 4.5 Sex distribution
 
 Lipoedema affects women almost exclusively. Recruitment is therefore expected to be overwhelmingly or entirely female in both arms. This reflects the disease epidemiology and is not an exclusion. Men meeting criteria will be enrolled if identified and analysed descriptively. 
@@ -357,7 +363,20 @@ If cases are scanned predominantly by one technician, on one console, or during 
 
 Concretely:
 - Scanning is **not** organised as a case phase followed by a control phase
-- Console assignment is **randomised** per participant
+- Console assignment is **block-allocated by arm**, not simply randomised. At n = 100, simple randomisation can leave a material imbalance, and if lipoedema participants are scanned disproportionately on one console the model can learn the console instead of the disease. Blocks are stratified by arm so each console carries a near-equal share of both groups. Console ID, probe serial and software version are recorded per acquisition
+
+### 6.2A Operator blinding and contact force — two acknowledged weak points
+
+**The sonographer cannot be fully blinded, and the protocol says so rather than implying otherwise.** Locking the diagnostic label before imaging (§5.1) prevents the label from being *revised* to fit the images; it does **not** blind the person holding the probe. The lipoedema phenotype is visible and palpable at the moment of scanning. An operator who knows the group could, without any intent to deceive, optimise differently.
+
+Mitigations, in descending order of strength:
+
+1. **Contact force is measured, not merely instructed.** "Light pressure" is not reproducible between operators or across a session, and probe pressure materially alters fat echotexture and layer thickness. An inline force sensor or fixed-thickness standoff pad is used with a **pre-specified acceptance window**, and acquisitions outside it are rejected and repeated. `[Acceptance window to be set in Phase 0 — e.g. 1–3 N.]`
+2. **The console is locked (§6.1).** With gain, TGC, dynamic range, grey map, focus and frequency all fixed in a named preset, the principal levers by which operator knowledge could bias image appearance are unavailable.
+3. **All downstream analysis is blinded.** ROI placement and feature extraction are performed on de-identified, randomly ordered images with machine text, depth scale and annotation cropped, by an analyst blinded to arm and site. ROI placement follows a fixed-geometry rule — fixed area, fixed band relative to the dermal–subcutaneous interface, fixed count per site — or is automated, so the analyst retains no discretion.
+4. **Sonographers are not told the study hypothesis** in operational terms, and do not see the sparkle metrics at any point.
+
+This residual risk is recorded in §14 as a declared limitation. It is mitigated, not eliminated.
 - Operator assignment is **randomised** or balanced across arms
 - Recruitment logs record operator, console, date and time for every participant, and **balance across arms is monitored monthly**, with corrective allocation if imbalance emerges
 
@@ -471,7 +490,11 @@ Analyses proceed in a fixed, pre-specified order. Later steps are not performed 
 
 **Step 1 — Reproducibility screening (gatekeeper).** Intraclass correlation coefficients are computed for every candidate parameter from the duplicate-acquisition and test–retest subsamples. **Parameters with ICC below 0.75 are discarded before any hypothesis is tested.** This reproducibility table is a deliverable in its own right and will be published irrespective of downstream results, as no such table exists for subcutaneous adipose tissue quantitative ultrasound.
 
-**Step 2 — H1, primary endpoint.** Paired comparison of each surviving sparkle metric between the affected limb site and the participant's own upper abdominal fat (S4a), within Arm A. Paired *t*-test where distributional assumptions hold, otherwise Wilcoxon signed-rank. The identical paired contrast is computed in Arms B–E; the hypothesis requires the contrast to be present in Arm A and absent or substantially smaller in controls, formally tested as an arm × site interaction in a mixed-effects model with participant as random effect.
+**Step 2 — H1, primary endpoint.** Paired comparison of each surviving sparkle metric between the affected limb site and the participant's own upper abdominal fat (S4a), within Arm A. Paired *t*-test where distributional assumptions hold, otherwise Wilcoxon signed-rank. The identical paired contrast is computed in Arm B; the hypothesis requires the contrast to be present in Arm A and absent or substantially smaller in controls, formally tested as an **arm × site interaction** in a mixed-effects model with participant as a random effect.
+
+**The interaction is the primary test, not the within-Arm-A paired contrast.** This distinction is load-bearing and is stated here explicitly because it is easy to lose: limb and abdominal subcutaneous fat differ anatomically in *everyone* — different depth, different attenuation path, different septal architecture, different position relative to the probe's fixed elevational focus, different curvature and coupling. A non-zero within-participant limb-versus-abdomen contrast is therefore expected in controls too, and on its own would demonstrate nothing. Only the **difference of differences** — whether that contrast is larger in lipoedema than in matched controls — addresses the hypothesis.
+
+**Consequence for §8.4.** The power figures in §8.4 are computed for a paired *t*-test within Arm A. That is an approximation to the interaction test actually specified here, and §15 lists it as a known softness requiring the statistician's correction. The interaction generally requires more participants than the paired contrast for the same effect.
 
 **Step 3 — H2.** Between-arm discrimination, with **subcutaneous thickness entered as a covariate** to demonstrate that any signature is not a proxy for thickness. Reported as AUC with 95% confidence intervals.
 
@@ -788,7 +811,27 @@ Where the deep fascial boundary cannot be resolved, thickness is recorded as **m
 This is the only element beyond the imaging protocol, and it adds **no procedural risk**.
 
 - Tissue is collected **during liposuction that is already scheduled on clinical grounds**, for reasons independent of this research.
-- **No additional incision.** **No additional anaesthesia.** **No additional operative time** beyond the seconds required to retain a specimen from the marked site.
+- **No additional incision.** **No additional anaesthesia.** **No additional operative time** beyond the time required to retain a specimen from the marked site.
+
+### 6.4A Specimen type and timing — a requirement, not a detail
+
+**Routine liposuction aspirate cannot support the histological hypothesis, and must not be used for the architectural endpoints.**
+
+Three independent reasons:
+
+1. **Tumescent infiltration destroys one of the endpoints outright.** Tumescent solution floods the subcutaneous tissue with fluid. **Interstitial fluid is one of the four histological variables H3 correlates against.** Measuring interstitial fluid in tissue that has just been infiltrated measures the infiltration, not the disease.
+2. **Aspirate is emulsified and pooled.** Septal thickness, lobule size and architectural organisation — precisely the features hypothesised to generate sparkle — are mechanically destroyed by cannula work, and pooled aspirate cannot be traced back to a specific imaged region of interest.
+3. **Co-registration is lost.** H3 requires correlating a sparkle measurement at a marked ROI with histology *from that ROI*. Aspirate provides no spatial correspondence.
+
+**Requirement.** The specimen for architectural histology must be an **intact, oriented skin-and-subcutaneous-fat core or excision taken from the ultrasound-marked ROI, at the start of the case, BEFORE tumescent infiltration and before any cannula pass**, orientation-sutured and fixed intact. The marking, the pre-infiltration timing and the orientation must be documented per specimen.
+
+**If an intact pre-infiltration specimen cannot be obtained** — for surgical, consent or logistical reasons — then all architectural claims are deleted from H3, and the sub-study is restricted to whatever aspirate can legitimately support (for example adipocyte diameter on dissociated cells), reported as such and with the loss of the architectural endpoint stated in the limitations.
+
+### 6.4B There is no control histology — a structural limitation
+
+Only Arm A participants undergo surgery. **No tissue is available from BMI-matched controls.** The sub-study can therefore show that sparkle metrics correlate with tissue features *within lipoedema*; it **cannot** establish that those features are specific to lipoedema, because there is no comparison tissue.
+
+This is stated in §14 as a declared limitation and must be stated in any publication. Obtaining ethically justifiable control tissue is not proposed here: a research-only biopsy in a healthy volunteer to serve a correlation sub-study would not meet a favourable risk–benefit assessment, and the study does not seek one.
 - The tissue collected would otherwise be **discarded as surgical waste**.
 - The decision to undergo liposuction is made by the participant and treating surgeon on clinical grounds. **Declining the sub-study has no effect on surgical care, and enrolment in the sub-study does not influence whether surgery is offered or performed.** This separation is stated explicitly in the consent form.
 
@@ -1079,6 +1122,9 @@ Stated here so they appear in the protocol and the publication rather than being
 6. **Dermal characterisation is out of reach.** The available probe ceiling (13 MHz) does not resolve dermal texture. The study is scoped to subcutaneous fat.
 7. **Radiofrequency data is likely unavailable** on this platform, restricting the study to phantom-calibrated B-mode rather than full spectral quantitative ultrasound.
 8. **The internal control assumes upper abdominal sparing**, which is a clinical generalisation. The Phase 1 pilot tests this; if it fails, the primary endpoint requires redesign.
+9. **The sonographer cannot be blinded to arm.** The phenotype is visible and palpable at the point of scanning. Mitigated by locked console settings, measured contact force, and fully blinded downstream ROI placement and analysis (§6.2A) — reduced, not eliminated.
+10. **No control histology exists.** Only lipoedema participants undergo surgery, so the histological sub-study cannot establish that any tissue feature is specific to lipoedema (§6.4B).
+11. **Power is computed for the paired contrast, while the primary test is an arm × site interaction.** The figures in §8.4 are an approximation pending the statistician's correction (§15).
 9. **Cross-sectional design.** No inference about progression, staging or treatment response is supported.
 
 ---
