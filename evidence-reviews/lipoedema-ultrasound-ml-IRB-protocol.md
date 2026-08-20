@@ -16,7 +16,7 @@
 | Funding | `[Source or "unfunded / departmental"]` |
 | Design | Prospective, cross-sectional, two-arm case–control **discovery / proof-of-concept** study, with a nested within-subject paired comparison and an embedded histological correlation sub-study. Independent validation is a planned subsequent phase, not part of this protocol |
 | Population | Adult women with clinically diagnosed lipoedema and BMI-matched controls without lipoedema |
-| Sample size | **100 participants: 50 lipoedema, 50 BMI-matched non-lipoedema controls.** Analysis unit is the **participant**, not the image. Histology sub-study nested within the lipoedema arm |
+| Sample size | **100 participants (50 lipoedema, 50 BMI-matched controls), with pre-planned blinded sample size re-estimation at n = 60 and a pre-specified maximum of 200 (§8.4A).** Analysis unit is the **participant**, not the image. Histology sub-study nested within the lipoedema arm |
 | Duration | `[24–36 months anticipated]` |
 | Risk classification | **Minimal risk** for the imaging protocol. The nested histology sub-study uses tissue already being removed during clinically indicated surgery and adds no incision, anaesthesia or operative time |
 | Companion document | [lipoedema-ultrasound-ml-protocol.md](lipoedema-ultrasound-ml-protocol.md) — the technical acquisition standard, incorporated here by reference |
@@ -537,6 +537,81 @@ Smallest detectable paired effect (Cohen's *d_z*):
 | **Total** | **100** | **~116 to recruit** |
 | Histology sub-study (nested in Arm A) | 30 | 35 |
 
+## 8.4A Adaptive sample size: pre-planned expansion from 100
+
+The investigator's intention to increase recruitment if the effect proves smaller than anticipated is **methodologically sound and recommended** — provided it is pre-specified here rather than decided later. Formalising it now is what separates a legitimate adaptive design from data-dredging.
+
+### 8.4A.1 The trap being avoided
+
+**Informally looking at the group difference, finding it non-significant, recruiting more, and looking again inflates the false-positive rate severely.** Testing repeatedly at a nominal α = 0.05:
+
+| Number of looks | True Type I error |
+|---|---|
+| 1 | 0.050 |
+| 2 | 0.083 |
+| 3 | 0.107 |
+| 5 | 0.142 |
+| 10 | 0.193 |
+
+With unbounded looking, the false-positive rate approaches certainty. **"Recruit until significant" is not an acceptable design and would be identified by any competent reviewer.** The remedy is not to avoid expanding — it is to pre-specify how.
+
+### 8.4A.2 Primary mechanism: blinded sample size re-estimation (recommended)
+
+**Blinded sample size re-estimation carries no Type I error penalty and requires no α adjustment**, because the group difference is never examined.
+
+**Procedure.** At **n = 60 (30 per arm)**, the study statistician computes the **pooled variance** of each co-primary sparkle metric **without unblinding to arm**, and re-estimates the required sample size using that observed variance and the originally specified target effect size. The PI and analysis team are not informed of any group difference, because none is computed.
+
+This is the right mechanism here because **the dominant uncertainty is the variance of novel metrics** — no published data exists on the standard deviation of Nakagami *m* or bright-spot density in subcutaneous fat. It is uncertainty about the measurement, not about the disease.
+
+**Illustrative re-estimated requirements** (90% power, Bonferroni α = 0.01):
+
+| If true *d_z* is | Required lipoedema n | Total |
+|---|---|---|
+| 0.80 | 24 | 48 |
+| 0.65 | 36 | 72 |
+| **0.55** | **50** | **100 — the planned design** |
+| 0.45 | 74 | 148 |
+| 0.40 | 93 | 186 |
+
+### 8.4A.3 Pre-specified maximum
+
+**Maximum recruitment is capped at 200 participants (100 per arm).** Declaring a ceiling in advance is what makes the design adaptive rather than open-ended. If blinded re-estimation indicates a requirement beyond 200, the study reports that the effect is smaller than the design could address and that a larger multicentre study is required — it does not quietly continue.
+
+**What the ceiling buys** (AUC precision, true AUC 0.80):
+
+| Per arm | Total | 95% CI half-width |
+|---|---|---|
+| 50 | 100 | ± 0.087 |
+| 75 | 150 | ± 0.071 |
+| **100** | **200** | **± 0.061** |
+| 151 | 302 | ± 0.050 |
+
+Note the diminishing return: doubling from 100 to 200 participants narrows the interval from ± 0.087 to ± 0.061. It does not transform an imprecise estimate into a definitive one. **Precision at the ± 0.05 level requires roughly 300 participants and belongs to the validation phase**, not this study.
+
+### 8.4A.4 If an unblinded interim look is wanted
+
+Should the investigator wish to examine actual discrimination at an interim point — for example to stop early for futility — this requires a **formal group-sequential design with α spending**, pre-specified here:
+
+| Approach | Interim α | Final α | Comment |
+|---|---|---|---|
+| **O'Brien–Fleming** (recommended) | 0.0031 | 0.0490 | Conservative early; final analysis barely penalised |
+| Pocock | 0.0294 | 0.0294 | Easier to stop early; substantial final-analysis cost |
+
+**O'Brien–Fleming with a single interim at 50% information is recommended** if an unblinded look is required, because it preserves almost all final-analysis power.
+
+**A futility rule is also pre-specified**, and is the more valuable use of an interim look: if at n = 100 the observed discrimination is **below AUC 0.60** with the confidence interval excluding 0.75, recruitment stops and the study reports a negative result. This protects against expending resources on a signal that is not there, and a well-conducted negative result in this field is publishable.
+
+### 8.4A.5 Governance
+
+- The interim analysis is performed by the **study statistician**, not the PI.
+- The PI, technicians and analysis team **remain blinded to any group comparison** throughout blinded re-estimation.
+- Any sample size change, its trigger, its date and its justification are **logged and reported in the publication**.
+- **This section is written before recruitment begins and is not modified afterwards.** Any amendment requires IRB approval and is disclosed.
+
+### 8.4A.6 Recommendation
+
+**Begin at 100 as planned.** The primary endpoint (H1) is comfortably powered at that size for any effect resembling the clinical description, and 100 is a defensible discovery-scale cohort. Add blinded re-estimation at n = 60 and a cap of 200. This gives exactly the flexibility the investigator wants, costs nothing in statistical validity, and is straightforwardly defensible to both an IRB and a journal.
+
 ## 8.5 Machine learning methodology — data partitions and model weights
 
 This section is deliberately prescriptive. The commonest reason clinical machine-learning results fail to replicate is not a poor algorithm; it is undisciplined handling of partitions and weights.
@@ -998,7 +1073,7 @@ Stated here so they appear in the protocol and the publication rather than being
 
 1. **Single-expert reference standard.** All labels derive from one clinician. The study measures concordance with one expert's clinical classification, not with a consensus or an independent gold standard. Mitigated by pre-imaging database locking, intra-rater kappa, and an independent external audit of a 20% subsample (§5.1).
 2. **No histological gold standard for the disease itself.** Lipoedema has no diagnostic biopsy. The histology sub-study correlates ultrasound with tissue features; it does not establish a gold-standard diagnosis.
-3. **Discovery-scale sample (n = 100).** Well powered to detect whether a signature exists; imprecise about its magnitude (AUC interval approximately ± 0.09). No held-out test set is taken from this cohort, because a 15-per-class test would be uninformative; cross-validated development performance is reported and independent validation deferred to a subsequent phase.
+3. **Discovery-scale sample (n = 100, expandable to a pre-specified maximum of 200).** Well powered to detect whether a signature exists; imprecise about its magnitude (AUC interval approximately ± 0.09). No held-out test set is taken from this cohort, because a 15-per-class test would be uninformative; cross-validated development performance is reported and independent validation deferred to a subsequent phase.
 4. **No lymphoedema or obesity-without-lipoedema arm.** Specificity against those conditions is not established here. Cellulite is controlled as a covariate rather than an arm.
 5. **Single centre, two consoles, three operators.** Generalisation to other equipment, settings and operators is unestablished. Mitigated by leave-one-console-out and leave-one-operator-out analyses, but not eliminated.
 6. **Dermal characterisation is out of reach.** The available probe ceiling (13 MHz) does not resolve dermal texture. The study is scoped to subcutaneous fat.
