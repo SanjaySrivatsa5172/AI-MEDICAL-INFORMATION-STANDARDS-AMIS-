@@ -345,7 +345,7 @@ A curvilinear abdominal transducer (GE C1-6 class, **1–6 MHz**, up to 35 cm de
 
 > **All characterisation (sparkle) acquisitions — limb and abdomen alike — are made with the 12L-RS at one fixed frequency setting.**
 
-The within-subject affected-versus-spared contrast (§6.4) is the primary endpoint and the decisive defence against the gain-artifact objection (§3A.5). That defence only works if both sides of the comparison are acquired **identically**. Measuring limb sparkle on a linear probe and trunk "control" sparkle on a curvilinear would confound the primary endpoint with probe geometry and destroy the argument. The abdominal characterisation view (S4) is therefore a **12L-RS acquisition**, using the same preset as the limbs.
+The within-subject affected-versus-spared contrast (§6.4) supplies the primary comparison — formally tested as an arm × site interaction against matched controls — and is the decisive defence against the gain-artifact objection (§3A.5). That defence only works if both sides of the comparison are acquired **identically**. Measuring limb sparkle on a linear probe and trunk "control" sparkle on a curvilinear would confound the primary endpoint with probe geometry and destroy the argument. The abdominal characterisation view (S4) is therefore a **12L-RS acquisition**, using the same preset as the limbs.
 
 #### 4.10.2 Why the curvilinear cannot carry sparkle
 
@@ -474,7 +474,7 @@ The upper abdominal scan (S4a, umbilicus → xiphisternum; see §5.1) is not mer
 2. **Between-subject variation.** Age, skin type, hydration and body composition are held constant within the pair.
 3. **The distribution-variant problem.** Whatever the variant, an affected site and the spared trunk are both available. The primary contrast is therefore **variant-agnostic** — exactly what the clinical objection demanded.
 
-**The primary endpoint is the within-subject affected-versus-spared tissue-signature contrast**, which is also statistically far more efficient than between-subject classification. Between-subject discrimination (H2) is secondary.
+**The primary endpoint is the within-subject affected-versus-spared tissue-signature contrast, tested as an arm × site interaction** — whether that within-subject contrast is larger in lipoedema than in matched controls. The within-subject framing is statistically far more efficient than between-subject classification; the interaction is what makes it a test of the hypothesis rather than of normal regional anatomy. Between-subject discrimination (H2) is secondary.
 
 *Caveat requiring pilot confirmation: trunk sparing in lipoedema is a clinical generalisation, not an established histological fact. The pilot must verify that upper abdominal fat in lipoedema patients is not itself abnormal — if it is, the internal reference is contaminated and S4a becomes a comparison site rather than a control. Selecting the epigastric depot (§5.1) makes this the least likely of the available trunk sites to be involved, but does not eliminate the risk. Resolve it before the main study.*
 
@@ -562,7 +562,7 @@ The published cellulite comparator (Intagliata et al., clinical-vs-ultrasound Gw
 5. **H4**: model on the frozen-weights independent test cohort versus interpretable baselines (thickness-alone; bright-spot-density-alone) on the same cohort. No human image-grading arm.
 6. **Thresholds pre-specified**; **calibration reported alongside discrimination**; external validation on a second centre and device before any confidence claim above *uncertain*.
 
-**Sample size.** A pilot of roughly 20–30 per arm is required first, to estimate the paired effect size and the ICCs; the main study is then powered on those. Publishing a between-subject AUC target now would be guesswork. The review's precision analysis gives the between-subject floor (~150/group for AUC 0.80 ± 0.05), but the paired primary endpoint should need materially fewer. A statistician must set the final number.
+**Sample size.** A pilot of roughly 20–30 per arm is required first, to estimate the paired effect size and the ICCs; the main study is then powered on those. Publishing a between-subject AUC target now would be guesswork. The review's precision analysis gives the between-subject floor (~150/group for AUC 0.80 ± 0.05), but the paired primary endpoint should need materially fewer — though the interaction test costs more than the paired contrast alone. A statistician must set the final number.
 
 ---
 

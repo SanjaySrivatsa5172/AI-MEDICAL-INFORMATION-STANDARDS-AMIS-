@@ -104,7 +104,7 @@ To determine whether the sparkling appearance of lipoedematous subcutaneous fat 
 Prospective, cross-sectional, multi-arm case–control diagnostic accuracy study, comprising:
 
 1. A **development cohort** (5 arms) for parameter estimation, reproducibility assessment and model development.
-2. A nested **within-subject paired comparison** (affected site vs the participant's own upper abdomen) serving the primary endpoint.
+2. A nested **within-subject paired comparison** (affected site vs the participant's own upper abdomen), computed in both arms, whose **arm × site interaction** is the primary test (§8.2).
 3. A nested **histological correlation sub-study** in participants proceeding to clinically indicated liposuction.
 4. A separate, later-recruited **independent test cohort** for single-shot evaluation of the frozen model.
 
@@ -514,7 +514,9 @@ Multiple sparkle metrics are evaluated. **A maximum of five co-primary metrics i
 
 **The honest framing: this sample is well powered to establish whether a signal exists, and imprecise about how strong it is.** That is the correct trade-off for a discovery study, and it is stated as such rather than disguised.
 
-### H1 — primary endpoint (paired, within-subject, n = 50 lipoedema)
+### H1 — primary endpoint, paired-contrast approximation (within-subject, n = 50 lipoedema)
+
+> The primary test is the **arm × site interaction** (§8.2). The figures below are computed for the within-Arm-A paired contrast, which is an approximation to it and generally optimistic. Correcting this is task 1 for the study statistician (§15).
 
 Smallest detectable paired effect (Cohen's *d_z*):
 

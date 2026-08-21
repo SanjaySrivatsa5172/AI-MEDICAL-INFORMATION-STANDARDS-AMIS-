@@ -40,7 +40,7 @@ In short: a clinical gestalt with a known physical correlate, a plausible tissue
 - **100 participants**: 50 lipoedema, 50 individually BMI- and age-matched controls
 - **Analysis unit is the participant**, never the image, despite several hundred images per participant
 - Standardised acquisition on fixed machine presets with reference-phantom calibration
-- **Primary endpoint is a within-participant paired contrast**: affected limb site versus that participant's own upper abdominal fat, which is typically spared. This controls for machine, session and individual variation simultaneously
+- **Primary test is an arm × site interaction**, not a simple group comparison. Each participant contributes a within-participant contrast — affected limb site versus that participant's own upper abdominal fat, which is typically spared — and the hypothesis is that *this contrast is larger in lipoedema than in matched controls*. The within-participant framing controls for machine, session and individual variation; the interaction is what tests the hypothesis, because limb and abdominal fat differ anatomically in everyone and a non-zero contrast is expected in controls too. Modelled as mixed effects with participant as a random effect
 - Diagnostic labels assigned by a single expert clinician **before imaging and database-locked**, with an independent second clinician classifying from standardised photographs to give an agreement statistic
 - Machine learning on de-identified images only, processed on an air-gapped local workstation
 
@@ -72,7 +72,7 @@ To save your time rather than to constrain you, the protocol contains **draft po
 
 ## Draft figures, for your assessment of feasibility
 
-- **Primary paired endpoint:** n = 50 detects *d_z* = 0.55 at 90% power, Bonferroni α = 0.01. The clinical description implies an effect well above 0.8
+- **Primary endpoint, paired-contrast approximation:** n = 50 detects *d_z* = 0.55 at 90% power, Bonferroni α = 0.01. The clinical description implies an effect well above 0.8. This figure is computed for the paired contrast, **not** for the interaction that is actually specified; the interaction generally costs more, and correcting this is task 1
 - **Between-arm discrimination:** ≥ 98% power to establish discrimination exists at true AUC ≥ 0.70, but the estimate carries roughly ± 0.09. The study is framed as answering *whether* a signature exists, not *how strong* it is
 - **Adaptive element:** blinded re-estimation at n = 60, pre-specified maximum 200, plus a futility rule
 - **No held-out test set is taken from the 100** — a 15-per-class test would give an interval near ± 0.16 and cost 30% of development data. Independent validation is a separate planned phase
