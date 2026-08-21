@@ -154,8 +154,12 @@ Three-tier adjudication in §7.5.
 *provided* the error runs in a direction physicians reject. Two real residual gaps remain:
 (a) the gates pass **on average** over a validation sample, while correlated error would
 concentrate in the atypical-catastrophe / benign-anchor tail — exactly where the study's
-value lies; and (b) "majority verdict" does not distinguish 3–0 from 2–1 (Afrasyab reports
-inter-judge Fleiss κ = 0.65). **Proposed inversion, not yet adopted:** high jury agreement is
+value lies; and (b) "majority verdict" does not distinguish 3–0 from 2–1. (The "Afrasyab
+inter-judge Fleiss κ = 0.65" figure formerly cited here is STRUCK — arXiv 2607.18828 is
+content-denied, absent from PubMed, and unreachable; the figure is unverifiable, not merely
+secondary-source. The verifiable bounding case is Byun et al., *J Med Syst* 2026, PMID
+42481841: three frontier verifiers on clinical reasoning coherence, Fleiss κ 0.087–0.223 —
+different generators and task, cite as bounding only, never as a planning parameter.) **Proposed inversion, not yet adopted:** high jury agreement is
 not self-evidently good — pre-register an agreement *band* benchmarked against
 inter-physician disagreement, rather than a floor. §7.3 carries `[PENDING — jury robustness
 amendment]`.
@@ -308,7 +312,7 @@ design_overlap, date_added`.
 |---|---|---|
 | **INPUT 1** | IRB protocol number | Not yet assigned |
 | **INPUT 2** | Farkouh's role — IRB chair vs Vice Dean | Unresolved; determines the addressee. **Amendment 1 is likely wrong on this point** |
-| **INPUT 3** | ***Winters v. OpenAI*** docket number | Outstanding; complaint PDF needs manual download. Cited as **allegation only** until retrieved |
+| **INPUT 3** | ***Winters v. OpenAI*** docket number | **Still open** after a dedicated retrieval attempt (21 Aug): every legal-news domain egress-blocked; docket number NOT found and NOT guessed. Now corroborated: SF Superior Court (unlimited civil); filed 21 or 22 Jul 2026 (sources disagree); 8 causes incl. Cal. B&P §2052 unauthorized practice of medicine. Cited as **allegation only**. Leads + two gloss-reframing recommendations in `weekly_reviews/2026-08-21_winters_input3_report.md` |
 
 ### Other open work
 - **§8.4 power / pilot path** — no power figures may be stated until DECISION 1 resolves and
@@ -323,8 +327,12 @@ design_overlap, date_added`.
   per-cell agreement + κ alongside AC1, label-conditioned error-correlation diagnostic,
   spot-audit of 3-0 unanimous verdicts, margin reporting, no fourth verifier judge). A second
   five-lens + four-refuter workflow (wf_e7d1320b) is drafting the replacement §7.3 text.
-  Quarantined: the r≈0.77 cross-model error-correlation figure (mis-attributed). The
-  amendment awaits PI approval before any protocol edit.
+  Quarantined: the r≈0.77 cross-model error-correlation figure (mis-attributed). **The
+  amendment is now DRAFTED**: `weekly_reviews/2026-08-21_sec73_jury_amendment_PROPOSAL.md`
+  (cover memo + 6 parts: plain-terms problem statement, 12 surviving changes, 16 recorded
+  rejections, full §7.3 replacement text, 15 consequential edits, 8 open questions, plus
+  supplement S1 judge-input sanitization). Recommends splitting DECISION 2 into 2a/2b so it
+  closes at filing. Awaits PI approval before any protocol edit.
 - **Five open dashboard alerts** — PI-only to resolve.
 - **CSU Fresno investigator** — name and role to confirm.
 - **Institutional templates not included** and still required: IRB application form; consent
@@ -348,6 +356,8 @@ design_overlap, date_added`.
 | 21 Aug 2026 | Commit `0cdfeb3` — weekly review agent (permission-first) + canonical library sync 123 → 172 |
 | 21 Aug 2026 | Commit `750d04c` — **PI-approved edits 1–4** applied (approval wording: *"APPROVE EDITS 1-4"*) |
 | 21 Aug 2026 | Co-investigator notification rule set; approved-changes email sent to Keyur with dashboard link |
+| 21 Aug 2026 | Verification workflow (32 agents) recovered complete; 24 candidate claims refuted as drafted, none had entered documents; jury-threat analysis recovered |
+| 21 Aug 2026 | §7.3 amendment workflow (11 agents: 5 lenses, 4 refuters, synthesis) completed; **amendment PROPOSAL drafted** with §7.3 replacement text + 15 consequential edits; Afrasyab κ = 0.65 struck as unverifiable; *Winters* docket attempt: not found, case detail corroborated, INPUT 3 stays open |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
