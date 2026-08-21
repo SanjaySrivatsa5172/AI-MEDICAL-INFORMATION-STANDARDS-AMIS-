@@ -53,6 +53,14 @@ Director, HAV Center of Fresno — Fresno, California
 | **DECISION 3** | **Majority-of-three** vs **first-run-primary** for repeated runs | Determines the primary-analysis unit for every model output | §5.6, §8.1 |
 | **DECISION 4** | **Arm C1** (longitudinal interaction) in or out of scope this cycle | Changes participant burden, timeline, and consent | §5.5, §6 |
 
+*Evidence note (weekly literature review, 21 Aug 2026):* the case for **adopting Change 12** has
+strengthened materially — a peer-reviewed rheumatology study shows a dismissive referral-note anchor
+downgrades triage urgency (Omar et al., *Rheumatology* 2026), MTS-Bench (preprint) shows a misleading
+GP-referral statement drove undertriage of 8/8 highest-priority cases, and MedMisBench (preprint)
+quantifies accuracy collapse under misleading context (71.1% → 38.0%). The note-embedded cue locus is
+no longer unexamined in the wider literature; it remains untested in patient-facing emergency triage.
+See `docs/protocol/weekly_reviews/`.
+
 ### External inputs required
 
 | # | Input | Status |
@@ -245,6 +253,13 @@ De novo authorship; embedded contamination-detection probes to measure memorizat
 than assume its absence; a public/private scenario split; and a deliberate-overfitting demonstration.
 Models are accessed via API **without web or tool access**, preventing live benchmark identification
 or answer retrieval during evaluation.
+
+The propagation risk these controls address is now observable rather than theoretical: within six
+months of publication, the Ramaswamy vignette set had been reused by at least two further evaluations
+(a UMLS-augmentation mitigation study and the MTS-Bench adaptation, both preprints). Published
+scenario sets spread across the literature — and from there into training corpora — faster than any
+single study's shelf life, which is why this instrument's private split is a design requirement rather
+than a courtesy.
 
 `[DECISION 1]` If Change 12 is adopted, scenario authoring expands to matched-pair cue variants across
 three cue loci (no cue / note-embedded / user-asserted). Authors must be told before drafting begins.
