@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-20",
+  "last_updated": "2026-08-21",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -171,6 +171,11 @@
     "date": "2026-08-20",
     "added": 4,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-20 14:09 UTC). RECONCILE: git in sync (origin=local at 167 refs / 6 alerts / last_updated 2026-08-19); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (167 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-20 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-19..2026-08-20 (two angles, 15 unique hits) -- most off-core (HEMS trauma epidemiology, mammography AI double-reading, surgical-robot FDA recalls, anaerobic-digestion LLM, pediatric-empyema/coronary-stent/RCC-ablation reviews, antithrombotic-anesthesia guideline-adherence LLM + its correction, AI health-spending value, pharmaceutical-formulation AI). ADDED 4 on-core references. Verification: all four confirmed via PubMed metadata; the Patwardhan PHA study additionally Scite-confirmed (preprint record, no editorialNotices) -> pubmed+scite-verified; the other three are brand-new 2026-08-19 entries not yet in Scite's index (pubmed-verified; day-old, no retraction possible; no identifier invented). (1) Leibovitch et al. 'Prospective evaluation of a large language model clinical decision support system in the emergency department' (Nat Med 2026; PMID 42618632; 10.1038/s41591-026-04601-5) -- DECIDE-AI stage 1 prospective ED evaluation of the SHAKED multi-LLM CDSS (1,138 patients; adoption fell 68%->30% on workload; 99/100 outputs expert-rated appropriate; no adverse events; 'engagement, not accuracy' the key barrier; NCT06902675); Topic 1, design_overlap false (clinician-facing, not patient-facing). (2) Patwardhan et al. 'Patient-Facing AI System for Symptom Guidance ... and Physician Review: Analytical Validation Study' (JMIR Form Res 2026; PMID 42615486; 10.2196/103419) -- Verily Health PHA predeployment validation; 772 synthetic telephone-triage-protocol cases, multiturn patient conversations, 5 BLINDED physicians setting level-of-care ground truth, prespecified undertriage/overtriage criteria (urgent undertriage 6.9% missed the <5% bar; nonurgent 18.4% missed <15%; overtriage 11.0% met <30%; undertriage the principal gap). CLOSEST design parallel yet (physician-panel-adjudicated patient-facing triage with undertriage/overtriage endpoints); flagged design_overlap:true and surfaced to the PI, but NOT auto-escalated to a formal urgent alert (single commercial product, synthetic cases/simulated conversations, no dual-register or harm-weighting) -- PI to decide on escalation. (3) Clusmann et al. 'Safety and security of large language models in healthcare' (Nature 2026; PMID 42618758; 10.1038/s41586-026-10687-1) -- landmark-venue systematic LLM-clinical-safety/security review; ai-safety-failure-modes framing reference. (4) Yang et al. 'The Reliability of Human Evaluation of LLMs in Health Care Settings: Scoping Review' (J Med Internet Res 2026; PMID 42618044; 10.2196/98184) -- PRISMA-ScR map of human-evaluation methodology (71 studies), foundational for the study's physician-authored-evaluation rubric/panel design. Library 167 -> 171; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No formal urgent alert this run (the Patwardhan PHA design-overlap surfaced to the PI for an escalation decision); no Gmail draft."
+   },
+   {
+    "date": "2026-08-21",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-21 14:06 UTC). RECONCILE: git in sync (origin=local at 171 refs / 6 alerts / last_updated 2026-08-20); WebFetched dashboard artifact 528465e1 and diffed against git -- EXACT match (171 refs, 6 alerts, zero divergence), no multi-session fork; the 2026-08-21 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: PubMed entry-date sweeps 2026-08-20..2026-08-21 (two angles, ~21 unique hits; 5 already captured/screened -- Leibovitch, Clusmann, HEMS trauma, mammography AI, surgical-robot recalls). Low-yield day: most new hits off-core -- LLM in spine/hand surgery, dental/periodontal & maxillofacial-radiology chatbots, breastfeeding counseling, diabetes patient-education, EM education, lab-terminology interoperability, coronial-death LLM analysis, amyloid-PET synthesis, mental-health-AI agenda pieces, a drug-induced-liver-injury evidence-boundary audit, and an EHR-integrated LLM SURGICAL-comanagement triage tool (JAMA Netw Open 10.1001/... -- workflow/resource triage, not emergency/patient-facing, out of scope). One redundant safety-eval systematic review (Online J Public Health Inform, 42623243) skipped as duplicative of the Clusmann Nature review and Yang human-eval scoping review added 2026-08-20. One PMID (42620444) returned no metadata (ahead-of-print stub) and was skipped as unverifiable (no id invented). ADDED 1 on-core reference: Diel et al. 'A scoping review on the mental health harms of LLM-based chatbots' (npj Digit Med 2026; PMID 42624944; 10.1038/s41746-026-03054-x) -- PRISMA synthesis (119 studies) of consumer-chatbot mental-health harms (sycophancy/bias/hallucination; inappropriate responses to high-risk psychiatric/suicide/psychosis queries vs clinical standards; overreliance; dependency; AI psychosis); patient-facing-AI-safety + crisis-safeguards relevance (cf. Weilnhammer emergency-psychiatric-triage alert, Ramaswamy crisis-safeguards). Verified via PubMed metadata (pubmed-verified); not yet in Scite's index (day-old, no retraction possible; no identifier invented). Library 171 -> 172; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; the Patwardhan PHA design-overlap (added 2026-08-20) remains flagged design_overlap:true, still awaiting a PI decision on whether to escalate. No Gmail draft this run."
    }
   ],
   "alerts": [
@@ -3487,6 +3492,26 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-20"
+  },
+  {
+   "title": "A scoping review on the mental health harms of LLM-based chatbots",
+   "authors": "Diel A, Torous J, Cuijpers P, et al.",
+   "journal": "npj Digital Medicine",
+   "year": 2026,
+   "pmid": "42624944",
+   "doi": "10.1038/s41746-026-03054-x",
+   "url": "https://doi.org/10.1038/s41746-026-03054-x",
+   "type": "review",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "PRISMA-based scoping review (N=3,137 records screened across ACM, IEEE, PubMed, Science.gov, Google Scholar; 119 included) synthesizing the documented and hypothesized mental-health harms of consumer LLM-based chatbots -- a patient-facing-AI-safety reference in a priority journal (npj Digital Medicine; senior authors incl. Torous and Cuijpers). Five harm categories: (1) conceptual works citing chatbot limitations (hallucinations, SYCOPHANCY, bias), data-security issues, and risks in severe/high-risk psychiatric cases (e.g., suicide, psychosis); (2) VIGNETTE studies showing LLM chatbots respond INAPPROPRIATELY to mental-health queries relative to clinical standards; (3) cognitive overreliance associated with reduced cognitive/academic performance; (4) problematic use (emotional/social dependency, withdrawal) correlating with mental-health symptoms; (5) 'AI psychosis' -- chatbots reinforcing/validating delusional beliefs. Bears on this protocol's patient-facing-AI-safety and CRISIS-SAFEGUARDS dimensions: the finding that chatbots mishandle high-risk psychiatric queries against clinical standards parallels the study's concern with false reassurance / failure to recognize emergencies in everyday-language interaction (cf. the standing Weilnhammer emergency-psychiatric-triage alert and the Ramaswamy inconsistent-crisis-safeguards finding). CAVEAT: a scoping review of mental-health harms specifically (not emergency symptom/disposition triage), mixing hypothetical/conceptual with empirical harms. Verified via PubMed metadata (source pubmed-verified); DOI not yet in Scite's index this run (brand-new 2026-08-20; day-old, no editorial notice possible).",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-21"
   }
  ]
 }
