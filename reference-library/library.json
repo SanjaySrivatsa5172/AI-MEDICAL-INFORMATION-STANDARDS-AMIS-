@@ -4,7 +4,7 @@
     "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
     "pi": "S. Sanjay Srivatsa, MD",
     "institution": "Cedars-Sinai Medical Center",
-    "last_updated": "2026-08-05",
+    "last_updated": "2026-08-21",
     "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
     "update_history": [
       {
@@ -51,6 +51,11 @@
         "date": "2026-08-05",
         "added": 4,
         "notes": "Main-session merge (redraft plan Rev. 5) on top of today's scan reconciliation. (a) Verified the scan's 4 new PMIDs via PubMed MCP (41782959 Aygun, 41652180 Chen meta-analysis, 42310091 TriageMaster, 41760911 MedTriage) -- all confirmed. (b) Added 4 sweep finds from a retrospective full-text search across papers discussing the Ramaswamy benchmark: Tyagi et al. multi-turn ChatGPT Health study (Ramaswamy-group follow-up; multi-turn did NOT improve alignment, ~70% of discordant cases under-triaged -- empirically answers the Fraile Navarro multi-turn objection in alert #2), Auger & Scott 1,000-transcript study (100% of SAH lumbar punctures discouraged with incomplete input), Sukhera et al. iterative red-teaming, Barnhart et al. equity viewpoint. (c) NOHARM alert caveat resolved: expanded arXiv version verified directly from the PI-supplied PDF; both versions citable with version named. (d) Aug 3 batch now 8/8 independently verified (Naderi npj AI confirmed via nature.com). (e) Winters v. OpenAI complaint PDF located (Courthouse News hosts winters-v-open-ai-complaint.pdf; plaintiff Scott Winters, SF County Superior Court, defendants incl. Altman); docket number pending manual download. (f) Canonical reference-library/library.json restored to git (was missing -- prior scan pushes failed). Scan-scope fix recommended: add openRxiv DOI-prefix (10.64898) coverage."
+      },
+      {
+        "date": "2026-08-21",
+        "added": 1,
+        "notes": "PI-supplied: Sheng et al., 'A Classification of Safety Risks in Medical AI,' NEJM AI, published Aug 17 2026 (DOI 10.1056/AIp2600358). Verified against the publisher PDF; PubMed searched and returned NO record (4 days post-publication) -- cite by DOI, add PMID when indexed. Perspective, not empirical: S1-S4 is proposed, not validated. Integrated across five files this cycle (redraft plan SS 2.11 and 3.6; Scientific Introduction Problem section, Three-Arm section, new 'What This Study Does Not Establish' subsection, Consequences regulatory paragraph, and Key References entry 18; IRB letter). Net effect is two-sided: it validates the three-arm design (safety class is a property of deployment, not of the model) and names consumer triage AI as an S4 configuration running without S4 safeguards -- but it also establishes that our encounter-time Critical Miss Rate is an S2-grade instrument measuring a hazard with an S3 (delayed-harm) tail, which the protocol now concedes in its own words rather than leaving to reviewers. Deferred: displaying an S-level label for the study's own output (manuscript discussion, not a protocol element)."
       }
     ],
     "alerts": [
@@ -2403,6 +2408,27 @@
       "source": "scite-sweep",
       "design_overlap": false,
       "date_added": "2026-08-05"
+    },
+    {
+      "title": "A Classification of Safety Risks in Medical AI",
+      "authors": "Sheng B, Song J, Shah NH, Wu J, Car J, Wong TY",
+      "journal": "NEJM AI",
+      "year": 2026,
+      "pmid": null,
+      "doi": "10.1056/AIp2600358",
+      "url": "https://doi.org/10.1056/AIp2600358",
+      "type": "viewpoint",
+      "topics": [
+        "patient-facing-ai",
+        "triage-standards",
+        "ai-safety-failure-modes",
+        "policy-regulation"
+      ],
+      "tier": "core",
+      "relevance": "Perspective proposing four deployment-specific clinical safety levels for medical AI: S1 narrow/testable (predeployment verification suffices); S2 clinician-reviewed decision support; S3 harms visible only after the encounter, requiring follow-up outcome linkage; S4 high-risk autonomous action, to be prohibited or exceptionally safeguarded. Directly load-bearing for this protocol in two opposite directions. (1) VALIDATES the three-arm architecture: the safety level 'is not a property of the AI model alone... It depends on how the model is deployed,' so a model-alone benchmark number is an incomplete safety claim by construction. (2) NAMES OUR TARGET AT THE RED LINE: the S4 example list includes 'autonomous emergency department triage/discharge' and 'autonomous denial or delay of specialist referral' (clinician action: 'do not permit autonomous action... treat as boxed warning-level risk'), while 'clinician-reviewed triage or care navigation support' sits at S2 -- so consumer patient-facing triage AI, which has no clinician in the loop, is running an S4 configuration without S4 safeguards. (3) COSTS US A LIMITATION: S3 covers tools 'that affect referral urgency, diagnostic timing, surveillance intervals, or follow-up prioritization' where harm 'may not be visible during the encounter' -- our encounter-time Critical Miss Rate is an S2-grade instrument applied to a hazard with an S3 tail; stated as ours in the new 'What This Study Does Not Establish' subsection. (4) SUPPLIES A REGULATORY SPINE (EU AI Act Art. 72; FDA PCCP final guidance Aug 2025; IMDRF N81/N88 Jan 2025; NIST AI RMF 1.0; WHO LMM guidance Mar 2025) and a successor-study roadmap via multiwindow surveillance (30/90/365-day checkpoints plus registry or claims linkage beyond 12 months). CITATION CAVEATS: Perspective -- no primary data, framework proposed not validated; NOT PubMed-indexed as of 2026-08-21 (title and author searches returned no record), cite by DOI until indexed; the R1-R3 decidability basis is a governance heuristic drawn from automata-theory texts (Sipser; Hopcroft/Motwani/Ullman; Rice 1953) plus Li G, J Comput Res Dev 2026;63:539-547 -- never write 'provably undecidable'; the DeepDR-LLM S-labels are the authors' illustration, not findings of Li J et al., Nat Med 2024;30:2886-2896; their monitoring reference (Keyes T et al., arXiv 2512.09048) is a preprint; do not describe S1-S4 as adopted or endorsed by any regulator. Co-author Nigam H. Shah (Stanford Biomedical Data Science) gives the framework US methodological weight.",
+      "source": "pi-supplied+publisher-verified",
+      "design_overlap": false,
+      "date_added": "2026-08-21"
     }
   ]
 }

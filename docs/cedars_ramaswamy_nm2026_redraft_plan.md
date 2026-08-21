@@ -129,6 +129,30 @@ An allegation, a contested measurement, and an interaction gap — and still no 
 
 ---
 
+## 2.11 Sheng et al. (NEJM AI 2026) — the S1–S4 deployment safety classification (VERIFIED; PI-supplied)
+
+**Source and citation status.** Sheng B, Song J, Shah NH, Wu J, Car J, Wong TY. "A Classification of Safety Risks in Medical AI." *NEJM AI*. Published online August 17, 2026. DOI 10.1056/AIp2600358. Received March 19, 2026; revised July 7; accepted July 14. Verified directly against the publisher PDF (ai.nejm.org, downloaded by the PI August 20, 2026). **Not indexed in PubMed as of August 21, 2026** — title and author searches returned no record, consistent with a four-day-old article in a recently launched journal. Cite by DOI; add the PMID when indexing catches up. **Article type: Perspective.** It reports no data and validates nothing; S1–S4 is a *proposed* framework and must be cited as such. Co-author Nigam H. Shah (Stanford, Biomedical Data Science) gives it US methodological weight; this is not a fringe proposal.
+
+**What it proposes.** Four deployment-specific clinical safety levels, adapted as a governance heuristic from an R1–R3 decidability taxonomy: **S1** narrow, testable uses where predeployment verification suffices; **S2** decision support a clinician reviews before acting; **S3** uses where important harms surface only after the encounter and therefore require follow-up outcome linkage before wider rollout; **S4** high-risk autonomous actions to be prohibited or permitted only under exceptional safeguards. Paired with multiwindow postdeployment surveillance: rapid signal capture within days to weeks, scheduled 30/90/365-day checkpoints, and long-horizon monitoring beyond twelve months via registry or claims linkage.
+
+**Why it matters here — four things it gives us.**
+
+1. **It validates the three-arm architecture from an authoritative source.** The paper's central claim: a safety level "is not a property of the AI model alone… It depends on how the model is deployed, including the clinical use, clinical workflow, patient population, availability of follow-up, and the clinician's ability to override the recommendation." Our Arm A / Arm C split exists for exactly this reason. This upgrades the design rationale from our own argument about interaction failure modes to a published governance principle: a model-alone number is an incomplete safety claim *by construction*.
+2. **It places our study's target on the red line, quotably.** The S4 example list includes "autonomous emergency department triage/discharge" and "autonomous denial or delay of specialist referral," with required clinician action "do not permit autonomous action… treat as boxed warning–level risk." The S2 list includes "clinician-reviewed triage or care navigation support." Consumer patient-facing triage AI has no clinician in the loop. **What is deployed today at consumer scale is an S4 configuration running without S4 safeguards**, while the framework's governable tier presumes a reviewer who does not exist in that workflow. Strongest single framing now available for the IRB letter and the Friday brief. It also makes Arm A ethically legible: we characterize the S4 configuration in a benchmark so that it is not characterized on patients.
+3. **A regulatory spine the protocol currently lacks.** The paper maps onto EU AI Act Article 72 post-market monitoring, FDA's predetermined change control plan final guidance (August 18, 2025), IMDRF N81 and N88 (January 2025), NIST AI RMF 1.0, and WHO large multi-modal model guidance (March 2025). Our documents cite TRIPOD-LLM and nothing else on the regulatory axis.
+4. **A named roadmap for the "vignettes, not patients" objection.** Their multiwindow surveillance *is* the follow-on study. Our benchmark becomes the S1/S2 predeployment layer rather than a freestanding artifact.
+
+**What it costs us — the S2/S3 boundary.** S3 is defined as harm that "may not be visible during the encounter… depends on missed follow-up, delayed diagnosis, or long-term management; attribution is weak unless outcomes are linked back to the AI result," and its examples are explicitly "AI tools that affect referral urgency, diagnostic timing, surveillance intervals, or follow-up prioritization." That is triage advice. Our Critical Miss Rate is scored at encounter time, deterministically, from the model's own words — an **S2-grade instrument applied to a hazard with an S3 tail**. A clean CMR does not establish that patients escape downstream harm; it establishes that the encounter-time artifact was not refuted. Their epistemics line is the sharp one: "absence of observed harm only means safety has not been refuted." Two PhD-level reviewers will find this in ten minutes. §3.6 states it as ours, first.
+
+**Do not overclaim / do not propagate:**
+
+- **No formal-undecidability language.** The R1–R3 basis rests on automata-theory textbooks (Sipser; Hopcroft/Motwani/Ullman; Rice 1953) plus one Chinese-language computer-science journal article (Li G, *J Comput Res Dev* 2026;63:539–547). The authors themselves call it "a heuristic for clinical governance." Write "proposed framework," never "provably undecidable."
+- **The DeepDR-LLM S-labels are the authors' illustration**, not findings of the underlying trial (Li J et al., *Nat Med* 2024;30:2886–2896). Do not attribute S2/S3 classification to that study.
+- **Their monitoring reference is a preprint** (Keyes T et al., arXiv 2512.09048, January 15, 2026). Flag as such if pulled through — same discipline as Fraile Navarro, NOHARM, Tyagi, Jia.
+- Do not describe S1–S4 as adopted, endorsed, or validated by any regulator. It is complementary commentary published four days ago.
+
+---
+
 ## 3. Protocol redraft — itemized edits
 
 ### 3.1 Three now-falsifiable absolutes to fix (highest priority)
@@ -198,6 +222,24 @@ These sentences in the current Scientific Introduction are contradicted by a pap
 4. **Reference policies:** report two mechanical comparator rows alongside models and physicians — a **"never escalate" floor** and an **"always escalate" ceiling** (the universal-referral rate already in Addendum A, now formalized as a policy row; analog of NOHARM's "Do Nothing" control, which carried severe-harm potential in 37% of their cases). These anchor CMR interpretation: a model must beat the floor's miss rate and the ceiling's over-triage cost simultaneously.
 5. **Benchmark stewardship (for the reusable-instrument ambition):** when the 50-case instrument is eventually released, use NOHARM's release model — public/private split plus a deliberate-overfitting probe (context injection / fine-tune on the public set) demonstrating that contamination of the released cases is detectable. Complements the embedded detection items; goes in the Discussion/dissemination section, not the IRB-facing methods.
 6. **Evidence upgrades:** cite omission-dominance (>80% of severe errors were omissions) in the asymmetric-harm rationale — failure-to-escalate is the triage instance of the omission class; upgrade the third pillar (interaction gap) with the NOHARM RCT — 101 attendings, AI-assisted physicians below frontier models alone, physicians omitting AI-surfaced appropriate actions — which is "suggestion adoption failure" (an existing Arm C metric) measured in physicians; and cite the heterogeneous-team finding as external support for the multi-model design (uncorrelated errors across vendors).
+
+---
+
+### 3.6 Deployment-class framing and the S2/S3 limitation (new this cycle — source §2.11)
+
+Four edits follow from Sheng et al., each traced to where it lands. All four are applied in the current revision.
+
+1. **Scientific Introduction, Problem section — the red-line paragraph.** Inserted after the opening paragraph ("…takes an antacid and goes to bed."). States that the S4 tier explicitly names autonomous emergency department triage and discharge; that clinician-reviewed triage sits at S2; that consumer triage AI runs the S4 configuration without S4 safeguards and has never been classified; and that this protocol is the instrument for making that classification empirically.
+
+2. **Scientific Introduction, Three-Arm Evaluation Architecture — the deployment-not-model principle.** Appended to the opening sentence. Quotes the "not a property of the AI model alone" passage and draws the consequence: a model-alone benchmark number is an incomplete safety claim by construction, so the distance between Arm A and Arm C is a primary finding rather than a robustness check.
+
+3. **Scientific Introduction, new subsection "What This Study Does Not Establish."** Placed between Statistical Analysis and Expected Findings — the document previously had no limitations section at all. States three boundaries: (a) the Critical Miss Rate is an S2-grade encounter-time instrument applied to a hazard with an S3 tail, and a clean CMR means only that the encounter-time output was not refuted; (b) vignettes are not patients, and Arm C narrows but does not close that gap; (c) a benchmark result is a measurement, not a clearance. Names the multiwindow surveillance design (30/90/365-day plus registry or claims linkage beyond twelve months) as the successor study and positions this protocol explicitly as the predeployment layer beneath it.
+
+4. **Scientific Introduction, Consequences section — regulatory placement.** New paragraph after the "either finding is valuable" passage. Places the study inside EU AI Act Article 72, FDA PCCP guidance, IMDRF N81/N88, NIST AI RMF, and WHO LMM guidance, then makes the argument that matters: consumer triage AI escapes device regulation by positioning itself as wellness information, and the frameworks that would govern it are calibrated to evidence that does not exist for this use case. A physician-benchmarked critical miss rate is the evidentiary object they require and lack.
+
+**Also applied:** the same S4 framing, with the S2/S3 limitation stated in the same breath, added to the IRB transmittal letter (§ after the measurement-dispute paragraph); reference 18 added to the Scientific Introduction's Key References with the Perspective and not-yet-indexed caveats; library entry 124 added with a citation caveat carrying all four do-not-propagate items above.
+
+**Deferred, not adopted:** an S-level label for the study's own output (the paper recommends deployments display S1–S4 in the interface). That is a translation deliverable for the manuscript's discussion, not a protocol element, and it should not enter the IRB submission.
 
 ---
 
