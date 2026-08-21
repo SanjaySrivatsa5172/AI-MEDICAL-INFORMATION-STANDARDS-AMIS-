@@ -33,7 +33,13 @@ Sincerely,
 S. Sanjay Srivatsa, MD, FACC, FSCAI, MRCP (London), DABVLM
 Principal Investigator
 
-**Enclosures:** Protocol v2 with Amendment 1; Addendum A (methods hardening, draft); Scientific Introduction, Version 3 (August 2026); protocol-updates memorandum; one-page study schematic.
+**Enclosures.** Because the last package your office received was the April 2026 set — the Research Submission Packet, the Scenario Author Briefing, and the first Scientific Introduction — this transmittal is not an update to a file in progress but a complete replacement of it. Enclosed accordingly:
+
+1. **Consolidated Research Protocol, Version 3** (August 2026) — the full protocol in IRB format, incorporating Amendment 1 (July 2026) and Addendum A (August 2026), neither of which has previously been transmitted. Section 0 lists the items still open before filing.
+2. **Scientific Introduction, Version 3** (revised August 2026) — substantially expanded from the April version, with the 2026 evidence base and a limitations section.
+3. **Scenario Author Briefing** — unchanged from April 2026, reproduced as Appendix B of the protocol for convenience.
+
+Protocol Tables 1–8 (Appendix A) follow separately.
 
 **cc:** Brennan Spiegel, MD, MSHS; Louis Rojas, MSHA
 
