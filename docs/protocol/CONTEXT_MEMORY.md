@@ -197,11 +197,18 @@ position the work: this is an **S2-grade instrument aimed at an S3-tailed hazard
   Red (highest-priority) cases.
 - **MedMisBench** — accuracy collapse under misleading context, **71.1% → 38.0%**.
 - **IMCBench** — verbatim abstract obtained via Scite.
-- **Multi-agent collusion paper, arXiv 2512.03097 — December 2025.** Was mis-queued as 2026;
-  corrected before it entered the library. Bears on the LLM-jury independence assumption.
-- **PatientAgentBench** — only **partially verified** (`contentDenied`, no abstract
-  retrievable). Labelled secondary-source in the library. Do not upgrade its status without
-  primary verification.
+- **Multi-agent collusion paper, arXiv 2512.03097 — December 2025** (date was mis-queued as
+  2026 and corrected; the paper never entered the library). Verbatim quotes verified via
+  Scite. The completed verification workflow concluded our jury is **not** an instance of its
+  threat model (no shared channel, no adversary, mechanical aggregator) — usable only as
+  corroboration, never as motivating citation. One real residue: all three judges read the
+  same scored response, a one-to-many common cause.
+- **PatientAgentBench** (arXiv 2607.25485, Amazon Science) — now **code-level verified**:
+  the completed verification workflow (wf_400775f7, 21 Aug, 32 agents) read the reference
+  implementation at github.com/amazon-science/PatientAgentBench, the leaderboard, and the
+  scoring code. NOT yet in the library or any document — all 24 draft claims from that
+  workflow were refuted as drafted (8 fatal, 16 needs-rewording, with corrected replacements
+  preserved). See scratchpad `wf400_distilled.md` and `sec73_dossier.md`.
 
 **Also relevant:** Ramaswamy harness — disclosed in the protocol as **reused twice within six
 months**, a contamination and independence concern we surface rather than let reviewers find.
@@ -306,9 +313,18 @@ design_overlap, date_added`.
 ### Other open work
 - **§8.4 power / pilot path** — no power figures may be stated until DECISION 1 resolves and
   pilot data exist.
-- **§7.3 jury robustness** — still `[PENDING]`. Workflow `wf_400775f7-91b` never completed
-  (11 agents started, 9 results returned). The agreement-band proposal in §4 above is the
-  substantive open question.
+- **§7.3 jury robustness** — still `[PENDING]` in the protocol text, but the analysis is now
+  substantially complete. Workflow `wf_400775f7-91b` (once believed dead) **completed on
+  21 Aug** with 32 agents: its jury-threat analysis corrects the earlier "AC1 rises under
+  correlated bias" framing (false — both gates are physician-referenced), demonstrates three
+  real failure modes with worked arithmetic (Gate 1 direction-blind and inverts where
+  physicians split; aggregate gates dilute concentrated failure; AC1 is skew-blind in the
+  rare cell), and ranks seven remedies A–G (stratum-level gating, signed-bias McNemar test,
+  per-cell agreement + κ alongside AC1, label-conditioned error-correlation diagnostic,
+  spot-audit of 3-0 unanimous verdicts, margin reporting, no fourth verifier judge). A second
+  five-lens + four-refuter workflow (wf_e7d1320b) is drafting the replacement §7.3 text.
+  Quarantined: the r≈0.77 cross-model error-correlation figure (mis-attributed). The
+  amendment awaits PI approval before any protocol edit.
 - **Five open dashboard alerts** — PI-only to resolve.
 - **CSU Fresno investigator** — name and role to confirm.
 - **Institutional templates not included** and still required: IRB application form; consent
