@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-08-26",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -181,6 +181,11 @@
     "date": "2026-08-25",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-25 14:13 UTC). RECONCILE: git in sync (origin=local at 172 refs / 6 alerts / last_updated 2026-08-21; 2026-08-22/23/24 were genuine 0-add no-commit days); WebFetched dashboard artifact 528465e1 and ran the exact diff against git -- EXACT match (172 refs, 6 alerts, 5 unresolved, zero divergence), no multi-session fork; the 2026-08-25 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: two PubMed entry-date sweeps 2026-08-23..2026-08-25 (36 unique PMIDs) -- ALL off-core on screening (fundus/prostate/CT imaging, medicinal-chemistry & basic science, ChatGPT diabetic-foot / dental-caries / anticoagulant condition-specific patient-education Q&A, nursing-education RCTs & scoping reviews, sepsis/delirium clinician-facing prediction, a custom-GPT ED interdepartmental-consult DOCUMENTATION tool [Healthc Inform Res 10.4258/hir.2026.32.3.224, clinician-facing workflow], headache-classification ML). Two register/policy-ADJACENT items considered and EXCLUDED: JAMA Netw Open patient-portal message-content/writing-style care-team RESPONSE inequities (10.1001/jamanetworkopen.2026.30379 -- non-AI human-responsiveness disparities study, not triage) and Healthc Inform Res legal barriers to AI-enabled EMS in Korea (10.4258/hir.2026.32.3.293 -- jurisdiction-specific deployment law, not safety evaluation). A Scite recency sweep (date_from 2026-08-22) returned mostly already-captured (Ada et al. OB/GYN dual-register 10.1016/j.ejogrb.2026.115351; ED-triage-agent 10.1016/j.ijmedinf.2026.106652) or off-core (afjem multi-country AI-perception & ED-ops surveys, cosrev SLM survey, oncology-nursing AI-governance, telenursing) items. ADDED 1 on-core reference: Li et al., 'Triage safety of patient-facing AI chatbots for nipple discharge: a guideline-informed assessment of red-flag recognition and patient actionability' (Int J Med Inform 2026;220:106603; PMID 42435613; online 2026-07-08) -- guideline-informed cross-sectional triage-safety eval (216 responses / 6 chatbots) with red-flag-recognition (90.6%) and patient-actionability endpoints and a potentially-misleading-response primary outcome (3.7%) whose misses trace to MISSED RED-FLAGS (50%) and POOR SAFETY-NETTING (37.5%); on Topic 1 (patient-facing-AI triage safety / false-reassurance undertriage), ancillary, design_overlap FALSE, NOT alerted (narrow single-symptom domain, low event count, reviewer-rated rather than physician-authored dual-register). Retrospective on-core catch, added at ancillary tier by the Ada-et-al./ophthalmic-triage precedent. Verified via PubMed metadata + Scite index (editorialNotices null, no retraction/correction); source pubmed+scite-verified; no identifier invented. Library 172 -> 173; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; the Patwardhan/Verily PHA design-overlap (added 2026-08-20) remains flagged design_overlap:true, still awaiting a PI decision on whether to escalate. No Gmail draft this run."
+   },
+   {
+    "date": "2026-08-26",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-08-26 14:12 UTC). RECONCILE: git in sync (origin=local at 173 refs / 6 alerts / last_updated 2026-08-25); WebFetched dashboard artifact 528465e1 and ran the exact diff against git -- EXACT match (173 refs, 6 alerts, 5 unresolved, zero divergence), no multi-session fork; yesterday's +1 ship (Li nipple-discharge triage-safety) is intact on the dashboard and the 2026-08-26 fresh-session scan published nothing new (push 403s, no scan report). LIGHT RECENCY SCAN: two PubMed entry-date sweeps 2026-08-25..2026-08-26 (~30 unique new PMIDs beyond yesterday's screened window). Nearly all off-core (fundus/retina/stroke/PE imaging, basic science, Japanese surgical-specialist EXAM benchmark, condition-specific patient-education Q&A [vascular/perioperative, oral anticoagulant, dental-caries risk], public-health-workforce chatbot-usability, prior-authorization workflow, ethics/duty-of-candour viewpoint). One integrative review CONSIDERED and EXCLUDED as generic/redundant: Brady et al. 'AI Technology Enhancing ED Triage: An Integrative Review' (Comput Inform Nurs, 10.1097/CIN.0000000000001612; TAM-framed clinician-facing ED-triage-tool review, overlaps existing library reviews/meta-analyses, not the protocol's patient-facing/physician-authored-evaluation angle). ADDED 2 on-core references. (1) Halıcı et al., 'Subgroup Differences in Agreement Between an Algorithm-Guided LLM and Routine ED Triage' (Med Sci Monit 2026;32:e953573; PMID 42642916) -- 1,960 ED visits, 5-level ESI, weighted kappa 0.824; headline SUBGROUP UNDERTRIAGE (lower-acuity discordance concentrated in older adults, trauma, diabetes); Topic 1 undertriage/equity, ancillary, design_overlap FALSE, not alerted; PubMed + Scite verified (authors confirmed, no editorialNotices), source pubmed+scite-verified. (2) Jaarsma et al., 'Can LLMs Preserve Diagnostic Accuracy Despite Patient Self-Diagnosis and Framing Bias in Hypothetical Upper-Extremity Scenarios?' (J Hand Surg Am 2026; PMID 42640232; online 2026-08-24) -- GPT-5, 180 vignettes; a CONTRASTING NULL to the Sheppert anchoring finding (accuracy 92%, UNAFFECTED by patient self-diagnosis; limited anchoring/confirmation/acquiescence susceptibility); anchoring/self-diagnosis named-failure-mode reference for balance, ancillary, design_overlap FALSE, not alerted; PubMed-verified (too new for Scite index -> no editorialNotices possible; no identifier invented), source pubmed-verified. A Scite recency sweep (date_from 2026-08-24) returned only already-captured (nipple-discharge 10.1016/j.ijmedinf.2026.106603 added 2026-08-25; ED-triage-agent 10.1016/j.ijmedinf.2026.106652) or off-core (oncology-nursing, afjem surveys, cosrev SLM survey, telenursing) items. Library 173 -> 175; alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). No urgent-alert-level finding; the Patwardhan/Verily PHA design-overlap (added 2026-08-20) remains flagged design_overlap:true, still awaiting a PI decision on whether to escalate. No Gmail draft this run."
    }
   ],
   "alerts": [
@@ -3538,6 +3543,48 @@
    "source": "pubmed+scite-verified",
    "design_overlap": false,
    "date_added": "2026-08-25"
+  },
+  {
+   "title": "Subgroup Differences in Agreement Between an Algorithm-Guided Large Language Model and Routine Emergency Department Triage",
+   "authors": "Halıcı A, Cesur E, Çelik F.",
+   "journal": "Medical Science Monitor",
+   "year": 2026,
+   "pmid": "42642916",
+   "doi": "10.12659/MSM.953573",
+   "url": "https://doi.org/10.12659/MSM.953573",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "ED-triage agreement study whose headline is SUBGROUP UNDERTRIAGE -- directly on Topic 1's undertriage-as-safety-endpoint and the fairness/equity dimension. Retrospective, 1,960 adult ED visits with complete triage data; a standardized prompt (age, sex, chief complaint, comorbidities, systolic/diastolic BP, heart rate, SpO2, temperature, GCS) had the LLM assign one category in a 5-level ESI-based system, compared against routine ED triage. Overall: 71.3% five-level accuracy, substantial agreement (quadratic-weighted kappa 0.824); urgent-vs-non-urgent AUC 0.768, sensitivity 0.630, specificity 0.906. Lower-acuity (potential UNDERTRIAGE) discordance 9.8% and higher-acuity (overtriage) 18.9% -- and, crucially, discordance was NON-UNIFORM across subgroups: lower-acuity/undertriage assignments vs routine triage were more frequent in OLDER ADULTS, TRAUMA, and DIABETES, while infectious presentations showed the highest concordance. That systematic subgroup undertriage pattern is a named safety-failure-mode / equity finding that bears on the protocol's undertriage endpoint and its bias-across-subgroups concern. CAVEAT: the LLM was fed structured clinical data + vitals (a clinician-data decision-support comparison, NOT patient-facing lay-language free text), and the authors are explicit that routine triage was an operational comparator, not a gold standard -- so results reflect agreement with local practice, not definitive accuracy or safety; prospective outcome validation is required. design_overlap FALSE (structured-data agreement study, not a patient-facing dual-register physician-authored eval); NOT alerted. Verified via PubMed metadata (PMID 42642916) and Scite (authors Ali Halıcı / Ezgi Cesur / Fikret Çelik confirmed; no editorialNotices -- not retracted/corrected); source pubmed+scite-verified.",
+   "source": "pubmed+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-26"
+  },
+  {
+   "title": "Can Large Language Models Preserve Diagnostic Accuracy Despite Patient Self-Diagnosis and Framing Bias in Hypothetical Upper-Extremity Scenarios?",
+   "authors": "Jaarsma EH, Ring D, Wickman J, Drost A.",
+   "journal": "The Journal of Hand Surgery",
+   "year": 2026,
+   "pmid": "42640232",
+   "doi": "10.1016/j.jhsa.2026.07.014",
+   "url": "https://doi.org/10.1016/j.jhsa.2026.07.014",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "patient-facing-ai",
+    "lay-language",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "A named-failure-mode (ANCHORING / patient self-diagnosis / framing-bias) study that provides a CONTRASTING NULL to the standing Sheppert anchoring finding (added 2026-08-17), which reported LLMs anchor on a lay-stated cue far more than physicians. Here ChatGPT (GPT-5) evaluated 180 randomized hypothetical vignettes across five common upper-extremity conditions (de Quervain tendinopathy, rotator cuff tendinopathy, lateral epicondylitis, trigger digit, trapeziometacarpal arthritis), each vignette carrying randomized patient characteristics, characteristic-vs-VAGUE symptom descriptions, and a PATIENT SELF-DIAGNOSIS (correct / plausible alternative / common misconception). Result: the model identified the intended diagnosis in 165/180 (92%); accuracy was UNAFFECTED by the patient's self-diagnosis (higher for characteristic than vague symptoms; lower for de Quervain); it deviated from the patient's proposed diagnosis in 117/180 (65%), of which 104 (89%) appropriately aligned with the intended diagnosis, and it was more likely to disregard patient-provided diagnoses that did not match the intended one. Authors conclude GPT-5 showed LIMITED susceptibility to the anchoring/confirmation/acquiescence biases known to affect human reasoning and could support debiasing / correcting patient misconceptions. Bears on the protocol's anchoring/false-reassurance and lay-language self-diagnosis dimensions, and is valuable for balance: the library now holds both an anchoring-VULNERABLE result (Sheppert, forced-choice IM DDx, LLMs anchor > physicians) and this anchoring-RESISTANT result (single newest-model, open-ended DDx). CAVEAT: condition-specific upper-extremity MUSCULOSKELETAL diagnostic accuracy (NOT emergency/urgency triage or a harm-weighted endpoint), hypothetical vignettes, single model (GPT-5), and a FAVORABLE direction -- included as an anchoring/self-diagnosis named-failure-mode reference (per the Sheppert precedent), not as a triage-safety or dual-register study. design_overlap FALSE; NOT alerted (favorable/null, condition-specific). Verified via PubMed metadata (PMID 42640232; title/authors/venue/abstract confirmed); brand-new (online 2026-08-24) so not yet in Scite's index -- no Scite editorialNotices possible and none can exist for a day-old article; source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-08-26"
   }
  ]
 }
