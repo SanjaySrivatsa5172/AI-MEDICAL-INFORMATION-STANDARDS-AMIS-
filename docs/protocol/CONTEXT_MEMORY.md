@@ -255,13 +255,13 @@ months**, a contamination and independence concern we surface rather than let re
 Updated daily at ~14:09 UTC by the canonical reconciler on branch
 `claude/cedars-sinai-ai-safety-refs-nw6h0p` (PR #1).
 
-**`reference-library/library.json`** — currently **172 references** (canonical dashboard 171
-+ the Sheng entry). Strict **14-key schema**, no extra keys:
+**`reference-library/library.json`** — currently **176 references** (canonical dashboard 175
++ the Sheng entry; synced 27 Aug). Strict **14-key schema**, no extra keys:
 `title, authors, journal, year, pmid, doi, url, type, topics, tier, relevance, source,
 design_overlap, date_added`.
 
-`state.json` watermark at last review: `last_review 2026-08-21`, `dashboard_refs_at_review
-171`, `alerts_at_review 6`.
+`state.json` watermark at last review: `last_review 2026-08-27`, `dashboard_refs_at_review
+175`, `alerts_at_review 6`.
 
 > **Fork hazard — check this every time.** Our branch once drifted **47 references behind**
 > the canonical lineage. Merging PR #2 at that moment would have silently clobbered them.
@@ -358,6 +358,7 @@ design_overlap, date_added`.
 | 21 Aug 2026 | Co-investigator notification rule set; approved-changes email sent to Keyur with dashboard link |
 | 21 Aug 2026 | Verification workflow (32 agents) recovered complete; 24 candidate claims refuted as drafted, none had entered documents; jury-threat analysis recovered |
 | 21 Aug 2026 | §7.3 amendment workflow (11 agents: 5 lenses, 4 refuters, synthesis) completed; **amendment PROPOSAL drafted** with §7.3 replacement text + 15 consequential edits; Afrasyab κ = 0.65 struck as unverifiable; *Winters* docket attempt: not found, case detail corroborated, INPUT 3 stays open |
+| 27 Aug 2026 | Weekly review cycle 2: library synced 172 → 176 (canonical +4); **EDIT 1 proposed** (Jaarsma *J Hand Surg Am* contrasting anchoring null → cite alongside Sheppert + temper DECISION 1 note) — awaiting PI approval; Halıcı (κ 0.824 / sens 0.630 subgroup undertriage) and Yan (judge-prompt strategy moves ICC 0.94→0.82) both strengthen the still-pending §7.3 amendment; Gmail connector down — proposal surfaced in-session, not emailed |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
