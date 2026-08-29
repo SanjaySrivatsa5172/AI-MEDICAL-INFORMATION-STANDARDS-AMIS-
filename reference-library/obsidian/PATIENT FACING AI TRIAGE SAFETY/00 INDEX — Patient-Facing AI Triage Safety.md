@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-08-26
-total-references: 175
+last-updated: 2026-08-29
+total-references: 176
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-08-26** · 175 references.
+Updated daily by automated scan. Last scan: **2026-08-29** · 176 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -131,6 +131,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
 - [[Li 2026 — Triage safety of patient-facing AI chatbots for nipple discharge A…]] (2026)
 - [[Halıcı 2026 — Subgroup Differences in Agreement Between an Algorithm-Guided Large…]] (2026)
+- [[Hunter 2026 — Can Large Language Models Identify When an Upper Extremity Problem…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -199,6 +200,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Diel 2026 — A scoping review on the mental health harms of LLM-based chatbots]] (2026)
 - [[Li 2026 — Triage safety of patient-facing AI chatbots for nipple discharge A…]] (2026)
 - [[Jaarsma 2026 — Can Large Language Models Preserve Diagnostic Accuracy Despite…]] (2026)
+- [[Hunter 2026 — Can Large Language Models Identify When an Upper Extremity Problem…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -390,6 +392,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Li 2026 — Triage safety of patient-facing AI chatbots for nipple discharge A…]] (2026)
 - [[Halıcı 2026 — Subgroup Differences in Agreement Between an Algorithm-Guided Large…]] (2026)
 - [[Jaarsma 2026 — Can Large Language Models Preserve Diagnostic Accuracy Despite…]] (2026)
+- [[Hunter 2026 — Can Large Language Models Identify When an Upper Extremity Problem…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
