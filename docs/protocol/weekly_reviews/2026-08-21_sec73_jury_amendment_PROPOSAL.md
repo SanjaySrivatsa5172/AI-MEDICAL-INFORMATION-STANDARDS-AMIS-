@@ -3,7 +3,11 @@
 **To:** S. Sanjay Srivatsa, MD — Principal Investigator\
 **From:** Claude Code (project session)\
 **Date:** 21 August 2026\
-**Status:** **PROPOSAL. Nothing below has been applied to the protocol or any companion document.**\
+**Status:** **PART 4 APPROVED AND APPLIED — 29 August 2026** (PI wording: "APPROVE THE 7.3 AMENDMENT").\
+The §7.3 replacement text in PART 4 is now the protocol's §7.3 (commit 8aebcfc). **PART 5 — the fifteen
+consequential edits — and supplement S1 were NOT part of that approval and remain unapplied**, except
+where internal consistency of the approved §7.3 text forced a change; see the application note at the
+end of this file.\
 **Approval requested on:** the draft replacement text for §7.3 (PART 4) and the fifteen discrete consequential edits (PART 5), each approvable or declinable independently.
 
 ---
@@ -475,3 +479,37 @@ Recommended resolution: **split DECISION 2 into two pre-registered parameters, a
 8. **Arms B and C scoring load is not costed anywhere.** The physician-burden observation in PART 5 item 15 is derived from Arm A alone. Arm B's answering panel produces responses the same scoring panel must score on the same components, and Arm C generates four free-text interaction-failure metrics currently assigned to no scoring layer at all. Any burden reconciliation that omits them will be wrong in a known direction.
 
 9. **Whether reasoning coherence needs machine scoring at all.** Once differential-diagnosis completeness moves to the deterministic layer, the residual jury is one component. It is a one-paragraph question whether that residue is small enough to delete outright rather than validate — and deleting it would moot §7.3.3 through §7.3.5 entirely. **Nobody in this analysis costed the null option**, and the PI should be told that plainly: the comparator against which this whole amendment should be judged is "physicians score reasoning coherence outright, and the jury is deleted." That comparison was not run, and it could be run in an afternoon once PART 5 item 15 resolves.
+
+---
+
+## APPLICATION NOTE — 29 August 2026
+
+PART 4 was applied verbatim with one substitution and three forced reconciliations. Everything else
+in PART 5 remains open.
+
+**Substitution.** PART 5 item 1 (moving differential-diagnosis completeness into the deterministic
+layer) was not approved, so the single `[conditional]` clause came out as this memorandum specifies
+and §7.3 retains **both** scored components. Every rule in the new section applies per component.
+
+**Forced reconciliations** — made because the approved §7.3 text would otherwise contradict the
+document around it, not as independent edits:
+
+1. **§0 register, DECISION 2.** The approved §7.3.3 carries `[DECISION 2a]` markers and §7.3.5
+   demotes AC1 to a reported statistic, so the old row ("Confirm Gwet AC1 ≥ 0.75 as the promotion
+   threshold") would have dangled and contradicted §7.3. Split into **DECISION 2a** (the
+   threshold-setting rule) and **DECISION 2b** (inter-judge agreement band as a reported
+   diagnostic), with the old AC1 ≥ 0.75 row struck through and marked retired, with the reason.
+2. **§14 appendix register.** §7.3.1 requires the judge prompt, rubric, and anchors to be
+   pre-registered in **Appendix F**. An F row was added with status "To be pre-registered before any
+   judge is run (§7.3.1)", matching how C, D, and E are already carried. No appendix content was
+   written.
+3. **Table A5, jury row.** Still read "≥3 judges, majority verdict; two acceptance gates", which the
+   approved §7.3 contradicts. Updated to: exactly three judges, each run ≥3 times, unanimity
+   required for a verdict, three conjunctive gates on confidence bounds, shadow mode when not
+   promoted.
+
+**Deliberately NOT changed.** The "~40% / ~30% / ~30%" weights in §7.2, §7.4, and Table A5 stand —
+revising them is PART 5 item 4, not approved. Carry PART 6 item 7 forward: with two jury components
+retained, the per-component reversion rule and Table A5's single joint share are not fully
+reconciled, and the protocol does not state how the share divides when one component reverts and the
+other does not.

@@ -317,7 +317,11 @@ design_overlap, date_added`.
 ### Other open work
 - **§8.4 power / pilot path** — no power figures may be stated until DECISION 1 resolves and
   pilot data exist.
-- **§7.3 jury robustness** — still `[PENDING]` in the protocol text, but the analysis is now
+- **§7.3 jury robustness** — **CLOSED 29 Aug 2026**; approved, applied, and the `[PENDING]` marker
+  removed from the protocol. Still open from that work: **PART 5** (fifteen consequential edits —
+  including the rigor-inversion fix that would give the deterministic layer acceptance criteria, and
+  the endpoint-to-layer map that currently leaves Anchoring Failure Rate assigned to no layer) and
+  **supplement S1** (judge-input sanitization). Historical note: the analysis was
   substantially complete. Workflow `wf_400775f7-91b` (once believed dead) **completed on
   21 Aug** with 32 agents: its jury-threat analysis corrects the earlier "AC1 rises under
   correlated bias" framing (false — both gates are physician-referenced), demonstrates three
@@ -360,6 +364,7 @@ design_overlap, date_added`.
 | 21 Aug 2026 | §7.3 amendment workflow (11 agents: 5 lenses, 4 refuters, synthesis) completed; **amendment PROPOSAL drafted** with §7.3 replacement text + 15 consequential edits; Afrasyab κ = 0.65 struck as unverifiable; *Winters* docket attempt: not found, case detail corroborated, INPUT 3 stays open |
 | 27 Aug 2026 | Weekly review cycle 2: library synced 172 → 176 (canonical +4); **EDIT 1 proposed** (Jaarsma *J Hand Surg Am* contrasting anchoring null → cite alongside Sheppert + temper DECISION 1 note) — awaiting PI approval; Halıcı (κ 0.824 / sens 0.630 subgroup undertriage) and Yan (judge-prompt strategy moves ICC 0.94→0.82) both strengthen the still-pending §7.3 amendment; Gmail connector down — proposal surfaced in-session, not emailed |
 | 29 Aug 2026 | **EDIT 1 APPROVED** ("APPROVE EDIT 1") and applied: Jaarsma et al. (*J Hand Surg Am* 2026, PMID 42640232) contrasting anchoring null now cited alongside Sheppert in the Scientific Introduction (+ Key Ref 22) and the §0 DECISION 1 evidence note tempered. Word/PDF rebuilt and page-inspected. Keyur notification BLOCKED — Gmail connector requires re-authorization |
+| 29 Aug 2026 | **§7.3 JURY AMENDMENT APPROVED** ("APPROVE THE 7.3 AMENDMENT") and applied, commit 8aebcfc: §7.3 replaced in full (7.3.1–7.3.6) — exactly three judges, family-level exclusion, ≥3 runs each, **unanimity required for a verdict** with budgeted routing of indeterminates, **three conjunctive gates on one-sided confidence bounds** incl. a directional conditional-false-credit gate, AC1 demoted to a reported statistic, JDDR, shadow mode. DECISION 2 split into 2a/2b with AC1 ≥ 0.75 retired; Appendix F registered; Table A5 jury row reconciled. Protocol now 29 pp. **PART 5 (15 edits) and S1 NOT approved — still open** |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
