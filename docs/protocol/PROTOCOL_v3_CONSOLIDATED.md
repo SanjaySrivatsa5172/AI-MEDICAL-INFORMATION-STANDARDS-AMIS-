@@ -49,7 +49,9 @@ Director, HAV Center of Fresno — Fresno, California
 | # | Decision | Why it blocks | Where it lands |
 |---|---|---|---|
 | **DECISION 1** | Adopt or defer **Change 12** (note-embedded bias-cue factor, matched pairs) | Adoption expands scenario authoring and **invalidates the existing power calculation** | §5.3, §7.5, §8.4 |
-| **DECISION 2** | Confirm **Gwet AC1 ≥ 0.75** as the promotion threshold for machine-scored components | Sets the falsifiable acceptance gate for the LLM jury | §7.3 |
+| **DECISION 2a** | Confirm the **threshold-setting rule** for the jury acceptance gates (§7.3.4): thresholds fixed by a pre-registered mapping on the blinded validation set, evaluated on one-sided confidence bounds, rather than by an asserted number | Closes at filing at the level of form; the numeric values are fixed before unblinding | §7.3.3, §7.3.4 |
+| **DECISION 2b** | Confirm that the **inter-judge agreement band** is a *reported diagnostic*, not a gate, with its comparator derived from measurement | Records the PI's own inversion — a jury agreeing with itself far more than physicians agree with each other exhibits shared bias, not accuracy | §7.3.5 |
+| *(superseded)* | ~~Confirm **Gwet AC1 ≥ 0.75** as the promotion threshold~~ | **Retired 29 Aug 2026** by the approved §7.3 amendment: AC1 is demoted to a reported statistic. At the prevalence this study expects, AC1 ≥ 0.75 is satisfied by a jury with zero sensitivity on the flagged class, and no symmetric agreement coefficient can distinguish a lenient jury from a strict one | §7.3.5 |
 | **DECISION 3** | **Majority-of-three** vs **first-run-primary** for repeated runs | Determines the primary-analysis unit for every model output | §5.6, §8.1 |
 | **DECISION 4** | **Arm C1** (longitudinal interaction) in or out of scope this cycle | Changes participant burden, timeline, and consent | §5.5, §6 |
 
@@ -379,33 +381,83 @@ Explicit-escalation determination, ESI level match, key-feature checklist items,
 detection, and format compliance are scored **mechanically**. The primary endpoint lives entirely in
 this layer.
 
-### 7.3 LLM jury layer (~30% of scoring weight) — subordinate and provisional
+### 7.3 LLM jury layer — subordinate and provisional
 
-Differential-diagnosis completeness and reasoning coherence are evaluated by an ensemble of **at least
-three independent frontier LLM judges from different vendors**, version-pinned, with the majority
-verdict used.
+**Differential-diagnosis completeness and reasoning coherence** are evaluated by an ensemble of LLM judges. (The amendment memorandum's PART 5 item 1 — moving differential-diagnosis completeness into the deterministic layer — was **not** approved in this cycle, so the jury retains both components; every rule below applies per component.)
 
-The ensemble is accepted **per component** only behind two falsifiable gates:
+The jury layer is **subordinate and provisional in both directions**: it may score a component only after that component clears the acceptance gates in §7.3.3, and it is never sovereign over harm. **Where a component has not been promoted, the jury still runs, and its verdicts are recorded and reported — but carry no scoring weight** (§7.3.6). Non-promotion is the default state of this layer and requires no justification; promotion does.
 
-- **Gate 1** — agreement with the blinded physician panel on a pre-registered validation sample is at
-  least as high as inter-physician agreement on the same items (the acceptance logic established by
-  NOHARM, whose autograder reached κ = 0.804 against physicians vs inter-physician κ = 0.784)
-- **Gate 2** — chance-corrected agreement meets **Gwet AC1 ≥ 0.75** `[DECISION 2]`
+#### 7.3.1 Panel, pinning, and measurement scale
 
-**Any component failing either gate reverts entirely to physician scoring.**
+- The panel is **exactly three** independent frontier LLM judges from different vendors, version-pinned, with model identifier, version, access date, and all sampling parameters reported as in §5.6. The panel size is fixed rather than a minimum: an even panel has no majority, and a larger odd panel raises non-unanimity while leaving the single-judge posterior at margin 1 unchanged.
+- **No judge may share a vendor or model family with the system whose output it is scoring on that item.** Exclusion is by family, not by brand, because judge affinity is a similarity effect rather than a self-identity effect. A judge pool of at least four is therefore maintained.
+- Presentation order and position are **randomised per item**.
+- Each judge is run **at least three times per item** under pinned sampling parameters, matching the discipline §5.6 applies to the systems under test. The within-judge majority is that judge's verdict; the within-judge margin and the within-judge instability rate are recorded and reported alongside the existing model-instability metric.
+- The **rating scale is stated explicitly** for each scored component — binary, or ordinal with a named number of levels and written anchors. The agreement coefficient follows the scale: Gwet's AC1 for nominal or binary ratings, Gwet's AC2 with linear weighting for ordinal ratings. A threshold on a coefficient whose measurement scale is unstated is not well defined, and none is asserted here before the scale is fixed. `[DECISION 2]`
+- The **verbatim judge prompt, the scoring rubric, and the anchors** are pre-registered in Appendix F before any judge is run, and any change to a pinned judge version triggers re-running the gate evaluation, with results reported for both versions.
 
-Per-judge **self-preference diagnostics** — whether a vendor's judge scores that vendor's outputs more
-favorably — are reported.
+#### 7.3.2 Verdict recording and the jury margin
 
-> `[PENDING — jury robustness amendment]` A concurrent review of the 2026 multi-agent evaluation
-> literature has identified two residual gaps in this layer: (i) the gates pass *on average* over a
-> validation sample, while correlated judge error would concentrate in exactly the
-> atypical-catastrophe and benign-anchor cases this benchmark targets; and (ii) "majority verdict"
-> does not distinguish a 3–0 from a 2–1 split. Proposed additions — reporting the jury margin,
-> routing non-unanimous items to physician adjudication, and pre-registering an inter-judge agreement
-> *band* benchmarked against inter-physician disagreement rather than treating high agreement as
-> self-evidently good — are under adversarial review and are **not yet adopted**. See the integration
-> record for status.
+For every jury-scored item, the **full per-judge vote vector** is stored, together with a derived `jury_margin` field taking the values 3–0, 2–1, or no-mode. `run_margin` is stored as a separate field, whichever way `[DECISION 3]` resolves. This is a data-capture requirement and must be settled before unblinding.
+
+**A jury verdict exists only where the three judges are unanimous.** Non-unanimous and no-mode items are recorded as **jury-indeterminate**. This replaces the previous "majority verdict used," which had no defined behaviour for three distinct ordinal scores and which recorded a 2–1 split with the same authority as a 3–0. Under conditional independence, the posterior probability that a margin-1 majority is correct equals the per-judge accuracy — the reliability of one judge, not three; under positive dependence among judges it is lower still. A margin-1 verdict is therefore not evidence of ensemble agreement and is not treated as such.
+
+For a component that has been promoted, jury-indeterminate items are scored by physicians under the §7.5 ladder, within a **pre-registered adjudication budget** with the priority ordering: (1) SW = 3 atypical-catastrophe items; (2) items co-occurring with a deterministic-layer critical-miss or borderline-escalation flag; (3) benign-anchor items; (4) the remainder in seeded-random order. Items falling below the budget line take the recorded majority, carry a `budget_truncated` flag, and are reported in a pre-specified sensitivity analysis. Because truncation follows hazard priority rather than chance, that sensitivity analysis is informative about the low-hazard remainder only, and is reported as such.
+
+#### 7.3.3 Acceptance gates
+
+**Every gate below is evaluated on a one-sided confidence bound, computed by scenario-level cluster bootstrap, and never on a point estimate.** This is a deliberate construction: a bound-based acceptance rule states no sample size, makes no power claim, and fails automatically when the achieved data cannot support the inference. It is the form in which a falsifiable acceptance criterion can be pre-registered at this revision while §8.4 remains open.
+
+| | Gate | Quantity | Rule |
+|---|---|---|---|
+| **1** | **Relative** | Jury-versus-physician agreement compared with inter-physician agreement, on the same items | Jury-versus-physician agreement is at least as high as inter-physician agreement (the acceptance logic established by the NOHARM benchmark, preprint) |
+| **2** | **Absolute** | The same agreement quantity | Meets a pre-registered absolute floor, fixed by §7.3.4 `[DECISION 2a]` |
+| **3** | **Directional** | **Conditional false-credit rate** — of the components the blinded physician panel rates deficient, the proportion the jury rates adequate | Bounded above by a pre-registered ceiling, fixed by §7.3.4 `[DECISION 2a]` |
+
+**The gates are conjunctive. Any component failing any gate reverts entirely to physician scoring.** No component may be promoted on aggregate performance in the presence of a gate failure, and jury delegation is **binary** — a component is either scored by the jury or it is not. The jury's contribution is never a fitted or continuous function of measured agreement, because that would carry an imprecise estimate into the scoring rule.
+
+Two specifications that make Gate 1 mean what it says:
+
+- **Both sides of the comparison are computed at the same aggregation level.** Either both are single blinded raters, or both are consensus-versus-held-out-rater. Comparing an adjudicated physician consensus against two raw single raters de-noises one side of the ratio and not the other, and tilts the comparison toward passing by an amount that grows as inter-physician agreement falls — that is, largest in exactly the strata this benchmark targets.
+- **Where a Delphi gold label or killer-item designation exists for an item, agreement is additionally evaluated against that label, and Gate 1 must hold against both.** The Delphi standard is set before any model output exists and cannot be contaminated by that output's fluency; the scoring panel rates fluent model prose and may share the model's clinical priors. A peer-agreement test is blind to bias inherited by descent; a pre-committed-standard test is partly immune to it. Where no Delphi label exists for a component, this clause has no referent and does not apply.
+
+Gate 3 is stated as a **conditional** rate — deficient-and-called-adequate, divided by deficient — rather than as a share of all items, because a conditional rate is invariant to how common deficient responses turn out to be, and an unconditional one is not. This is the layer's only directional criterion, and it exists because the study's scientific identity rests on an asymmetric loss function while every symmetric agreement coefficient counts the two directions of error identically.
+
+#### 7.3.4 How the numeric thresholds are fixed `[DECISION 2]`
+
+The thresholds for Gates 2 and 3 are **not asserted in this revision**. What is pre-registered here is the rule that fixes them, and the rule is fixed before unblinding:
+
+- The **absolute floor for Gate 2** is derived from a stated mapping between the observed positive-class prevalence and the required threshold, evaluated on the blinded validation set. The mapping, not a number, is the pre-registered commitment. The protocol states the closed form so that any reader can see what a threshold demands: for a criterion AC1 ≥ *t*, the equivalent requirement on raw agreement is p_a ≥ *t* + (1 − *t*) · 2π(1 − π), where π is the average marginal prevalence of the positive category. At *t* = 0.75 this is p_a ≥ 0.75 + 0.5 · π(1 − π).
+- The **ceiling for Gate 3** is fixed by the same procedure and before unblinding.
+- No threshold imported from a benchmark scale developed for a different coefficient is used. The 0.61–0.80 and 0.75 conventions originate as verbal descriptors for kappa; no AC1-native benchmark scale exists, and because AC1 systematically exceeds kappa at skewed marginals by an amount that grows with skew, transporting a kappa cut point silently loosens it.
+- **If the jury pilot is not run in this cycle, no component is promoted and the layer remains advisory for the duration of the study.** This is a safe default and requires no further action: an unpromoted component is scored by physicians, which is the status quo.
+
+#### 7.3.5 Reported statistics
+
+The following are reported **whether or not any gate is met**, and none of them is a gate:
+
+- The agreement coefficient specified in §7.3.1 with its cluster-bootstrap interval, **reported alongside Fleiss or Cohen's kappa, the observed positive-class prevalence π, the implied chance term, and the raw per-cell counts.** The two off-diagonal cells are reported separately, because every symmetric agreement coefficient — AC1, kappa, Krippendorff's alpha, PABAK — is exactly invariant under exchanging them, and cannot distinguish a jury that is too lenient from one that is too strict. AC1 and kappa can also reach opposite conclusions on identical ratings when ratings are highly uniform; both are therefore reported, never one alone.
+- The **jury margin distribution**, overall and stratified by severity weight and by anchor type.
+- **Within-judge and between-judge instability**, and the effective panel size where a judge's verdict is unstable across runs.
+- The **double-fault rate** across judges — the rate at which two or more judges err on the same item — computed **conditional on the physician or Delphi label**, and reported by severity weight alongside the rate predicted under conditional independence. Conditioning on the label is required: an unconditional excess of inter-judge agreement over the independence prediction is equally consistent with correlated judge error and with ordinary variation in item difficulty, and is therefore not interpretable as evidence of either.
+- **Per-judge self-preference by model family**, together with the change in each component's score when that judge is excluded, reported with its interval.
+- The **Jury–Determinism Dissociation Rate (JDDR)** — among items the §7.2 deterministic layer classifies as critical misses (no escalation phrase present and gold disposition EMS NOW or ED NOW), the proportion the jury places in the top band. JDDR requires no physician judgment at scoring time and is not physician-referenced, which is why it can detect judge error running in a direction physicians would share — the one failure mode Gates 1 to 3 are blind to by construction. Three limitations are stated with it: it inherits the operating characteristics of the deterministic layer under §4.1, so it is interpretable only once those are reported; its denominator is model-dependent and may be empty for a model that produces no deterministic critical misses; and **no numeric ceiling is pre-registered for it at this revision.**
+- **Jury-versus-physician agreement by register**, as a within-scenario paired contrast. Register is fully crossed, so the paired form removes scenario variance; it is reported descriptively and carries no threshold and no reversion rule.
+
+#### 7.3.6 Shadow mode and standing limits
+
+Where a component is not promoted, the jury runs in **shadow mode**: verdicts are collected under the same pinning and recording rules, reported as an exploratory finding with honest cluster-adjusted intervals, and **contribute zero weight to any score**. Shadow-mode data serve two pre-registered purposes: characterising jury behaviour in the atypical-catastrophe and benign-anchor items, which converts a hypothesis about where machine scoring of clinical reasoning fails into a measurement; and estimating any systematic offset between physician-scored and jury-scored versions of the same component, so that a mixed scoring provenance cannot induce a spurious severity-by-score artefact. Where an abstention or routing rule is in force, a scoring-provenance indicator is carried into the §8.1 model and the per-model jury-indeterminate rate is reported.
+
+Four limits stand regardless of any promotion outcome:
+
+1. **Physicians are sovereign.** No jury verdict overrides a physician rating, and no jury output enters the physician-sovereign components of §7.4.
+2. **No jury-derived quantity may enter the primary endpoint.** §4.1 and §7.2 are unchanged: the primary endpoint lives entirely in the deterministic layer, and no language model judges it.
+3. **Promotion is per component and is revocable.** A judge version change, or a diagnostic in §7.3.5 that changes materially, returns the component to physician scoring pending re-evaluation.
+4. **This layer is reported in full whether it is used or not.** A finding that the jury cannot be promoted is a reportable result of this study, not a failure of it.
+
+> `[RESOLVED — jury robustness amendment, PI-approved 29 August 2026]` This section replaces the previous pending note. The two residual gaps it identified are addressed as follows: tail concentration is addressed by shadow-mode measurement and by JDDR rather than by stratified gating, which is not estimable at this design's stratum sizes; and the 3–0 / 2–1 collapse is addressed in §7.3.2 by requiring unanimity for a jury verdict. Two items are deliberately left open and are named in the amendment memorandum: whether the jury's *reasoning coherence* and the physician-sovereign *reasoning quality in ambiguous cases* are the same construct, and the numeric values under `[DECISION 2]`.
+
+---
 
 ### 7.4 Physician-sovereign layer (~30% of scoring weight)
 
@@ -553,6 +605,7 @@ caveat and re-verified upon journal publication.
 | C. Deterministic escalation phrase inventory | To be pre-registered before unblinding |
 | D. Standardized model prompt template | To be finalized |
 | E. Scientific Introduction v3 | Complete; submit alongside |
+| F. LLM judge prompt, scoring rubric, and rating anchors | To be pre-registered before any judge is run (§7.3.1) |
 
 ---
 
@@ -617,7 +670,7 @@ embolism; ruptured ectopic pregnancy; ST-elevation myocardial infarction; aortic
 | Layer | Share | Components | Authority |
 |---|---|---|---|
 | Deterministic | ~40% | Explicit escalation, ESI match, key-feature checklist, killer items, format compliance | Mechanical; carries the primary endpoint |
-| LLM jury | ~30% | Differential-diagnosis completeness, reasoning coherence | Subordinate and provisional; ≥3 cross-vendor version-pinned judges, majority verdict; two acceptance gates; reverts entirely to physicians on failure |
+| LLM jury | ~30% | Differential-diagnosis completeness, reasoning coherence | Subordinate and provisional; **exactly three** cross-vendor version-pinned judges, each run ≥3 times; **a verdict requires unanimity** (2–1 and no-mode items are jury-indeterminate and route to §7.5 within a budget); **three conjunctive acceptance gates** — relative, absolute, and directional — each evaluated on a one-sided confidence bound; reverts entirely to physicians on failure; runs in shadow mode when not promoted (§7.3) |
 | Physician | ~30% | Harm potential, reasoning quality in ambiguous cases, communication appropriateness | Sovereign; never delegated |
 
 ## Table A6 — Timeline
