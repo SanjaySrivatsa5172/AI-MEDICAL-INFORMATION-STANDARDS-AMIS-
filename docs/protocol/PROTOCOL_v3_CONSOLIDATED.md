@@ -59,6 +59,12 @@ downgrades triage urgency (Omar et al., *Rheumatology* 2026), MTS-Bench (preprin
 GP-referral statement drove undertriage of 8/8 highest-priority cases, and MedMisBench (preprint)
 quantifies accuracy collapse under misleading context (71.1% → 38.0%). The note-embedded cue locus is
 no longer unexamined in the wider literature; it remains untested in patient-facing emergency triage.
+*Update (27 Aug 2026):* one contrasting null now exists — GPT-5 held 92% diagnostic accuracy
+regardless of patient self-diagnosis in benign upper-extremity vignettes (Jaarsma et al.,
+*J Hand Surg Am* 2026, PMID 42640232). This tempers but does not reverse the evidence weight:
+anchoring resistance has been shown only for a newest-generation model on benign conditions with
+no disposition decision and no asymmetric-harm axis, and Change 12 is the instrument that would
+test whether it holds where missing is catastrophic.
 See `docs/protocol/weekly_reviews/`.
 
 ### External inputs required

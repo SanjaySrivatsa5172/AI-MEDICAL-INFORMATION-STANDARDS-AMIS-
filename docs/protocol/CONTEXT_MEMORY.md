@@ -359,6 +359,7 @@ design_overlap, date_added`.
 | 21 Aug 2026 | Verification workflow (32 agents) recovered complete; 24 candidate claims refuted as drafted, none had entered documents; jury-threat analysis recovered |
 | 21 Aug 2026 | §7.3 amendment workflow (11 agents: 5 lenses, 4 refuters, synthesis) completed; **amendment PROPOSAL drafted** with §7.3 replacement text + 15 consequential edits; Afrasyab κ = 0.65 struck as unverifiable; *Winters* docket attempt: not found, case detail corroborated, INPUT 3 stays open |
 | 27 Aug 2026 | Weekly review cycle 2: library synced 172 → 176 (canonical +4); **EDIT 1 proposed** (Jaarsma *J Hand Surg Am* contrasting anchoring null → cite alongside Sheppert + temper DECISION 1 note) — awaiting PI approval; Halıcı (κ 0.824 / sens 0.630 subgroup undertriage) and Yan (judge-prompt strategy moves ICC 0.94→0.82) both strengthen the still-pending §7.3 amendment; Gmail connector down — proposal surfaced in-session, not emailed |
+| 29 Aug 2026 | **EDIT 1 APPROVED** ("APPROVE EDIT 1") and applied: Jaarsma et al. (*J Hand Surg Am* 2026, PMID 42640232) contrasting anchoring null now cited alongside Sheppert in the Scientific Introduction (+ Key Ref 22) and the §0 DECISION 1 evidence note tempered. Word/PDF rebuilt and page-inspected. Keyur notification BLOCKED — Gmail connector requires re-authorization |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
