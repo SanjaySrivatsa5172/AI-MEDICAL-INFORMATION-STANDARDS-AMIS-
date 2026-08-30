@@ -6,6 +6,8 @@
 **Status:** **PART 4 APPROVED AND APPLIED — 29 August 2026** (PI wording: "APPROVE THE 7.3 AMENDMENT").\
 The §7.3 replacement text in PART 4 is now the protocol's §7.3 (commit 8aebcfc). **PART 5 — the fifteen
 consequential edits — and supplement S1 were NOT part of that approval and remain unapplied**, except
+**PART 5 items 2 and 3, approved separately on 30 August 2026** (PI wording: "APPROVE PART 5 ITEMS 2 AND 3")
+and applied the same day — see the second application note — and except
 where internal consistency of the approved §7.3 text forced a change; see the application note at the
 end of this file.\
 **Approval requested on:** the draft replacement text for §7.3 (PART 4) and the fifteen discrete consequential edits (PART 5), each approvable or declinable independently.
@@ -513,3 +515,39 @@ revising them is PART 5 item 4, not approved. Carry PART 6 item 7 forward: with 
 retained, the per-component reversion rule and Table A5's single joint share are not fully
 reconciled, and the protocol does not state how the share divides when one component reverts and the
 other does not.
+
+---
+
+## APPLICATION NOTE 2 — 30 August 2026 (PART 5 items 2 and 3)
+
+PI wording: **"APPROVE PART 5 ITEMS 2 AND 3"**, 30 August 2026. Both applied; items 1, 4–15 and
+supplement S1 remain unapproved and unapplied.
+
+**Item 2 — acceptance criteria for the deterministic layer.** New **§7.2.1**, plus a forward pointer
+in §4.1 and a rewritten Appendix C row in the §14 register. This closes the rigour inversion the
+review identified as the largest asymmetry in the protocol: the layer carrying the entire primary
+endpoint had no acceptance criteria while the advisory jury layer had three gates. §7.2.1 specifies
+the scope (escalation detection and killer-item detection — differential-diagnosis completeness stays
+a jury component, since item 1 was not approved), the labelling procedure, the reported operating
+characteristics (sensitivity, specificity, full confusion matrix, off-diagonal cells reported
+separately, by register and severity weight), and the fallback to physician ascertainment. **No
+numeric floor is stated** — it rides the same pre-registered `[DECISION 2a]` rail as the jury gates,
+which keeps the whole construction §8.4-clean.
+
+**Item 3 — every endpoint assigned to a scoring layer.** Table A4 gained a **Layer** column and a
+legend; §4.2 states the assignment inline; §7.4 now names the endpoints the physician layer owns.
+Per the memorandum's recommendation, **Anchoring Failure Rate is deterministic against the
+Appendix B Component 7 killer-item form, with physician adjudication of every positive detection and
+of a random sample of negatives, and is explicitly never jury-scored** — it carries the study's
+novelty claim, so delegating it to models would land the circularity objection at the most exposed
+point. Crisis-safeguard consistency gets the same treatment; interaction-failure metrics are
+physician-sovereign. The table now states plainly that no reported endpoint depends on the jury layer.
+
+**Layout note.** The Layer column was first drafted as prose and pushed Table A4 across three cramped
+pages with a mid-word break. It was tightened to compact labels with a legend beneath, and the pipe
+table's column widths were set explicitly. Rendered and inspected; the table is now legible and the
+assignment readable at a glance.
+
+**Not approved, still open:** items 1, 4 (the ~40/30/30 weights), 5 (§7.6 non-load-bearing
+declaration — note that item 3 has now made its central factual claim demonstrable), 6–15, and
+supplement S1.

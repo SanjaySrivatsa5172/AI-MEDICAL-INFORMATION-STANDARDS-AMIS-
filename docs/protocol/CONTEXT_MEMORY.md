@@ -321,7 +321,8 @@ design_overlap, date_added`.
   removed from the protocol. Still open from that work: **PART 5** (fifteen consequential edits —
   including the rigor-inversion fix that would give the deterministic layer acceptance criteria, and
   the endpoint-to-layer map that currently leaves Anchoring Failure Rate assigned to no layer) and
-  **supplement S1** (judge-input sanitization). Historical note: the analysis was
+  **supplement S1** (judge-input sanitization) — **items 2 and 3 were approved and applied 30 Aug**,
+  so the rigour inversion and the unassigned-endpoint gap are both closed. Historical note: the analysis was
   substantially complete. Workflow `wf_400775f7-91b` (once believed dead) **completed on
   21 Aug** with 32 agents: its jury-threat analysis corrects the earlier "AC1 rises under
   correlated bias" framing (false — both gates are physician-referenced), demonstrates three
@@ -365,6 +366,7 @@ design_overlap, date_added`.
 | 27 Aug 2026 | Weekly review cycle 2: library synced 172 → 176 (canonical +4); **EDIT 1 proposed** (Jaarsma *J Hand Surg Am* contrasting anchoring null → cite alongside Sheppert + temper DECISION 1 note) — awaiting PI approval; Halıcı (κ 0.824 / sens 0.630 subgroup undertriage) and Yan (judge-prompt strategy moves ICC 0.94→0.82) both strengthen the still-pending §7.3 amendment; Gmail connector down — proposal surfaced in-session, not emailed |
 | 29 Aug 2026 | **EDIT 1 APPROVED** ("APPROVE EDIT 1") and applied: Jaarsma et al. (*J Hand Surg Am* 2026, PMID 42640232) contrasting anchoring null now cited alongside Sheppert in the Scientific Introduction (+ Key Ref 22) and the §0 DECISION 1 evidence note tempered. Word/PDF rebuilt and page-inspected. Keyur notification BLOCKED — Gmail connector requires re-authorization |
 | 29 Aug 2026 | **§7.3 JURY AMENDMENT APPROVED** ("APPROVE THE 7.3 AMENDMENT") and applied, commit 8aebcfc: §7.3 replaced in full (7.3.1–7.3.6) — exactly three judges, family-level exclusion, ≥3 runs each, **unanimity required for a verdict** with budgeted routing of indeterminates, **three conjunctive gates on one-sided confidence bounds** incl. a directional conditional-false-credit gate, AC1 demoted to a reported statistic, JDDR, shadow mode. DECISION 2 split into 2a/2b with AC1 ≥ 0.75 retired; Appendix F registered; Table A5 jury row reconciled. Protocol now 29 pp. **PART 5 (15 edits) and S1 NOT approved — still open** |
+| 30 Aug 2026 | **PART 5 ITEMS 2 AND 3 APPROVED** ("APPROVE PART 5 ITEMS 2 AND 3") and applied: new **§7.2.1** gives the deterministic layer acceptance criteria (scope, labelling procedure, confusion matrix, fallback to physician ascertainment; floor on the DECISION 2a rail, no number stated) — closes the rigour inversion; **Table A4 gains a Layer column** and every endpoint is assigned — **AFR is deterministic + physician-adjudicated, never jury-scored**. Protocol now 31 pp. Items 1, 4–15 and S1 still open |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
