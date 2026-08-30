@@ -1,5 +1,7 @@
 # PROPOSED EDIT — Scientific Introduction is now out of sync with the protocol
-# STATUS: NOT APPLIED. Awaiting PI approval.
+# STATUS: APPROVED AND APPLIED — 30 August 2026 (PI wording: "APPROVE THE SCIINTRO RESYNC AND CHECK THE OTHER DOCS").
+# The NOHARM κ = 0.804 / 0.784 figures were omitted as drafted; the PI approved the draft as written.
+# Scientific Introduction rebuilt: 21 pp (was 20), no TOC regression, changed page inspected.
 # Raised: 30 August 2026, discovered while applying PART 5 items 4 and 5.
 
 ## The problem
