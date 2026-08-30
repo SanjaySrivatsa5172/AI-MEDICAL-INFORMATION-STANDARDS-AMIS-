@@ -322,7 +322,11 @@ design_overlap, date_added`.
   including the rigor-inversion fix that would give the deterministic layer acceptance criteria, and
   the endpoint-to-layer map that currently leaves Anchoring Failure Rate assigned to no layer) and
   **supplement S1** (judge-input sanitization) — **items 2 and 3 were approved and applied 30 Aug**,
-  so the rigour inversion and the unassigned-endpoint gap are both closed. Historical note: the analysis was
+  so the rigour inversion and the unassigned-endpoint gap are both closed; **items 4 and 5 approved and
+  applied the same day**, removing the meaningless weights and adding the §7.6 non-load-bearing
+  declaration. **Open and PI-facing: the Scientific Introduction re-sync proposal (30 Aug) — that
+  document still describes the pre-amendment scoring architecture and is an IRB enclosure.**
+  Historical note: the analysis was
   substantially complete. Workflow `wf_400775f7-91b` (once believed dead) **completed on
   21 Aug** with 32 agents: its jury-threat analysis corrects the earlier "AC1 rises under
   correlated bias" framing (false — both gates are physician-referenced), demonstrates three
@@ -367,6 +371,7 @@ design_overlap, date_added`.
 | 29 Aug 2026 | **EDIT 1 APPROVED** ("APPROVE EDIT 1") and applied: Jaarsma et al. (*J Hand Surg Am* 2026, PMID 42640232) contrasting anchoring null now cited alongside Sheppert in the Scientific Introduction (+ Key Ref 22) and the §0 DECISION 1 evidence note tempered. Word/PDF rebuilt and page-inspected. Keyur notification BLOCKED — Gmail connector requires re-authorization |
 | 29 Aug 2026 | **§7.3 JURY AMENDMENT APPROVED** ("APPROVE THE 7.3 AMENDMENT") and applied, commit 8aebcfc: §7.3 replaced in full (7.3.1–7.3.6) — exactly three judges, family-level exclusion, ≥3 runs each, **unanimity required for a verdict** with budgeted routing of indeterminates, **three conjunctive gates on one-sided confidence bounds** incl. a directional conditional-false-credit gate, AC1 demoted to a reported statistic, JDDR, shadow mode. DECISION 2 split into 2a/2b with AC1 ≥ 0.75 retired; Appendix F registered; Table A5 jury row reconciled. Protocol now 29 pp. **PART 5 (15 edits) and S1 NOT approved — still open** |
 | 30 Aug 2026 | **PART 5 ITEMS 2 AND 3 APPROVED** ("APPROVE PART 5 ITEMS 2 AND 3") and applied: new **§7.2.1** gives the deterministic layer acceptance criteria (scope, labelling procedure, confusion matrix, fallback to physician ascertainment; floor on the DECISION 2a rail, no number stated) — closes the rigour inversion; **Table A4 gains a Layer column** and every endpoint is assigned — **AFR is deterministic + physician-adjudicated, never jury-scored**. Protocol now 31 pp. Items 1, 4–15 and S1 still open |
+| 30 Aug 2026 | **PART 5 ITEMS 4 AND 5 APPROVED** ("APPROVE PART 5 ITEMS 4 AND 5") and applied: the **~40/30/30 weights are removed** (verified first: no composite score exists, no §8 analysis consumes a weighted total, no rule said what shares become on reversion) — layers now defined by remit, Table A5 Share→Remit; **new §7.6** declares the jury layer non-load-bearing. Protocol 32 pp. **DISCOVERED:** the Scientific Introduction's scoring paragraph has been stale since the 29 Aug §7.3 approval — contradicts the protocol on six points; replacement drafted in `weekly_reviews/proposed_edits_2026-08-30_sciintro_resync.md`, **NOT applied, awaiting PI approval** |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
