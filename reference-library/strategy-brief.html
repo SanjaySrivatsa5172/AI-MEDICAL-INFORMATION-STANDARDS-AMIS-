@@ -1,0 +1,253 @@
+<title>AMIS — Study Strategy: Slide + Differentiation Brief</title>
+<style>
+  :root {
+    --paper: #f4f6f5;
+    --card: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #56655f;
+    --line: #d8e0dc;
+    --accent: #0e7c66;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f0ec;
+    --critical: #b3382e;
+    --critical-soft: #f7ebe9;
+    --amber: #9a6300;
+    --amber-soft: #f4ecda;
+    --chip: #eaefec;
+    --shadow: 0 1px 2px rgba(22,33,31,.06), 0 6px 22px rgba(22,33,31,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0e1614;
+      --card: #16201d;
+      --ink: #e7edea;
+      --ink-soft: #93a49d;
+      --line: #26332f;
+      --accent: #37b997;
+      --accent-ink: #08130f;
+      --accent-soft: #172a25;
+      --critical: #e2705f;
+      --critical-soft: #301d1a;
+      --amber: #d6a44e;
+      --amber-soft: #2b2415;
+      --chip: #1e2a26;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0e1614;
+    --card: #16201d;
+    --ink: #e7edea;
+    --ink-soft: #93a49d;
+    --line: #26332f;
+    --accent: #37b997;
+    --accent-ink: #08130f;
+    --accent-soft: #172a25;
+    --critical: #e2705f;
+    --critical-soft: #301d1a;
+    --amber: #d6a44e;
+    --amber-soft: #2b2415;
+    --chip: #1e2a26;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.6 system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 30px 22px 80px; }
+  h1, h2, h3, .serif { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+
+  /* page header */
+  .page-head { border-bottom: 3px double var(--line); padding-bottom: 16px; margin-bottom: 26px; }
+  .kicker { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 8px; }
+  .page-head h1 { font-size: clamp(23px, 3.4vw, 30px); line-height: 1.14; margin: 0 0 8px; text-wrap: balance; }
+  .page-head p { margin: 0; color: var(--ink-soft); font-size: 13.5px; max-width: 70ch; }
+
+  /* deliverable scaffolding (helper chrome; hidden on print) */
+  .deliv-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin: 34px 0 12px; }
+  .deliv-label .num { font: 700 11px/1 system-ui; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); padding: 5px 9px; border-radius: 4px; }
+  .deliv-label .what { font-family: Georgia, serif; font-size: 17px; font-weight: 700; }
+  .deliv-label .how { font-size: 12.5px; color: var(--ink-soft); margin-left: auto; }
+
+  /* ---------- DELIVERABLE 1: THE SLIDE (16:9) ---------- */
+  .slide {
+    width: 100%; max-width: 980px; aspect-ratio: 16 / 9;
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: var(--shadow); overflow: hidden;
+    container-type: inline-size;
+    display: flex; flex-direction: column;
+    padding: 3.2cqw 3.4cqw 2.6cqw;
+    position: relative;
+  }
+  .slide::before { content: ""; position: absolute; inset: 0 0 auto 0; height: .5cqw; background: linear-gradient(90deg, var(--accent), var(--critical)); }
+  .slide .s-eyebrow { font-size: 1.15cqw; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: .3cqw 0 .6cqw; }
+  .slide h2 { font-size: 2.75cqw; line-height: 1.12; margin: 0 0 1.6cqw; text-wrap: balance; letter-spacing: -.01em; }
+  .s-grid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: 1.5cqw; flex: 1; min-height: 0; }
+  .pillar { border: 1px solid var(--line); border-left: .45cqw solid var(--accent); border-radius: .7cqw; padding: 1.2cqw 1.4cqw; background: var(--paper); display: flex; flex-direction: column; gap: .5cqw; }
+  .pillar.crit { border-left-color: var(--critical); }
+  .pillar .p-top { display: flex; align-items: baseline; gap: .7cqw; }
+  .pillar .p-tag { font: 700 1.02cqw/1 system-ui; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+  .pillar .p-claim { font-weight: 650; font-size: 1.42cqw; line-height: 1.25; }
+  .pillar .p-fix { font-size: 1.2cqw; color: var(--ink-soft); line-height: 1.3; margin-top: auto; }
+  .pillar .p-fix b { color: var(--accent); font-weight: 700; }
+  .pillar .p-cite { font: 1.02cqw/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink-soft); }
+  .slide .s-foot { margin-top: 1.5cqw; background: var(--critical-soft); border: 1px solid var(--line); border-radius: .7cqw; padding: 1.1cqw 1.4cqw; font-size: 1.28cqw; line-height: 1.32; }
+  .slide .s-foot b { color: var(--critical); }
+  .slide .s-foot .src { font: 1.02cqw/1 ui-monospace, Menlo, monospace; color: var(--ink-soft); }
+
+  /* ---------- DELIVERABLE 2: THE BRIEF ---------- */
+  .brief { background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 40px 44px; }
+  .brief .b-eyebrow { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 10px; }
+  .brief h2.b-title { font-size: 22px; line-height: 1.18; margin: 0 0 14px; text-wrap: balance; }
+  .thesis { font-size: 15.5px; line-height: 1.55; border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0 0 24px; }
+  .thesis b { color: var(--ink); }
+  .brief h3 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .brief h3 .n { color: var(--accent); font-family: ui-monospace, Menlo, monospace; margin-right: 8px; }
+  .brief p { margin: 0 0 12px; max-width: 74ch; }
+  .b-list { list-style: none; margin: 0 0 4px; padding: 0; display: grid; gap: 10px; }
+  .b-list li { padding-left: 20px; position: relative; line-height: 1.5; }
+  .b-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+  .b-list.crit li::before { background: var(--critical); }
+  .b-list li b { font-weight: 650; }
+  .b-list li .ev { display: block; font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+  .b-list li .ev code { font-family: ui-monospace, Menlo, monospace; font-size: 11.5px; }
+  .callout { background: var(--critical-soft); border: 1px solid var(--line); border-left: 3px solid var(--critical); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 6px 0 8px; font-size: 14px; line-height: 1.5; }
+  .callout b { color: var(--critical); }
+
+  .refs { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .refs .r-head { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; }
+  .refs ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  .refs li { font-size: 11.5px; line-height: 1.45; color: var(--ink-soft); }
+  .refs a, .brief a { color: var(--accent); text-decoration: none; }
+  .refs a:hover, .brief a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  .foot-note { margin-top: 22px; font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media (max-width: 640px) {
+    .brief { padding: 26px 20px; }
+    .deliv-label .how { margin-left: 0; flex-basis: 100%; }
+  }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .slide, .brief { box-shadow: none; border-color: #ccc; break-inside: avoid; }
+    .brief { page-break-before: always; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page-head">
+    <p class="kicker">Cedars-Sinai AI Triage Safety Study · Internal Strategy Pack</p>
+    <h1>Incremental value &amp; evidence positioning</h1>
+    <p>Two ready-to-use pieces for the Moore / Gualtieri conversation: a drop-in replacement slide, and a one-page differentiation brief. Every claim is anchored to a verified paper in the project reference library.</p>
+  </header>
+
+  <!-- ===================== DELIVERABLE 1 ===================== -->
+  <div class="deliv-label no-print">
+    <span class="num">Deliverable 1</span>
+    <span class="what">Replacement slide — "why current evaluations fail"</span>
+    <span class="how">16:9 · screenshot into Keyur's deck</span>
+  </div>
+
+  <section class="slide" aria-label="Presentation slide">
+    <p class="s-eyebrow">Physician-Authored Evaluation of Patient-Facing AI in Emergency Triage</p>
+    <h2>Why today's AI-triage evaluations fail — and how this study fixes each</h2>
+    <div class="s-grid">
+      <div class="pillar">
+        <div class="p-top"><span class="p-tag">01 · Format</span></div>
+        <div class="p-claim">Multiple-choice benchmarks reward memorization; patients type free text.</div>
+        <div class="p-cite">Fraile Navarro 2026 · Singh (FreeMedQA): −39 pts MCQ→free-response</div>
+        <div class="p-fix"><b>Fix:</b> free-text scenarios in paired lay + expert register.</div>
+      </div>
+      <div class="pillar">
+        <div class="p-top"><span class="p-tag">02 · Clinical construct</span></div>
+        <div class="p-claim">Triage is a 2–5 min, present-information-only decision — not a specialist workup.</div>
+        <div class="p-cite">Ramaswamy 2026 · Nat Med: 51.6% of emergencies under-triaged</div>
+        <div class="p-fix"><b>Fix:</b> constrained triage-moment prompts; undertriage as primary endpoint.</div>
+      </div>
+      <div class="pillar">
+        <div class="p-top"><span class="p-tag">03 · Contamination</span></div>
+        <div class="p-claim">Test items leak into training data; models recycle their own output.</div>
+        <div class="p-cite">"Emperor's New Clothes" 2025 · LiveMedBench (contamination-free)</div>
+        <div class="p-fix"><b>Fix:</b> offline, local model weights, no internet retrieval at test time.</div>
+      </div>
+      <div class="pillar crit">
+        <div class="p-top"><span class="p-tag">04 · Scoring</span></div>
+        <div class="p-claim">Accuracy ≠ safety, and under-triage is far more dangerous than over-triage.</div>
+        <div class="p-cite">NOHARM 2025: safety vs. accuracy r≈0.6 · ACS trauma: undertriage &lt;5% target</div>
+        <div class="p-fix"><b>Fix:</b> harm-weighted, asymmetric, physician-adjudicated scoring.</div>
+      </div>
+    </div>
+    <div class="s-foot">
+      <b>The crux — input variance:</b> the same case in lay vs. expert wording yields different triage. A deployed diagnostic tool never sees lay input — a physician distills it first. &nbsp;<span class="src">Reis 2026, Nat Health: patients give chatbots lower-quality symptom reports than physicians.</span>
+    </div>
+  </section>
+
+  <!-- ===================== DELIVERABLE 2 ===================== -->
+  <div class="deliv-label no-print">
+    <span class="num">Deliverable 2</span>
+    <span class="what">One-page differentiation brief</span>
+    <span class="how">for J. Moore / L. Gualtieri · print to PDF (one page)</span>
+  </div>
+
+  <section class="brief" aria-label="Differentiation brief">
+    <p class="b-eyebrow">Briefing note · S. Sanjay Srivatsa, MD (PI)</p>
+    <h2 class="b-title">Incremental value: what an independent triage-safety study measures that a deployed diagnostic-support system cannot</h2>
+
+    <p class="thesis">A live diagnostic-support deployment and an independent triage-safety evaluation answer <b>different questions</b>. The deployment improves care with clean, physician-mediated input. This study measures what happens when input is <b>lay, incomplete, and unfiltered</b> — the condition under which the public actually uses AI, and the one condition no deployed system can assess about itself.</p>
+
+    <h3><span class="n">1</span>What this study uniquely answers</h3>
+    <ul class="b-list">
+      <li><b>Triage safety under lay-register input</b> — not physician-distilled EHR data, but "worst headache of my life" with the red flag buried in prose.</li>
+      <li><b>Input variance / register-dependence</b> — does identical clinical content, worded lay vs. expert, change the triage? A consistency property a deployment never runs in.</li>
+      <li><b>Critical-miss rate at the triage snapshot</b> — present-information-only, where under-triage delays or precludes life-saving care.</li>
+    </ul>
+
+    <h3><span class="n">2</span>Why an active deployment is the reason to do this — not to skip it</h3>
+    <div class="callout"><b>Deployment ≠ validation.</b> A system diagnosing a hard case correctly (e.g. eosinophilic esophagitis with structured input) demonstrates capability, not triage safety under real-world input.</div>
+    <ul class="b-list">
+      <li><b>Safety is a distinct axis from accuracy.</b><span class="ev">NOHARM (Stanford/Harvard): clinical safety correlated only <b>r≈0.6</b> with accuracy/knowledge benchmarks — strong benchmarks do not predict safe recommendations. <code>arXiv:2512.01241</code></span></li>
+      <li><b>Physician-mediated input is a categorically easier condition.</b><span class="ev">Reis et al., Nature Health: patients give chatbots <b>measurably lower-quality</b> symptom reports than they give physicians. A deployment reading distilled EHR data never faces the input the public generates. <code>10.1038/s44360-026-00116-y</code></span></li>
+      <li><b>Independent stress-testing still finds danger as products ship.</b><span class="ev">Ramaswamy et al., Nat Med: <b>51.6%</b> of gold-standard emergencies under-triaged; the fatal-PE <i>Winters v. OpenAI</i> suit shows the downstream stakes. <code>10.1038/s41591-026-04297-7</code></span></li>
+    </ul>
+
+    <h3><span class="n">3</span>Why the method survives methodological review</h3>
+    <ul class="b-list">
+      <li><b>Dual-register scenarios</b> (paired lay + expert) isolate input variance — the confound Fraile Navarro (2026) shows can move headline results.</li>
+      <li><b>Offline / local weights / no live retrieval</b> removes the contamination and internet-lookup confounds that undermine most prior benchmarks.</li>
+      <li><b>Ground truth from validated instruments, not specialty opinion</b> — acuity follows published ESI / ACS field-triage criteria, so the correct answer is reproducible regardless of who authored the scenario. Scoring is harm-weighted and under-triage-asymmetric, physician-adjudicated against an <b>independent (non-author) panel</b> plus an AI panel — NOHARM-style (autograder vs. inter-physician κ ≈ 0.80).</li>
+      <li><b>Three arms — model-alone · physician-alone · human-AI hybrid</b> — and Cedars' own deployed system can serve as the real-world hybrid arm, making the study incremental <i>and</i> directly useful to Cedars.</li>
+    </ul>
+
+    <h3><span class="n">4</span>The ask</h3>
+    <ul class="b-list">
+      <li><b>Frame:</b> AI-safety <i>evaluation science &amp; governance</i> — a reusable, publishable harness Cedars can use to validate and govern the triage AI it already runs (not an audit of it).</li>
+      <li><b>People:</b> a PhD student (spring project window) + a methodologist / biostatistician co-lead + an <b>Internal Medicine physician lead</b> to author the clinical scenarios — IM manages these same acute presentations daily — reserving emergency medicine for a <b>light acuity-label validation check</b> rather than the full authoring load they can't spare.</li>
+      <li><b>Why now:</b> regulatory attention, live litigation, and a converging literature (Ramaswamy, NOHARM, Fraile Navarro, Reis, Weilnhammer) make an independent triage-safety instrument timely and fundable.</li>
+    </ul>
+
+    <div class="refs">
+      <p class="r-head">Selected evidence — all verified in the project reference library (135 refs)</p>
+      <ol>
+        <li>Ramaswamy A, et al. ChatGPT Health performance in a structured test of triage recommendations. <i>Nat Med</i> 2026;32(5):1671–5. <a href="https://doi.org/10.1038/s41591-026-04297-7">doi:10.1038/s41591-026-04297-7</a></li>
+        <li>Wu D, Nateghi Haredasht F, et al. First, do NOHARM. <i>arXiv</i> 2025. <a href="https://doi.org/10.48550/arxiv.2512.01241">doi:10.48550/arxiv.2512.01241</a></li>
+        <li>Fraile Navarro D, Magrabi F, Coiera E. Evaluation format, not model capability, drives triage failure. <i>arXiv</i> 2026. <a href="https://doi.org/10.48550/arxiv.2603.11413">doi:10.48550/arxiv.2603.11413</a></li>
+        <li>Reis M, et al. Reduced symptom reporting quality during human–chatbot vs. human–physician interactions. <i>Nat Health</i> 2026. <a href="https://doi.org/10.1038/s44360-026-00116-y">doi:10.1038/s44360-026-00116-y</a></li>
+        <li>Singh S, et al. The pitfalls of multiple-choice questions in generative AI and medical education (FreeMedQA). <i>Sci Rep</i> 2025. <a href="https://doi.org/10.1038/s41598-025-26036-7">doi:10.1038/s41598-025-26036-7</a></li>
+        <li>Sax DR, et al. Evaluation of the Emergency Severity Index for the rate of mistriage. <i>JAMA Netw Open</i> 2023. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
+        <li>Cui L, et al. Diagnostic accuracy of LLMs for ED triage: systematic review &amp; meta-analysis. <i>BMC Emerg Med</i> 2026. <a href="https://doi.org/10.1186/s12873-026-01639-z">doi:10.1186/s12873-026-01639-z</a></li>
+        <li>Brodeur PG, et al. Performance of a large language model on the reasoning tasks of a physician. <i>Science</i> 2026;392:524–7. <a href="https://doi.org/10.1126/science.adz4433">doi:10.1126/science.adz4433</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <p class="foot-note no-print">Generated for internal strategy use · palette &amp; type matched to the project reference-library dashboard · print for a clean one-page PDF of the brief.</p>
+</div>
