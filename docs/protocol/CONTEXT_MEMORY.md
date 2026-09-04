@@ -276,6 +276,18 @@ design_overlap, date_added`.
 - **Do not add `--toc` or `--metadata title/subtitle/author`** — the markdown already carries
   its own title block. Adding them produced a duplicate title block and an unwanted table of
   contents that the prior build did not have.
+- **The toolchain is not guaranteed to exist.** The container is ephemeral. `pandoc`,
+  `poppler-utils` and `libreoffice-writer` may all be missing after re-provisioning; install with
+  `apt-get update -qq ; apt-get install -y --no-install-recommends pandoc poppler-utils libreoffice-writer`.
+  **`libreoffice-core` can be present while `libreoffice-writer` is not** — in that state
+  `soffice --convert-to pdf` prints an error, **exits 0**, and silently leaves the *old* PDF in
+  place, so page counts look plausible while you are measuring a stale file. Verify end-to-end on a
+  throwaway document (`pandoc` → `soffice` → `pdfinfo` must print a page count) before rebuilding
+  anything, and after a rebuild confirm the PDF's mtime is newer than the markdown. Happened 3 Sep
+  2026; the weekly-review trigger and `weekly_reviews/README.md` now carry this as Step 0.
+- **Also after re-provisioning:** the working tree may be on `main` with no protocol work present.
+  Nothing is lost — restore with
+  `git checkout -B claude/cedars-sinai-safety-protocol-0gb0wg origin/claude/cedars-sinai-safety-protocol-0gb0wg`.
 - **Always render the built PDF to PNG and look at it before delivering.** Schema and text
   validation alone missed three real defects: the TOC/duplicate-title regression, a stale
   §14 heading, and header blocks collapsing into run-on paragraphs. The fix for the last one

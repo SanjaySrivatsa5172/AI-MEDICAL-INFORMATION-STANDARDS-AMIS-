@@ -44,3 +44,47 @@ and applied — never the proposal email. Proposals go to the PI alone.
 Full project state — people, design, endpoints, evidence base, open decisions, working
 constraints — is maintained in [`../CONTEXT_MEMORY.md`](../CONTEXT_MEMORY.md). Read it before
 each review; update it when a decision closes or a document version changes.
+
+## Step 0 — environment preflight (added 4 Sep 2026, PI-directed)
+
+The session container is ephemeral and may be freshly provisioned. Two failures have actually
+occurred, and **both are silent**:
+
+**(a) Wrong branch.** The working tree can come up on `main` with no protocol work present.
+Nothing has been lost — it is all on the remote. Restore before doing anything else:
+
+```
+cd /home/user/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+git fetch origin
+git checkout -B claude/cedars-sinai-safety-protocol-0gb0wg origin/claude/cedars-sinai-safety-protocol-0gb0wg
+```
+
+Confirm `docs/protocol/PROTOCOL_v3_CONSOLIDATED.md` and `weekly_reviews/state.json` exist.
+
+**(b) Missing document toolchain — the dangerous one.** `pandoc`, `poppler-utils`, and
+`libreoffice-writer` may all be absent. Install with:
+
+```
+apt-get update -qq ; apt-get install -y --no-install-recommends pandoc poppler-utils libreoffice-writer
+```
+
+**`libreoffice-core` can be installed while `libreoffice-writer` is not.** In that state
+`soffice --convert-to pdf` runs, prints `Error: source file could not be loaded`, and **exits 0**,
+leaving the *previous* PDF in place. Page counts then look correct because a stale file is being
+measured. This happened on 3 September 2026 and was caught only by testing conversion on a
+throwaway document.
+
+**Never trust the exit code.** Verify end-to-end before rebuilding any deliverable:
+
+```
+printf '# Test\n\nHello.\n' > /tmp/tc.md
+pandoc /tmp/tc.md -o /tmp/tc.docx --standalone
+soffice --headless --convert-to pdf --outdir /tmp /tmp/tc.docx
+pdfinfo /tmp/tc.pdf | grep Pages      # must print "Pages: 1"
+```
+
+If soffice complains about a profile, add `-env:UserInstallation=file:///tmp/lo_profile`.
+`failed to launch javaldx` is harmless.
+
+After any rebuild, confirm the output PDF's **mtime is newer than the source markdown** — not
+merely that a PDF exists. Record any Step 0 problem in the review file.
