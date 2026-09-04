@@ -255,13 +255,13 @@ months**, a contamination and independence concern we surface rather than let re
 Updated daily at ~14:09 UTC by the canonical reconciler on branch
 `claude/cedars-sinai-ai-safety-refs-nw6h0p` (PR #1).
 
-**`reference-library/library.json`** — currently **176 references** (canonical dashboard 175
-+ the Sheng entry; synced 27 Aug). Strict **14-key schema**, no extra keys:
+**`reference-library/library.json`** — currently **178 references** (canonical dashboard 177
++ the Sheng entry; synced 3 Sep). Strict **14-key schema**, no extra keys:
 `title, authors, journal, year, pmid, doi, url, type, topics, tier, relevance, source,
 design_overlap, date_added`.
 
-`state.json` watermark at last review: `last_review 2026-08-27`, `dashboard_refs_at_review
-175`, `alerts_at_review 6`.
+`state.json` watermark at last review: `last_review 2026-09-03`, `dashboard_refs_at_review
+177`, `alerts_at_review 6`.
 
 > **Fork hazard — check this every time.** Our branch once drifted **47 references behind**
 > the canonical lineage. Merging PR #2 at that moment would have silently clobbered them.
@@ -372,6 +372,7 @@ design_overlap, date_added`.
 | 29 Aug 2026 | **§7.3 JURY AMENDMENT APPROVED** ("APPROVE THE 7.3 AMENDMENT") and applied, commit 8aebcfc: §7.3 replaced in full (7.3.1–7.3.6) — exactly three judges, family-level exclusion, ≥3 runs each, **unanimity required for a verdict** with budgeted routing of indeterminates, **three conjunctive gates on one-sided confidence bounds** incl. a directional conditional-false-credit gate, AC1 demoted to a reported statistic, JDDR, shadow mode. DECISION 2 split into 2a/2b with AC1 ≥ 0.75 retired; Appendix F registered; Table A5 jury row reconciled. Protocol now 29 pp. **PART 5 (15 edits) and S1 NOT approved — still open** |
 | 30 Aug 2026 | **PART 5 ITEMS 2 AND 3 APPROVED** ("APPROVE PART 5 ITEMS 2 AND 3") and applied: new **§7.2.1** gives the deterministic layer acceptance criteria (scope, labelling procedure, confusion matrix, fallback to physician ascertainment; floor on the DECISION 2a rail, no number stated) — closes the rigour inversion; **Table A4 gains a Layer column** and every endpoint is assigned — **AFR is deterministic + physician-adjudicated, never jury-scored**. Protocol now 31 pp. Items 1, 4–15 and S1 still open |
 | 30 Aug 2026 | **PART 5 ITEMS 4 AND 5 APPROVED** ("APPROVE PART 5 ITEMS 4 AND 5") and applied: the **~40/30/30 weights are removed** (verified first: no composite score exists, no §8 analysis consumes a weighted total, no rule said what shares become on reversion) — layers now defined by remit, Table A5 Share→Remit; **new §7.6** declares the jury layer non-load-bearing. Protocol 32 pp. **DISCOVERED:** the Scientific Introduction's scoring paragraph has been stale since the 29 Aug §7.3 approval — contradicts the protocol on six points; replacement drafted in `weekly_reviews/proposed_edits_2026-08-30_sciintro_resync.md`, **NOT applied, awaiting PI approval** |
+| 3 Sep 2026 | Weekly review cycle 3. Container re-provisioned (branch restored from origin, nothing lost; pandoc/poppler/libreoffice-writer reinstalled). **EDITS 1–3 APPROVED** ("APPROVE EDITS 1-3") and applied: **triage-refusal added as a third output category** — excluded from CMR numerator/denominator, reported as a secondary endpoint, with a sensitivity analysis counting refusals as misses (§4.1, §7.2.1 three-way classification, Table A4 row); DECISION 1 note updated with a **second, benchmark-matched anchoring null** (Jia et al., PMID 42673790, OR 1.08, Holm p=1.0) and its bound; informational-regime result cited in the SciIntro (objective data eliminated under-triage 25%→0%). Key Ref 23 added; §13 library count corrected 124→178. Protocol 33 pp, SciIntro 21 pp. Library 178 |
 
 ### The four approved edits (21 Aug 2026), for the record
 1. **Retracted a falsified novelty claim.** The assertion that the note-embedded cue locus
