@@ -1,0 +1,50 @@
+{
+ "meta": {
+  "source": "digital.health/journals",
+  "source_url": "https://digital.health/journals",
+  "curated_by": "Daniel Kraft, MD (Digital.Health)",
+  "directory_as_of": "2026-08-11",
+  "captured": "2026-08-14",
+  "captured_via": "PI-uploaded PDF of the page (digital.health is blocked by this environment's egress allowlist; live auto-refresh pending allowlist per search-strategy.md)",
+  "counts": { "journals": 28, "editorial_categories": 4, "open_access_titles": 15, "databases": 2, "preprint_servers": 2 },
+  "note": "Authoritative source set for the daily scan's Journal Coverage. Widens the source set only; the Core Question Anchor and Inclusion Filter still gate what enters library.json. Emergency-medicine journals (Annals of EM, Academic EM, AJEM, JACEP Open, WJEM) are NOT on this directory but are retained in coverage as essential for this triage study."
+ },
+ "journals": [
+  { "name": "The Lancet Digital Health", "publisher": "Elsevier / The Lancet Group", "category": "flagship", "oa": true, "best_for": "high-visibility, practice-changing clinical trials and large-scale digital health evaluations" },
+  { "name": "npj Digital Medicine", "publisher": "Nature Partner Journals", "category": "flagship", "oa": true, "best_for": "rigorous clinical/translational digital medicine; wearables, sensors, longitudinal data" },
+  { "name": "NEJM AI", "publisher": "NEJM Group / Massachusetts Medical Society", "category": "flagship", "oa": false, "best_for": "peer-reviewed clinical AI evaluations, generative-AI deployment studies, AI safety in medicine" },
+  { "name": "Journal of the American Medical Informatics Association (JAMIA)", "publisher": "Oxford University Press / AMIA", "category": "flagship", "oa": false, "best_for": "biomedical/health informatics, EHR studies, clinical decision support" },
+  { "name": "Nature Medicine", "publisher": "Springer Nature", "category": "flagship", "oa": false, "best_for": "landmark translational research incl. high-impact AI-in-medicine and clinical genomics" },
+  { "name": "The BMJ", "publisher": "BMJ Publishing Group", "category": "open-access", "oa": true, "best_for": "evidence-based digital interventions, regulatory science, AI clinical-trial reporting standards" },
+  { "name": "Journal of Medical Internet Research (JMIR)", "publisher": "JMIR Publications", "category": "open-access", "oa": true, "best_for": "high-volume eHealth research, digital interventions, behavior-change studies" },
+  { "name": "Digital Health (SAGE)", "publisher": "SAGE Publications", "category": "open-access", "oa": true, "best_for": "interdisciplinary digital health bridging informatics, clinical care, behavior change" },
+  { "name": "PLOS Digital Health", "publisher": "Public Library of Science", "category": "open-access", "oa": true, "best_for": "equity-focused digital health, fairness in clinical AI, global public health applications" },
+  { "name": "Frontiers in Digital Health", "publisher": "Frontiers Media", "category": "ai-informatics-methods", "oa": true, "best_for": "multidisciplinary digital health, AI ethics/personalization, topical collections" },
+  { "name": "BMJ Health & Care Informatics", "publisher": "BMJ Group / BCS", "category": "ai-informatics-methods", "oa": true, "best_for": "applied informatics in care delivery, learning health systems, front-line practitioner studies" },
+  { "name": "JAMA Network Open", "publisher": "American Medical Association", "category": "ai-informatics-methods", "oa": true, "best_for": "empirical evaluations of clinical AI tools, LLM diagnostic studies, EHR-integrated AI deployments" },
+  { "name": "Cell Reports Medicine", "publisher": "Cell Press / Elsevier", "category": "ai-informatics-methods", "oa": true, "best_for": "AI in oncology, drug development, ophthalmology, high-impact translational digital medicine" },
+  { "name": "Digital Biomarkers", "publisher": "Karger Publishers", "category": "ai-informatics-methods", "oa": true, "best_for": "sensor-derived biomarkers, validation studies, connected-device clinical research" },
+  { "name": "JMIR AI", "publisher": "JMIR Publications", "category": "ai-informatics-methods", "oa": true, "best_for": "applied AI/ML methods papers, reproducibility, real-world evaluation of clinical AI (launched 2022)" },
+  { "name": "IEEE Journal of Biomedical and Health Informatics (IEEE JBHI)", "publisher": "IEEE Engineering in Medicine & Biology Society", "category": "ai-informatics-methods", "oa": false, "best_for": "ML methods, signal processing, engineering papers on biomedical/connected-device informatics" },
+  { "name": "International Journal of Medical Informatics", "publisher": "Elsevier", "category": "ai-informatics-methods", "oa": false, "best_for": "EHR studies, NLP for clinical text, implementation science behind digital tools" },
+  { "name": "Artificial Intelligence in Medicine", "publisher": "Elsevier", "category": "ai-informatics-methods", "oa": false, "best_for": "AI methods papers, model architectures, validation, interpretability in clinical medicine" },
+  { "name": "Journal of Biomedical Informatics", "publisher": "Elsevier", "category": "ai-informatics-methods", "oa": false, "best_for": "data standards, ontologies, NLP for clinical text, computational biomedical knowledge" },
+  { "name": "Applied Clinical Informatics", "publisher": "Thieme / AMIA / IMIA / EFMI", "category": "ai-informatics-methods", "oa": false, "best_for": "EHR implementation, clinical decision support, workflow side of health IT" },
+  { "name": "Telemedicine and e-Health", "publisher": "Mary Ann Liebert / American Telemedicine Association", "category": "applied", "oa": false, "best_for": "telehealth implementation, remote patient monitoring, rural/remote care delivery" },
+  { "name": "JMIR mHealth and uHealth", "publisher": "JMIR Publications", "category": "applied", "oa": true, "best_for": "mobile health apps, wearables, sensors, consumer health technology" },
+  { "name": "International Journal of Digital Healthcare (IJDH)", "publisher": "Graphy Publications", "category": "applied", "oa": true, "best_for": "case reports, applied digital healthcare research, global authorship" },
+  { "name": "Digital Medicine", "publisher": "Wolters Kluwer (Lippincott) / International Society of Digital Medicine", "category": "applied", "oa": false, "best_for": "applied digital therapeutics, retrieval-augmented generation in care, clinical AI implementation" },
+  { "name": "Health Affairs", "publisher": "Project HOPE", "category": "applied", "oa": false, "best_for": "digital therapeutics reimbursement, telehealth policy, FDA SaMD regulation, AI governance" },
+  { "name": "Learning Health Systems", "publisher": "Wiley / University of Michigan", "category": "applied", "oa": true, "best_for": "learning health systems, real-world evidence, continuous-improvement studies" },
+  { "name": "NEJM Catalyst Innovations in Care Delivery", "publisher": "NEJM Group / Massachusetts Medical Society", "category": "applied", "oa": false, "best_for": "health-system innovation, value-based care models, operational case studies" },
+  { "name": "Mayo Clinic Proceedings: Digital Health", "publisher": "Elsevier / Mayo Clinic", "category": "applied", "oa": true, "best_for": "implementation/validation/translation of digital health incl. VR/AR, wearables, platform care" }
+ ],
+ "databases": [
+  { "name": "PubMed", "publisher": "NIH / NLM", "use": "biomedical literature search across the field's full history", "status": "already used by the scan (PubMed MCP for verification + recency sweeps)" },
+  { "name": "ClinicalTrials.gov", "publisher": "NIH", "use": "registry of active/completed clinical studies — track digital-health / AI-triage trials", "status": "NEW angle (per PI #databases link) — add a trials sweep for benchmarks/trials matching the protocol design (Urgent Alert trigger)" }
+ ],
+ "preprint_servers": [
+  { "name": "medRxiv", "use": "medical/health-sciences preprints; landmark digital-health work often appears months before peer review", "status": "already in coverage" },
+  { "name": "arXiv (cs.LG / q-bio)", "use": "ML-in-medicine and computational-biology preprints; foundation models, clinical LLMs, AI methods", "status": "already in coverage" }
+ ]
+}

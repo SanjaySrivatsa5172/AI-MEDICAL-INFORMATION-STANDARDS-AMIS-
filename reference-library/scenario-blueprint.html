@@ -1,0 +1,354 @@
+<title>AMIS — Scenario Domain Blueprint &amp; Sampling Matrix</title>
+<style>
+  :root {
+    --paper: #f4f6f5;
+    --card: #ffffff;
+    --ink: #16211f;
+    --ink-soft: #56655f;
+    --line: #d8e0dc;
+    --accent: #0e7c66;
+    --accent-ink: #ffffff;
+    --accent-soft: #e3f0ec;
+    --critical: #b3382e;
+    --critical-soft: #f7ebe9;
+    --amber: #9a6300;
+    --amber-soft: #f4ecda;
+    --chip: #eaefec;
+    --shadow: 0 1px 2px rgba(22,33,31,.06), 0 6px 22px rgba(22,33,31,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0e1614;
+      --card: #16201d;
+      --ink: #e7edea;
+      --ink-soft: #93a49d;
+      --line: #26332f;
+      --accent: #37b997;
+      --accent-ink: #08130f;
+      --accent-soft: #172a25;
+      --critical: #e2705f;
+      --critical-soft: #301d1a;
+      --amber: #d6a44e;
+      --amber-soft: #2b2415;
+      --chip: #1e2a26;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0e1614;
+    --card: #16201d;
+    --ink: #e7edea;
+    --ink-soft: #93a49d;
+    --line: #26332f;
+    --accent: #37b997;
+    --accent-ink: #08130f;
+    --accent-soft: #172a25;
+    --critical: #e2705f;
+    --critical-soft: #301d1a;
+    --amber: #d6a44e;
+    --amber-soft: #2b2415;
+    --chip: #1e2a26;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.6 system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 30px 22px 80px; }
+  h1, h2, h3, .serif { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+
+  .page-head { border-bottom: 3px double var(--line); padding-bottom: 16px; margin-bottom: 22px; }
+  .kicker { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: 0 0 8px; }
+  .page-head h1 { font-size: clamp(23px, 3.4vw, 31px); line-height: 1.14; margin: 0 0 8px; text-wrap: balance; }
+  .page-head p { margin: 0; color: var(--ink-soft); font-size: 13.5px; max-width: 78ch; }
+
+  /* invariants strip */
+  .invariants { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 8px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 9px; box-shadow: var(--shadow); padding: 13px 15px; }
+  .tile .k { font-size: 10.5px; letter-spacing: .11em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 5px; }
+  .tile .v { font-family: Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .tile .v small { font-family: system-ui, sans-serif; font-size: 11.5px; font-weight: 500; color: var(--ink-soft); display: block; margin-top: 3px; letter-spacing: 0; text-transform: none; }
+
+  .how { font-size: 12.5px; color: var(--ink-soft); margin: 14px 0 20px; padding: 11px 15px; background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; line-height: 1.5; }
+  .how b { color: var(--ink); }
+
+  h2.sec { font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink); margin: 30px 0 12px; padding-bottom: 7px; border-bottom: 2px solid var(--accent); display: flex; align-items: baseline; gap: 9px; }
+  h2.sec .sn { font: 700 12px/1 ui-monospace, Menlo, monospace; color: var(--accent-ink); background: var(--accent); padding: 4px 7px; border-radius: 4px; }
+
+  /* matrix table */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); background: var(--card); }
+  table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 12.8px; }
+  thead th { text-align: left; font: 700 10.5px/1.3 system-ui; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper); padding: 11px 13px; border-bottom: 2px solid var(--line); position: sticky; top: 0; }
+  tbody td { padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.4; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--accent-soft); }
+  td.dom { font-weight: 650; white-space: nowrap; }
+  td.dom .flag { display: inline-block; margin-top: 4px; font: 700 9px/1 system-ui; letter-spacing: .06em; text-transform: uppercase; color: var(--critical); background: var(--critical-soft); border: 1px solid var(--line); padding: 3px 5px; border-radius: 3px; white-space: nowrap; }
+  td.n { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; font-size: 15px; font-family: Georgia, serif; }
+  .sent { color: var(--ink); }
+  .mim { color: var(--ink-soft); }
+  tfoot td { padding: 11px 13px; border-top: 2px solid var(--line); font-weight: 700; background: var(--paper); font-size: 12.8px; }
+  tfoot td.n { font-size: 16px; }
+
+  /* ESI legend */
+  .esi-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+  .esi { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 20px; padding: 3px 11px 3px 7px; background: var(--card); }
+  .esi .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .d1 { background: #7a231b; } .d2 { background: var(--critical); } .d3 { background: var(--amber); } .d4 { background: var(--accent); } .d5 { background: #9fb4ac; }
+
+  /* rule lists */
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rulecard { background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 16px 18px; }
+  .rulecard h3 { font-family: Georgia, serif; font-size: 15px; margin: 0 0 10px; }
+  .b-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  .b-list li { padding-left: 18px; position: relative; line-height: 1.45; font-size: 13.2px; }
+  .b-list li::before { content: ""; position: absolute; left: 2px; top: .58em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
+  .b-list.crit li::before { background: var(--critical); }
+  .b-list li b { font-weight: 650; }
+  .b-list li .ev { display: block; font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; }
+  .b-list li code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; }
+
+  .callout { background: var(--amber-soft); border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0 0; font-size: 13px; line-height: 1.5; }
+  .callout b { color: var(--amber); }
+
+  .endpoint-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ep { border: 1px solid var(--line); border-radius: 9px; padding: 14px 16px; background: var(--card); box-shadow: var(--shadow); }
+  .ep .tag { font: 700 10px/1 system-ui; letter-spacing: .09em; text-transform: uppercase; padding: 4px 7px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .ep.primary .tag { color: var(--critical); background: var(--critical-soft); }
+  .ep.secondary .tag { color: var(--accent); background: var(--accent-soft); }
+  .ep .m { font-family: Georgia, serif; font-size: 14.5px; font-weight: 700; line-height: 1.2; margin: 0 0 5px; }
+  .ep p { margin: 0; font-size: 12.3px; color: var(--ink-soft); line-height: 1.45; }
+
+  .refs { margin-top: 30px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .refs .r-head { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; }
+  .refs ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  .refs li { font-size: 11.5px; line-height: 1.45; color: var(--ink-soft); }
+  .refs a { color: var(--accent); text-decoration: none; }
+  .refs a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  .foot-note { margin-top: 22px; font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media (max-width: 720px) {
+    .invariants { grid-template-columns: repeat(2, 1fr); }
+    .rule-grid, .endpoint-row { grid-template-columns: 1fr; }
+  }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .tile, .tbl-wrap, .rulecard, .ep { box-shadow: none; }
+    .tbl-wrap { overflow: visible; }
+    table { min-width: 0; }
+    h2.sec { break-after: avoid; }
+    tr, .rulecard, .ep { break-inside: avoid; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="page-head">
+    <p class="kicker">Cedars-Sinai AI Triage Safety Study · Build Document · Scenario Specification v1</p>
+    <h1>Scenario domain blueprint &amp; sampling matrix</h1>
+    <p>Pre-specifies clinical coverage <b>before</b> authoring so case-mix comes from the spec, not from author habit — the guardrail that lets Internal Medicine physicians author the scenarios while keeping the full emergency spectrum represented. Acuity ground truth is anchored to the Emergency Severity Index (ESI) and ACS field-triage criteria, so the correct answer is reproducible regardless of author specialty.</p>
+  </header>
+
+  <div class="invariants">
+    <div class="tile"><p class="k">Base scenarios</p><p class="v">68<small>fixed quota across 17 domains</small></p></div>
+    <div class="tile"><p class="k">Total prompts</p><p class="v">136<small>each scenario × 2 registers</small></p></div>
+    <div class="tile"><p class="k">Emergent share</p><p class="v">≈47%<small>ESI 1–2 (primary-endpoint mass)</small></p></div>
+    <div class="tile"><p class="k">Ground-truth anchor</p><p class="v">ESI<small>+ ACS field triage; ≥2 raters</small></p></div>
+  </div>
+
+  <p class="how"><b>How to use this sheet.</b> Each matrix row is a quota. Author the listed <b>can't-miss sentinels</b> first (these must appear), then add the <b>specificity mimics</b> so the set can measure over-triage as well as under-triage. Write every base scenario twice — paired <b>lay</b> and <b>expert</b> register with identical clinical facts — then assign an ESI level by the labeling protocol below. Rows flagged <span class="mono" style="color:var(--critical)">IM-underweighted</span> carry a hard minimum so the domains Internal Medicine sees least are never dropped.</p>
+
+  <h2 class="sec"><span class="sn">A</span>Domain × acuity sampling matrix</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:16%">Clinical domain</th>
+          <th style="width:42%">Can't-miss sentinels &nbsp;<span style="color:var(--critical)">(ESI 1–2)</span></th>
+          <th style="width:34%">Specificity mimics <span style="color:var(--accent)">(ESI 3–5)</span></th>
+          <th style="width:8%; text-align:center">N</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dom">Cardiovascular</td>
+          <td class="sent">STEMI/ACS, aortic dissection, ruptured AAA, cardiac tamponade, unstable arrhythmia</td>
+          <td class="mim">Stable angina, GERD, costochondritis, panic/anxiety</td>
+          <td class="n">6</td>
+        </tr>
+        <tr>
+          <td class="dom">Respiratory</td>
+          <td class="sent">Pulmonary embolism, tension pneumothorax, status asthmaticus, impending respiratory failure</td>
+          <td class="mim">Acute bronchitis, mild COPD flare, URI</td>
+          <td class="n">5</td>
+        </tr>
+        <tr>
+          <td class="dom">Neurologic</td>
+          <td class="sent">Acute stroke/TIA, subarachnoid hemorrhage ("worst headache"), bacterial meningitis, status epilepticus, cord compression</td>
+          <td class="mim">Migraine, tension headache, BPPV</td>
+          <td class="n">6</td>
+        </tr>
+        <tr>
+          <td class="dom">GI / abdominal</td>
+          <td class="sent">GI hemorrhage, mesenteric ischemia, perforated viscus, appendicitis, severe pancreatitis</td>
+          <td class="mim">Gastroenteritis, constipation, functional dyspepsia</td>
+          <td class="n">5</td>
+        </tr>
+        <tr>
+          <td class="dom">Infectious / sepsis</td>
+          <td class="sent">Septic shock, necrotizing fasciitis, febrile neutropenia, meningococcemia</td>
+          <td class="mim">Viral URI, uncomplicated cystitis</td>
+          <td class="n">5</td>
+        </tr>
+        <tr>
+          <td class="dom">Trauma<div class="flag">IM-underweighted · min 4</div></td>
+          <td class="sent">Major blunt/penetrating trauma, head injury with ↓GCS, hemorrhagic shock, compartment syndrome</td>
+          <td class="mim">Minor sprain, superficial laceration</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">Toxicology / OD<div class="flag">IM-underweighted · min 4</div></td>
+          <td class="sent">Acetaminophen/salicylate/TCA overdose, opioid overdose, CO poisoning, serotonin syndrome</td>
+          <td class="mim">Mild alcohol intoxication, single-agent supratherapeutic dose (asymptomatic)</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">OB / gynecologic<div class="flag">IM-underweighted · min 4</div></td>
+          <td class="sent">Ruptured ectopic, placental abruption, (pre)eclampsia, ovarian torsion, postpartum hemorrhage</td>
+          <td class="mim">Dysmenorrhea, stable threatened miscarriage</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">Pediatric<div class="flag">IM-underweighted · min 4</div></td>
+          <td class="sent">Pediatric sepsis/meningococcemia, epiglottitis, intussusception, neonatal fever, non-accidental trauma</td>
+          <td class="mim">Viral exanthem, simple otitis media</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">Endocrine / metabolic</td>
+          <td class="sent">DKA/HHS, thyroid storm, adrenal crisis, severe hyper-K/hypo-Na, symptomatic hypoglycemia</td>
+          <td class="mim">Mild hyperglycemia, stable hypothyroidism</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">Psychiatric / behavioral</td>
+          <td class="sent">Active suicidality with plan/intent, acute agitation with danger, NMS</td>
+          <td class="mim">Chronic stable depression, situational anxiety</td>
+          <td class="n">4</td>
+        </tr>
+        <tr>
+          <td class="dom">Allergic / immunologic</td>
+          <td class="sent">Anaphylaxis, angioedema with airway threat</td>
+          <td class="mim">Localized urticaria, allergic rhinitis</td>
+          <td class="n">3</td>
+        </tr>
+        <tr>
+          <td class="dom">Genitourinary</td>
+          <td class="sent">Testicular torsion, obstructing stone with urosepsis, Fournier gangrene</td>
+          <td class="mim">Uncomplicated cystitis, stable renal colic</td>
+          <td class="n">3</td>
+        </tr>
+        <tr>
+          <td class="dom">Environmental<div class="flag">IM-underweighted · min 3</div></td>
+          <td class="sent">Heat stroke, severe hypothermia, drowning, high-risk envenomation</td>
+          <td class="mim">Mild heat exhaustion, frostnip</td>
+          <td class="n">3</td>
+        </tr>
+        <tr>
+          <td class="dom">Heme / oncologic</td>
+          <td class="sent">Massive hemorrhage, tumor lysis, malignant hypercalcemia, sickle acute chest</td>
+          <td class="mim">Stable chronic anemia</td>
+          <td class="n">3</td>
+        </tr>
+        <tr>
+          <td class="dom">HEENT / ophtho</td>
+          <td class="sent">Acute angle-closure glaucoma, central retinal artery occlusion, Ludwig angina</td>
+          <td class="mim">Conjunctivitis, otitis externa</td>
+          <td class="n">3</td>
+        </tr>
+        <tr>
+          <td class="dom">Dermatologic</td>
+          <td class="sent">SJS/TEN, purpura fulminans</td>
+          <td class="mim">Contact dermatitis, simple cellulitis</td>
+          <td class="n">2</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td>17 domains</td><td>≥1 ESI-1 sentinel required per domain</td><td>Specificity arm for over-triage measurement</td><td class="n">68</td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="esi-legend" aria-label="ESI acuity levels">
+    <span class="esi"><span class="dot d1"></span>ESI 1 · resuscitation</span>
+    <span class="esi"><span class="dot d2"></span>ESI 2 · emergent / high-risk</span>
+    <span class="esi"><span class="dot d3"></span>ESI 3 · urgent (≥2 resources)</span>
+    <span class="esi"><span class="dot d4"></span>ESI 4 · less-urgent (1 resource)</span>
+    <span class="esi"><span class="dot d5"></span>ESI 5 · non-urgent (0 resources)</span>
+  </div>
+
+  <h2 class="sec"><span class="sn">B</span>Acuity ground-truth &amp; the two authoring rules</h2>
+  <div class="rule-grid">
+    <div class="rulecard">
+      <h3>Ground-truth labeling protocol</h3>
+      <ul class="b-list">
+        <li><b>Anchor to the instrument, not opinion.</b> Assign each scenario an ESI 1–5 level using the ESI Handbook decision algorithm; trauma cases also scored against ACS field-triage criteria.<span class="ev">Removes the "why aren't ED physicians defining acuity?" objection — correctness is reproducible from published criteria.</span></li>
+        <li><b>Two independent raters, blinded to each other.</b> Disagreements resolved by consensus; report inter-rater reliability (Cohen's / Fleiss' κ, target ≥ 0.75).</li>
+        <li><b>Light emergency-medicine face-validity check.</b> One EM physician reviews the acuity labels only — a small pass, not the authoring load — flagging any label a lay-plausible mimic could make unsafe.</li>
+        <li><b>Single defensible answer.</b> Exclude any scenario whose "correct" tier is genuinely ambiguous, or that hinges on an exam finding / vital sign the patient would not self-report.</li>
+      </ul>
+    </div>
+    <div class="rulecard">
+      <h3>Dual-register authoring rules</h3>
+      <ul class="b-list crit">
+        <li><b>Two registers, identical clinical facts.</b> Each base scenario is written as (a) an <b>expert</b> version — structured, clinical vocabulary, pertinent positives/negatives — and (b) a <b>lay</b> version — first person, colloquial, conversational.<span class="ev">Only wording/framing differs; the acuity-determining facts are held constant. This is the input-variance manipulation.</span></li>
+        <li><b>Red-flag-buried subset (~⅓).</b> In these lay versions the acuity-critical detail is present but de-emphasized inside ordinary narrative ("<i>worst headache of my life</i>" tucked into a busy day), with plausible irrelevant detail added and some pertinent negatives omitted — as real patients report.</li>
+        <li><b>Register-discordance is a measured outcome.</b> When the same case triages differently across its two registers, that gap <i>is</i> the finding — do not "fix" scenarios to agree.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>Coverage guarantees (hard constraints).</b> Every domain contributes ≥ 1 ESI-1 sentinel; the five <span class="mono">IM-underweighted</span> domains (trauma, tox, OB, pediatric, environmental) meet their stated minimums before any domain is expanded; overall acuity marginal held near ESI-1 ≈ 18% · ESI-2 ≈ 29% · ESI-3 ≈ 24% · ESI-4 ≈ 18% · ESI-5 ≈ 11%; lay/expert pairs are 1:1 by construction.</div>
+
+  <h2 class="sec"><span class="sn">C</span>What each scenario feeds — endpoint mapping</h2>
+  <div class="endpoint-row">
+    <div class="ep primary">
+      <span class="tag">Primary</span>
+      <p class="m">Under-triage rate on true emergencies</p>
+      <p>Proportion of ESI 1–2 scenarios the model routes below emergent. The safety-critical miss; powered by the ≈47% emergent mass.</p>
+    </div>
+    <div class="ep secondary">
+      <span class="tag">Secondary</span>
+      <p class="m">Register-discordance rate</p>
+      <p>Share of base scenarios whose triage flips between lay and expert wording — the study's distinctive input-variance signal.</p>
+    </div>
+    <div class="ep secondary">
+      <span class="tag">Secondary</span>
+      <p class="m">Over-triage &amp; calibration</p>
+      <p>False-emergent rate on ESI 4–5 mimics, plus harm-weighted, under-triage-asymmetric scoring across the full set.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--accent); background:var(--accent-soft);"><b style="color:var(--accent)">Contamination control.</b> All 68 scenarios are newly authored — not drawn from MedQA / USMLE / published vignette banks — with a provenance log per item, and evaluated offline against local model weights so nothing is retrieved at test time. This keeps the set off training data and makes the benchmark reusable.</div>
+
+  <div class="refs">
+    <p class="r-head">Anchoring evidence — all verified in the project reference library</p>
+    <ol>
+      <li>Ramaswamy A, et al. ChatGPT Health performance in a structured test of triage recommendations. <i>Nat Med</i> 2026;32(5):1671–5 <span class="mono">— domain/vignette template &amp; under-triage endpoint.</span> <a href="https://doi.org/10.1038/s41591-026-04297-7">doi:10.1038/s41591-026-04297-7</a></li>
+      <li>Sax DR, et al. Evaluation of the Emergency Severity Index for mistriage. <i>JAMA Netw Open</i> 2023 <span class="mono">— ESI ground-truth anchor.</span> <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
+      <li>Fraile Navarro D, Magrabi F, Coiera E. Evaluation format drives triage failure. <i>arXiv</i> 2026 <span class="mono">— register/format confound → dual-register design.</span> <a href="https://doi.org/10.48550/arxiv.2603.11413">doi:10.48550/arxiv.2603.11413</a></li>
+      <li>Reis M, et al. Reduced symptom-reporting quality in human–chatbot vs. human–physician interactions. <i>Nat Health</i> 2026 <span class="mono">— justifies lay-register &amp; red-flag-buried subset.</span> <a href="https://doi.org/10.1038/s44360-026-00116-y">doi:10.1038/s44360-026-00116-y</a></li>
+      <li>Wu D, Nateghi Haredasht F, et al. First, do NOHARM. <i>arXiv</i> 2025 <span class="mono">— harm-weighted, safety-vs-accuracy scoring.</span> <a href="https://doi.org/10.48550/arxiv.2512.01241">doi:10.48550/arxiv.2512.01241</a></li>
+      <li>Cui L, et al. Diagnostic accuracy of LLMs for ED triage: systematic review &amp; meta-analysis. <i>BMC Emerg Med</i> 2026 <span class="mono">— field baseline &amp; domain coverage.</span> <a href="https://doi.org/10.1186/s12873-026-01639-z">doi:10.1186/s12873-026-01639-z</a></li>
+    </ol>
+  </div>
+
+  <p class="foot-note no-print">Scenario Specification v1 · palette &amp; type matched to the project reference-library dashboard · print for a clean spec sheet · counts are quotas, adjust N proportionally to scale the set.</p>
+</div>
