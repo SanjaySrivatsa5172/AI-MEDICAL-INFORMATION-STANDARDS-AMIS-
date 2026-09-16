@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-15
-total-references: 183
+last-updated: 2026-09-16
+total-references: 184
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-15** · 183 references.
+Updated daily by automated scan. Last scan: **2026-09-16** · 184 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -137,6 +137,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage… (2)]] (2026)
 - [[Stankić 2026 — Comparative analysis of AI enhancements to rules-based clinical…]] (2026)
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] (2026)
+- [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -210,6 +211,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Stankić 2026 — Comparative analysis of AI enhancements to rules-based clinical…]] (2026)
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] (2026)
 - [[Hartoyo 2026 — Fitzpatrick Skin Type Is Associated With Missed Malignancy in Large…]] (2026)
+- [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -415,6 +417,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Stankić 2026 — Comparative analysis of AI enhancements to rules-based clinical…]] (2026)
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] (2026)
 - [[Hartoyo 2026 — Fitzpatrick Skin Type Is Associated With Missed Malignancy in Large…]] (2026)
+- [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
