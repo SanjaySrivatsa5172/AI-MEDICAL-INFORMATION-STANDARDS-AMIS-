@@ -1,0 +1,203 @@
+# PROPOSED EDITS — weekly literature review, 17 September 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# All four anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at ec8e9c9 (17 Sep 2026).
+# Method: anchored assert-once replacement (each OLD block must occur exactly once, or the
+# script fails loudly and changes nothing).
+#
+# NOTE: the three edits proposed on 10 September (reasoning-control pinning in §5.6; the
+# DECISION 1 evidence-balance update; the §5.3 contamination magnitude) are STILL UNAPPROVED
+# and remain unapplied. This week's proposal is independent of them and does not touch the
+# same anchors — the two can be approved in either order, or separately.
+
+Primary driver: Samsel K, Dharma C, Rezaei AHM, Bahakim A, Ravikumar K, Bhat V, Kamaleddinn MA,
+Shakeri Z. "Too agreeable to be accurate? Sycophancy and diagnostic instability of large language
+models in medical diagnosis." Artif Intell Med 2026;182:103516. doi 10.1016/j.artmed.2026.103516,
+PMID 42721584. Peer-reviewed; verified against PubMed metadata 17 Sep 2026.
+University of Toronto (Institute of Health Policy, Management and Evaluation; Temerty Centre for
+AI Research in Education and Medicine).
+
+Design: 120 public clinical vignettes (40 MultiCaRe-derived narratives, 80 MedMCQA-derived
+exam-style cases) x 10 proprietary and open-weight LLMs x 4 prompt conditions x 3 runs x 2 passes
+= 28,800 responses. Diagnostic correctness evaluated LLM-as-judge.
+
+Findings that carry:
+  - Baseline accuracy 51.8% fell to 42.2% after a single "Are you sure?" certainty challenge
+    (accuracy-changing flip rate 32.8%).
+  - The flips were ASYMMETRIC: 544 correct-to-incorrect transitions against 198
+    incorrect-to-correct.
+  - Claude Sonnet 4 had the highest flip rate (58.6%) and the largest post-challenge accuracy
+    loss (-36.4 percentage points). GPT-5 was most stable (74.4% -> 75.3%).
+  - Specialty-framing prompts moved accuracy far less (adjacent +2.8pp; differential -1.2 to
+    -1.8pp). The certainty challenge was the strongest single source of instability in the study.
+  - Authors' recommendation: evaluations "should report first pass accuracy, harmful flips,
+    beneficial corrections, and stability under clinically plausible conversational challenges
+    before clinical deployment."
+
+================================================================================
+EDIT 1 — SPECIFICATION/BOUNDARY. State that the disposition is measured once
+Sections affected: §10 (what this study does not establish); §4.2 (run-to-run instability)
+
+The gap in OUR protocol: §5.5 Arm A elicits ONE response per scenario, and §4.1 scores the
+Critical Miss Rate from that response. §10 states three boundaries — the S2/S3 encounter-time
+tail, vignettes-are-not-patients, and benchmark-is-not-clearance — and **none of them is the
+single-turn boundary**. A reader can finish §10 believing every stated limitation has been
+disclosed, and still not know that the primary endpoint is measured on one model turn and that a
+follow-up question can reverse the disposition it scored.
+
+Why this belongs in §10 rather than being left implicit: "Vignettes are not patients" covers
+information loss and emotional pressure in how the patient PRESENTS. It does not cover what
+happens after the model answers. Those are different exposures, and the second one now has a
+measured magnitude attached to it.
+
+Scope discipline — what this edit does NOT do. It adds no measurement, no arm, no scenario, and
+no participant burden. It has no effect on §8.4 power, which is already the blocking item. It is
+a disclosure of an existing property of the design. The design-level option (actually probing
+stability) is written up separately below as an OPTION for the PI and is deliberately NOT
+proposed here.
+
+Honesty about transfer: Samsel et al. measured DIAGNOSTIC ACCURACY flips on general clinical
+vignettes, not TRIAGE DISPOSITION flips on emergency scenarios with an asymmetric loss function.
+The proposed text says so explicitly and does not import the effect size as though it were ours.
+What transfers is the direction of the exposure, not the number.
+
+--- HUNK 1a: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§10 opening line) ---
+OLD (anchor, occurs once):
+Three boundaries are stated here rather than left for reviewers to find.
+
+NEW:
+Four boundaries are stated here rather than left for reviewers to find.
+
+--- HUNK 1b: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§10, new boundary inserted before the
+    closing boundary) ---
+OLD (anchor, occurs once):
+**A benchmark result is a measurement, not a clearance.**
+
+NEW:
+**The disposition is measured once.** Arm A elicits a single response per scenario, and the
+Critical Miss Rate is scored from that response. A patient who reads a recommendation and asks
+"are you sure?" — the most ordinary thing a worried person does — is outside what this instrument
+observes. The exposure is not hypothetical: across 120 vignettes, ten models and 28,800 responses,
+one certainty challenge moved diagnostic accuracy from 51.8% to 42.2%, and the flips were
+asymmetric — 544 correct-to-incorrect against 198 incorrect-to-correct, with the worst-affected
+model losing 36.4 percentage points (Samsel et al., *Artif Intell Med* 2026;182:103516). Those are
+diagnostic-accuracy flips on general clinical vignettes, not disposition flips on this instrument's
+scenarios under its asymmetric loss function, and the magnitude must not be assumed to transfer.
+The direction of the exposure does: a single-turn Critical Miss Rate is an upper bound on the
+safety of a system the patient can talk back to. Arm C observes lay participants conversing with a
+model, but scores the participant's disposition rather than the model's; Arm C1, which would
+observe repeated interaction directly, is exploratory and unresolved `[DECISION 4]`.
+
+**A benchmark result is a measurement, not a clearance.**
+
+--- HUNK 1c: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§4.2, run-to-run instability) ---
+OLD (anchor, occurs once):
+- **Run-to-run instability** — disagreement across repeated runs of the same model on the same input
+
+NEW:
+- **Run-to-run instability** — disagreement across repeated runs of the same model on the same
+  input. This quantifies nondeterminism under a fixed prompt. It is **not** a measure of flipping
+  induced by a conversational challenge: that is a different quantity, it requires a second turn
+  to observe, and unlike nondeterminism it is directionally asymmetric (§10)
+
+================================================================================
+HOUSEKEEPING H1 — refresh the §13 library count (requires approval; it edits the protocol)
+Section affected: §13
+
+§13 states "178 entries as of 3 September 2026" and its own parenthetical commits the figure to
+being "refreshed at each weekly review." It was not refreshed at the 10 September review — that is
+my omission, recorded here rather than quietly fixed. The library stood at 180 on 10 September and
+stands at 185 today.
+
+--- HUNK H1: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§13) ---
+OLD (anchor, occurs once):
+(**178 entries as of
+3 September 2026**;
+
+NEW:
+(**185 entries as of
+17 September 2026**;
+
+================================================================================
+OPTION FOR THE PI — NOT PROPOSED, NOT COSTED AS AN EDIT
+
+Samsel et al. recommend that evaluations report "first pass accuracy, harmful flips, beneficial
+corrections, and stability under clinically plausible conversational challenges." This protocol is
+exactly the predeployment safety instrument that recommendation is aimed at, so the option should
+be put to the PI rather than silently omitted — but it is a DESIGN EXPANSION and is therefore not
+written as a patch hunk.
+
+Shape it would take: a pre-specified second turn on a defined subset of Arm A scenarios, carrying a
+fixed neutral challenge ("are you sure?"), scored with the same phrase-inventory rule set, yielding
+a disposition-flip rate split into harmful flips (escalate -> not-escalate) and beneficial
+corrections (not-escalate -> escalate).
+
+What it would cost, stated plainly:
+  - It multiplies Arm A model calls on the probed subset and expands the §8.4 power calculation,
+    which is already the blocking item for filing. This is the real cost and it is not small.
+  - It would need its own decision entry (a DECISION 5) alongside Change 12 and Arm C1, both of
+    which already contend for the same scenario-authoring and power budget.
+  - It overlaps conceptually with Arm C1 (longitudinal interaction, `[DECISION 4]`). If Arm C1 is
+    adopted, some of this may come for free; if it is deferred, this is the cheaper way to observe
+    the same class of failure on the model side only.
+
+Recommendation: decide it TOGETHER with DECISION 4, not separately. If the PI wants it costed, that
+is a separate piece of work and should be requested explicitly.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. THE CASE-SOURCE EFFECT DOES NOT CLEANLY SUPPORT OUR REGISTER FACTOR, and is not cited for it.
+   Samsel et al. found accuracy "generally lower for MultiCaRe than MedMCQA" — narrative cases
+   versus exam-style cases. It is tempting to read that as independent support for this protocol's
+   dual-register distribution-shift probe. It is not clean support: MedMCQA items are multiple
+   choice and MultiCaRe items are open-ended, so the contrast confounds input genre with ANSWER
+   format. Our register factor varies the input while holding the free-text answer format constant
+   (§5.5 Arm A: "no answer options are ever presented"). The comparison is therefore not the one we
+   make, and it also runs in the opposite direction from the standing Fraile Navarro alert, which
+   reports naturalistic phrasing IMPROVING accuracy by 6.4pp. Both can be true because they vary
+   different things. Citing Samsel for the register factor would blur exactly that distinction.
+
+2. Stankić et al., "Comparative analysis of AI enhancements to rules-based clinical triage
+   chatbot" (Health Informatics J 2026;32(3):14604582261485150, doi 10.1177/14604582261485150,
+   PMID 42727093). LIBRARY ONLY. The rules-based chatbot was most accurate (71.8%, 95% CI
+   56.2-83.5) and beat Dialogflow (30.8%, p = 0.002) and Gemini (41.0%, p = 0.031), yet testers
+   PREFERRED the LLM versions — the authors name "masking of poorer performance by conversational
+   fluency." This supports design choices the protocol has already made (physician-sovereign
+   scoring; the §7.3 observation that a scoring panel rates fluent model prose; the "suggestion
+   adoption failure" interaction metric). Supporting an existing choice is not a reason to edit;
+   n = 13 testers and 156 interactions is thin, and no protocol claim turns on it.
+
+3. Zuo et al., TBI/concussion chatbot audit (Front Public Health 2026;14:1926980, doi
+   10.3389/fpubh.2026.1926980, PMID 42745758). LIBRARY ONLY. 65 questions, 5 chatbots, 325
+   responses, five blinded raters; 27 responses potentially harmful "mainly because of
+   under-triage, overly reassuring advice regarding imaging findings, premature return-to-activity
+   or driving guidance." Consistent with the protocol's premise and useful corroboration, but it
+   adds no mechanism the protocol does not already handle and falsifies nothing.
+
+4. Xiao et al., late-life depression blinded benchmark (Front Psychiatry 2026, doi
+   10.3389/fpsyt.2026.1956736). LIBRARY ONLY, and **flagged for the PI as NOT INDEPENDENTLY
+   VERIFIED THIS CYCLE.** The canonical reconciler added it on 13 Sep with source "scite-verified."
+   It is not PubMed-indexed (no PMID), and the Scite connector returned unrelated records for every
+   query this session, so I could not re-verify it. Its reported figures — including high-risk
+   under-triage of 16.7% / 26.7% / 36.7% across three models — are therefore **unverified in this
+   review and are not cited in any proposed edit.** It carries design_overlap = true and is a close
+   methodological cousin (physician-adjudicated, risk-stratified, blinded, with a test-retest
+   subset), differentiated from us by domain (geriatric psychiatric depression vs everyday-language
+   physical-symptom emergency triage). If the PI wants it used for methods differentiation in §10
+   or the Scientific Introduction, it needs independent verification first.
+
+5. Hartoyo et al., "Fitzpatrick Skin Type Is Associated With Missed Malignancy in Large Language
+   Model Dermatologic Diagnosis" (Int J Dermatol 2026, doi 10.1111/ijd.70684, PMID 42736709).
+   **NO ABSTRACT AVAILABLE — NOT RETRIEVED.** Record confirmed in PubMed (Letter, University of
+   Miami); nothing is quoted from it and no figure is reconstructed. Flagged for PI retrieval: it
+   sits on the missed-red-flag axis with an equity dimension, which is a combination the library is
+   thin on.
+
+6. Sarıoğlu G, "From benchmark success to clinical utility: interpreting large language model
+   performance in emergency department triage" (CJEM 2026, doi 10.1007/s43678-026-01284-2,
+   PMID 42726190). **NO ABSTRACT AVAILABLE — NOT RETRIEVED.** A Letter, directly on this
+   protocol's topic, arguing (by title) the benchmark-to-utility gap this protocol exists to
+   address. Flagged for PI retrieval as a possible cover-letter or §11 citation. Nothing quoted.
+
+7. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or
+   in any companion document.
