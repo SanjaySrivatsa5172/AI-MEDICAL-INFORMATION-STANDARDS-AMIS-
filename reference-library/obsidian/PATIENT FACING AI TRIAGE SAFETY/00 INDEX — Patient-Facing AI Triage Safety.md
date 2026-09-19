@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-16
-total-references: 184
+last-updated: 2026-09-19
+total-references: 185
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-16** · 184 references.
+Updated daily by automated scan. Last scan: **2026-09-19** · 185 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -138,6 +138,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Stankić 2026 — Comparative analysis of AI enhancements to rules-based clinical…]] (2026)
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] (2026)
 - [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
+- [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -273,6 +274,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage… (2)]] (2026)
 - [[Saito 2026 — When an AI-generated diagnosis begins to matter the AI consequence…]] (2026)
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] (2026)
+- [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -469,6 +471,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tiller 2026 — Generative artificial intelligence-driven chatbots and medical…]] (2026)
 - [[Liaw 2026 — Maturity, Safety, and Equity of AI-Enabled Systems and Triage in…]] (2026)
 - [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
+- [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
 - [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
