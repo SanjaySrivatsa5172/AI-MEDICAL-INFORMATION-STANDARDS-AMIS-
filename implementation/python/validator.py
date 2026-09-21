@@ -141,7 +141,17 @@ class ValidationResult:
                 "systemic": self.harm_assessment.systemic_harm_score,
                 "max_score": self.harm_assessment.max_harm_score,
                 "risk_level": self.harm_assessment.risk_level
-            }
+            },
+            "claims": [
+                {
+                    "claim_text": c.claim_text,
+                    "confidence": c.confidence.value,
+                    "highest_tier": c.highest_tier,
+                    "uncertainty_disclosed": c.uncertainty_disclosed,
+                    "warning_included": c.warning_included,
+                }
+                for c in self.claims
+            ],
         }
 
 
@@ -198,8 +208,12 @@ class AMISValidator:
         Initialize validator with optional configuration.
         
         Args:
-            config_path: Path to configuration directory containing YAML/JSON specs
+            config_path: Path to configuration directory containing YAML/JSON specs.
+                Defaults to the repository `standards/` directory when present.
         """
+        if config_path is None:
+            default = Path(__file__).resolve().parents[2] / "standards"
+            config_path = default if default.exists() else None
         self.config_path = config_path
         self._load_configurations()
     
@@ -214,20 +228,28 @@ class AMISValidator:
             # Load source hierarchy
             hierarchy_path = self.config_path / "source_hierarchy.yaml"
             if hierarchy_path.exists():
-                with open(hierarchy_path) as f:
-                    self.source_hierarchy = yaml.safe_load(f)
+                self.source_hierarchy = self._safe_yaml(hierarchy_path)
             
             # Load uncertainty calibration
             uncertainty_path = self.config_path / "uncertainty_calibration.yaml"
             if uncertainty_path.exists():
-                with open(uncertainty_path) as f:
-                    self.uncertainty_calibration = yaml.safe_load(f)
+                self.uncertainty_calibration = self._safe_yaml(uncertainty_path)
             
             # Load harm cascade
             harm_path = self.config_path / "harm_cascade.json"
             if harm_path.exists():
                 with open(harm_path) as f:
                     self.harm_cascade = json.load(f)
+
+    @staticmethod
+    def _safe_yaml(path: Path) -> Dict[str, Any]:
+        """Load a spec file. Invalid YAML must not disable validation."""
+        try:
+            with open(path) as handle:
+                loaded = yaml.safe_load(handle)
+            return loaded or {}
+        except (yaml.YAMLError, OSError):
+            return {}
     
     def validate(
         self,
@@ -307,6 +329,8 @@ class AMISValidator:
             conformance_level in [ConformanceLevel.SUBSTANTIAL, ConformanceLevel.FULL]
             and harm_assessment.risk_level != "high"
         )
+
+        parsed_claims = self._parse_claims(claims or [], parsed_sources)
         
         return ValidationResult(
             overall_compliant=overall_compliant,
@@ -314,10 +338,37 @@ class AMISValidator:
             violations=violations,
             recommendations=recommendations,
             overall_score=overall_score,
-            claims=[],  # Would be populated by claim extraction
+            claims=parsed_claims,
             harm_assessment=harm_assessment,
             standards_scores=standards_scores
         )
+
+    def _parse_claims(
+        self,
+        claims: List[Dict[str, Any]],
+        sources: List[SourceCitation],
+    ) -> List[MedicalClaim]:
+        """Attach pre-extracted claims. Scoring is unchanged."""
+        parsed: List[MedicalClaim] = []
+        highest = min((s.tier for s in sources), default=5)
+        for raw in claims:
+            name = str(raw.get("confidence") or "qualified")
+            try:
+                confidence = ConfidenceLevel(name)
+            except ValueError:
+                confidence = ConfidenceLevel.QUALIFIED
+            parsed.append(
+                MedicalClaim(
+                    claim_text=str(raw.get("claim_text") or ""),
+                    confidence=confidence,
+                    supporting_sources=sources,
+                    highest_tier=int(raw.get("highest_tier") or highest),
+                    consensus_level=raw.get("consensus_level"),
+                    uncertainty_disclosed=bool(raw.get("uncertainty_disclosed")),
+                    warning_included=bool(raw.get("warning_included")),
+                )
+            )
+        return parsed
     
     def _parse_sources(self, sources: List[Dict[str, Any]]) -> List[SourceCitation]:
         """Parse source dictionaries into SourceCitation objects."""

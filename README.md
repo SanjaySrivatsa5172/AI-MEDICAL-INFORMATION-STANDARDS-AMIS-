@@ -100,6 +100,19 @@ risks = analyzer.analyze(
 
 Copy [implementation/prompts/system_prompt_template.md](implementation/prompts/system_prompt_template.md) into your LLM system prompt.
 
+### 5. Score a paper in the web calculator
+
+Paste an abstract or upload a PDF/text file. The calculator reuses the modules above — it does not invent a second schema — and adds claim extraction plus a methodological-failure axis.
+
+```bash
+python3 -m pip install -r implementation/web/requirements.txt
+python3 -m implementation.web.app
+```
+
+Open http://127.0.0.1:8765. See [implementation/web/README.md](implementation/web/README.md).
+
+The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
+
 ---
 
 ## Repository Structure
@@ -120,7 +133,11 @@ ai-medical-information-standards/
 │   ├── python/
 │   │   ├── validator.py               # Compliance checker
 │   │   ├── source_classifier.py       # Tier classification
-│   │   └── harm_analyzer.py           # Cascade analysis
+│   │   ├── harm_analyzer.py           # Cascade analysis
+│   │   ├── claim_extractor.py         # AI medical claim extraction
+│   │   ├── method_failure.py          # Evaluation-failure axis
+│   │   └── calculator.py              # Orchestrates the web/CLI scorer
+│   ├── web/                           # Local FastAPI calculator
 │   └── prompts/
 │       └── system_prompt_template.md  # LLM system prompt
 │

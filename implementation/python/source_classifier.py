@@ -69,6 +69,8 @@ TIER_2_DOMAINS = {
     "jamanetwork.com": "JAMA Network",
     "bmj.com": "BMJ",
     "acpjournals.org": "Annals of Internal Medicine",
+    "nature.com": "Nature",
+    "science.org": "Science",
     
     # Major Specialty Journals (selection)
     "ahajournals.org": "AHA Journals (Circulation, etc.)",
@@ -119,6 +121,13 @@ TIER_4_PATTERNS = [
     r"perspective", r"viewpoint", r"letter to.*editor"
 ]
 
+# Preprints are not peer-reviewed; classify conservatively as Tier 4.
+TIER_4_DOMAINS = {
+    "arxiv.org": "arXiv preprint",
+    "medrxiv.org": "medRxiv preprint",
+    "biorxiv.org": "bioRxiv preprint",
+}
+
 # Tier 5: Excluded Sources
 TIER_5_DOMAINS = {
     # Video Platforms
@@ -167,6 +176,7 @@ class SourceClassifier:
         self.tier_1_domains = TIER_1_DOMAINS
         self.tier_2_domains = TIER_2_DOMAINS
         self.tier_3_domains = TIER_3_DOMAINS
+        self.tier_4_domains = TIER_4_DOMAINS
         self.tier_5_domains = TIER_5_DOMAINS
     
     def classify(self, url: str, context: Optional[str] = None) -> TierClassification:
@@ -211,11 +221,10 @@ class SourceClassifier:
         if tier_3_result:
             return tier_3_result
         
-        # Check Tier 4 patterns in context
-        if context:
-            tier_4_result = self._check_tier_4(domain, url, context)
-            if tier_4_result:
-                return tier_4_result
+        # Check Tier 4 preprint domains and opinion patterns
+        tier_4_result = self._check_tier_4(domain, url, context)
+        if tier_4_result:
+            return tier_4_result
         
         # Default to Tier 4 for unrecognized peer-reviewed content
         # or Tier 5 for completely unknown sources
@@ -354,7 +363,14 @@ class SourceClassifier:
         url: str, 
         context: Optional[str]
     ) -> Optional[TierClassification]:
-        """Check if source is Tier 4 (Expert Opinion)."""
+        """Check if source is Tier 4 (Expert Opinion / preprint)."""
+        for tier_4_domain, name in self.tier_4_domains.items():
+            if tier_4_domain in domain:
+                return self._create_classification(
+                    SourceTier.TIER_4,
+                    f"Preprint / expert-level source: {name}",
+                    ["Peer review not complete; must not serve as sole basis for medical claims"]
+                )
         if context:
             context_lower = context.lower()
             for pattern in TIER_4_PATTERNS:
