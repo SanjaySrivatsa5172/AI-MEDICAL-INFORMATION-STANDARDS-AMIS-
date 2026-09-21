@@ -18,6 +18,10 @@ Standard 2 treats GitHub, ORCID, and Hugging Face as Tier 4 reproducibility host
 bibliography noise, not YouTube-tier excluded sources. YouTube / TikTok / social
 media still fail.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
+The scorer is FastAPI, so GitHub Pages cannot host it. One-click Render: [docs/deploy.md](../../docs/deploy.md). After deploy, the public URL is `https://amis-claim-calculator.onrender.com`.
+
 ## Run locally
 
 From the repository root:
@@ -36,7 +40,7 @@ docker build -t amis-calculator .
 docker run --rm -p 8765:8765 amis-calculator
 ```
 
-Set `PORT` for Render or any PaaS (`render.yaml` is in the repo root). The app binds `0.0.0.0`.
+Render uses native Python and `$PORT` from `render.yaml`. Do not pin `PORT` to 8765 on Render. The app binds `0.0.0.0`.
 
 Headless scoring (same engine as the UI):
 

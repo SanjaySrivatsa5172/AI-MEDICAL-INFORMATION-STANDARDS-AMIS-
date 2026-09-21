@@ -2,6 +2,9 @@ name: GitHub Pages landing
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [site/**, .github/workflows/pages.yml]
 
 permissions:
   contents: read

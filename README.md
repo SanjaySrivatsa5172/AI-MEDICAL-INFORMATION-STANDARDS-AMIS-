@@ -17,6 +17,10 @@
 
 **Public repository (cite this):** [github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-](https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
+**Hosted scorer (cite this):** [amis-claim-calculator.onrender.com](https://amis-claim-calculator.onrender.com). Source and local run remain in this repository. See [docs/deploy.md](docs/deploy.md).
+
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
 ---
@@ -120,7 +124,7 @@ docker build -t amis-calculator .
 docker run --rm -p 8765:8765 amis-calculator
 ```
 
-See [implementation/web/README.md](implementation/web/README.md) and the public landing page in [`site/index.html`](site/index.html).
+See [implementation/web/README.md](implementation/web/README.md), [docs/deploy.md](docs/deploy.md), and the public landing page in [`site/index.html`](site/index.html).
 
 The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
 

@@ -1,9 +1,25 @@
+# Blueprint for the AMIS Claim Calculator.
+# One-click: https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+#
+# Native Python (not Docker) so the free plan does not burn build minutes
+# on an image. Render injects $PORT — do not pin it to 8765.
+
 services:
   - type: web
     name: amis-claim-calculator
-    runtime: docker
+    runtime: python
     plan: free
+    region: oregon
+    branch: main
+    buildCommand: pip install -r implementation/web/requirements.txt
+    startCommand: python -m uvicorn implementation.web.app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
     envVars:
-      - key: PORT
-        value: "8765"
+      - key: PYTHONPATH
+        value: .
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHON_VERSION
+        value: "3.12.3"
+      - key: HOST
+        value: "0.0.0.0"

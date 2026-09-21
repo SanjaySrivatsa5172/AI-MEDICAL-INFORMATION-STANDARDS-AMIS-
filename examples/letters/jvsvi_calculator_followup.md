@@ -30,9 +30,10 @@ scale, and it does not prescribe treatment (AMIS Standard 5).
 
 Readers can paste Liévin et al. — or any other clinical-AI claim — at:
 
-**https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-**
+**https://amis-claim-calculator.onrender.com**
 
-(local run: `python3 -m implementation.web.app`; paper: https://arxiv.org/pdf/2608.07418).
+(source: https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-;
+paper: https://arxiv.org/pdf/2608.07418).
 
 On the ResidencyRL PDF the calculator flags the autorater, the shared training-and-grading
 rubric, and the in-domain Goodhart disclosure as *asserted* methodological failures, while
