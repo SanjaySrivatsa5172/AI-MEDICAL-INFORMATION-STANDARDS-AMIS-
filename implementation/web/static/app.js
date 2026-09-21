@@ -11,6 +11,14 @@ const exampleRow = document.getElementById("example-row");
 function showError(message) {
   formError.hidden = !message;
   formError.textContent = message || "";
+  if (message) formError.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function errorDetail(payload, fallback) {
+  const detail = payload && payload.detail;
+  if (typeof detail === "string") return detail;
+  if (Array.isArray(detail) && detail[0] && detail[0].msg) return detail[0].msg;
+  return fallback;
 }
 
 function pct(value, max = 1) {
@@ -198,17 +206,29 @@ form.addEventListener("submit", async (event) => {
   if (text) body.append("text", text);
   if (file) body.append("file", file);
   scoreBtn.disabled = true;
-  scoreBtn.textContent = "Scoring…";
+  scoreBtn.textContent = file ? "Reading PDF…" : "Scoring…";
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 28000);
   try {
-    const response = await fetch("/api/score", { method: "POST", body });
-    const payload = await response.json();
+    const response = await fetch("/api/score", { method: "POST", body, signal: controller.signal });
+    let payload = {};
+    try {
+      payload = await response.json();
+    } catch (parseError) {
+      throw new Error("The host returned an empty or timed-out response. Wait a few seconds and tap Score claims again.");
+    }
     if (!response.ok) {
-      throw new Error(payload.detail || "Scoring failed.");
+      throw new Error(errorDetail(payload, "Scoring failed."));
     }
     render(payload);
   } catch (error) {
-    showError(error.message);
+    if (error && error.name === "AbortError") {
+      showError("Scoring took too long on the free host. Keep the PDF selected and tap Score claims again after the instance is warm, or use the CRAFT-MD example.");
+    } else {
+      showError(error.message || "Scoring failed.");
+    }
   } finally {
+    clearTimeout(timer);
     scoreBtn.disabled = false;
     scoreBtn.textContent = "Score claims";
   }

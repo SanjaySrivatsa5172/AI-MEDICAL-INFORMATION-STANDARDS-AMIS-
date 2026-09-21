@@ -283,5 +283,60 @@ class BatchScoreHelperTests(unittest.TestCase):
         self.assertEqual(kyung["method_failure"], 44.0)
 
 
+class PdfHostBudgetTests(unittest.TestCase):
+    """Free-host PDF path must finish without reading every page."""
+
+    def _minimal_pdf(self, pages: int) -> bytes:
+        parts = [b"%PDF-1.1\n"]
+        xref = []
+
+        def add(obj: bytes) -> None:
+            xref.append(sum(len(p) for p in parts))
+            parts.append(obj)
+
+        add(b"1 0 obj<< /Type /Catalog /Pages 2 0 R >>endobj\n")
+        kids = " ".join(f"{3 + i} 0 R" for i in range(pages))
+        add(f"2 0 obj<< /Type /Pages /Count {pages} /Kids [{kids}] >>endobj\n".encode())
+        stream = (
+            b"BT /F1 10 Tf 40 750 Td "
+            b"(CRAFT-MD grader-AI agent assessed GPT-4 diagnostic accuracy. "
+            b"Every model drops from vignette to conversation.) Tj ET"
+        )
+        for i in range(pages):
+            add(
+                (
+                    f"{3 + i} 0 obj<< /Type /Page /Parent 2 0 R /Resources "
+                    f"<< /Font << /F1 {3 + pages} 0 R >> >> /MediaBox [0 0 612 792] "
+                    f"/Contents {3 + pages + 1 + i} 0 R >>endobj\n"
+                ).encode()
+            )
+        add(f"{3 + pages} 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>endobj\n".encode())
+        for i in range(pages):
+            add(
+                f"{3 + pages + 1 + i} 0 obj<< /Length {len(stream)} >>stream\n".encode()
+                + stream
+                + b"\nendstream\nendobj\n"
+            )
+        startxref = sum(len(p) for p in parts)
+        parts.append(f"xref\n0 {len(xref) + 1}\n0000000000 65535 f \n".encode())
+        for off in xref:
+            parts.append(f"{off:010d} 00000 n \n".encode())
+        parts.append(f"trailer<< /Size {len(xref) + 1} /Root 1 0 R >>\nstartxref\n{startxref}\n%%EOF\n".encode())
+        return b"".join(parts)
+
+    def test_long_pdf_is_capped_and_still_scores(self):
+        from implementation.python.document_ingest import DocumentIngest
+
+        data = self._minimal_pdf(pages=DocumentIngest.MAX_PDF_PAGES + 8)
+        document = DocumentIngest.from_bytes(data, "craftmd_long.pdf")
+        self.assertEqual(document.source_kind, "pdf")
+        self.assertTrue(document.text)
+        self.assertTrue(any("first" in note.lower() or "pages" in note.lower() for note in document.notes))
+        payload = AMISCalculator().score_upload(data, "craftmd_long.pdf").to_dict()
+        self.assertIn("overall", payload)
+        self.assertLessEqual(len(payload["claims"]), 8)
+        self.assertTrue(payload["source_notes"] or payload["document"].get("notes"))
+
+
 if __name__ == "__main__":
     unittest.main()

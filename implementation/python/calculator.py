@@ -266,6 +266,9 @@ class EvidenceAppendix:
 class AMISCalculator:
     """Orchestrate ingest → extraction → existing validators → axes."""
 
+    MAX_PER_CLAIM_VALIDATIONS = 8
+    HARM_TEXT_CHARS = 24_000
+
     DISCLAIMER = (
         "This calculator evaluates epistemic claims against the AMIS standards. "
         "It does not diagnose, prescribe, dose, or recommend treatment. "
@@ -316,11 +319,11 @@ class AMISCalculator:
             sources=document.sources,
             claims=claim_payload,
         )
-        harm = self.harm_analyzer.analyze(document.text, query="")
+        harm = self.harm_analyzer.analyze(document.text[: AMISCalculator.HARM_TEXT_CHARS], query="")
         method = MethodologicalFailureAnalyzer.analyze(document.text)
 
         findings: List[ClaimFinding] = []
-        for claim in extracted:
+        for claim in extracted[: AMISCalculator.MAX_PER_CLAIM_VALIDATIONS]:
             claim_validation = self.validator.validate(
                 output=claim.claim_text,
                 query="",
@@ -366,7 +369,8 @@ class AMISCalculator:
 
         recommendations = list(validation.recommendations)
         recommendations.extend(AMISCalculator._axis_recommendations(method, uncertainty))
-        source_notes = AMISCalculator._source_notes(document.sources)
+        source_notes = list(document.notes)
+        source_notes.extend(AMISCalculator._source_notes(document.sources))
         recommendations.extend(source_notes)
         if AMISCalculator.DISCLAIMER not in recommendations:
             recommendations.append(AMISCalculator.DISCLAIMER)

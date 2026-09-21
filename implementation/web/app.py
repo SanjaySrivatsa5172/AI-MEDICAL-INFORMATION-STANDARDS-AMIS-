@@ -126,17 +126,25 @@ async def score(
     text: Optional[str] = Form(None),
     file: Optional[UploadFile] = File(None),
 ) -> dict:
-    if file is not None and file.filename:
-        data = await file.read()
-        if data:
-            try:
-                result = calculator.score_upload(data, file.filename)
-            except ValueError as exc:
-                raise HTTPException(status_code=400, detail=str(exc)) from exc
-            return result.to_dict()
-    if text and text.strip():
-        result = calculator.score_text(text, filename="paste")
-        return result.to_dict()
+    try:
+        if file is not None and file.filename:
+            data = await file.read()
+            if data:
+                try:
+                    result = calculator.score_upload(data, file.filename)
+                except ValueError as exc:
+                    raise HTTPException(status_code=400, detail=str(exc)) from exc
+                return result.to_dict()
+        if text and text.strip():
+            return calculator.score_text(text, filename="paste").to_dict()
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Could not score that file on the free host: {exc}. "
+            "Try the example excerpt or paste the abstract.",
+        ) from exc
     raise HTTPException(status_code=400, detail="Paste an abstract or upload a PDF/text file.")
 
 
