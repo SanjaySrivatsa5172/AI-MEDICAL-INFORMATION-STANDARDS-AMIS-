@@ -51,6 +51,14 @@ Tooth-paper fixtures (excerpts only; publisher PDFs are not in the repository):
 - `craftmd_excerpt.txt` — Johri et al., *Nat Med* 2025 (DOI 10.1038/s41591-024-03328-5). Grader-AI + vignette→conversation drop.
 - `agentclinic_excerpt.txt` — Schmidgall et al., *npj Digit Med* 2026 (DOI 10.1038/s41746-026-02674-7). LLM moderator + MedQA-in-dialogue drop.
 
+Batch a manifest of papers (no second schema):
+
+```bash
+PYTHONPATH=. python3 -m implementation.python.batch_score \
+  examples/calculator/patient_sim_2025/manifest.json --table-only
+```
+
+See `examples/calculator/patient_sim_2025/REPORT.md`.
 
 ## Tests
 

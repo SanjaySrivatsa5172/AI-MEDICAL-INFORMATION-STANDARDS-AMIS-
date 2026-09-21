@@ -1,0 +1,11 @@
+Current applications and challenges in large language models for patient care: a systematic review
+Felix Busch, Lena Hoffmann, Christopher Rueger, et al.
+Communications Medicine 2025;5:26. DOI 10.1038/s43856-024-00717-2
+Open PDF: https://www.nature.com/articles/s43856-024-00717-2.pdf
+
+Abstract
+The introduction of large language models (LLMs) into clinical practice promises to improve patient education and empowerment. This systematic review aims to synthesize current applications and limitations of LLMs in patient care. We searched 5 databases for articles published between 2022 and 2023. From 4349 initial records, 89 studies across 29 medical specialties were included. Quality assessment used the Mixed Methods Appraisal Tool 2018.
+
+Results: Most studies investigate GPT-3.5 (53.2%) and GPT-4 (26.6%) in answering medical questions, followed by patient-information generation and clinical documentation. Design limitations include lack of medical domain optimization, data transparency, and accessibility issues. Output limitations include non-reproducibility, non-comprehensiveness, incorrectness, unsafety, and bias.
+
+This is a review of other systems, not a claim that the authors' own chatbot was graded by an in-family judge. The authors note that a meta-analysis of LLM performance was not possible because study designs and evaluation methods differed. Whether ongoing human oversight of LLM-generated content can reduce adverse outcomes remains the subject of further research. The paper maps risks rather than asserting a new diagnostic benchmark.
