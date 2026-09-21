@@ -28,18 +28,16 @@
   </header>
   <main>
     <div class="card">
-      <p>Public source (cite this URL in letters and papers):</p>
+      <p>This page is the public face of the calculator. The source of truth is the existing AMIS repository — not a second repo.</p>
       <p><a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-</a></p>
-      <p>Pull request with the calculator: <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-/pull/5">PR #5</a></p>
     </div>
     <div class="card">
       <h2>Run the calculator</h2>
       <pre>git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
 cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
-git checkout cursor/amis-web-calculator-0fb7
 python3 -m pip install -r implementation/web/requirements.txt
 python3 -m implementation.web.app</pre>
-      <p>Then open <code>http://127.0.0.1:8765</code>. Docker: <code>docker build -t amis-calculator . && docker run -p 8765:8765 amis-calculator</code></p>
+      <p>Then open <code>http://127.0.0.1:8765</code>. Docker: <code>docker build -t amis-calculator . &amp;&amp; docker run -p 8765:8765 amis-calculator</code></p>
     </div>
     <div class="card warn">
       <p>This instrument evaluates epistemic claims. It does not diagnose, dose, or prescribe. Therapeutic decisions require a qualified physician (AMIS Standard 5). It is a deterministic heuristic, not a licensed psychometric scale.</p>
