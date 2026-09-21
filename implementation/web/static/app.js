@@ -148,6 +148,10 @@ function render(result) {
   renderList("recommendations-list", result.recommendations, (item) =>
     `<li>${escapeHtml(item)}</li>`
   );
+  const sourceNotes = document.getElementById("source-notes");
+  const notes = result.source_notes || [];
+  sourceNotes.hidden = !notes.length;
+  sourceNotes.textContent = notes.join(" ");
   renderList("sources-list", result.sources, (item) =>
     `<li>Tier ${item.tier}: ${escapeHtml(item.title || item.url)} — ${escapeHtml(item.tier_justification)}</li>`
   );

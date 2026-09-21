@@ -3,6 +3,7 @@ Cai ZR, Van Allen EM, Kim D, Daneshjou R, Rajpurkar P. An evaluation framework
 for clinical use of large language models in patient interaction tasks. Nat Med.
 2025;31:77-86. doi:10.1038/s41591-024-03328-5
 https://doi.org/10.1038/s41591-024-03328-5
+Code: https://github.com/rajpurkarlab/craft-md
 
 The integration of large language models (LLMs) into clinical diagnostics has the
 potential to transform doctor-patient interactions. However, the readiness of

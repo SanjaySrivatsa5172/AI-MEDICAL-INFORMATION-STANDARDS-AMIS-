@@ -99,6 +99,7 @@ class CalculatorResult:
     harm: Dict[str, Any]
     recommendations: List[str]
     calculator_disclaimer: str
+    source_notes: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         payload = {
@@ -163,6 +164,7 @@ class CalculatorResult:
             "method": self.method.to_dict(),
             "harm": self.harm,
             "sources": self.document.sources,
+            "source_notes": self.source_notes,
             "recommendations": self.recommendations,
             "calculator_disclaimer": self.calculator_disclaimer,
             "evidence": EvidenceAppendix.to_dict(),
@@ -230,7 +232,9 @@ class EvidenceAppendix:
         "methodological-failure axis is the TRIPOD-LLM / STARD-AI assessment-"
         "integrity items (independent examiner, no in-family judge) expressed "
         "as a score, not a sixth AMIS standard. This instrument is a "
-        "deterministic heuristic, not a licensed psychometric scale."
+        "deterministic heuristic, not a licensed psychometric scale. "
+        "GitHub / ORCID / Hugging Face bibliography links are Tier 4 "
+        "reproducibility hosts, not YouTube-tier Standard 2 failures."
     )
 
     REFERENCES = [
@@ -246,6 +250,13 @@ class EvidenceAppendix:
         "Johri S, et al. CRAFT-MD. Nat Med. 2025;31:77-86. doi:10.1038/s41591-024-03328-5.",
         "Schmidgall S, et al. AgentClinic. npj Digit Med. 2026;9:499. doi:10.1038/s41746-026-02674-7.",
     ]
+
+    BIBLIOGRAPHY_NOTE = (
+        "Standard 2: GitHub, ORCID, and Hugging Face links are Tier 4 "
+        "reproducibility / identity hosts. They are bibliography noise — not "
+        "medical evidence and not YouTube-tier (Tier 5) failures. YouTube, "
+        "TikTok, and social media remain excluded."
+    )
 
     @staticmethod
     def to_dict() -> dict:
@@ -355,6 +366,8 @@ class AMISCalculator:
 
         recommendations = list(validation.recommendations)
         recommendations.extend(AMISCalculator._axis_recommendations(method, uncertainty))
+        source_notes = AMISCalculator._source_notes(document.sources)
+        recommendations.extend(source_notes)
         if AMISCalculator.DISCLAIMER not in recommendations:
             recommendations.append(AMISCalculator.DISCLAIMER)
 
@@ -374,6 +387,7 @@ class AMISCalculator:
             harm=harm.to_dict(),
             recommendations=recommendations,
             calculator_disclaimer=AMISCalculator.DISCLAIMER,
+            source_notes=source_notes,
         )
 
     @staticmethod
@@ -429,6 +443,12 @@ class AMISCalculator:
         if score > 0:
             return "Sparse methodological critique"
         return "No methodological failure modes labelled"
+
+    @staticmethod
+    def _source_notes(sources: List[Dict]) -> List[str]:
+        if any(SourceClassifier.is_bibliography_host(s.get("url", "")) for s in sources):
+            return [EvidenceAppendix.BIBLIOGRAPHY_NOTE]
+        return []
 
     @staticmethod
     def _axis_recommendations(method: MethodFailureResult, uncertainty: AxisScore) -> List[str]:

@@ -2,6 +2,8 @@ Schmidgall S, Ziaei R, Harris C, Kim JW, Reis EP, Jopling J, Moor M. AgentClinic
 a multimodal benchmark for tool-using clinical AI agents. npj Digit Med.
 2026;9:499. doi:10.1038/s41746-026-02674-7. PMID 42045532.
 https://doi.org/10.1038/s41746-026-02674-7
+Code: https://github.com/SamuelSchmidgall/AgentClinic
+Model host in the bibliography (not a medical source): https://huggingface.co/meta-llama
 
 Evaluating large language models (LLM) in clinical scenarios is crucial to
 assessing their potential clinical utility. Existing benchmarks rely heavily on

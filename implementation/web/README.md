@@ -14,6 +14,10 @@ https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
 
 This is the citation URL for letters and papers. The calculator lives in this repository (not a second schema repo).
 
+Standard 2 treats GitHub, ORCID, and Hugging Face as Tier 4 reproducibility hosts —
+bibliography noise, not YouTube-tier excluded sources. YouTube / TikTok / social
+media still fail.
+
 ## Run locally
 
 From the repository root:

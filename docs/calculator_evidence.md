@@ -174,10 +174,17 @@ grader is why the conversational number still needs an examiner who did not play
 the patient.
 
 Do not commit the publisher PDFs. Score the public excerpts in
-`examples/calculator/craftmd_excerpt.txt` and `agentclinic_excerpt.txt`. Full-text
-PDFs pick up bibliography URLs (Hugging Face, code hosts) as Tier 5 and can trip
-Standard 2 even when the article itself is *Nature* / *npj* (Tier 2 via DOI
-`10.1038/`).
+`examples/calculator/craftmd_excerpt.txt` and `agentclinic_excerpt.txt`.
+
+**Standard 2 bibliography noise (not a YouTube-tier failure).** Full-text PDFs
+and author lines routinely contain GitHub, ORCID, Hugging Face, Zenodo, and
+similar hosts. Those URLs are **Tier 4 reproducibility / identity hosts**: they
+are not medical evidence (they cannot raise Standard 2) and they are **not**
+Tier 5 excluded platforms. YouTube, TikTok, and social media remain the
+YouTube-class failures. A *Nature* / *npj* article stays Tier 2 via DOI
+`10.1038/` even when the bibliography also lists `github.com/…` or
+`huggingface.co/…`. The calculator surfaces this as a source note so a reviewer
+does not read a GitHub link as a Standard 2 critical hit.
 
 The calculator must remain conservative about source tiers: conference PDFs (NeurIPS,
 OpenReview) are Tier 4, not Tier 5. A DOI is not “unknown social media.” arXiv remains
@@ -190,6 +197,8 @@ Tier 4 (preprint), including `10.48550/arXiv…`.
 - Deterministic lexical patterns, not an LLM judge (by design: the judge must not grade itself).
 - English-centric.
 - Abstracts without a reference list will fail Standard 1 even when the full paper would pass.
+- Bibliography hosts (GitHub, ORCID, Hugging Face) are Tier 4 noise, not Tier 5. Reviewers
+  should not treat those links as YouTube-class Standard 2 failures.
 - “100%” inside a methods table can trip Standard 3; reviewers should read the violation, not
   only the headline number.
 - No claim of inter-rater reliability against a human AMIS panel has been published yet.
