@@ -97,6 +97,17 @@ They are not AMIS inventions; they are named in the target paper and in the judg
 - **Independent examiner** — ACGME milestones and board certification exist precisely so
   the teacher is not the sole summative examiner. The calculator treats an in-family
   autorater as the computational analogue of that structural failure.
+- **Conversational evaluation still needs an independent examiner** — Johri et al.
+  (CRAFT-MD, *Nat Med* 2025;31:77–86; doi:10.1038/s41591-024-03328-5) replace static
+  vignettes with multi-turn dialogue and show every tested model drops; their grader-AI
+  plus patient-AI is the same contamination class as an autorater, even when experts
+  later audit a sample. Schmidgall et al. (AgentClinic, *npj Digit Med* 2026;9:499;
+  doi:10.1038/s41746-026-02674-7; PMID 42045532) show MedQA-in-dialogue can fall to
+  about one-tenth of static accuracy and use an LLM moderator (an LLM judge) to score
+  the doctor agent. The *slide* (vignette → conversation; static QA → tool-use
+  dialogue) is what the papers measure. The *tooth* is that the examiner is still in
+  the same agent family. No sixth AMIS standard is added; `grader-AI` and
+  `moderator agent` are aliases of the existing contaminated-grader pattern.
 
 ### 2.4 Therapeutic scope
 
@@ -143,6 +154,30 @@ in-domain gains on the training rubric, and treats clinician preference as valid
 It does **not** mean the work is without value, that out-of-domain benchmarks are false,
 or that the calculator has “refuted” the paper. The authors already wrote the Goodhart
 sentence. AMIS makes that sentence numerically visible.
+
+### 4.1 What a CRAFT-MD or AgentClinic score is allowed to mean
+
+These two papers are *tooth* fixtures: they are the runnable process (CRAFT-MD) and
+tool-use (AgentClinic) analogues of ResidencyRL’s contaminated examiner.
+
+| Paper | What they showed (the slide) | What AMIS flags (the tooth) |
+|---|---|---|
+| Johri et al., CRAFT-MD, *Nat Med* 2025 | Every model drops from vignette → conversation; o1-preview leads multi-turn FRQ on the public leaderboard. Code: `github.com/rajpurkarlab/craft-md`. | Asserted **grader-AI** + **patient-AI**. Expert audit of the grader is awareness, not independence of the examiner. |
+| Schmidgall et al., AgentClinic, *npj Digit Med* 2026 | MedQA-in-dialogue can fall to ~1/10 of static accuracy; Claude 3.5 best backbone; Llama-3 + notebook tool +92% relative. Code (MIT): `github.com/SamuelSchmidgall/AgentClinic`. | Asserted **moderator agent** / **LLM judge**, with GPT-4 as the patient for consistency. The authors’ own limitation paragraph is awareness credit. |
+
+A high methodological-failure score here means the paper *uses* a language-model
+examiner (grader-AI or moderator) to score the system under test. It does **not**
+mean the vignette→conversation drop is false, that Claude 3.5 is not the strongest
+backbone they measured, or that conversational benchmarks should be abandoned.
+The drop is why static USMLE-style numbers cannot be believed at face value. The
+grader is why the conversational number still needs an examiner who did not play
+the patient.
+
+Do not commit the publisher PDFs. Score the public excerpts in
+`examples/calculator/craftmd_excerpt.txt` and `agentclinic_excerpt.txt`. Full-text
+PDFs pick up bibliography URLs (Hugging Face, code hosts) as Tier 5 and can trip
+Standard 2 even when the article itself is *Nature* / *npj* (Tier 2 via DOI
+`10.1038/`).
 
 The calculator must remain conservative about source tiers: conference PDFs (NeurIPS,
 OpenReview) are Tier 4, not Tier 5. A DOI is not “unknown social media.” arXiv remains

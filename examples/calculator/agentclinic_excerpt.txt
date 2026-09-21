@@ -1,0 +1,44 @@
+Schmidgall S, Ziaei R, Harris C, Kim JW, Reis EP, Jopling J, Moor M. AgentClinic:
+a multimodal benchmark for tool-using clinical AI agents. npj Digit Med.
+2026;9:499. doi:10.1038/s41746-026-02674-7. PMID 42045532.
+https://doi.org/10.1038/s41746-026-02674-7
+
+Evaluating large language models (LLM) in clinical scenarios is crucial to
+assessing their potential clinical utility. Existing benchmarks rely heavily on
+static question-answering, which does not accurately depict the complex,
+sequential nature of clinical decision-making. Here, we introduce AgentClinic, a
+multimodal agent benchmark for evaluating LLMs in simulated clinical
+environments that include patient interactions, multimodal data collection under
+incomplete information, and the usage of various tools, resulting in an in-depth
+evaluation across nine medical specialties and seven languages. We find that
+solving MedQA problems in the sequential decision-making format of AgentClinic
+is considerably more challenging, resulting in diagnostic accuracies that can
+drop to below a tenth of the original accuracy. Overall, we observe that agents
+sourced from Claude-3.5 outperform other LLM backbones in most settings.
+Nevertheless, we see stark differences in the LLMs' ability to make use of
+tools, such as experiential learning, adaptive retrieval, and reflection cycles.
+Strikingly, Llama-3 shows up to 92% relative improvements with the notebook tool
+that allows for writing and editing notes that persist across cases. To further
+scrutinize our clinical simulations, we leverage real-world electronic health
+records, perform a clinical reader study, perturb agents with biases, and
+explore patient-centric metrics that this interactive environment enables.
+
+Four language agents are used in the AgentClinic benchmark: a patient agent,
+doctor agent, measurement agent, and a moderator. The doctor agent serves as the
+model whose performance is being evaluated, and the other three agents serve to
+provide this evaluation. After the final turn, the agent must provide its
+diagnosis, which is then evaluated by the moderator. The function of the
+moderator is to determine whether the doctor agent has correctly diagnosed the
+patient using a ground truth accuracy label provided to the moderator. We use
+GPT-4 as the patient agent for consistency.
+
+One potential limitation of the presented workflow comes from the use of an LLM
+for determining accuracy via the moderator agent (albeit, provided a ground
+truth). Recent research has shown that strong LLM judges like GPT-4 can match
+human preferences. Experiments on varying the patient LLM suggest that there may
+be an advantage for LLMs which act as both the patient and the doctor agent,
+because LLMs are able to recognize their own text with high accuracy, and
+display disproportionate preference to that text. While our moderator agent is
+based on an LLM judge shown to have high agreement with humans, the sensitivity
+of our benchmark results to variations in the moderator agent's own model or
+system prompt was not explored. This excerpt does not prescribe treatment.
