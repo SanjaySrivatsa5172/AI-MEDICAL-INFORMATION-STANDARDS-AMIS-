@@ -165,6 +165,7 @@ class CalculatorResult:
             "sources": self.document.sources,
             "recommendations": self.recommendations,
             "calculator_disclaimer": self.calculator_disclaimer,
+            "evidence": EvidenceAppendix.to_dict(),
         }
         return payload
 
@@ -218,6 +219,35 @@ class UncertaintyAxis:
             label,
             "Inverse of uncertainty calibration: how far apparent confidence outruns warrant.",
         )
+
+
+class EvidenceAppendix:
+    """Citations the UI must show. Full narrative: docs/calculator_evidence.md."""
+
+    NOTE = (
+        "AMIS criteria come from documented AI-health failures, GRADE/Cochrane "
+        "source hierarchy, and the productive-uncertainty literature. The "
+        "methodological-failure axis is the TRIPOD-LLM / STARD-AI assessment-"
+        "integrity items (independent examiner, no in-family judge) expressed "
+        "as a score, not a sixth AMIS standard. This instrument is a "
+        "deterministic heuristic, not a licensed psychometric scale."
+    )
+
+    REFERENCES = [
+        "Srivatsa SS. JVS Vasc Insights. 2026;4:100492.",
+        "Liévin V, et al. ResidencyRL. arXiv:2608.07418. 2026.",
+        "Gallifant J, et al. TRIPOD-LLM. Nat Med. 2025.",
+        "Collins GS, et al. TRIPOD+AI. BMJ. 2024;385:e078378.",
+        "Sounderajah V, et al. STARD-AI. Nat Med. 2025.",
+        "Panickssery A, et al. LLM evaluators favor their own generations. arXiv:2404.13076.",
+        "Simpkin AL, Schwartzstein RM. N Engl J Med. 2016;375:1713-1715.",
+        "Goddard K, et al. Automation bias. JAMIA. 2012;19:121-127.",
+        "Jabbour S, et al. JAMA. 2023;330:2275-2284.",
+    ]
+
+    @staticmethod
+    def to_dict() -> dict:
+        return {"note": EvidenceAppendix.NOTE, "references": list(EvidenceAppendix.REFERENCES)}
 
 
 class AMISCalculator:

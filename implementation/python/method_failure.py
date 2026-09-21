@@ -104,9 +104,37 @@ class MethodologicalFailureAnalyzer:
 
     ASSERT_RE = re.compile(
         r"\b("
-        r"we (?:achieved|report|trained|present|introduce)|"
-        r"our (?:model|agent|system|approach)"
+        r"we (?:achieved|report|trained?|present|introduce|evaluate|train)|"
+        r"our (?:model|agent|system|approach|findings)|"
+        r"the residencyrl[- ]trained agent|"
+        r"we introduce residencyrl"
         r")\b",
+        re.IGNORECASE,
+    )
+
+    FIRST_PERSON_METHOD_RE = re.compile(
+        r"\b("
+        r"we (?:present|train|introduce|evaluate)|"
+        r"our (?:model|agent|system|autorater|rubric)|"
+        r"an llm autorater|structured autorater|"
+        r"training reward|reward signal|"
+        r"residencyrl[- ]trained"
+        r")\b",
+        re.IGNORECASE,
+    )
+
+    DISCLOSURE_RE = re.compile(
+        r"\b("
+        r"primarily validate|limitation|caveat|"
+        r"prospective validation remains|"
+        r"does not (?:establish|translate|model)|"
+        r"share(?:s|d)? the underlying"
+        r")\b",
+        re.IGNORECASE,
+    )
+
+    LETTER_RE = re.compile(
+        r"\b(to the editor|not a residency|we argue that|my article argued)\b",
         re.IGNORECASE,
     )
 
@@ -138,9 +166,12 @@ class MethodologicalFailureAnalyzer:
             code="contaminated_grader",
             title="Contaminated or in-family grader",
             regex=r"autorater|self-grad\w*|same model family|"
+                  r"llm(?:-as)?[- ]judge|llm judge|"
+                  r"gemini 3\.\d.{0,40}(?:judge|evaluat|autorater)|"
                   r"who graded|grader trained it|"
                   r"generator and its reviewer|one model family wrote|"
-                  r"played the patient.{0,40}graded",
+                  r"played the patient.{0,40}graded|"
+                  r"same automated rubric pipeline",
             severity="critical",
             description="Teacher, patient simulator, and examiner share a model family — measurement is contaminated.",
             standard="standard_1_literature_review",
@@ -182,7 +213,8 @@ class MethodologicalFailureAnalyzer:
             title="Persuasiveness without correctness",
             regex=r"persuasiveness without.{0,40}correctness|"
                   r"no accuracy difference|"
-                  r"preferred.{0,30}completeness|"
+                  r"preferred.{0,40}(completeness|overall clinical impression)|"
+                  r"preferr\w+.{0,40}completeness|"
                   r"training against approval",
             severity="major",
             description="Preference or completeness scores rise while diagnostic accuracy does not.",
@@ -242,6 +274,7 @@ class MethodologicalFailureAnalyzer:
             return MethodFailureResult(0.0, 0.0, [])
 
         default_polarity = MethodologicalFailureAnalyzer._document_default_polarity(text)
+        awareness_extra = 0.0
         for pattern in MethodologicalFailureAnalyzer.PATTERNS:
             match = pattern.compiled.search(text)
             if not match:
@@ -251,6 +284,8 @@ class MethodologicalFailureAnalyzer:
             weight = MethodologicalFailureAnalyzer.SEVERITY_WEIGHT[pattern.severity]
             if polarity == "critiqued":
                 weight *= 0.35
+            elif MethodologicalFailureAnalyzer.DISCLOSURE_RE.search(window):
+                awareness_extra += MethodologicalFailureAnalyzer.SEVERITY_WEIGHT[pattern.severity] * 0.45
             findings.append(
                 FailureFinding(
                     code=pattern.code,
@@ -267,10 +302,10 @@ class MethodologicalFailureAnalyzer:
         asserted = [f for f in findings if f.polarity == "asserted"]
         critiqued = [f for f in findings if f.polarity == "critiqued"]
         failure_score = min(100.0, sum(f.weight for f in asserted))
-        # Awareness uses raw severity weights (not the discounted asserted weight).
         awareness_score = min(
             100.0,
-            sum(MethodologicalFailureAnalyzer.SEVERITY_WEIGHT[f.severity] * 0.9 for f in critiqued),
+            sum(MethodologicalFailureAnalyzer.SEVERITY_WEIGHT[f.severity] * 0.9 for f in critiqued)
+            + awareness_extra,
         )
         return MethodFailureResult(failure_score, awareness_score, findings)
 
@@ -283,17 +318,23 @@ class MethodologicalFailureAnalyzer:
 
     @staticmethod
     def _document_default_polarity(text: str) -> str:
-        critique_n = len(MethodologicalFailureAnalyzer.CRITIQUE_RE.findall(text))
-        asserted_n = len(MethodologicalFailureAnalyzer.ASSERT_RE.findall(text))
+        if MethodologicalFailureAnalyzer.LETTER_RE.search(text or ""):
+            return "critiqued"
+        if MethodologicalFailureAnalyzer.ASSERT_RE.search(text or ""):
+            return "asserted"
+        critique_n = len(MethodologicalFailureAnalyzer.CRITIQUE_RE.findall(text or ""))
+        asserted_n = len(MethodologicalFailureAnalyzer.ASSERT_RE.findall(text or ""))
         return "critiqued" if critique_n >= max(1, asserted_n) else "asserted"
 
     @staticmethod
     def _polarity(window: str, default: str) -> str:
+        first_person = bool(
+            MethodologicalFailureAnalyzer.FIRST_PERSON_METHOD_RE.search(window)
+            or MethodologicalFailureAnalyzer.ASSERT_RE.search(window)
+        )
         critique = bool(MethodologicalFailureAnalyzer.CRITIQUE_RE.search(window))
-        asserted = bool(MethodologicalFailureAnalyzer.ASSERT_RE.search(window))
-        if critique and not asserted:
-            return "critiqued"
-        if asserted and not critique:
+        # Owning the method is an asserted use, even if a caveat sits nearby.
+        if first_person:
             return "asserted"
         if critique:
             return "critiqued"

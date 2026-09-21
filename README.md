@@ -113,6 +113,11 @@ Open http://127.0.0.1:8765. See [implementation/web/README.md](implementation/we
 
 The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
 
+Evidence for the five standards and the methodological-failure axis:
+[docs/calculator_evidence.md](docs/calculator_evidence.md).
+Draft follow-up letter pointing readers at the calculator:
+[examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
+
 ---
 
 ## Repository Structure

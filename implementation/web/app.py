@@ -25,7 +25,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from implementation.python.calculator import AMISCalculator
+from implementation.python.calculator import AMISCalculator, EvidenceAppendix
 
 WEB_DIR = Path(__file__).resolve().parent
 STATIC_DIR = WEB_DIR / "static"
@@ -77,6 +77,11 @@ def index() -> FileResponse:
 @app.get("/api/health")
 def health() -> dict:
     return {"ok": True, "service": "amis-claim-calculator"}
+
+
+@app.get("/api/evidence")
+def evidence() -> dict:
+    return EvidenceAppendix.to_dict()
 
 
 @app.get("/api/examples")

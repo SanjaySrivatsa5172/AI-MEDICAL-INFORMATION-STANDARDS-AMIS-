@@ -121,8 +121,45 @@ class SourceClassifierAdditiveTests(unittest.TestCase):
         classifier = SourceClassifier()
         nature = classifier.classify("https://www.nature.com/articles/s41586-020-0000", "Randomized study")
         arxiv = classifier.classify("https://arxiv.org/abs/2509.18234", "Preprint")
+        nature_doi = classifier.classify("https://doi.org/10.1038/s41591-025-03953-8", "STARD-AI")
+        neurips = classifier.classify("https://proceedings.neurips.cc/paper/2024/hash/abc", "NeurIPS")
         self.assertEqual(nature.level, 2)
         self.assertEqual(arxiv.level, 4)
+        self.assertEqual(nature_doi.level, 2)
+        self.assertEqual(neurips.level, 4)
+
+
+class ResidencyRLPaperPolarityTests(unittest.TestCase):
+    """Short methods excerpt only — do not commit the 5.3 MB PDF."""
+
+    EXCERPT = (
+        "We present ResidencyRL, a reinforcement learning method for training "
+        "clinical AI agents. An LLM autorater processes the encounter transcript "
+        "and tool calls, yielding a structured reward. We train a Gemini 3.5 Flash "
+        "initialized agent. At episode completion, Gemini 3.1 Pro evaluates the "
+        "transcript against the ground-truth scenario. All evaluations used the "
+        "same automated rubric pipeline that served as the training reward signal. "
+        "Because this in-domain evaluation shares the underlying scenario generation "
+        "and rubric architecture used during training, these results primarily "
+        "validate that the agent successfully learns to optimize its training signals. "
+        "Blinded expert clinicians preferred the trained agent in 87.6% of "
+        "side-by-side comparisons, with a 90.7% win rate for completeness of "
+        "information gathering."
+    )
+
+    def test_paper_asserts_contaminated_grading(self):
+        result = MethodologicalFailureAnalyzer.analyze(self.EXCERPT)
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertEqual(codes.get("goodhart"), "asserted")
+        self.assertGreaterEqual(result.failure_score, 40)
+        self.assertGreater(result.awareness_score, 0)
+
+    def test_letter_still_critiques_not_owns(self):
+        text = (EXAMPLES / "residencyrl_letter.txt").read_text(encoding="utf-8")
+        result = MethodologicalFailureAnalyzer.analyze(text)
+        self.assertTrue(all(f.polarity == "critiqued" for f in result.findings))
+        self.assertGreater(result.awareness_score, result.failure_score)
 
 
 if __name__ == "__main__":

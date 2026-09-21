@@ -126,7 +126,21 @@ TIER_4_DOMAINS = {
     "arxiv.org": "arXiv preprint",
     "medrxiv.org": "medRxiv preprint",
     "biorxiv.org": "bioRxiv preprint",
+    "openreview.net": "OpenReview / conference preprint",
+    "proceedings.neurips.cc": "NeurIPS proceedings",
+    "aclanthology.org": "ACL Anthology",
+    "doi.org": "DOI record (tier refined by prefix)",
+    "dx.doi.org": "DOI record (tier refined by prefix)",
 }
+
+# DOI prefixes that map to already-recognized medical journals.
+DOI_TIER_2_PREFIXES = (
+    "10.1056/",   # NEJM
+    "10.1001/",   # JAMA
+    "10.1136/",   # BMJ
+    "10.1038/",   # Nature family
+    "10.1016/s0140-6736",  # Lancet
+)
 
 # Tier 5: Excluded Sources
 TIER_5_DOMAINS = {
@@ -364,12 +378,25 @@ class SourceClassifier:
         context: Optional[str]
     ) -> Optional[TierClassification]:
         """Check if source is Tier 4 (Expert Opinion / preprint)."""
+        for prefix in DOI_TIER_2_PREFIXES:
+            if prefix in url.lower():
+                return self._create_classification(
+                    SourceTier.TIER_2,
+                    f"DOI in a major journal family ({prefix})",
+                    ["Verify the specific article is a peer-reviewed research paper, not a news item"],
+                )
+        if "arxiv" in url.lower() or "10.48550/" in url.lower():
+            return self._create_classification(
+                SourceTier.TIER_4,
+                "Preprint via DOI / arXiv",
+                ["Peer review not complete; must not serve as sole basis for medical claims"],
+            )
         for tier_4_domain, name in self.tier_4_domains.items():
             if tier_4_domain in domain:
                 return self._create_classification(
                     SourceTier.TIER_4,
-                    f"Preprint / expert-level source: {name}",
-                    ["Peer review not complete; must not serve as sole basis for medical claims"]
+                    f"Preprint / specialist venue: {name}",
+                    ["Not a medical guideline source; must not serve as sole basis for medical claims"]
                 )
         if context:
             context_lower = context.lower()

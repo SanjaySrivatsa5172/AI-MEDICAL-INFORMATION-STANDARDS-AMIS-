@@ -163,6 +163,10 @@ function render(result) {
   renderList("harm-list", harmItems, (item) =>
     `<li><strong>${escapeHtml(item.key)}</strong> ${item.score} (${escapeHtml(item.level)}) — ${escapeHtml(item.explanation)}</li>`
   );
+  const evidence = result.evidence || {};
+  document.getElementById("evidence-note").textContent = evidence.note || "";
+  const refs = document.getElementById("evidence-refs");
+  refs.innerHTML = (evidence.references || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
