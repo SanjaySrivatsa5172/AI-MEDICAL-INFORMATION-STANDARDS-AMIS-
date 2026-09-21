@@ -1,0 +1,15 @@
+Liévin V, Schmidgall S, Strother T, et al. ResidencyRL: reinforcement learning in
+simulated clinical environments. arXiv:2608.07418. 2026.
+https://arxiv.org/abs/2608.07418
+
+We present ResidencyRL, a reinforcement learning method for training clinical AI
+agents. An LLM autorater processes the encounter transcript and tool calls,
+yielding a structured reward. We train a Gemini 3.5 Flash initialized agent. At
+episode completion, Gemini 3.1 Pro evaluates the transcript against the
+ground-truth scenario. All evaluations used the same automated rubric pipeline
+that served as the training reward signal. Because this in-domain evaluation
+shares the underlying scenario generation and rubric architecture used during
+training, these results primarily validate that the agent successfully learns to
+optimize its training signals. Blinded expert clinicians preferred the trained
+agent in 87.6% of side-by-side comparisons, with a 90.7% win rate for
+completeness of information gathering. This excerpt does not prescribe treatment.

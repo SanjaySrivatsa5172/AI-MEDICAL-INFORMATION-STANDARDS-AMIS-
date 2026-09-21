@@ -37,8 +37,11 @@ Set `PORT` for Render or any PaaS (`render.yaml` is in the repo root). The app b
 Headless scoring (same engine as the UI):
 
 ```bash
-PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/srivatsa_abstract.txt
+PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/residencyrl_paper.txt
+PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/residencyrl_letter.txt
 ```
+
+Live demo order: score the ResidencyRL paper excerpt first (asserted autorater / Goodhart), then the letter (same constructs, critiqued). Do not commit the 5 MB PDF.
 
 ## Tests
 
