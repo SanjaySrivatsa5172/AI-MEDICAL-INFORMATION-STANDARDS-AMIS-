@@ -19,6 +19,23 @@
 
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
+### AMIS Claim Calculator
+
+The calculator lives **in this repository** (not a second repo to star or favorite). Paste an abstract or upload a PDF; it scores the five AMIS standards plus uncertainty calibration and methodological failure.
+
+- Code: [`implementation/web/`](implementation/web/)
+- Landing page source: [`site/index.html`](site/index.html)
+- Intended public URL (after GitHub Pages is enabled): https://sanjaysrivatsa5172.github.io/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-/
+
+```bash
+git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
+cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+python3 -m pip install -r implementation/web/requirements.txt
+python3 -m implementation.web.app
+```
+
+Open http://127.0.0.1:8765. It does not prescribe treatment (Standard 5).
+
 ---
 
 ## What This Repository Addresses
@@ -104,30 +121,14 @@ Copy [implementation/prompts/system_prompt_template.md](implementation/prompts/s
 
 ### 5. Score a paper in the web calculator
 
-Paste an abstract or upload a PDF/text file. The calculator reuses the modules above — it does not invent a second schema — and adds claim extraction plus a methodological-failure axis.
-
-```bash
-git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
-cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
-python3 -m pip install -r implementation/web/requirements.txt
-python3 -m implementation.web.app
-```
-
-Open http://127.0.0.1:8765. Docker:
+Same instrument as the box at the top of this README. Docker:
 
 ```bash
 docker build -t amis-calculator .
 docker run --rm -p 8765:8765 amis-calculator
 ```
 
-See [implementation/web/README.md](implementation/web/README.md) and the public landing page in [`site/index.html`](site/index.html).
-
-The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
-
-Evidence for the five standards and the methodological-failure axis:
-[docs/calculator_evidence.md](docs/calculator_evidence.md).
-Draft follow-up letter pointing readers at the calculator:
-[examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
+See [implementation/web/README.md](implementation/web/README.md). Evidence: [docs/calculator_evidence.md](docs/calculator_evidence.md). Draft letter: [examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
 
 ---
 
