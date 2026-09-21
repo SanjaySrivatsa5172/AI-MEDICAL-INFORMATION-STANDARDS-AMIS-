@@ -338,5 +338,30 @@ class PdfHostBudgetTests(unittest.TestCase):
         self.assertTrue(payload["source_notes"] or payload["document"].get("notes"))
 
 
+class IosSafariUiTests(unittest.TestCase):
+    STATIC = ROOT / "implementation" / "web" / "static"
+
+    def test_html_does_not_load_variable_webfonts(self):
+        html = (self.STATIC / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("fonts.googleapis.com", html)
+        self.assertNotIn("opsz", html)
+        self.assertIn("novalidate", html)
+        self.assertIn('id="source-file"', html)
+        self.assertNotIn("accept=", html)
+
+    def test_css_keeps_file_input_visible_and_uses_system_fonts(self):
+        css = (self.STATIC / "styles.css").read_text(encoding="utf-8")
+        self.assertNotIn("display: none", css)
+        self.assertIn("-apple-system", css)
+        self.assertIn("#source-file", css)
+
+    def test_craftmd_example_is_listed_first(self):
+        from implementation.web.app import EXAMPLES
+
+        slugs = list(EXAMPLES)
+        self.assertEqual(slugs[0], "craftmd")
+        self.assertIn("agentclinic", slugs)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -48,6 +48,16 @@ class TextScoreRequest(BaseModel):
 
 
 EXAMPLES = {
+    "craftmd": {
+        "title": "CRAFT-MD — grader-AI + vignette drop",
+        "file": "craftmd_excerpt.txt",
+        "blurb": "Johri et al. Nat Med 2025: patient-AI + grader-AI; every model drops vignette → conversation.",
+    },
+    "agentclinic": {
+        "title": "AgentClinic — LLM moderator + MedQA drop",
+        "file": "agentclinic_excerpt.txt",
+        "blurb": "Schmidgall et al. npj Digit Med 2026: moderator agent as LLM judge; MedQA-in-dialogue can fall to ~1/10.",
+    },
     "productive-uncertainty": {
         "title": "Srivatsa abstract — productive uncertainty",
         "file": "srivatsa_abstract.txt",
@@ -63,16 +73,6 @@ EXAMPLES = {
         "file": "overconfident_ai_claims.txt",
         "blurb": "False certainty, Tier 5 citations, and therapeutic dosing — should fail.",
     },
-    "craftmd": {
-        "title": "CRAFT-MD — grader-AI + vignette drop",
-        "file": "craftmd_excerpt.txt",
-        "blurb": "Johri et al. Nat Med 2025: patient-AI + grader-AI; every model drops vignette → conversation.",
-    },
-    "agentclinic": {
-        "title": "AgentClinic — LLM moderator + MedQA drop",
-        "file": "agentclinic_excerpt.txt",
-        "blurb": "Schmidgall et al. npj Digit Med 2026: moderator agent as LLM judge; MedQA-in-dialogue can fall to ~1/10.",
-    },
 }
 
 
@@ -81,7 +81,7 @@ def index() -> FileResponse:
     page = STATIC_DIR / "index.html"
     if not page.exists():
         raise HTTPException(status_code=500, detail="Calculator UI is missing.")
-    return FileResponse(page)
+    return FileResponse(page, headers={"Cache-Control": "no-store"})
 
 
 @app.get("/api/health")
