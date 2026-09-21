@@ -129,6 +129,10 @@ Evidence for the five standards and the methodological-failure axis:
 Draft follow-up letter pointing readers at the calculator:
 [examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
 
+Worked examples in `examples/calculator/`: Srivatsa abstract, ResidencyRL letter,
+CRAFT-MD (Johri et al., *Nat Med* 2025; grader-AI), and AgentClinic (Schmidgall et al.,
+*npj Digit Med* 2026; LLM moderator). Publisher PDFs are not committed.
+
 ---
 
 ## Repository Structure

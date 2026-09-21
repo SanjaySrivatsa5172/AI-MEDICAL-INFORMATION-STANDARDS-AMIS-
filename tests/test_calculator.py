@@ -162,5 +162,51 @@ class ResidencyRLPaperPolarityTests(unittest.TestCase):
         self.assertGreater(result.awareness_score, result.failure_score)
 
 
+class ToothPaperTests(unittest.TestCase):
+    """Short public excerpts only — do not commit the Nature PDFs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.calc = AMISCalculator()
+
+    def test_grader_ai_alias_is_contaminated_grader(self):
+        result = MethodologicalFailureAnalyzer.analyze(
+            "We introduce CRAFT-MD. A grader-AI agent reviews the diagnosis."
+        )
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(result.failure_score, 20)
+
+    def test_moderator_agent_alias_is_contaminated_grader(self):
+        result = MethodologicalFailureAnalyzer.analyze(
+            "We introduce AgentClinic. Accuracy is determined via the moderator agent."
+        )
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+
+    def test_craftmd_excerpt_owns_grader_ai(self):
+        result = self.calc.score_path(EXAMPLES / "craftmd_excerpt.txt")
+        payload = result.to_dict()
+        codes = {f["code"]: f["polarity"] for f in payload["method"]["findings"]}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(payload["axes"]["methodological_failure"]["score"], 20)
+        self.assertGreater(payload["axes"]["methodological_awareness"]["score"], 0)
+        self.assertGreaterEqual(payload["standards_scores"]["standard_5_therapeutic_scope"], 0.9)
+        tiers = {s["tier"] for s in payload["sources"]}
+        self.assertIn(2, tiers)
+        self.assertNotIn("does not diagnose", "".join(v["description"] for v in payload["violations"]).lower())
+
+    def test_agentclinic_excerpt_owns_moderator_and_discloses(self):
+        result = self.calc.score_path(EXAMPLES / "agentclinic_excerpt.txt")
+        payload = result.to_dict()
+        codes = {f["code"]: f["polarity"] for f in payload["method"]["findings"]}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(payload["axes"]["methodological_failure"]["score"], 20)
+        self.assertGreater(payload["axes"]["methodological_awareness"]["score"], 0)
+        self.assertGreaterEqual(payload["standards_scores"]["standard_5_therapeutic_scope"], 0.9)
+        tiers = {s["tier"] for s in payload["sources"]}
+        self.assertIn(2, tiers)
+
+
 if __name__ == "__main__":
     unittest.main()

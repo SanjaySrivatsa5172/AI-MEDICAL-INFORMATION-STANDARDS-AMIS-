@@ -40,6 +40,13 @@ credit is given for the authors’ own caveat. That is the intended behaviour: a
 describes a contaminated examiner should not hide behind the fact that it also mentions
 the contamination.
 
+The same axis scores two further conversational benchmarks without adding a standard.
+CRAFT-MD (Johri et al., *Nat Med* 2025) uses a patient-AI and a grader-AI and shows
+every model dropping from vignette to conversation. AgentClinic (Schmidgall et al.,
+*npj Digit Med* 2026) uses an LLM moderator to score MedQA-in-dialogue, where
+accuracy can fall to about one-tenth of the static number. The drop is the slide;
+the in-family examiner is the tooth.
+
 I am not proposing a sixth AMIS standard. TRIPOD-LLM, STARD-AI, CONSORT-AI, and DECIDE-AI
 remain the correct *reporting* instruments for model papers and trials.4–7 AMIS asks a
 prior question: may this claim be believed at the confidence with which it is written, and
@@ -62,3 +69,5 @@ Heart Artery and Vein Center of Fresno
 6. Sounderajah V, et al. The STARD-AI reporting guideline. *Nat Med.* 2025.
 7. Vasey B, et al. DECIDE-AI. *Nat Med.* 2022;28:924-933.
 8. Panickssery A, Bowman SR, Feng S. LLM evaluators recognize and favor their own generations. arXiv:2404.13076. 2024.
+9. Johri S, Jeong J, Tran BA, et al. An evaluation framework for clinical use of large language models in patient interaction tasks. *Nat Med.* 2025;31:77-86. doi:10.1038/s41591-024-03328-5.
+10. Schmidgall S, Ziaei R, Harris C, et al. AgentClinic: a multimodal benchmark for tool-using clinical AI agents. *npj Digit Med.* 2026;9:499. doi:10.1038/s41746-026-02674-7.

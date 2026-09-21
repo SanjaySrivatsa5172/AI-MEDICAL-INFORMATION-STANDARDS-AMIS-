@@ -243,6 +243,8 @@ class EvidenceAppendix:
         "Simpkin AL, Schwartzstein RM. N Engl J Med. 2016;375:1713-1715.",
         "Goddard K, et al. Automation bias. JAMIA. 2012;19:121-127.",
         "Jabbour S, et al. JAMA. 2023;330:2275-2284.",
+        "Johri S, et al. CRAFT-MD. Nat Med. 2025;31:77-86. doi:10.1038/s41591-024-03328-5.",
+        "Schmidgall S, et al. AgentClinic. npj Digit Med. 2026;9:499. doi:10.1038/s41746-026-02674-7.",
     ]
 
     @staticmethod

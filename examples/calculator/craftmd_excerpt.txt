@@ -1,0 +1,43 @@
+Johri S, Jeong J, Tran BA, Schlessinger DI, Wongvibulsin S, Barnes LA, Zhou HY,
+Cai ZR, Van Allen EM, Kim D, Daneshjou R, Rajpurkar P. An evaluation framework
+for clinical use of large language models in patient interaction tasks. Nat Med.
+2025;31:77-86. doi:10.1038/s41591-024-03328-5
+https://doi.org/10.1038/s41591-024-03328-5
+
+The integration of large language models (LLMs) into clinical diagnostics has the
+potential to transform doctor-patient interactions. However, the readiness of
+these models for real-world clinical application remains inadequately tested.
+This paper introduces the Conversational Reasoning Assessment Framework for
+Testing in Medicine (CRAFT-MD) approach for evaluating clinical LLMs. Unlike
+traditional methods that rely on structured medical examinations, CRAFT-MD
+focuses on natural dialogues, using simulated artificial intelligence agents to
+interact with LLMs in a controlled environment. We applied CRAFT-MD to assess
+the diagnostic capabilities of GPT-4, GPT-3.5, Mistral and LLaMA-2-7b across 12
+medical specialties. Our experiments revealed critical insights into the
+limitations of current LLMs in terms of clinical conversational reasoning,
+history-taking and diagnostic accuracy. These limitations also persisted when
+analyzing multimodal conversational and visual assessment capabilities of
+GPT-4V. We propose a comprehensive set of recommendations for future evaluations
+of clinical LLMs based on our empirical findings. These recommendations
+emphasize realistic doctor-patient conversations, comprehensive history-taking,
+open-ended questioning and using a combination of automated and expert
+evaluations. The introduction of CRAFT-MD marks an advancement in testing of
+clinical LLMs, aiming to ensure that these models augment medical practice
+effectively and ethically.
+
+We introduce a multi-agent AI conversational framework comprising the clinical
+LLM assessed by a combination of a patient-AI agent, a grader-AI agent along
+with medical experts. The patient-AI agent is fed a detailed case vignette and
+answers inquiries in natural language. The grader-AI agent assesses the accuracy
+of the clinical LLM's diagnosis against the vignette ground truth, including
+disease synonyms and variants. Medical experts assess the clinical LLM, the
+patient-AI agent, and the accuracy and validity of the grader-AI agent's
+conclusions.
+
+We evaluated whether GPT-4 and GPT-3.5 maintain accuracy as clinical LLMs when
+making diagnoses through conversations versus static case vignettes. Diagnostic
+accuracy dropped when using conversations versus vignettes. The decrease was
+smaller for GPT-4 (0.919 to 0.854) than GPT-3.5 (0.833 to 0.724) on four-choice
+MCQs. Every evaluated model drops from vignette to conversation; that drop is
+the evaluation slide. Combine automated and expert evaluations for comprehensive
+insights. This excerpt does not prescribe treatment.
