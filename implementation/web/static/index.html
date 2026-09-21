@@ -4,10 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AMIS Claim Calculator — S. Sanjay Srivatsa, MD</title>
-  <link rel="stylesheet" href="/static/styles.css?v=ios-spaces-1" />
+  <link rel="stylesheet" href="/static/styles.css?v=onboard-1" />
 </head>
 <body>
   <a class="skip" href="#composer">Skip to calculator</a>
+  <nav class="access-bar" aria-label="Access">
+    <a class="access-tab is-current" href="/" aria-current="page">Calculator</a>
+    <a class="access-tab" href="/onboarding">Onboarding</a>
+  </nav>
   <header class="masthead">
     <div class="masthead-inner">
       <p class="eyebrow">AI Medical Information Standards · v1.0.0</p>
@@ -28,7 +32,7 @@
     <section id="composer" class="panel composer">
       <div class="panel-head">
         <h2>Input</h2>
-        <p>Abstract, letter, or full paper. Publisher PDFs are scored from the first 16 pages so the free host can finish. This tool does not prescribe treatment.</p>
+        <p>Abstract, letter, or full paper. Publisher PDFs are scored from the first 16 pages so the free host can finish. This tool does not prescribe treatment. New here? Open the <a href="/onboarding">Onboarding</a> tab.</p>
       </div>
       <form id="score-form" novalidate>
         <label class="field-label" for="source-text">Paste abstract or manuscript text</label>
@@ -143,6 +147,8 @@
     <p>
       AMIS does not generate therapeutic advice. Consult a qualified physician
       before any clinical decision. Specification:
+      <a href="/onboarding">Onboarding</a>
+      ·
       <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">SPECIFICATION.md</a>
     </p>
   </footer>

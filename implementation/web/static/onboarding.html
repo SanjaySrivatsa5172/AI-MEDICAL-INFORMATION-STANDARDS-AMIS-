@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding — AMIS Claim Calculator</title>
+  <link rel="stylesheet" href="/static/styles.css?v=onboard-1" />
+</head>
+<body>
+  <a class="skip" href="#onboarding">Skip to onboarding</a>
+  <nav class="access-bar" aria-label="Access">
+    <a class="access-tab" href="/">Calculator</a>
+    <a class="access-tab is-current" href="/onboarding" aria-current="page">Onboarding</a>
+  </nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="eyebrow">AI Medical Information Standards · v1.0.0</p>
+      <h1>Onboarding</h1>
+      <p class="lede">
+        How to run the AMIS Claim Calculator and how to read a score. This is a use guide,
+        not a second standard.
+      </p>
+      <p class="byline">S. Sanjay Srivatsa, MD · Heart Artery and Vein Center, Fresno</p>
+    </div>
+  </header>
+
+  <main id="onboarding">
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>1. What this instrument is</h2>
+      </div>
+      <p>Paste an abstract or upload a PDF / text file. The calculator extracts AI-related medical claims and returns:</p>
+      <ol>
+        <li>Five AMIS standards (0–1 each, then a mean)</li>
+        <li>Uncertainty calibration versus certainty excess</li>
+        <li>Methodological failure versus methodological awareness (who graded the claim)</li>
+      </ol>
+      <p>It is a deterministic heuristic. It is not a licensed psychometric scale, a systematic review, or a diagnosis. It does <strong>not</strong> prescribe treatment (AMIS Standard 5).</p>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>2. First use (phone or desktop)</h2>
+      </div>
+      <p>The top <strong>Access</strong> bar has two tabs: <a href="/">Calculator</a> (the scorer) and <strong>Onboarding</strong> (this guide).</p>
+      <h3>Fastest path — load an example</h3>
+      <ol>
+        <li>Open the <a href="/">Calculator</a> tab.</li>
+        <li>Tap <strong>CRAFT-MD — grader-AI + vignette drop</strong> (first example).</li>
+        <li>Tap <strong>Score claims</strong>.</li>
+        <li>Scroll the result: five standards, two axes, per-claim findings.</li>
+      </ol>
+      <p>Expected CRAFT-MD excerpt: five standards at 1.00 (full AMIS conformance) and methodological failure about 30 because the paper <em>asserts</em> a grader-AI. AMIS can be 1.00 while the method axis still flags a contaminated examiner.</p>
+      <h3>Paste text</h3>
+      <ol>
+        <li>Paste an abstract, letter, or excerpt into the box.</li>
+        <li>Tap <strong>Score claims</strong>.</li>
+      </ol>
+      <h3>Upload a PDF (including iPhone)</h3>
+      <ol>
+        <li>Use the system <strong>Choose File</strong> control.</li>
+        <li>Confirm the filename appears (not “No file selected”).</li>
+        <li>Tap <strong>Score claims</strong>.</li>
+        <li>Wait on <strong>Reading PDF…</strong> The free host may take 10–25 seconds after sleep.</li>
+      </ol>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>3. Free-host limits</h2>
+        <p>Read these before a publisher PDF. The public instance is a free Python service.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Limit</th><th>What you will see</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>First 16 pages / 80,000 characters</td><td><code>pdf · 80000 characters</code></td></tr>
+            <tr><td>At most 8 scored AI claims</td><td><code>8 AI claims</code> even if the paper has more</td></tr>
+            <tr><td>Idle sleep (~15 minutes)</td><td>First request after sleep is slow</td></tr>
+            <tr><td>Client abort at 28 seconds</td><td>Tap Score claims again, or use the excerpt</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A full publisher PDF and the built-in excerpt are different documents. A drop from 1.00 on the excerpt to about 0.85 / <code>conformance none</code> on the PDF usually means a critical validator hit in the capped text, not that the site failed. Do not commit publisher PDFs to the repository.</p>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>4. How to read a score</h2>
+      </div>
+      <h3>Overall number (the dial)</h3>
+      <p>The large number is the five-standard mean × 100. It is not an average of the two axes.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Conformance</th><th>Rule of thumb</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>full</code></td><td>Mean ≥ 0.9 and no major/critical violations</td></tr>
+            <tr><td><code>substantial</code></td><td>Mean ≥ 0.7, no critical, no major</td></tr>
+            <tr><td><code>partial</code></td><td>Major violation or mean 0.5–0.7</td></tr>
+            <tr><td><code>none</code></td><td>Critical violation or mean &lt; 0.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>compliant=true</code> only for substantial or full, and only when harm is not high. A paper can show 85 and still be <code>none / compliant=false</code> if one critical violation fired.</p>
+      <h3>Five AMIS standards (0–1)</h3>
+      <ol>
+        <li><strong>Literature review paradigm</strong> — appraisal language and graded evidence.</li>
+        <li><strong>Source quality hierarchy</strong> — peer-reviewed / guideline sources; Tier 5 excluded.</li>
+        <li><strong>Mandatory uncertainty disclosure</strong> — confidence does not outrun warrant.</li>
+        <li><strong>Dissent labelling without false certainty</strong> — controversy labelled; no dogma.</li>
+        <li><strong>Therapeutic advice requires a physician</strong> — no dosing as if the model were the prescriber.</li>
+      </ol>
+      <h3>Two axes (not a sixth standard)</h3>
+      <ul>
+        <li><strong>Uncertainty calibration</strong> (high is better) versus <strong>certainty excess</strong>.</li>
+        <li><strong>Methodological failure</strong> (high = worse examiner integrity) versus <strong>methodological awareness</strong> (the paper labels the failure as a risk).</li>
+      </ul>
+      <p>Methodological failure looks for contaminated or in-family graders (grader-AI, autorater, moderator agent, LLM judge), Goodhart gaming, shortcut learning, and fabricated reasoning. <strong>Asserted</strong> means the paper owns that method. <strong>Critiqued</strong> means it is discussed as a risk rather than used as the result.</p>
+      <p>TRIPOD-LLM, STARD-AI, CONSORT-AI, and DECIDE-AI remain the correct reporting instruments. AMIS does not add them as Standard 6.</p>
+      <h3>Source tiers</h3>
+      <p>Nature / npj / DOI <code>10.1038/</code> stay Tier 2. GitHub, ORCID, Hugging Face, and Zenodo in a bibliography are Tier 4 reproducibility hosts, not YouTube-class Tier 5 failures. arXiv is Tier 4. YouTube / TikTok / social media still fail Standard 2.</p>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>5. Built-in examples</h2>
+      </div>
+      <ul>
+        <li><strong>CRAFT-MD</strong> — Johri et al., Nat Med 2025: grader-AI + vignette→conversation drop.</li>
+        <li><strong>AgentClinic</strong> — Schmidgall et al., npj Digit Med 2026: LLM moderator + MedQA-in-dialogue drop.</li>
+        <li><strong>Srivatsa abstract</strong> — productive uncertainty, no prescription.</li>
+        <li><strong>ResidencyRL letter</strong> — contaminated grading named as critique.</li>
+        <li><strong>Overconfident AI claims</strong> — synthetic fail case.</li>
+      </ul>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>6. What a score is allowed to mean</h2>
+      </div>
+      <p>A high methodological-failure score on CRAFT-MD or AgentClinic means the paper uses a language-model examiner. It does not mean the vignette→conversation drop is false, or that conversational benchmarks should be abandoned.</p>
+      <p>The same rule applies to ResidencyRL (arXiv:2608.07418): the autorater and in-domain Goodhart sentence are made numerically visible. The calculator has not refuted the paper.</p>
+    </article>
+
+    <article class="panel onboarding-doc">
+      <div class="panel-head">
+        <h2>7. Citation</h2>
+      </div>
+      <p>Hosted scorer: <a href="https://amis-claim-calculator.onrender.com">https://amis-claim-calculator.onrender.com</a></p>
+      <p>This onboarding page: <a href="https://amis-claim-calculator.onrender.com/onboarding">https://amis-claim-calculator.onrender.com/onboarding</a></p>
+      <p>Source: <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-</a></p>
+      <p>Markdown copy in the repository: <code>docs/calculator_onboarding.md</code>. Methods appendix: <code>docs/calculator_evidence.md</code>. Specification: <code>SPECIFICATION.md</code>.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      AMIS does not generate therapeutic advice. Consult a qualified physician
+      before any clinical decision.
+      <a href="/">Back to Calculator</a>
+    </p>
+  </footer>
+</body>
+</html>

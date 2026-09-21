@@ -41,6 +41,60 @@ html, body {
   padding: 8px 12px;
 }
 
+.access-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 0;
+  background: #0f1f24;
+  border-bottom: 1px solid #2a4a52;
+}
+
+.access-tab {
+  flex: 1;
+  text-align: center;
+  padding: 0.85rem 0.6rem;
+  color: #e5d3a8;
+  text-decoration: none;
+  font: 500 16px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  border-bottom: 3px solid transparent;
+}
+
+.access-tab.is-current {
+  color: #fff8ea;
+  border-bottom-color: #e5d3a8;
+  background: rgba(255, 248, 234, 0.06);
+}
+
+.onboarding-doc h3 {
+  margin: 1.1rem 0 0.4rem;
+  font-size: 1.08rem;
+}
+
+.onboarding-doc p, .onboarding-doc li {
+  color: var(--ink);
+}
+
+.onboarding-doc a { color: var(--teal-deep); }
+
+.table-wrap { overflow-x: auto; margin: 0.8rem 0; }
+
+.onboarding-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.onboarding-doc th, .onboarding-doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.45rem 0.55rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.onboarding-doc th { color: var(--teal-deep); font-weight: 600; }
+
 .masthead {
   background:
     radial-gradient(circle at 10% 10%, rgba(27, 79, 90, 0.16), transparent 40%),
