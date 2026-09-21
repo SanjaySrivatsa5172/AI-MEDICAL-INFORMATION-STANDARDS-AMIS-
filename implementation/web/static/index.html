@@ -33,13 +33,13 @@
         <h2>Input</h2>
         <p>Abstract, letter, or full paper. Publisher PDFs are scored from the first 16 pages so the free host can finish. This tool does not prescribe treatment.</p>
       </div>
-      <form id="score-form">
+      <form id="score-form" novalidate>
         <label class="field-label" for="source-text">Paste abstract or manuscript text</label>
         <textarea id="source-text" name="text" rows="8" placeholder="Paste an abstract, letter, or paper excerpt that makes AI medical claims…"></textarea>
 
         <div class="upload-row">
           <label class="file-btn">
-            <input id="source-file" type="file" name="file" accept=".pdf,.txt,.md,.text,application/pdf,text/plain" />
+            <input id="source-file" type="file" name="file" />
             <span>Upload PDF or text</span>
           </label>
           <span id="file-name" class="file-name">No file selected</span>
