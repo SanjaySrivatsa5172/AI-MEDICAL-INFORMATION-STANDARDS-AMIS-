@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMIS Claim Calculator — S. Sanjay Srivatsa, MD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#composer">Skip to calculator</a>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="eyebrow">AI Medical Information Standards · v1.0.0</p>
+      <h1>AMIS Claim Calculator</h1>
+      <p class="lede">
+        Paste an abstract or upload a paper. The calculator extracts AI-related
+        medical claims and scores them against the five AMIS standards — plus
+        uncertainty calibration and methodological failure.
+      </p>
+      <blockquote>
+        “The apparent confidence of any medical statement should not exceed its epistemic warrant.”
+      </blockquote>
+      <p class="byline">S. Sanjay Srivatsa, MD · Heart Artery and Vein Center, Fresno</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="composer" class="panel composer">
+      <div class="panel-head">
+        <h2>Input</h2>
+        <p>Abstract, letter, or full paper. PDF and plain text are accepted. This tool does not prescribe treatment.</p>
+      </div>
+      <form id="score-form">
+        <label class="field-label" for="source-text">Paste abstract or manuscript text</label>
+        <textarea id="source-text" name="text" rows="12" placeholder="Paste an abstract, letter, or paper excerpt that makes AI medical claims…"></textarea>
+
+        <div class="upload-row">
+          <label class="file-btn">
+            <input id="source-file" type="file" name="file" accept=".pdf,.txt,.md,.text,application/pdf,text/plain" />
+            <span>Upload PDF or text</span>
+          </label>
+          <span id="file-name" class="file-name">No file selected</span>
+        </div>
+
+        <div class="example-row" id="example-row">
+          <span class="example-label">Load example</span>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="score-btn" class="primary">Score claims</button>
+          <button type="button" id="clear-btn" class="ghost">Clear</button>
+        </div>
+        <p id="form-error" class="form-error" hidden></p>
+      </form>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <section class="panel hero">
+        <div class="panel-head">
+          <h2>Overall AMIS score</h2>
+          <p id="conformance-line"></p>
+        </div>
+        <div class="hero-grid">
+          <div class="dial" id="overall-dial">
+            <div class="dial-value" id="overall-score">—</div>
+            <div class="dial-caption">Five-standard mean</div>
+          </div>
+          <div class="hero-meta">
+            <p id="doc-meta"></p>
+            <p class="disclaimer" id="hero-disclaimer"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Five AMIS standards</h2>
+          <p>Existing validator scores. Higher is more compliant (0–1).</p>
+        </div>
+        <ol class="standards" id="standards-list"></ol>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Two requested axes</h2>
+          <p>Uncertainty calibration versus false confidence, and methodological failure versus labelled critique.</p>
+        </div>
+        <div class="axes" id="axes-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Per-claim findings</h2>
+          <p>AI performance, safety, diagnostic/therapeutic, and evaluation claims — not every sentence.</p>
+        </div>
+        <div id="claims-list" class="claims"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Violations and recommendations</h2>
+        </div>
+        <div class="split">
+          <div>
+            <h3>Standard violations</h3>
+            <ul id="violations-list" class="findings"></ul>
+          </div>
+          <div>
+            <h3>Recommendations</h3>
+            <ul id="recommendations-list" class="findings"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Methods and evidence</h2>
+          <p>Why these criteria exist. Full appendix: docs/calculator_evidence.md. This is a heuristic, not a licensed scale.</p>
+        </div>
+        <p id="evidence-note" class="evidence-note"></p>
+        <ol id="evidence-refs" class="refs"></ol>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Sources and harm cascade</h2>
+          <p>Tier classification from the existing source hierarchy. Harm analysis is informational, not a prescription.</p>
+        </div>
+        <div class="split">
+          <div>
+            <h3>Cited / named sources</h3>
+            <ul id="sources-list" class="findings"></ul>
+          </div>
+          <div>
+            <h3>Harm cascade</h3>
+            <ul id="harm-list" class="findings"></ul>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      AMIS does not generate therapeutic advice. Consult a qualified physician
+      before any clinical decision. Specification:
+      <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">SPECIFICATION.md</a>
+    </p>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

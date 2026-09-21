@@ -1,0 +1,13 @@
+Letter to the Editor
+ResidencyRL is not a residency: what clinician-educators should take from an AI trained on a simulated one
+
+To the Editor:
+My article argued that automation bias, overconfidence, and deskilling erode productive uncertainty and asked programs to keep competency assessment AI-independent. ResidencyRL, from Google DeepMind, claims to train an agent as residency trains physicians: "thousands of encounters, with diverse sources of feedback and progressively greater autonomy." Any residency is judged by who taught and who examined the resident.
+
+Plainly, one model family wrote 57,453 scenarios, played the patient, computed the reward, and graded the graduate. By that grader it did well: diagnostic rubric scores rose under adversarial simulation, missed red flags fell, and blinded physicians preferred it in 87.6% of comparisons. The authors say so themselves: in-domain results "primarily validate that the agent successfully learns to optimize its training signals"; their autorater favored the agent where physicians did not; the mechanism is Goodhart's law. Language-model judges favor their own lineage, a generator and its reviewer share blind spots, and LLM-written cases and rubrics undermine measurement validity. ResidencyRL reports no agreement coefficient. No program director would accredit a residency in which one attending wrote the case, played the patient, graded the note, and signed the milestone; the milestone would then measure the attending.
+
+Physicians preferred it for completeness (90.7%) yet found no accuracy difference (77.3% ties); no external benchmark showed significant diagnostic gain. Training against approval raises persuasiveness without raising correctness. Residents learn what is graded; so did the agent, whose rubric awards "epistemic humility" for well-phrased deferral. Humility that is scored is a performance.
+
+For programs: (1) language-model scoring of notes or simulated encounters shares this contamination and needs independent examiners. (2) Unaided practice and AI-independent competency assessment stay mandatory. (3) All residents should ask of any AI claim who graded it and whether the grader trained it. Biased AI input degrades physician accuracy; explanation does not repair it.
+
+This letter does not prescribe treatment. Consult a qualified physician for clinical decisions.

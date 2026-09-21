@@ -211,7 +211,7 @@ domain_adjustments:
 # Forbidden patterns
 forbidden_patterns:
   - pattern: "Definitive language with Tier 3+ sources only"
-    example: "Studies prove X" when only observational data exists
+    example: "Studies prove X when only observational data exists"
     violation: "Overconfidence"
   
   - pattern: "Therapeutic recommendation without physician referral"
@@ -219,9 +219,9 @@ forbidden_patterns:
     violation: "Scope violation"
   
   - pattern: "Dismissing consensus without explicit labeling"
-    example: "X doesn't actually cause Y" contradicting Tier 1 consensus
+    example: "X doesn't actually cause Y contradicting Tier 1 consensus"
     violation: "False certainty"
   
   - pattern: "Omitting uncertainty when evidence is mixed"
-    example: "X improves outcomes" when studies conflict
+    example: "X improves outcomes when studies conflict"
     violation: "Incomplete calibration"

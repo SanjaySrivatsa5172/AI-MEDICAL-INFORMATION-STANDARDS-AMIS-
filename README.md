@@ -15,6 +15,8 @@
 
 **Five foundational standards for AI systems that generate medical information.**
 
+**Public repository (cite this):** [github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-](https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
 ---
@@ -100,6 +102,33 @@ risks = analyzer.analyze(
 
 Copy [implementation/prompts/system_prompt_template.md](implementation/prompts/system_prompt_template.md) into your LLM system prompt.
 
+### 5. Score a paper in the web calculator
+
+Paste an abstract or upload a PDF/text file. The calculator reuses the modules above — it does not invent a second schema — and adds claim extraction plus a methodological-failure axis.
+
+```bash
+git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
+cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+python3 -m pip install -r implementation/web/requirements.txt
+python3 -m implementation.web.app
+```
+
+Open http://127.0.0.1:8765. Docker:
+
+```bash
+docker build -t amis-calculator .
+docker run --rm -p 8765:8765 amis-calculator
+```
+
+See [implementation/web/README.md](implementation/web/README.md) and the public landing page in [`site/index.html`](site/index.html).
+
+The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
+
+Evidence for the five standards and the methodological-failure axis:
+[docs/calculator_evidence.md](docs/calculator_evidence.md).
+Draft follow-up letter pointing readers at the calculator:
+[examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
+
 ---
 
 ## Repository Structure
@@ -120,7 +149,11 @@ ai-medical-information-standards/
 │   ├── python/
 │   │   ├── validator.py               # Compliance checker
 │   │   ├── source_classifier.py       # Tier classification
-│   │   └── harm_analyzer.py           # Cascade analysis
+│   │   ├── harm_analyzer.py           # Cascade analysis
+│   │   ├── claim_extractor.py         # AI medical claim extraction
+│   │   ├── method_failure.py          # Evaluation-failure axis
+│   │   └── calculator.py              # Orchestrates the web/CLI scorer
+│   ├── web/                           # Local FastAPI calculator
 │   └── prompts/
 │       └── system_prompt_template.md  # LLM system prompt
 │

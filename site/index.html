@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMIS Claim Calculator — S. Sanjay Srivatsa, MD</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; font: 18px/1.5 "IBM Plex Sans", "Helvetica Neue", sans-serif; background: #f4efe4; color: #1b1914; }
+    header { background: linear-gradient(160deg, #12262c, #1b4f5a); color: #f6f1e6; padding: 3rem 1.25rem; }
+    main, header div, footer { max-width: 42rem; margin: 0 auto; }
+    h1 { font-family: Georgia, serif; font-weight: 600; }
+    a { color: #12343c; }
+    .card { background: #fffdf7; border: 1px solid #d8cbb3; padding: 1.2rem 1.3rem; margin: 1.2rem auto; max-width: 42rem; }
+    code { background: #efe4cd; padding: 0.1rem 0.35rem; }
+    pre { background: #1b1914; color: #f6f1e6; padding: 1rem; overflow: auto; }
+    .warn { border-left: 3px solid #9a5b12; padding-left: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p>AI Medical Information Standards · v1.0.0</p>
+      <h1>AMIS Claim Calculator</h1>
+      <p>Score AI medical claims against the five AMIS standards, plus uncertainty calibration and methodological failure.</p>
+      <p>S. Sanjay Srivatsa, MD · Heart Artery and Vein Center, Fresno</p>
+    </div>
+  </header>
+  <main>
+    <div class="card">
+      <p>Public source (cite this URL in letters and papers):</p>
+      <p><a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-</a></p>
+      <p>Pull request with the calculator: <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-/pull/5">PR #5</a></p>
+    </div>
+    <div class="card">
+      <h2>Run the calculator</h2>
+      <pre>git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
+cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+git checkout cursor/amis-web-calculator-0fb7
+python3 -m pip install -r implementation/web/requirements.txt
+python3 -m implementation.web.app</pre>
+      <p>Then open <code>http://127.0.0.1:8765</code>. Docker: <code>docker build -t amis-calculator . && docker run -p 8765:8765 amis-calculator</code></p>
+    </div>
+    <div class="card warn">
+      <p>This instrument evaluates epistemic claims. It does not diagnose, dose, or prescribe. Therapeutic decisions require a qualified physician (AMIS Standard 5). It is a deterministic heuristic, not a licensed psychometric scale.</p>
+    </div>
+  </main>
+</body>
+</html>
