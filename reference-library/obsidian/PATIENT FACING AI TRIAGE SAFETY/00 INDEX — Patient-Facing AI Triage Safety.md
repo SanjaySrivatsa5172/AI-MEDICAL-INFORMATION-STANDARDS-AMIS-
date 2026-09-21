@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-20
-total-references: 186
+last-updated: 2026-09-21
+total-references: 187
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-20** · 186 references.
+Updated daily by automated scan. Last scan: **2026-09-21** · 187 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -140,6 +140,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
 - [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
 - [[Lange 2026 — Real-world use and evaluation of a generative AI chatbot for…]] (2026)
+- [[Jarrett 2026 — Outcome-grounded effect of clinically stigmatizing information on…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -345,6 +346,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Jia 2026 — OpenEvidence errs on the safe side in a structured test of triage… (2)]] (2026)
 - [[Kim 2026 — Exposing the fragility of LLM reasoning through bias-inducing prompts…]] (2026)
 - [[Samsel 2026 — Too agreeable to be accurate Sycophancy and diagnostic instability of…]] (2026)
+- [[Jarrett 2026 — Outcome-grounded effect of clinically stigmatizing information on…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -424,6 +426,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Hartoyo 2026 — Fitzpatrick Skin Type Is Associated With Missed Malignancy in Large…]] (2026)
 - [[Zuo 2026 — Safety, accuracy, empathy, information quality, and readability of…]] (2026)
 - [[Lange 2026 — Real-world use and evaluation of a generative AI chatbot for…]] (2026)
+- [[Jarrett 2026 — Outcome-grounded effect of clinically stigmatizing information on…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
