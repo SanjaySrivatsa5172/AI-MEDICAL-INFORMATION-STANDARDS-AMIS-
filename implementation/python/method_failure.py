@@ -171,9 +171,11 @@ class MethodologicalFailureAnalyzer:
                   r"who graded|grader trained it|"
                   r"generator and its reviewer|one model family wrote|"
                   r"played the patient.{0,40}graded|"
-                  r"same automated rubric pipeline",
+                  r"same automated rubric pipeline|"
+                  r"grader[- ]?ai|ai[- ]?grader|"
+                  r"moderator agent|examiner agent",
             severity="critical",
-            description="Teacher, patient simulator, and examiner share a model family — measurement is contaminated.",
+            description="Teacher, patient simulator, and examiner share a model family — measurement is contaminated. CRAFT-MD grader-AI, AgentClinic moderator, and ChatGPT examiner agents are the same construct.",
             standard="standard_1_literature_review",
             polarity_hint="either",
         ),

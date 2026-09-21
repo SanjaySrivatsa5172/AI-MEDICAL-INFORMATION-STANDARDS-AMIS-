@@ -72,6 +72,13 @@ class MethodFailureTests(unittest.TestCase):
         self.assertGreaterEqual(result.awareness_score, 40)
         self.assertGreater(result.awareness_score, result.failure_score)
 
+    def test_examiner_agent_is_contaminated_grader(self):
+        result = MethodologicalFailureAnalyzer.analyze(
+            "We introduce ChatGPT agents. The examiner agent marked the doctor agent."
+        )
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+
     def test_asserted_autorater_counts_as_failure(self):
         text = (
             "We present our model. We achieved state-of-the-art diagnostic scores. "
