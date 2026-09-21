@@ -33,6 +33,9 @@ Readers can paste Liévin et al. — or any other clinical-AI claim — at:
 **https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-**
 
 (local run: `python3 -m implementation.web.app`; paper: https://arxiv.org/pdf/2608.07418).
+Once the Render host is live, replace the clone-and-run parenthetical with
+`https://amis-claim-calculator.onrender.com` (one-click deploy:
+https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-).
 
 On the ResidencyRL PDF the calculator flags the autorater, the shared training-and-grading
 rubric, and the in-domain Goodhart disclosure as *asserted* methodological failures, while

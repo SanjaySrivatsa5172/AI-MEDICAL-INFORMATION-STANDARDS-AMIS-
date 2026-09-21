@@ -30,13 +30,14 @@
     <div class="card">
       <p>Public source (cite this URL in letters and papers):</p>
       <p><a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-">github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-</a></p>
-      <p>Pull request with the calculator: <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-/pull/5">PR #5</a></p>
+      <p>Hosted scorer (FastAPI — not GitHub Pages): after one-click Render deploy, <code>https://amis-claim-calculator.onrender.com</code>.</p>
+      <p><a href="https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-"><img alt="Deploy to Render" src="https://render.com/images/deploy-to-render-button.svg" /></a></p>
+      <p>Steps: <a href="https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-/blob/main/docs/deploy.md">docs/deploy.md</a></p>
     </div>
     <div class="card">
-      <h2>Run the calculator</h2>
+      <h2>Run the calculator locally</h2>
       <pre>git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
 cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
-git checkout cursor/amis-web-calculator-0fb7
 python3 -m pip install -r implementation/web/requirements.txt
 python3 -m implementation.web.app</pre>
       <p>Then open <code>http://127.0.0.1:8765</code>. Docker: <code>docker build -t amis-calculator . && docker run -p 8765:8765 amis-calculator</code></p>
