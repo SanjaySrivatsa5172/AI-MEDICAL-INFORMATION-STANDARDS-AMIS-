@@ -128,6 +128,41 @@ class SourceClassifierAdditiveTests(unittest.TestCase):
         self.assertEqual(nature_doi.level, 2)
         self.assertEqual(neurips.level, 4)
 
+    def test_bibliography_hosts_are_not_youtube_tier(self):
+        classifier = SourceClassifier()
+        github = classifier.classify("https://github.com/rajpurkarlab/craft-md", "Code")
+        orcid = classifier.classify("https://orcid.org/0000-0000-0000-0000", "Author")
+        hf = classifier.classify("https://huggingface.co/meta-llama", "Weights")
+        youtube = classifier.classify("https://www.youtube.com/watch?v=abc", "Video")
+        self.assertEqual(github.level, 4)
+        self.assertEqual(orcid.level, 4)
+        self.assertEqual(hf.level, 4)
+        self.assertEqual(youtube.level, 5)
+        self.assertTrue(SourceClassifier.is_bibliography_host("https://github.com/SamuelSchmidgall/AgentClinic"))
+        self.assertFalse(SourceClassifier.is_bibliography_host("https://www.youtube.com/watch?v=abc"))
+
+    def test_nature_plus_github_does_not_fail_standard_2(self):
+        text = (
+            "Johri et al. Nat Med. 2025. doi:10.1038/s41591-024-03328-5 "
+            "https://doi.org/10.1038/s41591-024-03328-5 "
+            "Code: https://github.com/rajpurkarlab/craft-md "
+            "Identifier: https://orcid.org/0000-0000-0000-0000 "
+            "Weights: https://huggingface.co/meta-llama "
+            "Diagnostic accuracy may drop from vignette to conversation. "
+            "This excerpt does not prescribe treatment."
+        )
+        payload = AMISCalculator().score_text(text).to_dict()
+        tiers = {s["url"]: s["tier"] for s in payload["sources"]}
+        self.assertEqual(tiers.get("https://github.com/rajpurkarlab/craft-md"), 4)
+        self.assertEqual(tiers.get("https://orcid.org/0000-0000-0000-0000"), 4)
+        self.assertEqual(tiers.get("https://huggingface.co/meta-llama"), 4)
+        self.assertIn(2, set(tiers.values()))
+        types = {v["violation_type"] for v in payload["violations"]}
+        self.assertNotIn("tier_5_in_sources", types)
+        self.assertGreaterEqual(payload["standards_scores"]["standard_2_source_hierarchy"], 0.8)
+        self.assertTrue(payload["source_notes"])
+        self.assertIn("not YouTube-tier", payload["source_notes"][0])
+
 
 class ResidencyRLPaperPolarityTests(unittest.TestCase):
     """Short methods excerpt only — do not commit the 5.3 MB PDF."""
@@ -160,6 +195,60 @@ class ResidencyRLPaperPolarityTests(unittest.TestCase):
         result = MethodologicalFailureAnalyzer.analyze(text)
         self.assertTrue(all(f.polarity == "critiqued" for f in result.findings))
         self.assertGreater(result.awareness_score, result.failure_score)
+
+
+class ToothPaperTests(unittest.TestCase):
+    """Short public excerpts only — do not commit the Nature PDFs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.calc = AMISCalculator()
+
+    def test_grader_ai_alias_is_contaminated_grader(self):
+        result = MethodologicalFailureAnalyzer.analyze(
+            "We introduce CRAFT-MD. A grader-AI agent reviews the diagnosis."
+        )
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(result.failure_score, 20)
+
+    def test_moderator_agent_alias_is_contaminated_grader(self):
+        result = MethodologicalFailureAnalyzer.analyze(
+            "We introduce AgentClinic. Accuracy is determined via the moderator agent."
+        )
+        codes = {f.code: f.polarity for f in result.findings}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+
+    def test_craftmd_excerpt_owns_grader_ai(self):
+        result = self.calc.score_path(EXAMPLES / "craftmd_excerpt.txt")
+        payload = result.to_dict()
+        codes = {f["code"]: f["polarity"] for f in payload["method"]["findings"]}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(payload["axes"]["methodological_failure"]["score"], 20)
+        self.assertGreater(payload["axes"]["methodological_awareness"]["score"], 0)
+        self.assertGreaterEqual(payload["standards_scores"]["standard_5_therapeutic_scope"], 0.9)
+        tiers = {s["tier"] for s in payload["sources"]}
+        self.assertIn(2, tiers)
+        self.assertIn(4, tiers)
+        types = {v["violation_type"] for v in payload["violations"]}
+        self.assertNotIn("tier_5_in_sources", types)
+        self.assertTrue(payload["source_notes"])
+        self.assertNotIn("does not diagnose", "".join(v["description"] for v in payload["violations"]).lower())
+
+    def test_agentclinic_excerpt_owns_moderator_and_discloses(self):
+        result = self.calc.score_path(EXAMPLES / "agentclinic_excerpt.txt")
+        payload = result.to_dict()
+        codes = {f["code"]: f["polarity"] for f in payload["method"]["findings"]}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertGreaterEqual(payload["axes"]["methodological_failure"]["score"], 20)
+        self.assertGreater(payload["axes"]["methodological_awareness"]["score"], 0)
+        self.assertGreaterEqual(payload["standards_scores"]["standard_5_therapeutic_scope"], 0.9)
+        tiers = {s["tier"] for s in payload["sources"]}
+        self.assertIn(2, tiers)
+        self.assertIn(4, tiers)
+        types = {v["violation_type"] for v in payload["violations"]}
+        self.assertNotIn("tier_5_in_sources", types)
+        self.assertTrue(payload["source_notes"])
 
 
 class BatchScoreHelperTests(unittest.TestCase):

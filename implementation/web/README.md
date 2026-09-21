@@ -14,6 +14,10 @@ https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
 
 This is the citation URL for letters and papers. The calculator lives in this repository (not a second schema repo).
 
+Standard 2 treats GitHub, ORCID, and Hugging Face as Tier 4 reproducibility hosts —
+bibliography noise, not YouTube-tier excluded sources. YouTube / TikTok / social
+media still fail.
+
 ## Run locally
 
 From the repository root:
@@ -38,7 +42,14 @@ Headless scoring (same engine as the UI):
 
 ```bash
 PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/srivatsa_abstract.txt
+PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/craftmd_excerpt.txt
+PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/agentclinic_excerpt.txt
 ```
+
+Tooth-paper fixtures (excerpts only; publisher PDFs are not in the repository):
+
+- `craftmd_excerpt.txt` — Johri et al., *Nat Med* 2025 (DOI 10.1038/s41591-024-03328-5). Grader-AI + vignette→conversation drop.
+- `agentclinic_excerpt.txt` — Schmidgall et al., *npj Digit Med* 2026 (DOI 10.1038/s41746-026-02674-7). LLM moderator + MedQA-in-dialogue drop.
 
 Batch a manifest of papers (no second schema):
 

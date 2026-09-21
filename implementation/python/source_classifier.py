@@ -133,6 +133,29 @@ TIER_4_DOMAINS = {
     "dx.doi.org": "DOI record (tier refined by prefix)",
 }
 
+# Code, identity, and model hosts. These appear in paper bibliographies and
+# author lines. They are not medical evidence and they are not YouTube-class
+# excluded sources (Standard 2). Score as Tier 4 reproducibility noise.
+TIER_4_INFRA_DOMAINS = {
+    "github.com": "GitHub code repository",
+    "githubusercontent.com": "GitHub raw / gist host",
+    "github.io": "GitHub Pages project site",
+    "gitlab.com": "GitLab code repository",
+    "bitbucket.org": "Bitbucket code repository",
+    "orcid.org": "ORCID researcher identifier",
+    "huggingface.co": "Hugging Face model or dataset host",
+    "hf.co": "Hugging Face short URL",
+    "zenodo.org": "Zenodo research archive",
+    "figshare.com": "Figshare research archive",
+    "paperswithcode.com": "Papers with Code",
+}
+
+BIBLIOGRAPHY_HOST_NOTE = (
+    "GitHub, ORCID, and Hugging Face links are Tier 4 reproducibility / identity "
+    "hosts. They are not medical evidence and they are not YouTube-tier "
+    "(Tier 5) failures. Standard 2 still fails on YouTube, TikTok, and social media."
+)
+
 # DOI prefixes that map to already-recognized medical journals.
 DOI_TIER_2_PREFIXES = (
     "10.1056/",   # NEJM
@@ -191,6 +214,7 @@ class SourceClassifier:
         self.tier_2_domains = TIER_2_DOMAINS
         self.tier_3_domains = TIER_3_DOMAINS
         self.tier_4_domains = TIER_4_DOMAINS
+        self.tier_4_infra_domains = TIER_4_INFRA_DOMAINS
         self.tier_5_domains = TIER_5_DOMAINS
     
     def classify(self, url: str, context: Optional[str] = None) -> TierClassification:
@@ -391,6 +415,9 @@ class SourceClassifier:
                 "Preprint via DOI / arXiv",
                 ["Peer review not complete; must not serve as sole basis for medical claims"],
             )
+        infra = self._check_tier_4_infra(domain)
+        if infra:
+            return infra
         for tier_4_domain, name in self.tier_4_domains.items():
             if tier_4_domain in domain:
                 return self._create_classification(
@@ -407,6 +434,20 @@ class SourceClassifier:
                         f"Expert opinion: {pattern}",
                         ["Must not serve as sole basis for medical claims"]
                     )
+        return None
+
+    def _check_tier_4_infra(self, domain: str) -> Optional[TierClassification]:
+        """Code / ORCID / model hosts are bibliography noise, not Tier 5."""
+        for infra_domain, name in self.tier_4_infra_domains.items():
+            if infra_domain in domain:
+                return self._create_classification(
+                    SourceTier.TIER_4,
+                    f"Reproducibility host, not medical evidence: {name}",
+                    [
+                        BIBLIOGRAPHY_HOST_NOTE,
+                        "Must not serve as sole basis for medical claims",
+                    ],
+                )
         return None
     
     def _appears_peer_reviewed(
@@ -554,6 +595,20 @@ class SourceClassifier:
         
         valid = len([i for i in issues if i.startswith("CRITICAL")]) == 0
         return valid, issues
+
+
+    @staticmethod
+    def is_bibliography_host(url: str) -> bool:
+        """True for GitHub / ORCID / Hugging Face and sibling reproducibility hosts."""
+        try:
+            domain = urlparse((url or "").lower()).netloc.replace("www.", "")
+        except Exception:
+            domain = (url or "").lower()
+        return any(host in domain for host in TIER_4_INFRA_DOMAINS)
+
+    @staticmethod
+    def bibliography_host_note() -> str:
+        return BIBLIOGRAPHY_HOST_NOTE
 
 
 # Convenience function

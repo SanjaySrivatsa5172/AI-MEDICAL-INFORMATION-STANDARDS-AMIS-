@@ -97,6 +97,17 @@ They are not AMIS inventions; they are named in the target paper and in the judg
 - **Independent examiner** — ACGME milestones and board certification exist precisely so
   the teacher is not the sole summative examiner. The calculator treats an in-family
   autorater as the computational analogue of that structural failure.
+- **Conversational evaluation still needs an independent examiner** — Johri et al.
+  (CRAFT-MD, *Nat Med* 2025;31:77–86; doi:10.1038/s41591-024-03328-5) replace static
+  vignettes with multi-turn dialogue and show every tested model drops; their grader-AI
+  plus patient-AI is the same contamination class as an autorater, even when experts
+  later audit a sample. Schmidgall et al. (AgentClinic, *npj Digit Med* 2026;9:499;
+  doi:10.1038/s41746-026-02674-7; PMID 42045532) show MedQA-in-dialogue can fall to
+  about one-tenth of static accuracy and use an LLM moderator (an LLM judge) to score
+  the doctor agent. The *slide* (vignette → conversation; static QA → tool-use
+  dialogue) is what the papers measure. The *tooth* is that the examiner is still in
+  the same agent family. No sixth AMIS standard is added; `grader-AI` and
+  `moderator agent` are aliases of the existing contaminated-grader pattern.
 
 ### 2.4 Therapeutic scope
 
@@ -144,6 +155,37 @@ It does **not** mean the work is without value, that out-of-domain benchmarks ar
 or that the calculator has “refuted” the paper. The authors already wrote the Goodhart
 sentence. AMIS makes that sentence numerically visible.
 
+### 4.1 What a CRAFT-MD or AgentClinic score is allowed to mean
+
+These two papers are *tooth* fixtures: they are the runnable process (CRAFT-MD) and
+tool-use (AgentClinic) analogues of ResidencyRL’s contaminated examiner.
+
+| Paper | What they showed (the slide) | What AMIS flags (the tooth) |
+|---|---|---|
+| Johri et al., CRAFT-MD, *Nat Med* 2025 | Every model drops from vignette → conversation; o1-preview leads multi-turn FRQ on the public leaderboard. Code: `github.com/rajpurkarlab/craft-md`. | Asserted **grader-AI** + **patient-AI**. Expert audit of the grader is awareness, not independence of the examiner. |
+| Schmidgall et al., AgentClinic, *npj Digit Med* 2026 | MedQA-in-dialogue can fall to ~1/10 of static accuracy; Claude 3.5 best backbone; Llama-3 + notebook tool +92% relative. Code (MIT): `github.com/SamuelSchmidgall/AgentClinic`. | Asserted **moderator agent** / **LLM judge**, with GPT-4 as the patient for consistency. The authors’ own limitation paragraph is awareness credit. |
+
+A high methodological-failure score here means the paper *uses* a language-model
+examiner (grader-AI or moderator) to score the system under test. It does **not**
+mean the vignette→conversation drop is false, that Claude 3.5 is not the strongest
+backbone they measured, or that conversational benchmarks should be abandoned.
+The drop is why static USMLE-style numbers cannot be believed at face value. The
+grader is why the conversational number still needs an examiner who did not play
+the patient.
+
+Do not commit the publisher PDFs. Score the public excerpts in
+`examples/calculator/craftmd_excerpt.txt` and `agentclinic_excerpt.txt`.
+
+**Standard 2 bibliography noise (not a YouTube-tier failure).** Full-text PDFs
+and author lines routinely contain GitHub, ORCID, Hugging Face, Zenodo, and
+similar hosts. Those URLs are **Tier 4 reproducibility / identity hosts**: they
+are not medical evidence (they cannot raise Standard 2) and they are **not**
+Tier 5 excluded platforms. YouTube, TikTok, and social media remain the
+YouTube-class failures. A *Nature* / *npj* article stays Tier 2 via DOI
+`10.1038/` even when the bibliography also lists `github.com/…` or
+`huggingface.co/…`. The calculator surfaces this as a source note so a reviewer
+does not read a GitHub link as a Standard 2 critical hit.
+
 The calculator must remain conservative about source tiers: conference PDFs (NeurIPS,
 OpenReview) are Tier 4, not Tier 5. A DOI is not “unknown social media.” arXiv remains
 Tier 4 (preprint), including `10.48550/arXiv…`.
@@ -155,6 +197,8 @@ Tier 4 (preprint), including `10.48550/arXiv…`.
 - Deterministic lexical patterns, not an LLM judge (by design: the judge must not grade itself).
 - English-centric.
 - Abstracts without a reference list will fail Standard 1 even when the full paper would pass.
+- Bibliography hosts (GitHub, ORCID, Hugging Face) are Tier 4 noise, not Tier 5. Reviewers
+  should not treat those links as YouTube-class Standard 2 failures.
 - “100%” inside a methods table can trip Standard 3; reviewers should read the violation, not
   only the headline number.
 - No claim of inter-rater reliability against a human AMIS panel has been published yet.
