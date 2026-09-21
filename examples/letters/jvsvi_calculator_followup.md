@@ -3,7 +3,8 @@
 **Journal**: JVS–Vascular Insights  
 **Type**: Letter / correspondence, follow-up to Srivatsa SS. *JVS Vasc Insights.* 2026;4:100492.  
 **Status**: Draft for the author’s revision. Not submitted.  
-**Accompanying instrument**: AMIS Claim Calculator (`implementation/web/` in the AMIS repository).
+**Accompanying instrument**: AMIS Claim Calculator (`implementation/web/` in the AMIS repository).  
+**Shorter LTE (rev. 8 voice, one calculator paragraph):** `jvsvi_residencyrl_letter_rev8.md`. Cover note to Dr. Dua: `cover_letter_dua_residencyrl.md`.
 
 ---
 
