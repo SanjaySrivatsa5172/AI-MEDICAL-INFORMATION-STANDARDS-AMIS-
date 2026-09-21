@@ -183,12 +183,19 @@ function render(result) {
 }
 
 fileInput.addEventListener("change", () => {
-  fileName.textContent = fileInput.files[0] ? fileInput.files[0].name : "No file selected";
+  const selected = fileInput.files[0];
+  fileName.textContent = selected
+    ? selected.name
+    : "No file selected. On iPhone use Choose File, then Score claims.";
+  if (selected) {
+    showError("");
+    scoreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 });
 
 clearBtn.addEventListener("click", () => {
   form.reset();
-  fileName.textContent = "No file selected";
+  fileName.textContent = "No file selected. On iPhone use Choose File, then Score claims.";
   results.hidden = true;
   showError("");
 });
