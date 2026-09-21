@@ -194,6 +194,15 @@ textarea:focus {
   margin: 0.8rem 0 0;
 }
 
+.actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: var(--card);
+  padding: 0.75rem 0 0.2rem;
+  margin-top: 0.9rem;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 180px 1fr;
