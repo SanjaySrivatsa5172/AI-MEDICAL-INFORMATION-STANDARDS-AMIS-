@@ -150,7 +150,31 @@ Tier 4 (preprint), including `10.48550/arXiv…`.
 
 ---
 
-## 5. Limitations of the instrument (state these in any letter)
+## 5. Two interface risks (named, not scored as a sixth standard)
+
+The owner’s JVS–Vascular Insights analysis is about productive uncertainty. Two *directional*
+risks belong in any reply that points readers at the calculator. They are not new AMIS
+numbers.
+
+**Epistemic loss at intake (patient → AI).** A clinician elicits symptoms and signs,
+discards the irrelevant, lets a prior answer cue the next question, and corroborates
+suspicion on the body before a plan (Hampton et al., *BMJ* 1975). An agent that only
+conducts a standardised dialogue, or that “examines” by querying a measurement LLM,
+never performs that selection. What never enters the record cannot be graded. CRAFT-MD
+and AgentClinic measure only the remnant: accuracy falls when a packed vignette is
+unpacked into conversation. The calculator cannot restore a missing sign.
+
+**Epistemic substitution at output (AI → patient).** Fluency installs one version of
+events. If that narrative is incomplete or false, the patient has lost the differential,
+not merely received a wrong fact. This is already Standard 3 (confidence ≤ warrant),
+Standard 4 (dissent labelling), and the persuasiveness-without-correctness method flag.
+ResidencyRL’s preferred, complete-sounding note is the same object.
+
+The letter amendment is `examples/letters/jvsvi_calculator_followup.md`. Do not encode
+intake loss as a sixth YAML standard. An instrument that reads claims cannot examine
+the patient. Standard 5 remains the constitutive bound at both interfaces.
+
+## 6. Limitations of the instrument (state these in any letter)
 
 - Deterministic lexical patterns, not an LLM judge (by design: the judge must not grade itself).
 - English-centric.
@@ -158,6 +182,8 @@ Tier 4 (preprint), including `10.48550/arXiv…`.
 - “100%” inside a methods table can trip Standard 3; reviewers should read the violation, not
   only the headline number.
 - No claim of inter-rater reliability against a human AMIS panel has been published yet.
+- **Intake elicitation is invisible.** A sign that was never asked leaves no token. The
+  calculator can score substitution in text; it cannot score loss of what never arrived.
 
 ---
 

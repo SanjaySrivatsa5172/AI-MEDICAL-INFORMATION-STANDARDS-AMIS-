@@ -229,8 +229,11 @@ class EvidenceAppendix:
         "source hierarchy, and the productive-uncertainty literature. The "
         "methodological-failure axis is the TRIPOD-LLM / STARD-AI assessment-"
         "integrity items (independent examiner, no in-family judge) expressed "
-        "as a score, not a sixth AMIS standard. This instrument is a "
-        "deterministic heuristic, not a licensed psychometric scale."
+        "as a score, not a sixth AMIS standard. Two interface risks are named, "
+        "not scored: epistemic loss at intake (a sign never elicited cannot be "
+        "graded) and epistemic substitution at output (one fluent story crowding "
+        "out the differential). This instrument is a deterministic heuristic, "
+        "not a licensed psychometric scale."
     )
 
     REFERENCES = [
@@ -243,6 +246,9 @@ class EvidenceAppendix:
         "Simpkin AL, Schwartzstein RM. N Engl J Med. 2016;375:1713-1715.",
         "Goddard K, et al. Automation bias. JAMIA. 2012;19:121-127.",
         "Jabbour S, et al. JAMA. 2023;330:2275-2284.",
+        "Hampton JR, et al. BMJ. 1975;2:486-489.",
+        "Johri S, et al. CRAFT-MD. Nat Med. 2025;31:77-86.",
+        "Schmidgall S, et al. AgentClinic. npj Digit Med. 2026;9:499.",
     ]
 
     @staticmethod

@@ -40,6 +40,28 @@ credit is given for the authors’ own caveat. That is the intended behaviour: a
 describes a contaminated examiner should not hide behind the fact that it also mentions
 the contamination.
 
+Two interface risks from the original analysis should be named in the same breath, because
+simulated clinics make them concrete. The first is **epistemic loss at intake**. A clinician
+elicits symptoms *and* signs. She discards what is irrelevant, pursues what a prior answer
+cued, and corroborates suspicion on the body before she writes a plan.9 An agent that only
+conducts a standardised dialogue, or that “examines” by querying another language model,
+never performs that selection. What never enters the record cannot be graded. The drop from
+static vignette to conversation — shown for every model in CRAFT-MD and, more sharply, for
+MedQA-in-dialogue in AgentClinic — is the remnant of this loss even when the “patient” is
+already a compressed script.10,11
+
+The second is **epistemic substitution at output**. When the AI speaks to the patient it
+tends to present one version of events. Fluency installs a narrative. If that narrative is
+incomplete or false, the patient has not merely received a wrong fact; they have lost the
+differential. AMIS Standard 3 forbids confidence in excess of warrant, and Standard 4
+forbids unlabelled dissent, precisely so that a single story cannot masquerade as the case.
+Physician preference for a complete-sounding note, as in ResidencyRL, is the same failure
+scored as persuasiveness without correctness.
+
+The calculator can flag the second risk in text. It cannot restore a sign that was never
+elicited. That limit is constitutive: an instrument that reads claims cannot examine the
+patient. Productive uncertainty therefore still requires a physician at both interfaces.
+
 I am not proposing a sixth AMIS standard. TRIPOD-LLM, STARD-AI, CONSORT-AI, and DECIDE-AI
 remain the correct *reporting* instruments for model papers and trials.4–7 AMIS asks a
 prior question: may this claim be believed at the confidence with which it is written, and
@@ -62,3 +84,28 @@ Heart Artery and Vein Center of Fresno
 6. Sounderajah V, et al. The STARD-AI reporting guideline. *Nat Med.* 2025.
 7. Vasey B, et al. DECIDE-AI. *Nat Med.* 2022;28:924-933.
 8. Panickssery A, Bowman SR, Feng S. LLM evaluators recognize and favor their own generations. arXiv:2404.13076. 2024.
+9. Hampton JR, Harrison MJG, Mitchell JRA, Prichard JS, Seymour C. Relative contributions of history-taking, physical examination and laboratory investigation to diagnosis and management of medical outpatients. *BMJ.* 1975;2:486-489.
+10. Johri S, Jeong J, Tran BA, et al. An evaluation framework for clinical use of large language models in patient interaction tasks. *Nat Med.* 2025;31:77-86. doi:10.1038/s41591-024-03328-5.
+11. Schmidgall S, Ziaei R, Harris C, et al. AgentClinic: a multimodal benchmark for tool-using clinical AI agents. *npj Digit Med.* 2026;9:499. doi:10.1038/s41746-026-02674-7.
+
+---
+
+## Notes for revision (not for submission)
+
+These two risks are *directional*. They are not a sixth AMIS number and should not be
+coded as one.
+
+| Direction | Risk | Clinical act that is lost | What the instrument can see |
+|---|---|---|---|
+| Patient → AI (intake) | Epistemic **loss** | Selective history; discard noise; cue the next question; elicit a *sign* that corroborates before the plan | Almost nothing. A missing sign leaves no token to score. CRAFT-MD / AgentClinic score only the remnant: accuracy falls once the vignette is unpacked into dialogue. |
+| AI → patient (output) | Epistemic **substitution** | A contested differential, labelled dissent, confidence ≤ warrant | The calculator’s Standard 3/4 axis and “persuasiveness without correctness.” One fluent story is the failure. |
+
+Intake loss is why a patient-AI plus a measurement-agent “exam” is not an examination.
+The measurement agent returns text the doctor-agent requested. A physician feels the
+abdomen, watches the gait, and notices the thing that was not on the list. Substitution
+is why a complete-sounding discharge explanation can be the more dangerous object: it
+crowds out the other versions of events.
+
+If the editor cuts for length, keep the two bolded names and the last three sentences
+(“The calculator can flag… both interfaces.”). Those are the amendment. The CRAFT-MD /
+AgentClinic sentence is optional illustration, not a new claim about those papers.
