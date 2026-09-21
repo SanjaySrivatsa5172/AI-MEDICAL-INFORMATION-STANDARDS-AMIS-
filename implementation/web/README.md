@@ -14,15 +14,13 @@ https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
 
 This is the citation URL for letters and papers. The calculator lives in this repository (not a second schema repo).
 
-<<<<<<< HEAD
 Standard 2 treats GitHub, ORCID, and Hugging Face as Tier 4 reproducibility hosts —
 bibliography noise, not YouTube-tier excluded sources. YouTube / TikTok / social
 media still fail.
-=======
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
 The scorer is FastAPI, so GitHub Pages cannot host it. One-click Render: [docs/deploy.md](../../docs/deploy.md). After deploy, the public URL is `https://amis-claim-calculator.onrender.com`.
->>>>>>> 677950d (Add one-click Render deploy for the AMIS calculator.)
 
 ## Run locally
 

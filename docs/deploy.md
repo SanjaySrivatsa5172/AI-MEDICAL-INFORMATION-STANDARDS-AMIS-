@@ -10,11 +10,11 @@ Sign in with GitHub, then open:
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
-The Blueprint (`render.yaml`) creates a free Python web service named `amis-claim-calculator`. After the first deploy you get a public URL of the form:
+The Blueprint (`render.yaml`) created the free Python web service `amis-claim-calculator`. The public citeable URL is live:
 
-`https://amis-claim-calculator.onrender.com`
+**https://amis-claim-calculator.onrender.com**
 
-Open that URL, load an example or upload a PDF, and put the URL in the letter.
+Open that URL, load an example or upload a PDF, and cite it in the letter. Free instances sleep after about 15 minutes idle; the first request after sleep is slow.
 
 Manual path if the button is not used:
 
@@ -34,9 +34,7 @@ docker run --rm -p 8765:8765 amis-calculator
 
 `Dockerfile` remains the local / CI image. Render no longer builds it.
 
-## Until the host is up
-
-Cite the public repository:
+## Source
 
 https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
 

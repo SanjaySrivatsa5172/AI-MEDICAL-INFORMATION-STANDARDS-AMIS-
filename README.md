@@ -19,7 +19,7 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
-Hosted scorer (after you click Deploy and the first build finishes): `https://amis-claim-calculator.onrender.com`. Until then, clone and run locally. See [docs/deploy.md](docs/deploy.md).
+**Hosted scorer (cite this):** [amis-claim-calculator.onrender.com](https://amis-claim-calculator.onrender.com). Source and local run remain in this repository. See [docs/deploy.md](docs/deploy.md).
 
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
