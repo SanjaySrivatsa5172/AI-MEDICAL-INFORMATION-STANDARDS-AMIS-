@@ -48,6 +48,11 @@ class TextScoreRequest(BaseModel):
 
 
 EXAMPLES = {
+    "residencyrl-paper": {
+        "title": "ResidencyRL paper — autorater (demo)",
+        "file": "residencyrl_paper.txt",
+        "blurb": "Best live demo: Liévin et al. assert an in-family autorater and Goodhart. Then load the letter.",
+    },
     "productive-uncertainty": {
         "title": "Srivatsa abstract — productive uncertainty",
         "file": "srivatsa_abstract.txt",
@@ -56,7 +61,7 @@ EXAMPLES = {
     "residencyrl-letter": {
         "title": "ResidencyRL letter — contaminated grading",
         "file": "residencyrl_letter.txt",
-        "blurb": "Critiques self-grading, Goodhart, and persuasiveness without correctness.",
+        "blurb": "Same constructs as the paper, scored as critique. Polarity flips.",
     },
     "overconfident-claims": {
         "title": "Overconfident AI claims (synthetic)",

@@ -147,6 +147,15 @@ class ResidencyRLPaperPolarityTests(unittest.TestCase):
         "information gathering."
     )
 
+    def test_paper_excerpt_file_is_the_demo(self):
+        result = AMISCalculator().score_path(EXAMPLES / "residencyrl_paper.txt")
+        payload = result.to_dict()
+        codes = {f["code"]: f["polarity"] for f in payload["method"]["findings"]}
+        self.assertEqual(codes.get("contaminated_grader"), "asserted")
+        self.assertEqual(codes.get("goodhart"), "asserted")
+        self.assertGreaterEqual(payload["axes"]["methodological_failure"]["score"], 40)
+        self.assertGreater(payload["axes"]["methodological_awareness"]["score"], 0)
+
     def test_paper_asserts_contaminated_grading(self):
         result = MethodologicalFailureAnalyzer.analyze(self.EXCERPT)
         codes = {f.code: f.polarity for f in result.findings}
