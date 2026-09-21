@@ -162,5 +162,37 @@ class ResidencyRLPaperPolarityTests(unittest.TestCase):
         self.assertGreater(result.awareness_score, result.failure_score)
 
 
+class BatchScoreHelperTests(unittest.TestCase):
+    """Thin batch helper reuses AMISCalculator; no second schema."""
+
+    def test_manifest_scores_committed_excerpts(self):
+        from implementation.python.batch_score import BatchRow, BatchScorer
+
+        manifest = ROOT / "examples" / "calculator" / "patient_sim_2025" / "manifest.json"
+        rows = BatchScorer.score_manifest(manifest)
+        self.assertEqual(len(rows), 10)
+        ids = {row["id"] for row in rows}
+        self.assertIn("kyung", ids)
+        self.assertIn("saggar", ids)
+        kyung = next(row for row in rows if row["id"] == "kyung")
+        self.assertGreaterEqual(kyung["method_failure"], 20)
+        table = BatchRow.markdown_table(rows)
+        self.assertIn("PatientSim", table)
+        self.assertIn("Std2", table)
+
+    def test_frozen_fulltext_table_has_ten_rows(self):
+        import json
+
+        frozen = json.loads(
+            (ROOT / "examples" / "calculator" / "patient_sim_2025" / "scores.fulltext.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(len(frozen), 10)
+        self.assertTrue(all(row["std2"] == 0.5 for row in frozen))
+        kyung = next(row for row in frozen if row["id"] == "kyung")
+        self.assertEqual(kyung["method_failure"], 44.0)
+
+
 if __name__ == "__main__":
     unittest.main()

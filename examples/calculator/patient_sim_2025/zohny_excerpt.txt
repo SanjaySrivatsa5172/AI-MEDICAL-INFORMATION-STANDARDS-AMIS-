@@ -1,0 +1,9 @@
+Which AI doctor would you like to see? Emulating healthcare provider-patient communication models with GPT-4: proof-of-concept and ethical exploration
+Hazem Zohny, Jemima Winifred Allen, Dominic Wilkinson, Julian Savulescu
+Journal of Medical Ethics 2025. DOI 10.1136/jme-2024-110256
+Open text: https://pmc.ncbi.nlm.nih.gov/articles/PMC7618332/
+
+Abstract
+Large language models (LLMs) have demonstrated potential in enhancing health provider-patient communication. However, such communication may adopt implicit norms that deviate from what patients want or need. This paper explores using LLMs to enable patients to choose their preferred communication style. By providing a proof-of-concept demonstration using ChatGPT-4, we suggest LLMs can emulate Emanuel and Emanuel's four models: paternalistic, informative, interpretive and deliberative. We also highlight potential risks, including reinforcing patients' biases and the persuasive capabilities of LLMs that may lead to unintended manipulation.
+
+This is an ethical exploration, not a diagnostic accuracy trial. The authors flag overreliance on AI-generated advice, questions of responsibility and liability for adverse outcomes, and the risk that a deliberative prompt to "actively persuade" could become manipulation. They recommend clear disclaimers and discussion with human healthcare providers. No in-family LLM judge is used to certify clinical correctness.

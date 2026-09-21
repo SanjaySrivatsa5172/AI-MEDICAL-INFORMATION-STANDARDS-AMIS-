@@ -1,0 +1,11 @@
+Large Language Models for Chatbot Health Advice Studies: A Systematic Review
+Bright Huo, Amy Boyle, N. Marfo, et al.
+JAMA Network Open 2025;8(2):e2457879. DOI 10.1001/jamanetworkopen.2024.57879
+Open text: https://pmc.ncbi.nlm.nih.gov/articles/PMC11795331/
+
+Abstract
+This systematic review examined reporting variability among peer-reviewed studies evaluating the performance of generative AI-driven chatbots that provide health advice (chatbot health advice studies), to inform the Chatbot Assessment Reporting Tool (CHART). A search of MEDLINE, Embase, and Web of Science to 27 October 2023 yielded 7752 articles. Two reviewers identified 137 eligible studies.
+
+Findings: Most studies (136, 99.3%) evaluated inaccessible, closed-source LLMs and did not provide enough information to identify the version under evaluation. All studies lacked a sufficient description of LLM characteristics (temperature, token length, fine-tuning). Most studies (136, 99.3%) did not describe a prompt-engineering phase. The date of querying was reported in 54 (39.4%) studies. Most studies (89, 65.0%) used subjective means to define successful chatbot performance, while less than one-third addressed ethical, regulatory, and patient-safety implications.
+
+The review does not assert the authors' own chatbot scores. It documents that the literature often substitutes subjective preference for independent clinical endpoints — the reporting failure that CHART is meant to repair.

@@ -1,0 +1,13 @@
+Large Language Model-Based Patient Simulation to Foster Communication Skills in Health Care Professionals: User-Centered Development and Usability Study
+Ahmed Elhilali, Andy Suy-Huor Ngo, Daniel Reichenpfader, Kerstin Denecke
+JMIR Medical Education 2025;11:e81271. DOI 10.2196/81271
+Open text: https://mededu.jmir.org/2025/1/e81271
+
+Abstract
+This study aimed to introduce the system architecture of a digital tool that leverages LLMs to simulate patient conversations for medical education, focusing specifically on medical history taking. Through an explorative analysis, we aimed to assess the tool's usability and examine differences between LLMs in simulating patient encounters.
+
+We followed a user-centered design process and developed a fully functional web prototype integrating 5 LLMs from OpenAI, Anthropic, and xAI. For the explorative analysis, we conducted a task-based usability test with 5 medical students, measuring their experience using the System Usability Scale (SUS). Four practicing physicians then evaluated the simulation quality of 3 models (Grok 3, GPT-4, and Claude 3 Opus) across 7 criteria on a 5-point Likert scale.
+
+Results: Usability testing yielded a mean SUS score of 91.5 (SD 8.40), indicating high perceived usability in a small formative sample. Students noted the absence of a formal conclusion and performance feedback, expressing a desire for a "didactic loop." The models showed limitations in simulating uncertainties and memory lapses, responding to follow-up questions, and producing natural conversational flow. Differences among the models were not statistically significant. Ratings showed limited discriminative reliability (Kendall W=0-0.19) and a ceiling effect, with most scores clustered at 4-5; all group differences should therefore be viewed as exploratory.
+
+Human physicians, not an in-family LLM judge, graded simulation quality. The sample is small. There is no automated feedback loop and no claim of diagnostic accuracy. Among the risks is overreliance on scripted LLM behavior, as students may miss learning to deal with unpredictable patients.

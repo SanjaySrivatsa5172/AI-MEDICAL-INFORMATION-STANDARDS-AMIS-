@@ -1,0 +1,13 @@
+AI-simulated clinical consultations: Assessing the potential of ChatGPT to support medical training
+Arpita Saggar, Vania Dimitrova, Duygu Sarikaya, David C. Hogg, Jonathan C. Darling
+Archives of Disease in Childhood 2025. DOI 10.1136/archdischild-2025-329846
+Open PDF (AAM): https://eprints.whiterose.ac.uk/id/eprint/238861/1/archdischild-2025-329846.full.pdf
+
+Abstract
+Simulated medical scenarios are useful for evaluating and developing clinical competencies but scheduling them is expensive and time-consuming. We investigated the fidelity with which ChatGPT can mimic patients, clinicians and examiners in educational settings.
+
+Methods: We selected four paediatric scenarios from mock OSCEs and set up separate patient, doctor and examiner ChatGPT agents for each. The patient and doctor agents conversed with each other in written format. The examiner agent marked the doctor agent based on this conversation. Patients and clinicians familiar with the OSCE assessed the dialogues. Clinicians also graded DoctorGPT's performance, and their marking was compared with that of ExaminerGPT to measure the overlap between human and AI judgement.
+
+Results: The patient agent was judged to be true to character most of the time. The doctor agent was an effective communicator but occasionally used jargon. Both agents tended to produce repetitive responses. The examiner agent had good correlation with human clinicians. There was moderate support for using the simulated interactions for educational purposes.
+
+Contamination note: ChatGPT plays the patient, the doctor, and the examiner. Correlation between ExaminerGPT and humans does not make the examiner independent of the model family that wrote the case. The current AMIS engine scores this as method-failure 0 unless the text uses autorater / LLM-judge wording; the contamination is still present.
