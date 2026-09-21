@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: amis-claim-calculator
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "8765"

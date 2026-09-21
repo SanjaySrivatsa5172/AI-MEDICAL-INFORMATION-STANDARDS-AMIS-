@@ -15,6 +15,8 @@
 
 **Five foundational standards for AI systems that generate medical information.**
 
+**Public repository (cite this):** [github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-](https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
 ---
@@ -105,11 +107,20 @@ Copy [implementation/prompts/system_prompt_template.md](implementation/prompts/s
 Paste an abstract or upload a PDF/text file. The calculator reuses the modules above — it does not invent a second schema — and adds claim extraction plus a methodological-failure axis.
 
 ```bash
+git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
+cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
 python3 -m pip install -r implementation/web/requirements.txt
 python3 -m implementation.web.app
 ```
 
-Open http://127.0.0.1:8765. See [implementation/web/README.md](implementation/web/README.md).
+Open http://127.0.0.1:8765. Docker:
+
+```bash
+docker build -t amis-calculator .
+docker run --rm -p 8765:8765 amis-calculator
+```
+
+See [implementation/web/README.md](implementation/web/README.md) and the public landing page in [`site/index.html`](site/index.html).
 
 The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
 

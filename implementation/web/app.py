@@ -136,12 +136,15 @@ def score_json(payload: TextScoreRequest) -> dict:
 
 
 def main() -> None:
+    import os
     import uvicorn
 
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", "8765"))
     uvicorn.run(
         "implementation.web.app:app",
-        host="127.0.0.1",
-        port=8765,
+        host=host,
+        port=port,
         reload=False,
     )
 

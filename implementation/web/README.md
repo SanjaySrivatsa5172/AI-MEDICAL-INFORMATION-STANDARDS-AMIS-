@@ -8,6 +8,12 @@ against the five AMIS standards and two aggregate axes:
 
 The calculator **does not prescribe treatment** (Standard 5).
 
+## Public source
+
+https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+
+This is the citation URL for letters and papers. The calculator lives in this repository (not a second schema repo).
+
 ## Run locally
 
 From the repository root:
@@ -18,6 +24,15 @@ python3 -m implementation.web.app
 ```
 
 Open [http://127.0.0.1:8765](http://127.0.0.1:8765).
+
+## Docker (shareable / hostable)
+
+```bash
+docker build -t amis-calculator .
+docker run --rm -p 8765:8765 amis-calculator
+```
+
+Set `PORT` for Render or any PaaS (`render.yaml` is in the repo root). The app binds `0.0.0.0`.
 
 Headless scoring (same engine as the UI):
 
