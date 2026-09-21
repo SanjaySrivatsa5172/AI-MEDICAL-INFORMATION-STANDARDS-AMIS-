@@ -84,6 +84,14 @@ def index() -> FileResponse:
     return FileResponse(page, headers={"Cache-Control": "no-store"})
 
 
+@app.get("/onboarding")
+def onboarding() -> FileResponse:
+    page = STATIC_DIR / "onboarding.html"
+    if not page.exists():
+        raise HTTPException(status_code=500, detail="Onboarding page is missing.")
+    return FileResponse(page, headers={"Cache-Control": "no-store"})
+
+
 @app.get("/api/health")
 def health() -> dict:
     return {"ok": True, "service": "amis-claim-calculator"}

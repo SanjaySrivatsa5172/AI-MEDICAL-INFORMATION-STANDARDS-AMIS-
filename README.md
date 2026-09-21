@@ -19,7 +19,7 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
-**Hosted scorer (cite this):** [amis-claim-calculator.onrender.com](https://amis-claim-calculator.onrender.com). Source and local run remain in this repository. See [docs/deploy.md](docs/deploy.md).
+**Hosted scorer (cite this):** [amis-claim-calculator.onrender.com](https://amis-claim-calculator.onrender.com). Use the **Onboarding** tab on that site, or open [amis-claim-calculator.onrender.com/onboarding](https://amis-claim-calculator.onrender.com/onboarding). Source and local run remain in this repository. See [docs/calculator_onboarding.md](docs/calculator_onboarding.md) and [docs/deploy.md](docs/deploy.md).
 
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 

@@ -20,7 +20,7 @@ media still fail.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
 
-The scorer is FastAPI, so GitHub Pages cannot host it. One-click Render: [docs/deploy.md](../../docs/deploy.md). After deploy, the public URL is `https://amis-claim-calculator.onrender.com`.
+The scorer is FastAPI, so GitHub Pages cannot host it. One-click Render: [docs/deploy.md](../../docs/deploy.md). After deploy, the public URL is `https://amis-claim-calculator.onrender.com`. The **Onboarding** tab is `https://amis-claim-calculator.onrender.com/onboarding` (source: [docs/calculator_onboarding.md](../../docs/calculator_onboarding.md)).
 
 ## Run locally
 
@@ -31,7 +31,8 @@ python3 -m pip install -r implementation/web/requirements.txt
 python3 -m implementation.web.app
 ```
 
-Open [http://127.0.0.1:8765](http://127.0.0.1:8765).
+Open [http://127.0.0.1:8765](http://127.0.0.1:8765) (Calculator) and
+[http://127.0.0.1:8765/onboarding](http://127.0.0.1:8765/onboarding) (Onboarding).
 
 ## Docker (shareable / hostable)
 

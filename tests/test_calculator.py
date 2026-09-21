@@ -362,6 +362,27 @@ class IosSafariUiTests(unittest.TestCase):
         self.assertEqual(slugs[0], "craftmd")
         self.assertIn("agentclinic", slugs)
 
+    def test_access_tab_opens_onboarding(self):
+        index = (self.STATIC / "index.html").read_text(encoding="utf-8")
+        onboard = (self.STATIC / "onboarding.html").read_text(encoding="utf-8")
+        guide = (ROOT / "docs" / "calculator_onboarding.md").read_text(encoding="utf-8")
+        self.assertIn('href="/onboarding"', index)
+        self.assertIn("access-bar", index)
+        self.assertIn("Onboarding", index)
+        self.assertIn('href="/"', onboard)
+        self.assertIn("How to read a score", onboard)
+        self.assertIn("CRAFT-MD", guide)
+        self.assertIn("/onboarding", guide)
+
+    def test_onboarding_route_serves_the_guide(self):
+        from implementation.web.app import index, onboarding
+
+        home = index()
+        page = onboarding()
+        self.assertEqual(Path(home.path).name, "index.html")
+        self.assertEqual(Path(page.path).name, "onboarding.html")
+        self.assertIn("no-store", home.headers.get("Cache-Control", ""))
+
 
 if __name__ == "__main__":
     unittest.main()

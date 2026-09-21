@@ -14,7 +14,12 @@ The Blueprint (`render.yaml`) created the free Python web service `amis-claim-ca
 
 **https://amis-claim-calculator.onrender.com**
 
-Open that URL, load an example or upload a PDF, and cite it in the letter. Free instances sleep after about 15 minutes idle; the first request after sleep is slow.
+Open that URL. The **Access** bar has a **Calculator** tab and an **Onboarding** tab
+([/onboarding](https://amis-claim-calculator.onrender.com/onboarding)). Load an example or
+upload a PDF, and cite the scorer in the letter. Free instances sleep after about 15 minutes
+idle; the first request after sleep is slow.
+
+How to use and how to read a score: [docs/calculator_onboarding.md](calculator_onboarding.md).
 
 Manual path if the button is not used:
 
