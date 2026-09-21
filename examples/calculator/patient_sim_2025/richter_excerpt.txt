@@ -1,0 +1,11 @@
+Impact of Large Language Model-Based AI Tools on Physician-Patient Communication: Systematic Review and Meta-Analysis
+Sven Richter, Clara Helene Buszello, Markus Prem, et al.
+Journal of Medical Internet Research 2026;28:e77307. DOI 10.2196/77307
+Open text: https://www.jmir.org/2026/1/e77307/PDF
+
+Abstract
+This study systematically reviewed and meta-analyzed peer-reviewed studies (2020-2025) evaluating how LLM-based interventions affect physician-patient communication, including empathy, clarity, trust, and patient understanding. Following PRISMA 2020, two reviewers screened records and extracted data. From 312 records, 10 studies were included, all quantitative and predominantly cross-sectional.
+
+Results: In 6 direct comparisons of AI- versus physician-generated responses, LLMs were rated significantly higher in empathy in 5 studies. One large study found chatbot replies were judged empathetic in 45.1% of cases versus 4.6% for physician replies. In pooled analyses (k=4; N=2604), LLM assistance showed a large positive effect on empathy (SMD 1.02, 95% CI 0.44-1.60). Patient satisfaction results were mixed. No study directly assessed long-term trust. Heterogeneity was substantial (I-squared 73%).
+
+The endpoint is perceived empathy and clarity, not diagnostic correctness. The authors note that overreliance on AI-generated content could diminish authenticity of clinical encounters. Empathy without an independent accuracy endpoint is persuasiveness, not warrant. Trustworthiness was not directly measured.

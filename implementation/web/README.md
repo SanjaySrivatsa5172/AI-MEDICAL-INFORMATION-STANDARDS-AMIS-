@@ -40,6 +40,15 @@ Headless scoring (same engine as the UI):
 PYTHONPATH=. python3 -m implementation.python.calculator examples/calculator/srivatsa_abstract.txt
 ```
 
+Batch a manifest of papers (no second schema):
+
+```bash
+PYTHONPATH=. python3 -m implementation.python.batch_score \
+  examples/calculator/patient_sim_2025/manifest.json --table-only
+```
+
+See `examples/calculator/patient_sim_2025/REPORT.md`.
+
 ## Tests
 
 ```bash
