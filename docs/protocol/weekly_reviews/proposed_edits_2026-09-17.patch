@@ -201,3 +201,22 @@ NOT PROPOSED — recorded so the reasoning is auditable
 
 7. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or
    in any companion document.
+
+================================================================================
+APPLICATION NOTE — added 24 September 2026 (this patch is still unapproved)
+
+HOUSEKEEPING H1 above proposes "178 entries as of 3 September 2026" -> "185 entries as of
+17 September 2026". The library has since advanced: the 24 September weekly review re-synced it to
+**190** (canonical 189 + the preserved Sheng entry).
+
+If H1 is approved ON OR AFTER 24 September 2026, apply it with the CURRENT figure and date rather
+than the figures written above — the point of the §13 parenthetical is that the count tracks the
+library, so applying a stale number would recreate exactly the defect H1 exists to fix. Re-check
+the live count at application time; do not assume 190 either if further reviews have run.
+
+The anchor itself is unchanged and still valid:
+  OLD: (**178 entries as of\n3 September 2026**;
+Only the replacement figures need refreshing.
+
+EDIT 1 in this patch (the §10 single-turn boundary, the three->four count, and the §4.2 instability
+clarification) is unaffected and needs no adjustment.

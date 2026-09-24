@@ -1,0 +1,230 @@
+# PROPOSED EDITS — weekly literature review, 24 September 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# All three anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at 86f03ae (24 Sep 2026).
+# Method: anchored assert-once replacement (each OLD block must occur exactly once, or the
+# script fails loudly and changes nothing).
+#
+# TWO EARLIER PROPOSALS ARE STILL UNAPPROVED AND UNAPPLIED:
+#   - 10 Sep: §5.6 reasoning-control pinning; §0 DECISION 1 evidence balance; §5.3 contamination
+#     magnitude.
+#   - 17 Sep: §10 single-turn boundary (+ three->four count, + §4.2 instability clarification);
+#     §13 library-count housekeeping.
+# ANCHOR-COLLISION CHECK RUN THIS CYCLE — all clear, but read this before applying anything:
+#   - This week's Hunk 1a appends AFTER "See `docs/protocol/weekly_reviews/`." The 10 Sep EDIT 2
+#     inserts BEFORE that same line (its anchor is the preceding sentence). They do not overlap,
+#     but if both are approved, APPLY 10 SEP FIRST so its text lands above this note.
+#   - This week deliberately does NOT touch the §4.2 run-to-run instability bullet, which is
+#     reserved by the 17 Sep hunk 1c. The closely-related point is made in §8.1 instead,
+#     specifically to avoid a collision.
+
+Primary driver for EDIT 1: Liu F, Liu Z, Fei X, He J, Xing J, Li J, Chan P. "Development of a
+Framework for Evaluating Large Language Model Safety and Reliability: a Proof-of-Concept
+Evaluation." J Med Syst 2026;50(1). doi 10.1007/s10916-026-02459-1, PMID 42776332.
+Peer-reviewed; verified against PubMed metadata 24 Sep 2026. Department of Emergency, Xuanwu
+Hospital / Capital Medical University, Beijing.
+
+Design: 54 diagnostically challenging EMERGENCY cases from non-public institutional records. Six
+LLMs via API (text-only, zero-shot, defaults; Aug-Dec 2025), each queried three times, yielding
+972 PHYSICIAN-SCORED responses. Pre-specified error taxonomy, difficulty-stratified analysis,
+two-layer response consistency.
+
+Findings that carry:
+  - **31 of 34 dangerous model-case combinations were STOCHASTIC, not systematic** — the dangerous
+    recommendation appeared on some runs of a case and not others. The authors name this "a failure
+    mode hidden by aggregate metrics."
+  - Aggregate scores concealed heterogeneity: anchoring-bias failure varied nearly four-fold
+    (6.9%-26.4%); rare-disease recognition six-fold (6.1%-37.9%).
+  - Catastrophic (dangerous-recommendation) rates were two-tiered: 1.5% for the safest two models
+    vs 6.0% for the rest (p < 0.001).
+  - GPT-5.1 was least reproducible (within-case SD 2.69) and sat in the HIGHER catastrophic tier
+    despite a middle-tier mean accuracy.
+  - Conclusion: "models with indistinguishable mean accuracy carried different catastrophic-failure
+    tiers and reproducibility profiles."
+
+Bound, stated plainly: single-centre proof-of-concept, 54 cases, six models, physician-scored
+diagnostic-safety ratings on challenging emergency cases — not lay-language triage dispositions
+under this protocol's gold standard. The effect sizes are not ours. What transfers is the
+structural claim, which is about estimators rather than about models: if dangerous outputs are
+predominantly stochastic, a central-tendency aggregation rule cannot see them.
+
+================================================================================
+EDIT 1 — SPECIFICATION. Report an any-run critical-miss rate, and record what the
+new evidence says about the still-open DECISION 3
+Sections affected: §0 (DECISION 3 evidence note); §8.1 (primary analysis)
+
+The gap in OUR protocol: DECISION 3 offers exactly two options for "the primary-analysis unit for
+every model output" — majority-of-three and first-run-primary. **Both are central-tendency
+estimators.** Neither is a tail estimator. Under majority-of-three, a dangerous output occurring on
+one run of three is arithmetically invisible; under first-run-primary it enters with probability
+one in three. A grep of the protocol for any-run, per-run, or worst-case reporting returns nothing
+but the DECISION 3 row itself.
+
+Why the existing instability metric does not discharge this. §5.6 already reports run-to-run
+agreement "so that nondeterminism is measured rather than averaged away," and §4.2 carries
+run-to-run instability as a secondary endpoint. The intent is right and the statistic is
+insufficient, for a reason this protocol has already accepted elsewhere: **instability is
+symmetric.** A model alternating between two safe dispositions and a model alternating between a
+safe disposition and a critical miss have the same instability and very different safety profiles.
+This is precisely the objection §7.3 sustains against symmetric agreement coefficients — which is
+why Gate 3 is stated as a conditional, directional rate. The same objection applies to run
+aggregation and has not yet been applied there.
+
+Scope discipline — what this edit costs. **Nothing.** The repeated runs are already performed
+(§5.6, at least three per model per condition) and the per-run results are already retained (§7.3.1
+makes `run_margin` a data-capture requirement settled before unblinding). The any-run rate is a
+second statistic computed from data the study already collects. No additional model calls, no
+scenarios, no participants, and **no bearing on the §8.4 power calculation** that is blocking
+filing. It is also explicitly not a second primary endpoint: no hypothesis test is nominated on it
+and it joins no multiplicity family.
+
+What this edit does NOT do: it does not decide DECISION 3. That is the PI's. It records the
+evidence bearing on the choice in the same form §0 already uses for DECISION 1, and it makes the
+safety statistic robust to whichever way the PI resolves it.
+
+--- HUNK 1a: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§0, appended after the DECISION 1
+    evidence note's closing pointer) ---
+OLD (anchor, occurs once):
+See `docs/protocol/weekly_reviews/`.
+
+NEW:
+See `docs/protocol/weekly_reviews/`.
+
+*Evidence note on* `[DECISION 3]` *(weekly literature review, 24 September 2026):* both candidate
+rules are central-tendency estimators, and new evidence places the hazard in the tail. Across 54
+diagnostically challenging emergency cases, six models queried three times each and 972
+physician-scored responses, **31 of 34 dangerous model-case combinations were stochastic rather
+than systematic** — the dangerous recommendation appeared on some runs of a case and not others,
+which the authors name "a failure mode hidden by aggregate metrics" (Liu et al., *J Med Syst*
+2026;50(1), PMID 42776332). The same study found models with indistinguishable mean accuracy
+carrying different catastrophic-failure tiers, and its least reproducible model sat in the higher
+catastrophic tier despite a middle-tier mean. Under majority-of-three a dangerous output occurring
+on one run of three is arithmetically invisible; under first-run-primary it enters with probability
+one in three. Neither rule estimates the quantity that matters under an asymmetric loss function,
+which is why §8.1 reports an any-run critical-miss rate alongside whichever rule is adopted. The
+source is a single-centre proof-of-concept on physician-scored diagnostic safety, not lay-language
+triage disposition; its effect sizes are not imported. What transfers is structural, and it is the
+objection §7.3 already sustains against symmetric agreement coefficients — a statistic that cannot
+see direction cannot govern a directional hazard — applied to run aggregation rather than to
+inter-rater agreement.
+
+--- HUNK 1b: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§8.1) ---
+OLD (anchor, occurs once):
+model-by-register interaction term tests whether specific systems show differential vulnerability to
+lay-language presentation.
+
+NEW:
+model-by-register interaction term tests whether specific systems show differential vulnerability to
+lay-language presentation.
+
+**An any-run critical-miss rate is reported alongside the primary analysis**, defined as the
+proportion of scenarios in which **at least one** of the repeated runs is scored a critical miss.
+It is reported per model and per condition with a cluster-bootstrap interval, regardless of how
+`[DECISION 3]` resolves, and it is a reported safety statistic rather than a second primary
+endpoint: no hypothesis test is nominated on it and it enters no multiplicity family. It exists
+because neither candidate aggregation rule can see a dangerous output that occurs on a minority of
+runs, and the published evidence is that most dangerous outputs are of that kind (§0, `[DECISION 3]`
+evidence note). The run-to-run instability metric does not discharge this, because instability is
+symmetric: a model alternating between two safe dispositions and a model alternating between a safe
+disposition and a critical miss are indistinguishable under it. The statistic requires **no
+additional model calls, scenarios, or participants** — the repeated runs are already performed under
+§5.6 and the per-run results already retained under §7.3.1 — and it therefore has no bearing on the
+§8.4 power calculation.
+
+================================================================================
+EDIT 2 — CITATION. Add the ACEP AI Task Force consensus to §11
+Section affected: §11 (reporting and regulatory context)
+
+§11 currently cites EU AI Act Art. 72, FDA PCCP guidance, IMDRF N81/N88, NIST AI RMF, and WHO LMM
+guidance, then closes with "What none of these supplies is the measurement." Every framework listed
+is a regulator or a standards body. **There is no professional-society position anywhere in the
+protocol** — ACEP appears nowhere in the document — and for a protocol about AI in the emergency
+care pathway, the US emergency-medicine specialty body is the most directly relevant professional
+voice available.
+
+The consensus says this protocol's premise in its own words, which is worth more than a
+paraphrase: AI integration across ED workflows, triage among them, "has outpaced clinician
+training, vendor evaluation infrastructure, and specialty-wide governance"; most emergency
+physicians "lack the foundational skills to critically evaluate or safely oversee these products";
+and "no national standard exists to guide education, vetting, or implementation." Its second
+priority — a clinician-led, expert-derived framework for vetting AI tools before deployment — is
+the activity this protocol instruments.
+
+This is an official work product of the ACEP AI Task Force, formally endorsed by the ACEP Board of
+Directors in 2025, with Stanford, Yale and George Washington emergency-medicine authorship. It
+strengthens §11's existing argument rather than changing it, and it is the kind of citation an IRB
+and a reviewer weigh.
+
+--- HUNK 2: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§11) ---
+OLD (anchor, occurs once):
+What none of these supplies is the measurement.
+
+NEW:
+The emergency-medicine profession has stated the same gap in its own voice: the American College of
+Emergency Physicians AI Task Force consensus, an official ACEP work product formally endorsed by
+the ACEP Board of Directors in 2025, records that AI integration across emergency-department
+workflows — triage among them — "has outpaced clinician training, vendor evaluation infrastructure,
+and specialty-wide governance," that most emergency physicians "lack the foundational skills to
+critically evaluate or safely oversee these products," and that "no national standard exists to
+guide education, vetting, or implementation" (Dash et al., *J Am Coll Emerg Physicians Open*
+2026;7(6):100503). Its second priority — a clinician-led, expert-derived framework for vetting AI
+tools before deployment — is the activity this protocol instruments. What none of these supplies is
+the measurement.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. Lange et al., jAImes Parkinson's chatbot real-world evaluation (Lancet Reg Health Eur
+   2026;70:101866, doi 10.1016/j.lanepe.2026.101866, PMID 42761851). LIBRARY ONLY, but the single
+   most interesting item this week after Liu, and the PI should know why it is not an edit.
+   2035 conversations over 129 days of a deployed patient-facing RAG system, with the CARE-LLM
+   conversation-level post-market-surveillance framework. Automated triage rated 88.6% "good"; expert
+   review of 45 flagged conversations confirmed five critical events; and independent re-review of
+   100 randomly sampled "good"-rated conversations found four more critical errors the automated
+   triage had MISSED (4/100, 95% CI 1.6-9.8) — a conditional false-negative rate within the
+   "good" stratum, which the authors are careful to say is not an overall critical-event rate.
+   Confirmed failures included explicit suicidal ideation that did not trigger the intended
+   emergency response.
+   Why no edit: it corroborates two positions the protocol already holds — that automated quality
+   metrics miss clinically critical failures and that expert adjudication is required to find them
+   (§7.4 physician sovereignty), and that encounter-time measurement needs a post-market successor
+   (§10's S2/S3 boundary). Corroboration of a standing position is not a reason to edit. It is,
+   however, a strong candidate citation if the PI ever writes the successor-study section, and its
+   crisis-safeguard failure is directly relevant to the protocol's crisis-safeguard consistency
+   sub-study.
+
+2. Marecka et al., two generations of AI triage tools (JMIR AI 2026;5:e84469, doi 10.2196/84469,
+   PMID 42772750). LIBRARY ONLY. 116,890 real virtual-triage encounters; structured questionnaire
+   (86%) vs LLM conversational interface (14%) sharing the SAME validated Bayesian engine, which
+   isolates interaction mode. Conversational elicited more findings (median 36 vs 32, P<.001) and
+   higher self-reported intended adherence, most at the acuity extremes (emergency 23.7% vs 10.5%).
+   Why no edit, and this one needs care: it is tempting to read it as support for the register
+   factor, and it is not. Users SELF-SELECTED their interface, so demographic and motivational
+   confounding is uncontrolled by design, and the outcome is self-reported INTENT rather than
+   behaviour or disposition accuracy. The authors present it as observational. Our register factor
+   is randomised within scenario and scored against a physician gold standard. Citing this for the
+   register rationale would import an observational, self-selected, intent-based result into a
+   randomised, gold-standard-scored claim.
+
+3. Waisberg & Guarnieri, "Agentic AI in Medicine: ... the Case for Clinical Testing Harnesses"
+   (Ann Biomed Eng 2026, doi 10.1007/s10439-026-04381-6, PMID 42776404). LIBRARY CANDIDATE ONLY —
+   a Letter, conceptual, no data. Noted because its proposed testing harness (scenario libraries
+   from clinical edge cases, full-trajectory observability, explicit escalation testing, staged
+   evidence thresholds) describes something close to this protocol's instrument, for agentic
+   systems. Relevant if the protocol is ever extended to tool-using agents; nothing to cite today.
+
+4. The npj Digital Medicine stigmatizing-information triage study (doi 10.1038/s41746-026-03270-5,
+   added by the reconciler 21 Sep, source "scite-verified") is **NOT INDEPENDENTLY VERIFIED** — it
+   carries no PMID and Scite returned unrelated records again this cycle. Its findings are cited
+   nowhere and no edit rests on it. Flagged for the PI: it is in a priority journal, it is directly
+   on LLM emergency triage, and it belongs to the fairness/bias cluster the library already carries.
+   It should be verified before any use.
+
+5. The remaining in-window PubMed hits were screened and excluded as out of scope: a trauma-surgery
+   narrative review (PMID 42776181), a dermatology AI adoption review (42767470), an Indonesian
+   maternal-nutrition generative-AI study (42766722), an oral-lesion vision-language diagnostic
+   study (42765456), an opioid-use-disorder prescribing review (42758653), a systematic review of
+   fine-tuning/RAG adaptation strategies (42753254), and one false positive from the query string
+   (a codon-usage genetics paper, 42762259).
+
+6. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or
+   in any companion document.
