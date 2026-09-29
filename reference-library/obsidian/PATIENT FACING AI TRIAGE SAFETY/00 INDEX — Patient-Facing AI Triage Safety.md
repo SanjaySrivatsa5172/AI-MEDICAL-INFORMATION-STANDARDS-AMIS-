@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-27
-total-references: 190
+last-updated: 2026-09-29
+total-references: 191
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-27** · 190 references.
+Updated daily by automated scan. Last scan: **2026-09-29** · 191 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -144,6 +144,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Marecka 2026 — Demographics, Clinical Content, Use Patterns, and Care-Seeking Intent…]] (2026)
 - [[Liu 2026 — Development of a Framework for Evaluating Large Language Model Safety…]] (2026)
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
+- [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -221,6 +222,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Lange 2026 — Real-world use and evaluation of a generative AI chatbot for…]] (2026)
 - [[Marecka 2026 — Demographics, Clinical Content, Use Patterns, and Care-Seeking Intent…]] (2026)
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
+- [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
