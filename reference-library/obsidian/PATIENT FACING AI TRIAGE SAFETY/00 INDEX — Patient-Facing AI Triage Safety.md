@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-29
-total-references: 191
+last-updated: 2026-09-30
+total-references: 193
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-29** · 191 references.
+Updated daily by automated scan. Last scan: **2026-09-30** · 193 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -145,6 +145,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Liu 2026 — Development of a Framework for Evaluating Large Language Model Safety…]] (2026)
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
 - [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
+- [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
+- [[Zhu 2026 — ELICITED EHR-grounded Longitudinal Interactive Conversations for…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -223,6 +225,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Marecka 2026 — Demographics, Clinical Content, Use Patterns, and Care-Seeking Intent…]] (2026)
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
 - [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
+- [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -355,6 +358,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Samsel 2026 — Too agreeable to be accurate Sycophancy and diagnostic instability of…]] (2026)
 - [[Jarrett 2026 — Outcome-grounded effect of clinically stigmatizing information on…]] (2026)
 - [[Liu 2026 — Development of a Framework for Evaluating Large Language Model Safety…]] (2026)
+- [[Zhu 2026 — ELICITED EHR-grounded Longitudinal Interactive Conversations for…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -489,6 +493,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Liaw 2026 — Maturity, Safety, and Equity of AI-Enabled Systems and Triage in…]] (2026)
 - [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
 - [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
+- [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
 - [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)
