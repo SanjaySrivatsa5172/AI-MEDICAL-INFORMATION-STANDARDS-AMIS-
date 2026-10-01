@@ -228,3 +228,60 @@ NOT PROPOSED — recorded so the reasoning is auditable
 
 6. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or
    in any companion document.
+
+================================================================================
+REVISION TO EDIT 2 — issued 1 October 2026 (this patch is still unapproved)
+
+EDIT 2's replacement text above is SUPERSEDED by the version below. The ANCHOR IS UNCHANGED and
+still occurs exactly once:
+  OLD: What none of these supplies is the measurement.
+
+Why revised: a second emergency-medicine framework paper was verified on 1 October and it does
+something the ACEP consensus alone does not — it DEFINES patient-facing AI, and the definition
+excludes the systems this protocol evaluates.
+
+  Rehman T, Jarrett P, Lesko J, Augustine J, Shy BD, Sangal RB, Genes N, Apakama DU, Abbott EE,
+  Mehrotra A, Taylor RA. "An Evidence-Based Framework for Patient-Facing Artificial Intelligence
+  Integration in the Emergency Department." J Am Coll Emerg Physicians Open 2026;7(5):100466.
+  doi 10.1016/j.acepjo.2026.100466, PMID 42472001, PMC13380043. PubMed-verified 1 Oct 2026.
+  Eleven-author multi-institution EM-informatics group (Mount Sinai, UT Southwestern, Yale, NYU,
+  Colorado, UNC, UVA). Shares an author (Sangal) with the ACEP consensus already cited in EDIT 2.
+
+It defines PF-AI as tools interacting directly with patients "to collect information, deliver
+tailored communication, and support decision making UNDER CLINICIAN GOVERNANCE," and constrains its
+use "given risks of UNDERTRIAGE, confabulated content, workflow burden, privacy harm, inequitable
+access, cost escalation, and medico-legal ambiguity," with "a human oversight model with defined
+escalation roles."
+
+The definitional contrast is the point: a consumer chatbot giving a worried patient a disposition
+satisfies none of it — no clinician in the loop, no escalation role defined for anyone. It is not
+governed patient-facing AI; it is the same function without the governance. That is the §1 Sheng
+"S4 configuration without S4 safeguards" observation restated in the profession's own terms, which
+is a stronger place for §11 to land than the consensus citation alone.
+
+This is issued as a REVISION rather than a second hunk because two queued hunks on one unique anchor
+would collide. Apply EITHER this text OR the original EDIT 2 text, never both.
+
+--- HUNK 2 (REVISED): docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§11) ---
+OLD (anchor, occurs once — unchanged):
+What none of these supplies is the measurement.
+
+NEW (supersedes the EDIT 2 replacement above):
+The emergency-medicine profession has stated the same gap in its own voice, and has gone further by
+defining what legitimate patient-facing AI looks like. The American College of Emergency Physicians
+AI Task Force consensus, an official ACEP work product formally endorsed by the ACEP Board of
+Directors in 2025, records that AI integration across emergency-department workflows — triage among
+them — "has outpaced clinician training, vendor evaluation infrastructure, and specialty-wide
+governance," that most emergency physicians "lack the foundational skills to critically evaluate or
+safely oversee these products," and that "no national standard exists to guide education, vetting,
+or implementation" (Dash et al., *J Am Coll Emerg Physicians Open* 2026;7(6):100503). A companion
+framework from the same specialty defines patient-facing AI as tools that interact directly with
+patients "to collect information, deliver tailored communication, and support decision making
+**under clinician governance**," bounded by the risks of "undertriage, confabulated content, ... and
+medico-legal ambiguity" and paired with "a human oversight model with defined escalation roles"
+(Rehman et al., *J Am Coll Emerg Physicians Open* 2026;7(5):100466). That definition is worth
+stating precisely, because the systems under test here do not satisfy it: a consumer chatbot
+returning a disposition to a worried patient has no clinician in the loop and no escalation role
+defined for anyone. It is not patient-facing AI under governance; it is the same function operating
+without it — the §1 deployment-classification point in the profession's own terms. What none of
+these supplies is the measurement.
