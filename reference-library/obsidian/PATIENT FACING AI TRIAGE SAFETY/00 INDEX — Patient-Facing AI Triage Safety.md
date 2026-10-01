@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-09-30
-total-references: 193
+last-updated: 2026-10-01
+total-references: 194
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-09-30** · 193 references.
+Updated daily by automated scan. Last scan: **2026-10-01** · 194 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -147,6 +147,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
 - [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
 - [[Zhu 2026 — ELICITED EHR-grounded Longitudinal Interactive Conversations for…]] (2026)
+- [[Ayre 2026 — Symptom checker formats to improve symptom management knowledge and…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -226,6 +227,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
 - [[Fraser 2026 — Usability and acceptability of a symptom checker app by patients…]] (2026)
 - [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
+- [[Ayre 2026 — Symptom checker formats to improve symptom management knowledge and…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
