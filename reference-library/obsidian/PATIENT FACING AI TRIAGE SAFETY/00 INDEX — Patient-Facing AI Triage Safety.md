@@ -1,6 +1,6 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-01
+last-updated: 2026-10-02
 total-references: 194
 tags: [reference-index, ai-triage-safety]
 ---
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-01** · 194 references.
+Updated daily by automated scan. Last scan: **2026-10-02** · 194 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
