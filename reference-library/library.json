@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-04",
+  "last_updated": "2026-10-06",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -296,6 +296,11 @@
     "date": "2026-10-04",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-04 ~14:03 UTC, Sunday). Clean container this run -- git checkout correct at HEAD d184e02 (196 refs / last_updated 2026-10-03; library.json present; the force-to-origin sync guard made local match origin exactly, no fresh-clone-on-main incident). RECONCILE + RECOVER (Step 2): read the published dashboard artifact 528465e1 via the Artifact tool and ran the exact diff against git -- the dashboard was at 197 refs / last_updated 2026-10-04 with 1 ref present on the dashboard but MISSING from git (0 in git missing from the dashboard; 0 alert differences). I.e. the 2026-10-04 fresh-session scan published +1 reference and advanced the date, but its git push 403'd, leaving git behind at 196/2026-10-03. RECOVERED the 1 ref after INDEPENDENT verification (the scan tagged it source 'websearch'): Margolis/Maddipatla/Ioannides et al. (with Wisk, Schriger, Elmore) 'Triage and Referral Behavior Across Patient-Facing Medical AI Products' (openRxiv/medRxiv 10.64898/2026.08.15.26360518, posted 2026-08-17) -- Scite confirmed DOI, authors (Samuel J. Margolis, Naga Venkata Sai Krishna Maddipatla, Kimon L.H. Ioannides), publisher openRxiv, date, and a byte-matching abstract, with NO editorialNotices (not retracted/corrected); PubMed convert_article_ids returned no record (pmid stays null). A UCLA emergency-medicine group study: 9 patient-facing AI products x 60 physician-developed standardized cases x 540 multi-turn simulated encounters; overall triage accuracy did not differ across product categories, but branded products over-triaged low-acuity cases (28% vs 3% vs 2%) and steered to affiliated fee-requiring services -- an over-referral/commercial-incentive failure mode. topics patient-facing-ai / emergency-triage-ai / physician-evaluation (CORRECTED the scan's invalid tag 'physician-authored-evaluation' -> physician-evaluation); ancillary; design_overlap TRUE (physician-authored standardized scenarios + patient-facing consumer products + triage-accuracy evaluation parallel the protocol's design); source upgraded websearch -> scite-verified. INDEPENDENT RECENCY SWEEP: also ran two PubMed entry-date sweeps 2026-10-03..2026-10-04 (A1 14 PMIDs, A2 5; 18 unique; 16 new after de-duping the library and the 10-03/10-02 screened unions) via PubMed MCP; screened all 16 by subagent -> 0 ON, 0 BORDERLINE, 16 OFF (three emergency-adjacent but clinician-facing, correctly excluded: 42827729 Sepsis-3 ED CDS/risk-prediction, 42829175 pediatric-intussusception imaging ML, 42827592 cardiac-rupture-post-AMI risk-stratification review). So today's only addition is the 1 recovered scan ref. Library 196 -> 197 (now matches the dashboard's 197); design_overlap count 54 -> 55. Alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). Three design_overlap:true items still await a PI escalation decision -- Patwardhan/Verily PHA (2026-08-20), Jia/OpenEvidence companion-to-alert-#1 (2026-09-01), and the Xiao late-life-depression benchmark (2026-09-13). ENRICHMENT WATCHLIST (unchanged, last live-verified 2026-10-01): (a) Hartoyo dermatology letter (PMID 42736709 / DOI 10.1111/ijd.70684) -- no abstract (Letter); (b) Parikh & Kohli Lancet Digit Health (DOI 10.1016/j.landig.2026.101072; PMID 42763270) -- still [Abstract not available], deferred; (c) Jarrett npj emergency-triage-stigma (DOI 10.1038/s41746-026-03270-5, added 09-21) -- still not PubMed-indexed (no PMID); (d) J Emerg Med letter 42800719 (no abstract) + its critiqued 'AI Chatbots Triaging Emergency Cases' source article, to locate/evaluate. CONNECTOR NOTE: Scite MCP warned only 3 plan calls remained after this run's single verification; remaining screening used PubMed only, and the connector's pay-as-you-go upsell was NOT invoked (not a user-requested action) -- if Scite is exhausted next run, verification degrades to WebSearch per protocol. PR #1 open/draft, mergeable_state clean/unstable-while-CI-runs, CI green (AMIS-calculator 'test' check success on the 10-03 push d184e02), base main unchanged at dbdb972 (calculator line; my branch based on pre-calculator 2d2b5cd, paths don't overlap) -- not merged/closed, trigger stays active. Gmail MCP not needed this run (no urgent-alert-level finding). PubMed + GitHub MCP + Artifact healthy; Scite healthy but low-quota."
+   },
+   {
+    "date": "2026-10-06",
+    "added": 4,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-06 ~14:03 UTC, Tuesday). Clean container this run -- git checkout correct at HEAD c036ca3 (197 refs / last_updated 2026-10-04; 2026-10-05 was a genuine quiet no-commit day -- git and dashboard were already in lockstep then, so nothing shipped). RECONCILE + RECOVER (Step 2): read the published dashboard artifact 528465e1 via the Artifact tool and diffed against git -- the dashboard was at 200 refs / last_updated 2026-10-06 (it did NOT republish on 10-05, then advanced straight to 10-06) with 3 refs present on the dashboard but MISSING from git (0 in git missing from the dashboard; 0 alert differences). I.e. the 2026-10-06 fresh-session scan published +3 references and advanced the date, but its git push 403'd, leaving git behind at 197/2026-10-04. RECOVERED all 3 (each tagged source 'websearch', doi/pmid null) after INDEPENDENT Scite verification (single batched call; all three arXiv DOIs confirmed, OA cc-by, NO editorialNotices; PubMed convert_article_ids returned no record for any, so pmid stays null; topic tags were already valid so none needed correcting -- only DOI back-fill + source upgrade websearch -> scite-verified): (1) Wong, 'Implicit Geographic Inference in LLM Medical Triage' (arXiv 2606.01204) -- Gemini 3.5 Flash ER-recommendation rates 0-30% for an identical symptom profile across six languages (language/geographic-inference fairness failure); topics emergency-triage-ai / ai-safety-failure-modes; design_overlap false. (2) Wong, 'Socioeconomic Inference in LLM Medical Triage: Same Symptoms, Different ZIP Code' (arXiv 2607.22605) -- triage recommendations shift with socioeconomic/ZIP-code cues across three frontier models; topics emergency-triage-ai / ai-safety-failure-modes; design_overlap false. (3) Hua/Ayubcha/Na ... Klang (arXiv 2608.17330, same Mount Sinai/Klang group as CARE-Bench), 'LLMs for Medical Consultation Are Evaluated Too Late: The Preformulation Gap' -- argues consultation benchmarks begin after the problem is framed; 4 physician-authored multi-turn vignettes; direct methodological support for the lay-register rationale (cites Ramaswamy/Bean/Draelos already in the library); topics patient-facing-ai / benchmark-methodology / lay-language; design_overlap false. INDEPENDENT RECENCY SWEEP: two PubMed entry-date sweeps 2026-10-05..2026-10-06 (A1 16 PMIDs, A2 6; 21 unique; 19 new after de-duping the library and the 10-05/10-04 screened unions) via PubMed MCP; screened all 19 by subagent -> 1 ON, 0 BORDERLINE, 18 OFF. ADDED the 1 ON: Pichowicz et al., 'Responses of AI chatbots to escalating suicide risk: A simulation study of repeated interactions' (J Affect Disord 2026; PMID 42833407; DOI 10.1016/j.jad.2026.122586) -- a Wroclaw Medical University psychiatry-team C-SSRS-anchored safety eval of patient-facing consumer chatbots (ChatGPT/DeepSeek/Replika) over a 7-day escalating suicidal crisis: failure-to-refer (human-referral 85.7%/76.2%/9.5%; Day-7 9/9, 4/9, 1/9) and jailbreak safeguard-bypass (6/9, 7/9, 8/9). INCLUDED (scope: the library treats emergency-psychiatric/suicidal-crisis chatbot safety as in-scope -- cf. the standing Weilnhammer emergency-psychiatric-triage alert, SIM-VAIL, and the Ramaswamy alert's inconsistent-crisis-safeguards finding); topics patient-facing-ai / ai-safety-failure-modes / emergency-triage-ai / physician-evaluation; ancillary; design_overlap TRUE (physician-scored harm-weighted patient-facing critical-miss/undertriage eval of an emergency parallels the protocol's core design; psychiatric domain + longitudinal jailbreak simulation differ from the physical-emergency dual-register design). NOT auto-alerted (reinforces, does not overturn, the primary endpoint; no regulatory action/retraction; below the urgent-alert threshold). Verified via PubMed (full record, clean article-type); Scite had not yet indexed the DOI (plan quota near-exhausted) so the retraction check degraded to WebSearch per protocol (no notice found; first author's C-SSRS chatbot-safety work corroborated); source pubmed-verified. The other 18 screened OFF: environmental enzyme chemistry, Lancet Digit Health digital-determinants viewpoint, AF-phenotype stroke ML, fragrance QSAR, breast-cancer-forum NLP, a psychiatric-AI liability viewpoint (general governance, not emergency), drug-discovery/virtual-screening, lung-cancer predictive modeling, non-AI psychiatry/neuroscience, newborn-screening, nursing-education, cancer-biology lncRNA, a psychotherapy-in-AI-age essay, health-professions-education AI ethics, antibody-paratope bioinformatics, and two bibliometrics (prosthodontics, forensic genetics). Library 197 -> 201 (now matches the dashboard's 200 plus the 1 independently-found Pichowicz addition); design_overlap count 55 -> 56 (Pichowicz adds one; the 3 recovered are false). Alerts unchanged at 6 (unresolved 5: Fraile Navarro, NOHARM, Weilnhammer, Gokhale-UMLS-CUI, MTS-Bench). No alert resolutions (PI only). Three design_overlap:true items still await a PI escalation decision -- Patwardhan/Verily PHA (2026-08-20), Jia/OpenEvidence companion-to-alert-#1 (2026-09-01), and the Xiao late-life-depression benchmark (2026-09-13). ENRICHMENT WATCHLIST (unchanged, last live-verified 2026-10-01): (a) Hartoyo dermatology letter (PMID 42736709 / DOI 10.1111/ijd.70684) -- no abstract (Letter); (b) Parikh & Kohli Lancet Digit Health (DOI 10.1016/j.landig.2026.101072; PMID 42763270) -- still [Abstract not available]; (c) Jarrett npj emergency-triage-stigma (DOI 10.1038/s41746-026-03270-5, added 09-21) -- still not PubMed-indexed; (d) J Emerg Med letter 42800719 + its critiqued 'AI Chatbots Triaging Emergency Cases' source article, to locate/evaluate. CONNECTOR NOTE: Scite MCP plan quota fell to 1 remaining call after this run (2 used: one batched 3-DOI preprint verification + one Pichowicz DOI lookup that returned not-indexed); PubMed + GitHub MCP + Artifact healthy. If Scite is exhausted next run, preprint verification degrades to WebSearch per protocol. PR #1 open/draft, mergeable_state clean/unstable-while-CI-runs, CI green (AMIS-calculator 'test' check success on the 10-04 push c036ca3), base main unchanged at dbdb972 (calculator line; my branch based on pre-calculator 2d2b5cd, paths don't overlap) -- not merged/closed, trigger stays active. Gmail MCP not needed this run (no urgent-alert-level finding). PubMed + GitHub + Artifact all healthy; Scite healthy but low-quota."
    }
   ],
   "alerts": [
@@ -4136,6 +4141,85 @@
    "source": "scite-verified",
    "design_overlap": true,
    "date_added": "2026-10-04"
+  },
+  {
+   "title": "Implicit Geographic Inference in LLM Medical Triage: Language-Driven Disparities in Emergency Recommendations",
+   "authors": "Wong QH",
+   "journal": "arXiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2606.01204",
+   "url": "https://arxiv.org/abs/2606.01204",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Single-author arXiv preprint (submitted 2026-05-31): an identical neurological symptom profile (headache, blurred vision, nausea) was given to Gemini 3.5 Flash in six languages (n=450 calls); ER-visit recommendation rates ranged from 0% (Japanese, Hindi) to 30% (English, Arabic) despite near-identical severity scores, attributed to implicit GEOGRAPHIC inference from the input language, with a back-translation control supporting the mechanism. Bears on the input-register / language-sensitivity of triage disposition -- adjacent to the protocol's lay-vs-expert register question and its clinical-bias/fairness filter (undertriage driven by non-clinical input cues). CAVEAT / why ancillary and design_overlap FALSE: a single-author language-fairness probe of one model, not a physician-authored dual-register harm-weighted triage design. RECOVERED from the 2026-10-06 fresh-session scan (tagged source 'websearch', doi null); INDEPENDENTLY VERIFIED via Scite (DOI 10.48550/arXiv.2606.01204 confirmed; author Qi Han Wong; publisher arXiv 2026; OA cc-by; NO editorialNotices -- not retracted/corrected) and PubMed convert_article_ids returned NO record (arXiv not PubMed-indexed, pmid stays null). source upgraded websearch -> scite-verified; no identifier invented.",
+   "source": "scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-06"
+  },
+  {
+   "title": "Socioeconomic Inference in LLM Medical Triage: Same Symptoms, Different ZIP Code",
+   "authors": "Wong QH",
+   "journal": "arXiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2607.22605",
+   "url": "https://arxiv.org/abs/2607.22605",
+   "type": "preprint",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Single-author arXiv preprint (Qi Han Wong) testing whether Gemini 3.5 Flash, Claude Sonnet 4.6 and GPT-5.4-mini change triage recommendations for IDENTICAL symptoms when only socioeconomic signals vary -- explicit (insurance, occupation, housing) or implicit (US ZIP code). Relevant to the protocol's clinical-bias/fairness filter and to non-clinical presentation cues shifting urgency advice (an equity failure mode in emergency recommendations). CAVEAT / why ancillary and design_overlap FALSE: a socioeconomic-bias audit, not a physician-authored dual-register harm-weighted triage design. RECOVERED from the 2026-10-06 fresh-session scan (tagged source 'websearch', doi null); INDEPENDENTLY VERIFIED via Scite (DOI 10.48550/arXiv.2607.22605 confirmed; author Qi Han Wong; publisher arXiv 2026; OA cc-by; NO editorialNotices) and PubMed convert_article_ids returned NO record (pmid stays null). source upgraded websearch -> scite-verified; no identifier invented.",
+   "source": "scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-06"
+  },
+  {
+   "title": "LLMs for Medical Consultation Are Evaluated Too Late: The Preformulation Gap",
+   "authors": "Hua Y, Ayubcha C, Na H, Lian L, Gorenshtein A, Barash Y, Klang E",
+   "journal": "arXiv",
+   "year": 2026,
+   "pmid": null,
+   "doi": "10.48550/arxiv.2608.17330",
+   "url": "https://arxiv.org/abs/2608.17330",
+   "type": "preprint",
+   "topics": [
+    "patient-facing-ai",
+    "benchmark-methodology",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "arXiv preprint (Aug 2026; Hua/Ayubcha/Na ... Klang senior -- the same Mount Sinai/Klang group as the library's CARE-Bench entry) arguing LLM medical-consultation benchmarks are evaluated TOO LATE: they begin after the clinical problem is already clearly framed, whereas real consultations start from a vague, minimized, or misframed concern (the 'PREFORMULATION GAP'). Three API models x four PHYSICIAN-AUTHORED multi-turn vignettes under baseline vs entry-to-care conditions (24 fixed-script + 12 adaptive standardized-patient transcripts): self-care/home-management advice before any patient answer appeared in 9/12 baseline case-model cells vs 0/12 instruction cells; the authors argue first-contact behavior must be evaluated directly rather than inferred from diagnostic accuracy or final-answer quality. Direct methodological support for the protocol's everyday-language (lay-register) rationale and its critique of expert-framed vignettes; the paper explicitly cites the standing Ramaswamy undertriage finding and the Bean and Draelos entries already in this library. CAVEAT / why ancillary and design_overlap FALSE: a methodological position / small-eval paper advocating first-contact evaluation, not a competing physician-authored harm-weighted triage benchmark -- it complements the protocol's rationale rather than paralleling its full design. RECOVERED from the 2026-10-06 fresh-session scan (tagged source 'websearch', doi null); INDEPENDENTLY VERIFIED via Scite (DOI 10.48550/arXiv.2608.17330 confirmed; authors Yining Hua, Cyrus Ayubcha, Hongbin Na [with Lian, Gorenshtein, Barash, Klang]; publisher arXiv 2026; OA cc-by with byte-matching abstract; NO editorialNotices) and PubMed convert_article_ids returned NO record (pmid null). source upgraded websearch -> scite-verified; no identifier invented.",
+   "source": "scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-06"
+  },
+  {
+   "title": "Responses of AI chatbots to escalating suicide risk: A simulation study of repeated interactions",
+   "authors": "Pichowicz W, Kotas M, Kalka N, Dembowska J, Karska J, Piotrowski P, Misiak B",
+   "journal": "Journal of Affective Disorders",
+   "year": 2026,
+   "pmid": "42833407",
+   "doi": "10.1016/j.jad.2026.122586",
+   "url": "https://doi.org/10.1016/j.jad.2026.122586",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Psychiatry-team (Wroclaw Medical University) SAFETY evaluation of PATIENT-FACING consumer chatbots in an escalating SUICIDAL-CRISIS emergency -- directly on the protocol's critical-miss / undertriage failure mode in the psychiatric-emergency domain (the same scope as the standing Weilnhammer emergency-psychiatric-triage alert and the library's crisis-safeguard entries). Design: simulated interactions with ChatGPT, DeepSeek and Replika across three suicidal-risk scenarios ESCALATING over seven days, informed by the Columbia Suicide Severity Rating Scale (C-SSRS), scoring exploration of suicidal ideation, symptom assessment, REFERRAL TO HUMAN SUPPORT (the triage/escalation endpoint), and vulnerability to jailbreak. Findings: overall human-referral 85.7% (ChatGPT) / 76.2% (DeepSeek) / 9.5% (Replika); Day-7 (imminent-risk) referral 9/9, 4/9, 1/9; jailbreak succeeded in 6/9, 7/9, 8/9 attempts -- i.e. marked FAILURE-TO-REFER and safeguard-bypass under escalating crisis, worst for the companion-style app. Bears on the protocol's premise that patient-facing AI can undertriage emergencies and that crisis safeguards are inconsistent/bypassable (cf. the Ramaswamy alert's 'inconsistent crisis safeguards'). design_overlap TRUE: a physician-scored, harm-weighted, patient-facing critical-miss/undertriage evaluation of an emergency parallels this protocol's core design (differs in domain -- psychiatric suicidal crisis vs physical acute-medical -- and in using a longitudinal jailbreak simulation rather than dual lay/expert-register vignettes). NOT auto-alerted: an important harm-finding that REINFORCES (does not overturn) the protocol's premise, with no regulatory action or retraction, and it does not match the protocol's full physical-emergency dual-register design at the urgent-alert threshold. SCOPE NOTE: included because the library already treats emergency-psychiatric / suicidal-crisis chatbot safety as in-scope (standing Weilnhammer alert #4; SIM-VAIL; the crisis-safeguard angle of the search strategy). Verified via PubMed (PMID 42833407; DOI 10.1016/j.jad.2026.122586; J Affect Disord 2026; 7-author Wroclaw Medical University psychiatry group; article_type Journal Article, no correction/retraction on the record); Scite had NOT yet indexed the DOI this run (plan quota near-exhausted), so the editorialNotices/retraction check degraded to WebSearch per protocol -- no retraction/withdrawal notice found and the first author's C-SSRS chatbot-safety line of work was corroborated. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": true,
+   "date_added": "2026-10-06"
   }
  ]
 }

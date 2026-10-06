@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-04
-total-references: 197
+last-updated: 2026-10-06
+total-references: 201
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-04** · 197 references.
+Updated daily by automated scan. Last scan: **2026-10-06** · 201 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -64,6 +64,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Xiao 2026 — Large language models for late-life depression a blinded benchmark of…]] — *Frontiers in Psychiatry* 2026
 - [[Srirag 2026 — LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in…]] — *arXiv* 2026
 - [[Margolis 2026 — Triage and Referral Behavior Across Patient-Facing Medical AI Products]] — *medRxiv* 2026
+- [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] — *Journal of Affective Disorders* 2026
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] — *Nature Medicine* 2025
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] — *npj Digital Medicine* 2025
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] — *JAMIA Open* 2025
@@ -153,6 +154,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Srirag 2026 — LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in…]] (2026)
 - [[Vatanparvar 2026 — PatientAgentBench A Benchmark Framework for Evaluating Patient-Facing…]] (2026)
 - [[Margolis 2026 — Triage and Referral Behavior Across Patient-Facing Medical AI Products]] (2026)
+- [[Wong 2026 — Implicit Geographic Inference in LLM Medical Triage Language-Driven…]] (2026)
+- [[Wong 2026 — Socioeconomic Inference in LLM Medical Triage Same Symptoms,…]] (2026)
+- [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -235,6 +239,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ayre 2026 — Symptom checker formats to improve symptom management knowledge and…]] (2026)
 - [[Vatanparvar 2026 — PatientAgentBench A Benchmark Framework for Evaluating Patient-Facing…]] (2026)
 - [[Margolis 2026 — Triage and Referral Behavior Across Patient-Facing Medical AI Products]] (2026)
+- [[Hua 2026 — LLMs for Medical Consultation Are Evaluated Too Late The…]] (2026)
+- [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -300,6 +306,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Lange 2026 — Real-world use and evaluation of a generative AI chatbot for…]] (2026)
 - [[Srirag 2026 — LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in…]] (2026)
 - [[Margolis 2026 — Triage and Referral Behavior Across Patient-Facing Medical AI Products]] (2026)
+- [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -372,6 +379,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Zhu 2026 — ELICITED EHR-grounded Longitudinal Interactive Conversations for…]] (2026)
 - [[Srirag 2026 — LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in…]] (2026)
 - [[Vatanparvar 2026 — PatientAgentBench A Benchmark Framework for Evaluating Patient-Facing…]] (2026)
+- [[Hua 2026 — LLMs for Medical Consultation Are Evaluated Too Late The…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -455,6 +463,9 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Liu 2026 — Development of a Framework for Evaluating Large Language Model Safety…]] (2026)
 - [[Lv 2026 — Evaluating large language models for myocardial infarction public…]] (2026)
 - [[Srirag 2026 — LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in…]] (2026)
+- [[Wong 2026 — Implicit Geographic Inference in LLM Medical Triage Language-Driven…]] (2026)
+- [[Wong 2026 — Socioeconomic Inference in LLM Medical Triage Same Symptoms,…]] (2026)
+- [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
