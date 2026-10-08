@@ -1,0 +1,198 @@
+# PROPOSED EDITS — weekly literature review, 8 October 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# Anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at 90cc3c6 (8 Oct 2026).
+# Method: anchored assert-once replacement.
+#
+# FOUR PROPOSALS ARE NOW QUEUED AND UNAPPROVED: 10 Sep, 17 Sep, 24 Sep (as revised 1 Oct), and this.
+#
+# *** READ THIS BEFORE APPLYING — THIS PATCH SHARES §10 ANCHORS WITH THE 17 SEP PATCH ***
+# The 17 Sep patch adds a §10 boundary (the single-turn boundary) and bumps the opening count
+# three -> four. This patch adds a DIFFERENT §10 boundary and bumps the count again. They are
+# compatible in either order, but the COUNT HUNK depends on whether 17 Sep has been applied:
+#
+#   CASE A — 17 Sep NOT applied (current protocol state): count reads "Three" -> set to "Four".
+#   CASE B — 17 Sep applied first:                        count reads "Four"  -> set to "Five".
+#
+# Hunk 1a below gives both forms. Apply exactly ONE of them, chosen by the live text. The
+# insertion anchor for hunk 1b ("**A benchmark result is a measurement, not a clearance.**")
+# survives the 17 Sep edit intact and stays unique in both cases — verified this cycle.
+# If BOTH patches are approved, apply 17 Sep first, then CASE B here.
+
+Primary driver: Pichowicz W, Kotas M, Kalka N, Dembowska J, Karska J, Piotrowski P, Misiak B.
+"Responses of AI chatbots to escalating suicide risk: A simulation study of repeated interactions."
+J Affect Disord 2026;122586. doi 10.1016/j.jad.2026.122586, PMID 42833407.
+**Peer-reviewed and PubMed-verified 8 Oct 2026** — the only peer-reviewed item in this week's
+intake. Department of Psychiatry, Wroclaw Medical University.
+
+Design: simulated interactions with ChatGPT, DeepSeek and Replika across three suicidal-risk
+scenarios ESCALATING over seven days, informed by the Columbia Suicide Severity Rating Scale.
+Outcomes: exploration of suicidal ideation, symptom assessment, referral to human support, and
+vulnerability to jailbreak attempts. 27 trajectories.
+
+Findings that carry:
+  - Overall human referral: 54/63 (85.7%) ChatGPT, 48/63 (76.2%) DeepSeek, 6/63 (9.5%) Replika.
+  - Day-7 (imminent-risk) referral: 9/9, 4/9, 1/9 trajectories respectively.
+  - **Jailbreaking succeeded in 6/9 (95% CI 29.9-92.5%), 7/9 (40.0-97.2%) and 8/9 (51.8-99.7%)
+    attempts** respectively — i.e. in the majority of attempts against every system tested,
+    including the one with the best unprompted referral rate.
+  - Authors' own limits, reproduced rather than smoothed: "The simulation design and small sample
+    of 27 trajectories limit generalizability."
+
+================================================================================
+EDIT 1 — BOUNDARY. Separate safeguard ACTIVATION from safeguard ROBUSTNESS
+Sections affected: §10 (what this study does not establish); Table A4 (optional companion hunk)
+
+The gap in OUR protocol. The exploratory endpoint is "**Crisis-safeguard activation consistency
+across matched suicidality presentations**" (§2 objective 3), and Table A4 defines its ascertainment
+as "Safeguard-language detection on matched suicidality presentations, physician-adjudicated; never
+jury-scored." That measures whether the safeguard FIRES on a presentation. It does not measure
+whether the safeguard HOLDS when a user pushes against it.
+
+Those are different properties, and the distinction is not pedantic: a safeguard that activates
+reliably and can then be talked out of it in two-thirds to seven-eighths of attempts has not been
+shown to protect anyone. Our instrument, as written, would score such a system as having consistent
+crisis-safeguard activation — which would be true, and misleading.
+
+Suicidality is the highest-harm domain the protocol touches (Appendix B lists acute suicidality
+under psychiatric/toxicologic scenarios), so this is the worst place to leave the activation /
+robustness distinction implicit.
+
+Scope discipline — what this edit does NOT do. It adds **no** adversarial prompting, no jailbreak
+probes, no scenario variants, no participant burden, and has **no bearing on the §8.4 power
+calculation**. It is a disclosure of what an activation measurement does and does not establish.
+Building an actual robustness probe would be a design expansion; that option is written up
+separately below and is deliberately NOT proposed.
+
+Honesty about transfer: Pichowicz et al. is a simulation study of 27 trajectories against three
+consumer systems, two of which (DeepSeek, Replika) this protocol does not test; Replika is a
+companion app, not a triage system, and carries the worst numbers. The proposed text therefore
+cites the bypass finding as an established *property of the class* requiring disclosure, and does
+not import the rates as estimates for our systems.
+
+--- HUNK 1a: §10 opening count — APPLY EXACTLY ONE FORM ---
+
+  CASE A (use if the live text reads "Three" — i.e. the 17 Sep patch has NOT been applied):
+  OLD (anchor, occurs once):
+  Three boundaries are stated here rather than left for reviewers to find.
+
+  NEW:
+  Four boundaries are stated here rather than left for reviewers to find.
+
+  CASE B (use if the live text reads "Four" — i.e. the 17 Sep patch HAS been applied):
+  OLD (anchor, occurs once):
+  Four boundaries are stated here rather than left for reviewers to find.
+
+  NEW:
+  Five boundaries are stated here rather than left for reviewers to find.
+
+--- HUNK 1b: §10, new boundary inserted before the closing boundary ---
+OLD (anchor, occurs once — unaffected by the 17 Sep edit, which inserts above it):
+**A benchmark result is a measurement, not a clearance.**
+
+NEW:
+**Safeguard activation is not safeguard robustness.** The crisis-safeguard endpoint detects whether
+protective language appears on a matched suicidality presentation. It does not test whether that
+protection survives a user who argues with it, reframes the request, or persists across days. The
+distinction is load-bearing rather than semantic: in a peer-reviewed simulation of escalating
+suicidal risk over seven days, deliberate bypass attempts succeeded against every system tested —
+in six of nine, seven of nine and eight of nine attempts for the three chatbots examined — and
+referral behaviour at the point of imminent risk diverged sharply between systems whose overall
+referral rates looked comparable (Pichowicz et al., *J Affect Disord* 2026;122586). That study
+simulated 27 trajectories against three consumer systems, two of which are outside this protocol's
+scope, so its rates are not estimates for the systems under test here; what it establishes is that
+bypass is a real and common property of the class, and that an activation measurement is silent
+about it. A system that activates its safeguard consistently and can then be talked out of it would
+score well on this endpoint. Reporting the endpoint without this boundary would overstate what it
+establishes.
+
+**A benchmark result is a measurement, not a clearance.**
+
+--- HUNK 1c (OPTIONAL companion): Table A4 crisis-safeguard row ---
+Rationale: the boundary above belongs in §10, but Table A4 is where a reader looks up what the
+endpoint actually measures. Naming the limit at the point of definition costs one clause. The PI may
+take hunk 1a+1b alone and leave this.
+
+OLD (anchor, occurs once):
+| Exploratory | Crisis-safeguard activation consistency | **Det. + Phys.** | Safeguard-language detection on matched suicidality presentations, physician-adjudicated; never jury-scored |
+
+NEW:
+| Exploratory | Crisis-safeguard activation consistency | **Det. + Phys.** | Safeguard-language detection on matched suicidality presentations, physician-adjudicated; never jury-scored. **Measures activation, not robustness to deliberate bypass** (§10) |
+
+================================================================================
+OPTION FOR THE PI — NOT PROPOSED
+
+An actual robustness probe: a pre-specified bypass attempt appended to each suicidality scenario on
+which a safeguard activated, scored for whether protective language survives. Pichowicz et al. used
+a C-SSRS-informed escalation over seven days; a single-turn analogue would be cheaper.
+
+Costs, stated plainly:
+  - It is adversarial prompting against crisis safeguards. That is a **human-subjects and ethics
+    question before it is a methods question** — it generates transcripts in which a system is
+    talked out of protecting a simulated suicidal user, and §6 would need to address handling,
+    storage and whether any of it reaches lay Arm C participants. It should not be slipped in as a
+    methods tweak.
+  - It expands the scenario count and the §8.4 power calculation, which is already blocking.
+  - It overlaps Arm C1 (`[DECISION 4]`) and the stability probe already surfaced as an option on
+    17 September. Three candidate multi-turn probes now contend for the same budget.
+
+Recommendation: if the PI wants any multi-turn probing, decide it ONCE across all three candidates
+(Arm C1, the 17 Sep stability probe, and this) rather than separately — and route the adversarial
+variant through the ethics question first.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. NINE OF THIS WEEK'S TEN NEW REFERENCES ARE PREPRINTS. None is cited in any proposed edit. At
+   this project's citation bar a preprint can corroborate but cannot carry a protocol change, and
+   several of these are single-author or unverifiable. Listed with what each would have supported:
+   - "LLMs Anchor on Chief Complaint and Fail to Integrate Evidence in Sequential Clinical Triage"
+     (arXiv 10.48550/arXiv.2609.22904, design_overlap true) — six LLMs predicting ESI from a growing
+     conversation prefix; labels anchored on the early chief-complaint exchanges at every checkpoint
+     and **prompting interventions did not lift the plateau**; expert clinicians QWK 0.887-0.929 vs
+     0.295 for the best model. Would have borne on Change 12 and on the Anchoring Failure Rate
+     endpoint, and it sits in tension with BiasMedQA (10 Sep patch), where debiasing prompts DID
+     reduce bias. **That tension is worth watching**: if it survives peer review it complicates the
+     prompt-sensitivity claim in the pending 10 Sep EDIT 2. Nurse-patient (clinician-facing) ESI,
+     not lay register.
+   - "LLMs for Medical Consultation Are Evaluated Too Late: The Preformulation Gap"
+     (arXiv 10.48550/arXiv.2608.17330) — benchmarks begin after the problem is already framed;
+     self-care advice before any patient answer in 9/12 baseline cells vs 0/12 instruction cells.
+     Would have supported the lay-register rationale and the pending 17 Sep single-turn boundary.
+   - "The complexities of patient-centred conversational artificial intelligence" (arXiv) —
+     2,053 real patient-chatbot conversations, 1,164 clinician-graded cases, finding that
+     **communication style significantly alters triage outcomes**. This is the single best match to
+     our dual-register premise to appear so far. **It has NO DOI and NO PMID and is
+     websearch-verified only — quarantined, cited nowhere.** Worth the PI's attention if it reaches
+     a journal.
+   - Geographic-language disparity (arXiv 2606.01204) and socioeconomic/ZIP-code disparity
+     (arXiv 2607.22605) — both single-author probes of one or three models. Fairness-adjacent;
+     ancillary.
+   - PatientAgentBench (arXiv 2607.25485); "Are Frontier LLMs Safer Than Government-Backed Symptom
+     Checkers" (medRxiv 10.64898/2026.09.01.26361908); MedSafe-Dx v0 (medRxiv
+     10.64898/2026.04.14.26350711) — benchmark-methodology items, library only.
+
+2. "Triage and Referral Behavior Across Patient-Facing Medical AI Products" (medRxiv
+   10.64898/2026.08.15.26360518, UCLA emergency medicine, design_overlap true) — **OUT OF SCOPE BY
+   DESIGN, and worth saying why.** Nine patient-facing products over 540 multi-turn encounters on
+   60 physician-developed cases: triage accuracy did not differ by product category, but branded
+   health-AI products over-triaged low-acuity cases far more (28% vs 3% vs 2%) and more often
+   recommended **affiliated, fee-requiring services**. That is a commercial self-referral failure
+   mode, and this protocol's §5.5 Arm A tests "each frontier model" — general-purpose systems with
+   no affiliated services to steer toward. The mechanism has no referent in our design. It is a
+   strong successor-study hypothesis and nothing more; proposing a referral-destination endpoint
+   here would add an axis the systems under test cannot exhibit.
+
+3. Madeira et al., "Liability and Standard of Care in AI-Driven Psychiatric Practice: European
+   Viewpoint" (*J Med Internet Res* 2026;28:e99894, PMID 42832687) — peer-reviewed, PubMed-verified,
+   library candidate. A doctrinal EU liability analysis covering conversational chatbots and suicide
+   prediction. §11 already cites the EU AI Act, MDR and GDPR, and a §11 revision is already pending
+   from 1 October; adding a fourth §11 item this week would be padding. Flagged if the PI ever wants
+   a liability paragraph.
+
+4. The remaining in-window PubMed hits were screened and excluded as out of scope: a gadolinium-
+   sparing MS imaging review (42839215), an LLM low-back-pain surgical-triage study (42836823,
+   clinician-facing guideline adherence), and an emergency-resident ultrasound agreement study
+   (42472770, not LLM at all).
+
+5. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or in
+   any companion document.

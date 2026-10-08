@@ -220,3 +220,19 @@ Only the replacement figures need refreshing.
 
 EDIT 1 in this patch (the §10 single-turn boundary, the three->four count, and the §4.2 instability
 clarification) is unaffected and needs no adjustment.
+
+================================================================================
+CROSS-REFERENCE — added 8 October 2026 (this patch is still unapproved)
+
+The 8 October patch adds a SECOND §10 boundary (safeguard activation vs robustness) and shares this
+patch's §10 anchors. Compatible in either order, with one dependency:
+
+  - This patch's EDIT 1 hunk 1a sets the opening count "Three" -> "Four".
+  - The 8 Oct hunk 1a sets it again: "Three" -> "Four" if applied alone, or "Four" -> "Five" if
+    applied after this patch. That patch states both forms; choose by the live text.
+  - This patch's hunk 1b anchor ("**A benchmark result is a measurement, not a clearance.**")
+    inserts ABOVE that line and leaves it intact, so the 8 Oct hunk 1b anchor survives and stays
+    unique. Verified 8 Oct 2026.
+
+IF BOTH ARE APPROVED: apply this patch first, then the 8 Oct patch in its CASE B form.
+Each boundary stands on its own driver and either may be approved without the other.
