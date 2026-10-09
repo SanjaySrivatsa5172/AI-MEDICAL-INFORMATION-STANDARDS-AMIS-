@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-08
-total-references: 204
+last-updated: 2026-10-09
+total-references: 206
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-08** · 204 references.
+Updated daily by automated scan. Last scan: **2026-10-09** · 206 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -161,6 +161,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Matos 2026 — The complexities of patient-centred conversational artificial…]] (2026)
 - [[Chowdhury 2026 — Are Frontier Large Language Models Safer Than Government-Backed…]] (2026)
 - [[Van 2026 — MedSafe-Dx (v0) A Safety-Focused Benchmark for Evaluating LLMs in…]] (2026)
+- [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -182,6 +183,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Franc 2024 — Repeatability, reproducibility, and diagnostic accuracy of a…]] (2024)
 - [[Williams 2024 — Use of a Large Language Model to Assess Clinical Acuity of Adults in…]] (2024)
 - [[Masanneck 2024 — Triage Performance Across Large Language Models, ChatGPT, and…]] (2024)
+- [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
 - [[Sarbay 2023 — Performance of emergency triage prediction of an open access natural…]] (2023)
 
 ## Patient-facing AI
@@ -247,6 +249,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Matos 2026 — The complexities of patient-centred conversational artificial…]] (2026)
 - [[Chowdhury 2026 — Are Frontier Large Language Models Safer Than Government-Backed…]] (2026)
+- [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -266,6 +269,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Garcia 2024 — Artificial Intelligence-Generated Draft Replies to Patient Inbox…]] (2024)
 - [[Knitza 2024 — Comparison of Two Symptom Checkers (Ada and Symptoma) in the…]] (2024)
 - [[Kopka 2024 — Evaluating self-triage accuracy of laypeople, symptom-assessment…]] (2024)
+- [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
 - [[Ayers 2023 — Comparing Physician and Artificial Intelligence Chatbot Responses to…]] (2023)
 - [[Gilbert 2023 — Large language model AI chatbots require approval as medical devices]] (2023)
 - [[Mesko 2023 — The imperative for regulatory oversight of large language models (or…]] (2023)
@@ -314,6 +318,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Margolis 2026 — Triage and Referral Behavior Across Patient-Facing Medical AI Products]] (2026)
 - [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Matos 2026 — The complexities of patient-centred conversational artificial…]] (2026)
+- [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -331,6 +336,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Goh 2024 — Large Language Model Influence on Diagnostic Reasoning A Randomized…]] (2024)
 - [[Fleming 2024 — MedAlign A Clinician-Generated Dataset for Instruction Following with…]] (2024)
 - [[Masanneck 2024 — Triage Performance Across Large Language Models, ChatGPT, and…]] (2024)
+- [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
 - [[Ayers 2023 — Comparing Physician and Artificial Intelligence Chatbot Responses to…]] (2023)
 - [[Singhal 2023 — Large language models encode clinical knowledge]] (2023)
 
@@ -476,6 +482,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Wong 2026 — Socioeconomic Inference in LLM Medical Triage Same Symptoms,…]] (2026)
 - [[Pichowicz 2026 — Responses of AI chatbots to escalating suicide risk A simulation…]] (2026)
 - [[Van 2026 — MedSafe-Dx (v0) A Safety-Focused Benchmark for Evaluating LLMs in…]] (2026)
+- [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -491,6 +498,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Schmidgall 2024 — Evaluation and mitigation of cognitive biases in medical language…]] (2024)
 - [[Hager 2024 — Evaluation and mitigation of the limitations of large language models…]] (2024)
 - [[Zaboli 2024 — Human intelligence versus Chat-GPT who performs better in correctly…]] (2024)
+- [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
 - [[Wallace 2022 — The diagnostic and triage accuracy of digital and online symptom…]] (2022)
 - [[Ceney 2021 — Accuracy of online symptom checkers and the potential impact on…]] (2021)
 
