@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-10
-total-references: 207
+last-updated: 2026-10-13
+total-references: 209
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-10** · 207 references.
+Updated daily by automated scan. Last scan: **2026-10-13** · 209 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -163,6 +163,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Van 2026 — MedSafe-Dx (v0) A Safety-Focused Benchmark for Evaluating LLMs in…]] (2026)
 - [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Cantor 2026 — Suicide-Related Responses From AI Chatbots Through Application…]] (2026)
+- [[Nobile 2026 — Artificial Intelligence in suicide prevention promise, peril, and…]] (2026)
+- [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -252,6 +254,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Chowdhury 2026 — Are Frontier Large Language Models Safer Than Government-Backed…]] (2026)
 - [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Cantor 2026 — Suicide-Related Responses From AI Chatbots Through Application…]] (2026)
+- [[Nobile 2026 — Artificial Intelligence in suicide prevention promise, peril, and…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -398,6 +401,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Chowdhury 2026 — Are Frontier Large Language Models Safer Than Government-Backed…]] (2026)
 - [[Van 2026 — MedSafe-Dx (v0) A Safety-Focused Benchmark for Evaluating LLMs in…]] (2026)
 - [[Cantor 2026 — Suicide-Related Responses From AI Chatbots Through Application…]] (2026)
+- [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -487,6 +491,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Van 2026 — MedSafe-Dx (v0) A Safety-Focused Benchmark for Evaluating LLMs in…]] (2026)
 - [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Cantor 2026 — Suicide-Related Responses From AI Chatbots Through Application…]] (2026)
+- [[Nobile 2026 — Artificial Intelligence in suicide prevention promise, peril, and…]] (2026)
+- [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
@@ -515,6 +521,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Sharma 2026 — ED-triage-agent a multi-agent framework for human-in-the-loop…]] (2026)
 - [[Patwardhan 2026 — Patient-Facing AI System for Symptom Guidance Using Simulated…]] (2026)
 - [[Halıcı 2026 — Subgroup Differences in Agreement Between an Algorithm-Guided Large…]] (2026)
+- [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Ho 2025 — Evaluation of Generative Artificial Intelligence Models in Predicting…]] (2025)
 - [[Wandl 2025 — Diagnostic test accuracy of the Emergency Severity Index a systematic…]] (2025)
 - [[Sax 2024 — Emergency Severity Index Version 4 and Triage of Pediatric Emergency…]] (2024)
@@ -541,6 +548,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Clusmann 2026 — Safety and security of large language models in healthcare]] (2026)
 - [[Dash 2026 — Artificial Intelligence Readiness in Emergency Medicine Expert…]] (2026)
 - [[Rehman 2026 — An Evidence-Based Framework for Patient-Facing Artificial…]] (2026)
+- [[Nobile 2026 — Artificial Intelligence in suicide prevention promise, peril, and…]] (2026)
 - [[Shumate 2025 — Governing AI in Mental Health 50-State Legislative Review]] (2025)
 - [[Liu 2025 — HealthBench Advancing AI evaluation in healthcare, but not yet…]] (2025)
 - [[Brewster 2025 — Characteristics and Safety of Consumer Chatbots for Emergent…]] (2025)

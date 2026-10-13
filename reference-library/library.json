@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-10",
+  "last_updated": "2026-10-13",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -321,6 +321,11 @@
     "date": "2026-10-10",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-10 ~14:03 UTC). Today's fresh-session scan did not publish/push: dashboard unchanged at 206 refs / last_updated 2026-10-09, git<->dashboard in lockstep, nothing to recover. Ran the two edat sweeps (A1 45, A2 19; 60 unique, 30 new after dedup against the library and the 10-09/10-08 sweeps). A background subagent screened the 30 -> 1 ON, 3 borderline (all excluded), 26 off. ADDED 1 (ancillary): Cantor et al. 'Suicide-Related Responses From AI Chatbots Through APIs and Consumer-Facing Apps' (J Med Internet Res 2026;28:e97968, PMID 42855144, DOI 10.2196/97968; RAND/Harvard; 5 consumer models x 30 clinician-vetted suicide prompts x 5 risk levels x 100 reps via consumer UI and direct API = 30,000 responses; consumer UIs suppressed direct responses far more than API, mixed-effects UI OR 0.09 [0.08-0.10]; very-high-risk 4.6% UI vs 24.8% API; patient-facing crisis-response failure mode; design_overlap false) -- PubMed-verified, Scite confirmed no editorial notices. EXCLUDED 3 borderlines with reasons: 42855158 (Diel, JMIR AI -- psychotherapy-outpatient chatbot USAGE/demographics survey, not a triage/crisis-recognition safety evaluation of the AI); 42853295 (Roberts, Rheumatol Int -- 23-LLM rheumatology OUTPATIENT-REFERRAL urgency triage, non-emergency and clinician/system-facing); 42852981 (Takia, Trop Doct -- AI chatbots generating paediatric ICU/pulmonology MANAGEMENT PLANS, clinician-facing CDS, results-free abstract). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head 551c439. Verification this run: PubMed MCP + Scite MCP both available. Library 206 -> 207."
+   },
+   {
+    "date": "2026-10-13",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-13 ~14:04 UTC). Fresh-session scan did not publish/push today: dashboard unchanged at 207 refs / last_updated 2026-10-10, git<->dashboard in lockstep, nothing to recover. Ran the two edat sweeps (A1 45, A2 14; 55 unique, 26 new after dedup against the library and the 10-12/10-11 sweeps). A background subagent screened the 26 -> 2 ON, 1 borderline (excluded), 23 off. ADDED 2 (both ancillary, PubMed-verified): (1) Nobile & Courtet 'Artificial Intelligence in suicide prevention: promise, peril, and clinical implications for clinical practice' (REVIEW; Dialogues Clin Neurosci 2026;29(1):15-23, PMID 42862709, DOI 10.1080/19585969.2026.2745684; CHU Montpellier emergency-psychiatry authors; unregulated/unvalidated patient-facing crisis tools + preventable-harm failure mode + regulatory-oversight call; design_overlap false) -- reinforces the standing psychiatric-crisis-safety cluster (Weilnhammer/Pichowicz/Cantor). (2) Tiryaki et al. 'Agreement and classification performance of ChatGPT-5-generated and nurse-led emergency department triage using an expert reference decision' (Int Emerg Nurs 2026;89:101918, PMID 42863428, DOI 10.1016/j.ienj.2026.101918; 1,564 adult ED patients, ChatGPT-5 vs nurse vs expert reference; kappa 0.670 vs 0.467, accuracy 83.5% vs 73.3%, under-triage 18.0% vs 51.0%; staff/process-facing, qualifies via the under-triage failure mode; favorable-to-LLM; design_overlap false). Both DOIs were Scite-unindexed this run (brand-new, edat 2026-10-12) so the editorialNotices check degraded to the PubMed record (no retraction/correction on either). EXCLUDED 1 borderline: 42863433 (Singh et al., Int J Med Inform -- general clinician-facing trustworthy-diagnostic-LLM governance/deployment-readiness review; names 'symptom triage' and relevant failure modes but has no emergency specificity). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head f7c00b4. Verification this run: PubMed MCP available; Scite MCP available but had not yet indexed either brand-new DOI. Library 207 -> 209."
    }
   ],
   "alerts": [
@@ -4365,6 +4370,48 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-10"
+  },
+  {
+   "title": "Artificial Intelligence in suicide prevention: promise, peril, and clinical implications for clinical practice",
+   "authors": "Nobile B, Courtet P",
+   "journal": "Dialogues in Clinical Neuroscience",
+   "year": 2026,
+   "pmid": "42862709",
+   "doi": "10.1080/19585969.2026.2745684",
+   "url": "https://doi.org/10.1080/19585969.2026.2745684",
+   "type": "review",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "policy-regulation",
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Narrative REVIEW (emergency-psychiatry authors -- CHU Montpellier Dept of Emergency Psychiatry & Acute Care / Univ. Haifa) of AI across the suicide-prevention continuum (detection of suicidal ideation, clinician training, and PATIENT-FACING psychotherapeutic support), in the psychiatric-crisis domain the library already treats as in-scope (cf. the standing Weilnhammer emergency-psychiatric-triage alert, the Pichowicz escalating-suicide-risk study, and the Cantor UI-vs-API suicide-crisis audit). Central safety point for this protocol: CBT-inspired patient-facing AI tools are largely UNREGULATED and clinically UNVALIDATED, many patients use them without professional guidance (a trend clinicians underestimate), and despite perceived empathy they pose ethical/clinical risks and may expose vulnerable individuals to PREVENTABLE HARM -- an unvalidated-crisis-support / false-reassurance failure mode. Calls for urgent regulatory oversight and clinical validation. Ancillary, type review, design_overlap FALSE: a narrative review (not a primary physician-authored triage benchmark), broader than emergency triage (it also covers clinician-facing risk prediction and training), included for its patient-facing crisis-safety + regulation framing. NOT auto-alerted (a review reinforcing the standing crisis-safety concern; no new benchmark matching the protocol design, no endpoint reversal, no regulatory action or retraction). Verified via PubMed (PMID 42862709; DOI 10.1080/19585969.2026.2745684; Dialogues Clin Neurosci 2026;29(1):15-23; article_types Journal Article + Review); Scite had not yet indexed the DOI this run (brand-new, edat 2026-10-12), so the editorialNotices check degraded to the PubMed record, which carries no retraction/correction. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-13"
+  },
+  {
+   "title": "Agreement and classification performance of ChatGPT-5-generated and nurse-led emergency department triage using an expert reference decision: A retrospective study",
+   "authors": "Tiryaki EB, Tiryaki O, Soysal M, Kanbay Y, Tufekci FG",
+   "journal": "International Emergency Nursing",
+   "year": 2026,
+   "pmid": "42863428",
+   "doi": "10.1016/j.ienj.2026.101918",
+   "url": "https://doi.org/10.1016/j.ienj.2026.101918",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "Retrospective cross-sectional comparison (Artvin Coruh University / Ataturk University, Turkey) of ChatGPT-5-generated EMERGENCY DEPARTMENT triage vs nurse-led triage against an EXPERT REFERENCE decision in 1,564 adult ED patients (documented yellow/green acuity). Standardized triage-level information was entered into ChatGPT-5 with an identical prompt. Results: ChatGPT-5 agreed with the expert reference better than nurses (Cohen kappa 0.670 vs 0.467), with higher accuracy (83.5% vs 73.3%) and sensitivity (82.0% vs 49.0%), and crucially produced FEWER UNDER-TRIAGE errors -- only 18.0% of expert-yellow patients were mislabeled green vs 51.0% by nurses (though nurses over-triaged less: 2.3% vs 15.0% of expert-green patients labeled yellow). Bears on the protocol via the UNDER-TRIAGE failure mode and the LLM-vs-human emergency-triage-accuracy question; direction here is FAVORABLE to the LLM, a useful contrast to the patient-facing undertriage findings in the standing Ramaswamy alert, since this is staff/process-facing structured-input triage rather than patient-facing lay-language. Ancillary, design_overlap FALSE: evaluates LLM triage from standardized clinical input against an expert standard (not the protocol's physician-authored dual-register lay-language patient-facing design); the AI is triage-process-facing, qualifying via the under-triage failure-mode criterion rather than patient-facing use. NOT auto-alerted (favorable-to-LLM accuracy result, no endpoint reversal, no regulatory action or retraction). Verified via PubMed (PMID 42863428; DOI 10.1016/j.ienj.2026.101918; Int Emerg Nurs 2026;89:101918; 5-author Turkish nursing team; keyword 'Under-triage'; article_type Journal Article); Scite had not yet indexed the DOI this run (brand-new, edat 2026-10-12), so the editorialNotices check degraded to the PubMed record, which carries no retraction/correction. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-13"
   }
  ]
 }
