@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-15",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -326,6 +326,11 @@
     "date": "2026-10-13",
     "added": 2,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-13 ~14:04 UTC). Fresh-session scan did not publish/push today: dashboard unchanged at 207 refs / last_updated 2026-10-10, git<->dashboard in lockstep, nothing to recover. Ran the two edat sweeps (A1 45, A2 14; 55 unique, 26 new after dedup against the library and the 10-12/10-11 sweeps). A background subagent screened the 26 -> 2 ON, 1 borderline (excluded), 23 off. ADDED 2 (both ancillary, PubMed-verified): (1) Nobile & Courtet 'Artificial Intelligence in suicide prevention: promise, peril, and clinical implications for clinical practice' (REVIEW; Dialogues Clin Neurosci 2026;29(1):15-23, PMID 42862709, DOI 10.1080/19585969.2026.2745684; CHU Montpellier emergency-psychiatry authors; unregulated/unvalidated patient-facing crisis tools + preventable-harm failure mode + regulatory-oversight call; design_overlap false) -- reinforces the standing psychiatric-crisis-safety cluster (Weilnhammer/Pichowicz/Cantor). (2) Tiryaki et al. 'Agreement and classification performance of ChatGPT-5-generated and nurse-led emergency department triage using an expert reference decision' (Int Emerg Nurs 2026;89:101918, PMID 42863428, DOI 10.1016/j.ienj.2026.101918; 1,564 adult ED patients, ChatGPT-5 vs nurse vs expert reference; kappa 0.670 vs 0.467, accuracy 83.5% vs 73.3%, under-triage 18.0% vs 51.0%; staff/process-facing, qualifies via the under-triage failure mode; favorable-to-LLM; design_overlap false). Both DOIs were Scite-unindexed this run (brand-new, edat 2026-10-12) so the editorialNotices check degraded to the PubMed record (no retraction/correction on either). EXCLUDED 1 borderline: 42863433 (Singh et al., Int J Med Inform -- general clinician-facing trustworthy-diagnostic-LLM governance/deployment-readiness review; names 'symptom triage' and relevant failure modes but has no emergency specificity). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head f7c00b4. Verification this run: PubMed MCP available; Scite MCP available but had not yet indexed either brand-new DOI. Library 207 -> 209."
+   },
+   {
+    "date": "2026-10-15",
+    "added": 3,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-15 ~14:04 UTC). Fresh-session scan did not publish/push today: dashboard unchanged at 209 refs / last_updated 2026-10-13, git<->dashboard in lockstep, nothing to recover. Ran the two edat sweeps (A1 45, A2 36; 78 unique, 37 new after dedup against the library and the 10-14/10-13 sweeps). A background subagent screened the 37 -> 3 ON, 1 borderline (excluded), 33 off. ADDED 3 (all ancillary, PubMed-verified): (1) Temiz 'Comparative Evaluation of Large Language Models in the Recognition of Postoperative Complications Following Aesthetic Surgery' (Aesthetic Plast Surg 2026, PMID 42875611, DOI 10.1007/s00266-026-06352-7; patient-facing LLM postop-complication recognition scored by clinicians for triage accuracy + emergency referral + 'dangerous reassurance' false-reassurance failure mode; design_overlap false). (2) Munir et al. 'Artificial Intelligence for Triage in Primary Care: A Scoping Review of Clinical Applicability' (REVIEW; Int J Med Inform 2026;223:106769, PMID 42874138, DOI 10.1016/j.ijmedinf.2026.106769; 17-study PRISMA-ScR map of patient-facing vs clinician-facing AI triage + safety/equity; design_overlap false). (3) Shakoori et al. 'The Role of Artificial Intelligence in Enhancing Diagnostic and Triage Accuracy in Hospital Emergency Departments: A Systematic Review' (REVIEW; Med J Islam Repub Iran 2026;40:55, PMID 42871532, DOI 10.47176/mjiri.40.55; ED triage synthesis flagging ChatGPT-4.0 over-triage [specificity 18.2%] + algorithmic bias; design_overlap false). Scite indexed and confirmed Munir + Shakoori (no editorial notices); Temiz not yet Scite-indexed (brand-new, edat 2026-10-14) so its editorialNotices check degraded to the PubMed record (no retraction/correction). EXCLUDED 1 borderline: 42871867 (Guler et al., PRS Glob Open -- multimodal-LLM burn assessment; genuine perception-vs-decision failure mode but clinician-facing clinical photographs/imaging + treatment-selection, not patient-facing or triage disposition). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head a14b992. Verification this run: PubMed MCP + Scite MCP both available. Library 209 -> 212."
    }
   ],
   "alerts": [
@@ -4412,6 +4417,69 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-13"
+  },
+  {
+   "title": "Comparative Evaluation of Large Language Models in the Recognition of Postoperative Complications Following Aesthetic Surgery",
+   "authors": "Temiz K",
+   "journal": "Aesthetic Plastic Surgery",
+   "year": 2026,
+   "pmid": "42875611",
+   "doi": "10.1007/s00266-026-06352-7",
+   "url": "https://doi.org/10.1007/s00266-026-06352-7",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Single-author (plastic surgeon, Istanbul) physician-scored comparative evaluation of PATIENT-FACING LLMs (ChatGPT, Gemini, Claude) recognizing POSTOPERATIVE COMPLICATIONS after aesthetic surgery, framed as postoperative patient-communication tools. 30 standardized scenarios (low/moderate/high-risk) scored by clinicians on 5-point Likert scales for diagnostic accuracy, management appropriateness, TRIAGE accuracy, patient safety, and completeness, with CRITICAL MANAGEMENT ERRORS and 'DANGEROUS REASSURANCE' recorded separately. Findings: ChatGPT best overall (diagnostic accuracy 3.99 vs Gemini 3.61 vs Claude 3.90, p<0.001); appropriate EMERGENCY-REFERRAL recommendations in high-risk scenarios 93.3% (ChatGPT) / 76.7% (Gemini) / 96.7% (Claude), p=0.018; variability greatest in clinically urgent scenarios; concludes LLMs are supportive informational tools only and should not replace physician assessment for serious complications. Bears on the protocol's core mechanism in a patient-facing context -- whether a consumer LLM correctly ESCALATES a potentially-serious complication to emergency care vs issues DANGEROUS REASSURANCE (a false-reassurance/undertriage failure mode). design_overlap FALSE and ancillary: the physician-scored patient-facing harm-weighted design parallels the protocol, but the domain (elective aesthetic-surgery postoperative complications) is narrow and distinct from the protocol's acute-symptom emergency triage, it is single-author / 30-scenario, and the overall direction is favorable. NOT auto-alerted (no new benchmark matching the protocol's full design, no endpoint reversal, no regulatory action or retraction). Verified via PubMed (PMID 42875611; DOI 10.1007/s00266-026-06352-7; Aesthetic Plast Surg 2026; single author Koray Temiz; article_type Journal Article; keywords include Triage / Patient safety / Postoperative complications); Scite had not yet indexed the DOI this run (brand-new, edat 2026-10-14), so the editorialNotices check degraded to the PubMed record, which carries no retraction/correction. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-15"
+  },
+  {
+   "title": "Artificial Intelligence for Triage in Primary Care: A Scoping Review of Clinical Applicability",
+   "authors": "Munir L, Cai A, Leslie O, Cai A, Perrotta D, Andrews J, Leslie A, Stretton B, Kovoor JG",
+   "journal": "International Journal of Medical Informatics",
+   "year": 2026,
+   "pmid": "42874138",
+   "doi": "10.1016/j.ijmedinf.2026.106769",
+   "url": "https://doi.org/10.1016/j.ijmedinf.2026.106769",
+   "type": "review",
+   "topics": [
+    "emergency-triage-ai",
+    "patient-facing-ai",
+    "triage-standards",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "PRISMA-ScR SCOPING REVIEW (Griffith University / University of Adelaide, Australia; 17 studies 2013-2026, 12 countries) mapping AI TRIAGE systems in PRIMARY CARE by triage function and by whether they are patient-facing, clinician-facing, or automated. Most (14/17) were clinician-facing decision support, THREE had a PATIENT-FACING component, and only TWO performed urgency classification or SELF-TRIAGE; none autonomous. Diagnostic/screening triage was the most common function (7), then prioritisation (4) and referral routing (4). As a clinician aid AI improved performance (e.g., dermoscopy management sensitivity 72.9%->94.2%), but standalone models sometimes fell below clinicians; reported accuracy 41.2-98.28%, AUROC 0.65-0.90 on heterogeneous outcomes; validation mostly internal (11/17), external in 4, NONE prospective-randomised or outcome-measuring. Authors judge the evidence base immature (unreliable reference standards, sparse equity assessment, absent prospective outcome data) and call for outcome-anchored evaluation attentive to SAFETY and EQUITY. Relevant to the protocol as an on-topic methodological map of patient-facing vs clinician-facing AI triage and the thinness of the safety/equity evidence. Ancillary, design_overlap FALSE: primary-care-focused (not ED) and predominantly clinician-facing, consistent with the library's other primary-care AI-triage entries (e.g. the Liaw and Alamoudi JMIR viewpoints). NOT auto-alerted (a methodological scoping review; no new benchmark matching the protocol design, no endpoint reversal, no regulatory action or retraction). Verified via PubMed (PMID 42874138; DOI 10.1016/j.ijmedinf.2026.106769; Int J Med Inform 2026;223:106769; 9-author team; article_types Journal Article + Review) and Scite (DOI/title/authors confirmed, no editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-15"
+  },
+  {
+   "title": "The Role of Artificial Intelligence in Enhancing Diagnostic and Triage Accuracy in Hospital Emergency Departments: A Systematic Review",
+   "authors": "Shakoori M, Esmaili F, Abbariki E, Heidaranlu E",
+   "journal": "Medical Journal of the Islamic Republic of Iran",
+   "year": 2026,
+   "pmid": "42871532",
+   "doi": "10.47176/mjiri.40.55",
+   "url": "https://doi.org/10.47176/mjiri.40.55",
+   "type": "review",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "SYSTEMATIC REVIEW (Iran University of Medical Sciences / Baqiyatallah University of Medical Sciences; PubMed/Scopus/WoS/Google Scholar to Sept 2025; NOS + QUADAS-2) of AI for TRIAGE and diagnostic accuracy in hospital EMERGENCY DEPARTMENTS. AI models often outperformed traditional triage (AUC frequently >0.90), but the review flags AUC's limits in imbalanced data and -- directly on this protocol's failure-mode focus -- notes that ChatGPT 4.0 produced significant OVER-TRIAGE from low specificity (18.2%), alongside algorithmic bias, workflow-integration friction, user resistance, and the need for continuous ethical oversight. Concludes AI could improve emergency triage but current evidence is largely retrospective single-center, and implementation should be gradual, starting in high-risk domains (e.g., sepsis screening). Relevant as an ED-triage-focused evidence synthesis that explicitly surfaces a consumer-LLM (ChatGPT) triage safety failure (over-triage) plus algorithmic-bias / ethical-oversight themes. Ancillary, design_overlap FALSE: an evidence synthesis, not a primary physician-authored patient-facing triage benchmark. NOT auto-alerted (a review; no new primary benchmark matching the protocol design, no endpoint reversal, no regulatory action or retraction). Verified via PubMed (PMID 42871532; PMC13659705; DOI 10.47176/mjiri.40.55; Med J Islam Repub Iran 2026;40:55; 4-author team; article_types Journal Article + Review) and Scite (DOI/title/authors confirmed, no editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-15"
   }
  ]
 }
