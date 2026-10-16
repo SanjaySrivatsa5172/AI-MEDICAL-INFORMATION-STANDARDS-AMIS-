@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-15
-total-references: 212
+last-updated: 2026-10-16
+total-references: 213
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-15** · 212 references.
+Updated daily by automated scan. Last scan: **2026-10-16** · 213 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -168,6 +168,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Temiz 2026 — Comparative Evaluation of Large Language Models in the Recognition of…]] (2026)
 - [[Munir 2026 — Artificial Intelligence for Triage in Primary Care A Scoping Review…]] (2026)
 - [[Shakoori 2026 — The Role of Artificial Intelligence in Enhancing Diagnostic and…]] (2026)
+- [[YK 2026 — When algorithms triage trauma Diagnostic accuracy, undertriage risk,…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -330,6 +331,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Matos 2026 — The complexities of patient-centred conversational artificial…]] (2026)
 - [[Yuan 2026 — Evaluating Generative Artificial Intelligence Chatbots in Answering…]] (2026)
 - [[Temiz 2026 — Comparative Evaluation of Large Language Models in the Recognition of…]] (2026)
+- [[YK 2026 — When algorithms triage trauma Diagnostic accuracy, undertriage risk,…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -410,6 +412,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Munir 2026 — Artificial Intelligence for Triage in Primary Care A Scoping Review…]] (2026)
 - [[Shakoori 2026 — The Role of Artificial Intelligence in Enhancing Diagnostic and…]] (2026)
+- [[YK 2026 — When algorithms triage trauma Diagnostic accuracy, undertriage risk,…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -503,6 +506,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Tiryaki 2026 — Agreement and classification performance of ChatGPT-5-generated and…]] (2026)
 - [[Temiz 2026 — Comparative Evaluation of Large Language Models in the Recognition of…]] (2026)
 - [[Shakoori 2026 — The Role of Artificial Intelligence in Enhancing Diagnostic and…]] (2026)
+- [[YK 2026 — When algorithms triage trauma Diagnostic accuracy, undertriage risk,…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)

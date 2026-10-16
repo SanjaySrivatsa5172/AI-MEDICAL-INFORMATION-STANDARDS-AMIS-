@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-15",
+  "last_updated": "2026-10-16",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -331,6 +331,16 @@
     "date": "2026-10-15",
     "added": 3,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-15 ~14:04 UTC). Fresh-session scan did not publish/push today: dashboard unchanged at 209 refs / last_updated 2026-10-13, git<->dashboard in lockstep, nothing to recover. Ran the two edat sweeps (A1 45, A2 36; 78 unique, 37 new after dedup against the library and the 10-14/10-13 sweeps). A background subagent screened the 37 -> 3 ON, 1 borderline (excluded), 33 off. ADDED 3 (all ancillary, PubMed-verified): (1) Temiz 'Comparative Evaluation of Large Language Models in the Recognition of Postoperative Complications Following Aesthetic Surgery' (Aesthetic Plast Surg 2026, PMID 42875611, DOI 10.1007/s00266-026-06352-7; patient-facing LLM postop-complication recognition scored by clinicians for triage accuracy + emergency referral + 'dangerous reassurance' false-reassurance failure mode; design_overlap false). (2) Munir et al. 'Artificial Intelligence for Triage in Primary Care: A Scoping Review of Clinical Applicability' (REVIEW; Int J Med Inform 2026;223:106769, PMID 42874138, DOI 10.1016/j.ijmedinf.2026.106769; 17-study PRISMA-ScR map of patient-facing vs clinician-facing AI triage + safety/equity; design_overlap false). (3) Shakoori et al. 'The Role of Artificial Intelligence in Enhancing Diagnostic and Triage Accuracy in Hospital Emergency Departments: A Systematic Review' (REVIEW; Med J Islam Repub Iran 2026;40:55, PMID 42871532, DOI 10.47176/mjiri.40.55; ED triage synthesis flagging ChatGPT-4.0 over-triage [specificity 18.2%] + algorithmic bias; design_overlap false). Scite indexed and confirmed Munir + Shakoori (no editorial notices); Temiz not yet Scite-indexed (brand-new, edat 2026-10-14) so its editorialNotices check degraded to the PubMed record (no retraction/correction). EXCLUDED 1 borderline: 42871867 (Guler et al., PRS Glob Open -- multimodal-LLM burn assessment; genuine perception-vs-decision failure mode but clinician-facing clinical photographs/imaging + treatment-selection, not patient-facing or triage disposition). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head a14b992. Verification this run: PubMed MCP + Scite MCP both available. Library 209 -> 212."
+   },
+   {
+    "date": "2026-10-16",
+    "added": 0,
+    "notes": "Fresh-session scan via WebSearch only (PubMed/arXiv fetch blocked). 6 searches (triage safety, physician-graded consumer chatbots, priority journals, preprints, product-name angles, lay-language). Every hit already in library or non-bibliographically-verifiable. One unverified candidate NOT added: \"When algorithms triage trauma: Diagnostic accuracy, undertriage risk, and prompt fragility in frontier large language models\" (PubMed PMID 42214316 per search snippet; authors/venue/DOI unconfirmed) - reconciler to verify via PubMed. Also unconfirmed press item (7 Oct 2026): OpenAI reportedly uses contractor physicians to review ChatGPT health/triage conversations - not a publication, no alert."
+   },
+   {
+    "date": "2026-10-16",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-16 ~14:04 UTC). Today the FRESH-SESSION SCAN published to the dashboard (last_updated advanced to 2026-10-16; +0 refs; WebSearch-only, 6 searches) but its push did not reach git (fresh-session push 403s); this run brings git into line. Dashboard<->git reference sets were byte-identical before this run (212 refs; 0 on dashboard missing from git; 0 in git missing from dashboard; no alert differences), so nothing to recover except the scan's own +0 provenance entry (preserved immediately above) and the last_updated bump. RECOVERED + VERIFIED the one candidate the scan flagged for reconciler check: Caliskan et al. 'When algorithms triage trauma: Diagnostic accuracy, undertriage risk, and prompt fragility in frontier large language models' (Surgery 2026;196:110319, PMID 42214316, DOI 10.1016/j.surg.2026.110319) -- PubMed-confirmed (the scan's snippet PMID was correct; authors Caliskan YK/Basak F/Erdem O, venue Surgery, and DOI now confirmed; Observational Study) and Scite-confirmed with no editorial notices; ADDED as ancillary (frontier-LLM trauma-triage undertriage + prompt-fragility benchmark, surgeon/ISS-adjudicated; design_overlap false -- clinician-facing secondary triage, not patient-facing). The scan's unconfirmed press item (OpenAI reportedly using contractor physicians to review ChatGPT health/triage conversations, 7 Oct 2026) is not a publication -> no entry and no alert, consistent with the scan. Separately ran the two edat sweeps (A1 45, A2 43; 83 unique, 37 new after dedup against the library and the 10-15/10-14 sweeps); a background subagent screened the 37 -> 0 ON, 7 borderline (all excluded), 30 off. Closest near-miss NOT added (flagged for PI): Luo & Lu 'Nurse-led digital triage and health literacy navigation: redefining the front door of public health in the AI era' (Front Public Health 2026, PMID 42876618, DOI 10.3389/fpubh.2026.1971194) -- a patient-facing-AI-triage + health-literacy/override safety PERSPECTIVE, excluded on weak emergency-relevance (general public-health 'front door' triage, not emergency-specific) and non-empirical form. Other 6 borderlines excluded: clinician-facing EM CDS/fairness editorials+reviews (42881557 Ahn, 42881554 Satoh), a general mental-health-GenAI evaluation meta-framework (42879671 Golden & Aboujaoude), dental-imaging referral triage (42885096), and prehospital-ACS / military-triage reviews with AI incidental (42881556, 42879698). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head 65b3b5f. Verification this run: PubMed MCP + Scite MCP both available. Library 212 -> 213."
    }
   ],
   "alerts": [
@@ -4480,6 +4490,27 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-15"
+  },
+  {
+   "title": "When algorithms triage trauma: Diagnostic accuracy, undertriage risk, and prompt fragility in frontier large language models",
+   "authors": "Çalışkan YK, Başak F, Erdem O",
+   "journal": "Surgery",
+   "year": 2026,
+   "pmid": "42214316",
+   "doi": "10.1016/j.surg.2026.110319",
+   "url": "https://doi.org/10.1016/j.surg.2026.110319",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Physician-adjudicated in-silico BENCHMARK (University of Health Sciences, Istanbul) of 3 FRONTIER LLMs (GPT-5.2, Gemini 3.0 Flash, Claude 4.5 Opus) on TRAUMA TRIAGE, focused squarely on UNDERTRIAGE -- the protocol's central critical-miss concern. 150 trauma vignettes (deidentified educational/registry-informed) emulating secondary triage in a referring-ED setting; locked prompt template; reference standard = consensus adjudication by board-certified SURGEONS using Injury Severity Score-anchored categories. Overall major-trauma sensitivity 89.4%, specificity 86.5%, pooled kappa 0.74 (GPT-5.2 best: AUROC 0.94 / kappa 0.82; Gemini 0.91/0.75; Claude 0.89/0.65). Key FAILURE-MODE findings: undertriage clustered disproportionately in GERIATRIC scenarios (17.6% vs 5.2% in younger adults, P=.012) and in BLUNT vs penetrating trauma (11.8% vs 4.1%, P=.045); PROMPT FRAGILITY -- 11.2% of lexically perturbed prompts changed triage category (max instability 24.5%); simulated undertriage-linked DELAY affected 14.2% of major-trauma cases (mean 18.5 min). Authors conclude frontier LLMs show strong overall discrimination but clinically relevant fragility clustering in 'the very scenarios in which real-world trauma systems already struggle,' supporting use only as SUPERVISED ADJUNCTS rather than autonomous triage agents. Directly on the protocol's undertriage / false-reassurance failure mode and physician-adjudicated harm-weighting. Ancillary, design_overlap FALSE: methodologically a close cousin (shares the undertriage / harm-weighting / physician-consensus axes), but it is CLINICIAN/system-facing SECONDARY triage from standardized written vignettes (ISS-anchored, referring-ED), not the protocol's PATIENT-FACING dual-register lay-language design -- same rationale as the Tiryaki and Balaji clinician-facing triage benchmarks (overlap false). NOT auto-alerted: reinforces (does not overturn) the undertriage-vulnerability premise, is clinician-facing rather than patient-facing/dual-register, and reports no regulatory action or retraction; an older paper (online 2026-05) surfaced by today's fresh-session scan WebSearch, not breaking news. RECOVERED this run from the 2026-10-16 fresh-session scan, which flagged it unverified (PMID per search snippet; authors/venue/DOI unconfirmed) for reconciler verification. Verified via PubMed (PMID 42214316; DOI 10.1016/j.surg.2026.110319; Surgery 2026;196:110319; authors Caliskan YK / Basak F / Erdem O; article_types Journal Article + Observational Study) and Scite (DOI/title/authors confirmed, no editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-16"
   }
  ]
 }
