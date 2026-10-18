@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-18",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -341,6 +341,16 @@
     "date": "2026-10-16",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-16 ~14:04 UTC). Today the FRESH-SESSION SCAN published to the dashboard (last_updated advanced to 2026-10-16; +0 refs; WebSearch-only, 6 searches) but its push did not reach git (fresh-session push 403s); this run brings git into line. Dashboard<->git reference sets were byte-identical before this run (212 refs; 0 on dashboard missing from git; 0 in git missing from dashboard; no alert differences), so nothing to recover except the scan's own +0 provenance entry (preserved immediately above) and the last_updated bump. RECOVERED + VERIFIED the one candidate the scan flagged for reconciler check: Caliskan et al. 'When algorithms triage trauma: Diagnostic accuracy, undertriage risk, and prompt fragility in frontier large language models' (Surgery 2026;196:110319, PMID 42214316, DOI 10.1016/j.surg.2026.110319) -- PubMed-confirmed (the scan's snippet PMID was correct; authors Caliskan YK/Basak F/Erdem O, venue Surgery, and DOI now confirmed; Observational Study) and Scite-confirmed with no editorial notices; ADDED as ancillary (frontier-LLM trauma-triage undertriage + prompt-fragility benchmark, surgeon/ISS-adjudicated; design_overlap false -- clinician-facing secondary triage, not patient-facing). The scan's unconfirmed press item (OpenAI reportedly using contractor physicians to review ChatGPT health/triage conversations, 7 Oct 2026) is not a publication -> no entry and no alert, consistent with the scan. Separately ran the two edat sweeps (A1 45, A2 43; 83 unique, 37 new after dedup against the library and the 10-15/10-14 sweeps); a background subagent screened the 37 -> 0 ON, 7 borderline (all excluded), 30 off. Closest near-miss NOT added (flagged for PI): Luo & Lu 'Nurse-led digital triage and health literacy navigation: redefining the front door of public health in the AI era' (Front Public Health 2026, PMID 42876618, DOI 10.3389/fpubh.2026.1971194) -- a patient-facing-AI-triage + health-literacy/override safety PERSPECTIVE, excluded on weak emergency-relevance (general public-health 'front door' triage, not emergency-specific) and non-empirical form. Other 6 borderlines excluded: clinician-facing EM CDS/fairness editorials+reviews (42881557 Ahn, 42881554 Satoh), a general mental-health-GenAI evaluation meta-framework (42879671 Golden & Aboujaoude), dental-imaging referral triage (42885096), and prehospital-ACS / military-triage reviews with AI incidental (42881556, 42879698). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head 65b3b5f. Verification this run: PubMed MCP + Scite MCP both available. Library 212 -> 213."
+   },
+   {
+    "date": "2026-10-18",
+    "added": 1,
+    "notes": "Fresh-session scan via WebSearch only (doi.org/publisher fetch blocked; PubMed unavailable). ~9 searches (triage safety, consumer product names, priority journals, preprints, EM journals, AMIE). Added 1 gap-fill: Meral et al. AJEM 2024 ESI GPT-4/Gemini vs EM specialists - DOI/authors/venue from search listings only; PMID and result figures unverified -> reconciler to verify via PubMed. All other hits already in library (ChatGPT Health Nature Med, CARE-Bench, psychiatric triage 15 chatbots, OpenEvidence, few-shot triage, Frontier vs symptom checkers). AMIE video-consultation and disease-management items not triage-specific; not added. No alerts."
+   },
+   {
+    "date": "2026-10-18",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-18 ~14:04 UTC). The FRESH-SESSION SCAN again published to the dashboard today (last_updated advanced to 2026-10-18; +1 ref; WebSearch-only, ~9 searches) but its push did not reach git (fresh-session push 403s); this run brings git into line. Diff before this run: dashboard 214 refs vs git 213 -- exactly 1 ref on the dashboard missing from git (the scan's Meral gap-fill), 0 in git missing from the dashboard, no alert differences. RECOVERED + VERIFIED that ref: Meral et al. 'Comparative analysis of ChatGPT, Gemini and emergency medicine specialist in ESI triage assessment' (Am J Emerg Med 2024;81:146-150, DOI 10.1016/j.ajem.2024.05.001) -- PubMed convert_article_ids returned NO PMID (not PubMed-indexed under this DOI, so pmid stays null, none invented); Scite CONFIRMED title/authors (Meral/Ates/Gunay)/venue/year/volume/pages with no editorial notices. Kept ancillary; added ai-safety-failure-modes / benchmark-methodology / triage-standards topics (ESI over/under-triage LLM-vs-EM-specialist benchmark; clinician/specialist-facing, design_overlap false); source upgraded websearch -> websearch+scite-verified. Separately ran the two edat sweeps (A1 50, A2 28; 76 unique, 27 new after dedup against the library and the 10-17/10-16 sweeps); a background subagent screened the 27 -> 0 ON, 0 borderline, 27 off (closest near-miss correctly excluded: 42889265, a PRISMA review of patient-facing LLM safety scoped to long-term/chronic conditions, which fails emergency-relevance). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head 0368639. Verification this run: PubMed MCP + Scite MCP both available. Library 213 -> 214."
    }
   ],
   "alerts": [
@@ -4511,6 +4521,27 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-16"
+  },
+  {
+   "title": "Comparative analysis of ChatGPT, Gemini and emergency medicine specialist in ESI triage assessment",
+   "authors": "Meral G, Ateş S, Günay S, Öztürk A, Kuşdoğan M",
+   "journal": "American Journal of Emergency Medicine",
+   "year": 2024,
+   "pmid": null,
+   "doi": "10.1016/j.ajem.2024.05.001",
+   "url": "https://doi.org/10.1016/j.ajem.2024.05.001",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "ESI-triage benchmark (Turkey, Feb 2024) comparing GPT-4 (ChatGPT) and Gemini against 10 EMERGENCY MEDICINE SPECIALISTS on 100 ESI Implementation Handbook cases, classifying each as correct triage vs OVER-triage / UNDER-triage against the ESI reference standard. Relevant to the protocol via the emergency-triage-AI accuracy question and the over/under-triage failure-mode framing (an ESI-anchored LLM-vs-physician triage benchmark). Ancillary, design_overlap FALSE: clinician/specialist-facing ESI triage from standardized handbook cases (not the protocol's patient-facing dual-register lay-language design), same posture as the Tiryaki, Balaji, and Caliskan clinician-facing triage benchmarks. A 2024 gap-fill surfaced by the 2026-10-18 fresh-session scan's WebSearch; NOT auto-alerted (an older ESI-accuracy benchmark, clinician-facing, no endpoint reversal / regulatory action / retraction). RECOVERED this run from the scan (which left it source 'websearch', pmid null, result figures unconfirmed). Verification: PubMed convert_article_ids returned NO PMID for the DOI (this AJEM article is not PubMed-indexed under 10.1016/j.ajem.2024.05.001, so pmid stays null -- none invented); Scite CONFIRMED the record (title; authors Meral / Ates / Gunay [first 3 shown]; The American Journal of Emergency Medicine 2024;81:146-150; 28 citations incl. 2 supporting) with NO editorial notices. source websearch -> websearch+scite-verified. Per-model over/under-triage result figures remain as reported in the scan's search listing and were not separately re-extracted this run (closed-access; abstract not returned via the connectors).",
+   "source": "websearch+scite-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-18"
   }
  ]
 }

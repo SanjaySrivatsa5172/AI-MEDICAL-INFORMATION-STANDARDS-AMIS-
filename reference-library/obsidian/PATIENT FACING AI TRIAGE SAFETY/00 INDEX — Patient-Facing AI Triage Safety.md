@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-16
-total-references: 213
+last-updated: 2026-10-18
+total-references: 214
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-16** · 213 references.
+Updated daily by automated scan. Last scan: **2026-10-18** · 214 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -191,6 +191,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Williams 2024 — Use of a Large Language Model to Assess Clinical Acuity of Adults in…]] (2024)
 - [[Masanneck 2024 — Triage Performance Across Large Language Models, ChatGPT, and…]] (2024)
 - [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
+- [[Meral 2024 — Comparative analysis of ChatGPT, Gemini and emergency medicine…]] (2024)
 - [[Sarbay 2023 — Performance of emergency triage prediction of an open access natural…]] (2023)
 
 ## Patient-facing AI
@@ -434,6 +435,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Hager 2024 — Evaluation and mitigation of the limitations of large language models…]] (2024)
 - [[Fleming 2024 — MedAlign A Clinician-Generated Dataset for Instruction Following with…]] (2024)
 - [[Franc 2024 — Repeatability, reproducibility, and diagnostic accuracy of a…]] (2024)
+- [[Meral 2024 — Comparative analysis of ChatGPT, Gemini and emergency medicine…]] (2024)
 - [[Kopka 2023 — How suitable are clinical vignettes for the evaluation of symptom…]] (2023)
 - [[Singhal 2023 — Large language models encode clinical knowledge]] (2023)
 - [[Kung 2023 — Performance of ChatGPT on USMLE Potential for AI-assisted medical…]] (2023)
@@ -523,6 +525,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Hager 2024 — Evaluation and mitigation of the limitations of large language models…]] (2024)
 - [[Zaboli 2024 — Human intelligence versus Chat-GPT who performs better in correctly…]] (2024)
 - [[Yau 2024 — Accuracy of Prospective Assessments of 4 Large Language Model Chatbot…]] (2024)
+- [[Meral 2024 — Comparative analysis of ChatGPT, Gemini and emergency medicine…]] (2024)
 - [[Wallace 2022 — The diagnostic and triage accuracy of digital and online symptom…]] (2022)
 - [[Ceney 2021 — Accuracy of online symptom checkers and the potential impact on…]] (2021)
 
@@ -541,6 +544,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ho 2025 — Evaluation of Generative Artificial Intelligence Models in Predicting…]] (2025)
 - [[Wandl 2025 — Diagnostic test accuracy of the Emergency Severity Index a systematic…]] (2025)
 - [[Sax 2024 — Emergency Severity Index Version 4 and Triage of Pediatric Emergency…]] (2024)
+- [[Meral 2024 — Comparative analysis of ChatGPT, Gemini and emergency medicine…]] (2024)
 - [[Sax 2023 — Evaluation of the Emergency Severity Index in US Emergency…]] (2023) — **core**
 - [[Trauma 2022 — Resources for Optimal Care of the Injured Patient (undertriage 5%…]] (2022) — **core**
 - [[Kopka 2022 — The Triage Capability of Laypersons Retrospective Exploratory Analysis]] (2022)
