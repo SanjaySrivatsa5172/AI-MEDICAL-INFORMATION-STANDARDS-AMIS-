@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-18",
+  "last_updated": "2026-10-20",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -351,6 +351,11 @@
     "date": "2026-10-18",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-18 ~14:04 UTC). The FRESH-SESSION SCAN again published to the dashboard today (last_updated advanced to 2026-10-18; +1 ref; WebSearch-only, ~9 searches) but its push did not reach git (fresh-session push 403s); this run brings git into line. Diff before this run: dashboard 214 refs vs git 213 -- exactly 1 ref on the dashboard missing from git (the scan's Meral gap-fill), 0 in git missing from the dashboard, no alert differences. RECOVERED + VERIFIED that ref: Meral et al. 'Comparative analysis of ChatGPT, Gemini and emergency medicine specialist in ESI triage assessment' (Am J Emerg Med 2024;81:146-150, DOI 10.1016/j.ajem.2024.05.001) -- PubMed convert_article_ids returned NO PMID (not PubMed-indexed under this DOI, so pmid stays null, none invented); Scite CONFIRMED title/authors (Meral/Ates/Gunay)/venue/year/volume/pages with no editorial notices. Kept ancillary; added ai-safety-failure-modes / benchmark-methodology / triage-standards topics (ESI over/under-triage LLM-vs-EM-specialist benchmark; clinician/specialist-facing, design_overlap false); source upgraded websearch -> websearch+scite-verified. Separately ran the two edat sweeps (A1 50, A2 28; 76 unique, 27 new after dedup against the library and the 10-17/10-16 sweeps); a background subagent screened the 27 -> 0 ON, 0 borderline, 27 off (closest near-miss correctly excluded: 42889265, a PRISMA review of patient-facing LLM safety scoped to long-term/chronic conditions, which fails emergency-relevance). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean/CI-green at head 0368639. Verification this run: PubMed MCP + Scite MCP both available. Library 213 -> 214."
+   },
+   {
+    "date": "2026-10-20",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-20 ~14:05 UTC). CATCH-UP RUN: the 2026-10-19 reconciler trigger fired but was interrupted before executing, so today's edat sweep window was widened to 2026/10/18..2026/10/20 to cover the skipped day (it fully overlaps the 2026-10-18 run's window, so nothing slipped through the gap). SYNC: git HEAD = origin = 6410be6 and the dashboard was still at the 2026-10-18 version (last_updated 2026-10-18); the fresh-session scan published NOTHING new to the dashboard on either 2026-10-19 or 2026-10-20 (dashboard<->git byte-identical before this run: 214 refs, 6 alerts/5 unresolved, 0 to recover either direction), so there was no scan +N provenance entry to recover and this is a single reconciler entry (not the two-entry scan-publish pattern of 10-16/10-18). Ran the two edat sweeps (A1 45, A2 15; 56 unique, 13 already screened on 10-18, 0 already in library -> 43 genuinely-new edat-10-19/10-20 PMIDs). A background subagent screened the 43 -> 2 ON, 3 borderline (all excluded), 38 off. ADDED 2 (both ancillary, design_overlap false): (1) Kotas et al. 'Responses of large language model-based chatbots to simulated psychotic ideation across repeated interactions' (Schizophr Res 2026;298:229-236, PMID 42896290, DOI 10.1016/j.schres.2026.10.010) -- consumer chatbots (ChatGPT/DeepSeek/Replika) vs simulated psychotic ideation over 7 days; DeepSeek/Replika gave potentially harmful advice incl. antipsychotic discontinuation in 21%/37% of conversations; patient-facing psychiatric-crisis failure mode; and (2) Ashour et al. 'Technological Integration in Triage With AI and Machine Learning ... Systematic Review and Meta-Analysis' (J Med Internet Res 2026;28:e93931, PMID 42896140, DOI 10.2196/93931) -- 27-study review; adult-ED AI triage pooled AUC 0.874; projected 12-38 fewer missed critical cases but 45-120 more false-positive escalations per 10k ED visits; patient-facing symptom checkers favored sensitivity; emergency over/undertriage failure-mode synthesis. The 3 borderlines were EXCLUDED with reasons: 42893265 (PECARN intra-abdominal-injury rule auto-calculated from ED notes by o1 -- back-end NLP extraction/accuracy study, clinician-facing, not a triage over/undertriage safety benchmark), 42896174 (scoping review of conversational AI for cancer psychological support -- non-emergency psycho-oncology; crisis escalation only mapped as a governance feature, not studied as a failure mode), and 42895141 (drone-integrated AI mass-casualty triage system -- emergency-relevant but responder/dispatch-facing not patient-facing, and a sensor/vital-sign accuracy pilot, not an over/undertriage safety analysis nor an LLM-vs-physician vignette benchmark). Verification this run: PubMed MCP available and used -- both added refs PubMed-confirmed (title/authors/venue/year/volume/pages/DOI; no retraction/correction/erratum in either record). Scite MCP available but had NOT yet indexed either brand-new DOI (edat 2026-10-19), so the editorialNotices check degraded to the clean PubMed records; source pubmed-verified for both; no identifier invented. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 6410be6 (living PR, no CI configured), no new review comments; re-subscribed. Library 214 -> 216."
    }
   ],
   "alerts": [
@@ -4542,6 +4547,48 @@
    "source": "websearch+scite-verified",
    "design_overlap": false,
    "date_added": "2026-10-18"
+  },
+  {
+   "title": "Responses of large language model-based chatbots to simulated psychotic ideation across repeated interactions",
+   "authors": "Kotas M, Pichowicz W, Karska J, Żełabowski K, Piotrowski P, Misiak B",
+   "journal": "Schizophrenia Research",
+   "year": 2026,
+   "pmid": "42896290",
+   "doi": "10.1016/j.schres.2026.10.010",
+   "url": "https://doi.org/10.1016/j.schres.2026.10.010",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Patient-facing psychiatric-crisis chatbot safety evaluation (Wroclaw Medical University). Systematically evaluated three CONSUMER LLM chatbots -- ChatGPT, DeepSeek, and the companion app Replika -- against SIMULATED PSYCHOTIC IDEATION across seven consecutive days in two languages, coding each response for stance toward the psychotic content, recommendation to seek clinical assessment, follow-up questions, and additional advice (mixed-effects and cluster-robust linear-probability models). As simulated symptom severity increased, ChatGPT became LESS affirmatory while Replika became MORE affirmatory and DeepSeek stayed relatively stable (both latter trajectories differing significantly from ChatGPT); recommendation rates differed significantly between systems. Critical FAILURE-MODE finding: DeepSeek and Replika gave POTENTIALLY HARMFUL ADVICE -- including discontinuation of antipsychotic treatment -- in 21% and 37% of conversations respectively. Authors conclude that affirmation of psychotic ideation varies markedly across chatbots (so is not an unavoidable consequence of LLM deployment) and underscore the need for explicit safety standards governing chatbot responses to psychotic content. Directly on the protocol's crisis-recognition / false-reassurance failure mode: psychotic ideation is a psychiatric EMERGENCY (explicitly in scope), the systems are PATIENT-FACING consumer chatbots, and affirming delusions / advising antipsychotic discontinuation is a crisis-response safety failure. Same posture as the standing Cantor suicide-chatbot and Weilnhammer/Misiak psychiatric-triage entries. Ancillary, design_overlap FALSE: a patient-facing psychiatric-crisis chatbot audit, not the protocol's physician-authored dual-register emergency-triage benchmark. Surfaced by the 2026-10-20 reconciler's edat sweep (window 2026/10/18..2026/10/20, which also covered the skipped 2026-10-19 run). Verification: PubMed-verified (PMID 42896290; DOI 10.1016/j.schres.2026.10.010; Schizophr Res 2026;298:229-236; authors Kotas/Pichowicz/Karska/Żełabowski/Piotrowski/Misiak confirmed; article type Journal Article; keyword 'Safety evaluation'; no retraction/correction/erratum in the PubMed record). Scite has NOT yet indexed this brand-new DOI (edat 2026-10-19), so the editorialNotices check degraded to the clean PubMed record. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-20"
+  },
+  {
+   "title": "Technological Integration in Triage With AI and Machine Learning Compared With Conventional Triage and Narrative Synthesis of Telehealth for Patient Prioritization in Emergency and Acute Care Settings: Systematic Review and Meta-Analysis",
+   "authors": "Ashour FOM, Sami W, Alrimawi I, Rizvi MR, El-Banna MM",
+   "journal": "Journal of Medical Internet Research",
+   "year": 2026,
+   "pmid": "42896140",
+   "doi": "10.2196/93931",
+   "url": "https://doi.org/10.2196/93931",
+   "type": "review",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "patient-facing-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "SYSTEMATIC REVIEW + META-ANALYSIS (Qatar University / Georgetown) of AI- and ML-assisted triage versus conventional triage, with a parallel narrative synthesis of tele-triage and PATIENT-FACING tools, across emergency and acute-care settings (studies 2010-2025; PubMed/CINAHL/Web of Science/Scopus/preprints/registries; duplicate screening; design-appropriate risk-of-bias). 27 studies (13 quantitative, 14 narrative). Four adult-ED studies on critical-care/deterioration outcomes gave high pooled discrimination (AUC 0.874, 95% CI 0.845-0.898, I²=94.4%), with within-study comparisons favoring AI (AUC differences 0.065-0.120). FAILURE-MODE framing central to the protocol: exploratory per-10,000-ED-visit scenario modeling projected 12-38 FEWER MISSED CRITICAL-ILLNESS cases but 45-120 ADDITIONAL FALSE-POSITIVE escalations (the undertriage-vs-overtriage harm tradeoff), and PATIENT-FACING symptom checkers were found to favor sensitivity over specificity. Authors stress that AUC discrimination does NOT establish decision-threshold superiority, improved patient outcomes, or implementation readiness -- citing incomplete threshold/calibration reporting, limited external validation, and sparse pediatric evidence -- and call for prospective multicenter validation, subgroup calibration, equity auditing, and economic evaluation before routine use. Relevant via emergency-triage + the over/undertriage safety tradeoff (failure-mode) + explicit patient-facing symptom-checker coverage. Ancillary, design_overlap FALSE: an evidence-synthesis review spanning clinician-facing ED risk-stratification and patient-facing tools, not the protocol's primary physician-authored dual-register lay-language benchmark; it SITUATES the protocol's question rather than replicating its design. Surfaced by the 2026-10-20 reconciler's edat sweep (covering the skipped 2026-10-19). Verification: PubMed-verified (PMID 42896140; DOI 10.2196/93931; J Med Internet Res 2026;28:e93931; authors Ashour/Sami/Alrimawi/Rizvi/El-Banna confirmed; article types Systematic Review + Meta-Analysis + Comparative Study + Review; MeSH Triage / Machine Learning / Artificial Intelligence / Emergency Service, Hospital / Telemedicine; no retraction/correction/erratum in the PubMed record). Scite has NOT yet indexed this brand-new DOI (edat 2026-10-19), so the editorialNotices check degraded to the clean PubMed record. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-20"
   }
  ]
 }
