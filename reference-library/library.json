@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-20",
+  "last_updated": "2026-10-21",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -356,6 +356,11 @@
     "date": "2026-10-20",
     "added": 2,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-20 ~14:05 UTC). CATCH-UP RUN: the 2026-10-19 reconciler trigger fired but was interrupted before executing, so today's edat sweep window was widened to 2026/10/18..2026/10/20 to cover the skipped day (it fully overlaps the 2026-10-18 run's window, so nothing slipped through the gap). SYNC: git HEAD = origin = 6410be6 and the dashboard was still at the 2026-10-18 version (last_updated 2026-10-18); the fresh-session scan published NOTHING new to the dashboard on either 2026-10-19 or 2026-10-20 (dashboard<->git byte-identical before this run: 214 refs, 6 alerts/5 unresolved, 0 to recover either direction), so there was no scan +N provenance entry to recover and this is a single reconciler entry (not the two-entry scan-publish pattern of 10-16/10-18). Ran the two edat sweeps (A1 45, A2 15; 56 unique, 13 already screened on 10-18, 0 already in library -> 43 genuinely-new edat-10-19/10-20 PMIDs). A background subagent screened the 43 -> 2 ON, 3 borderline (all excluded), 38 off. ADDED 2 (both ancillary, design_overlap false): (1) Kotas et al. 'Responses of large language model-based chatbots to simulated psychotic ideation across repeated interactions' (Schizophr Res 2026;298:229-236, PMID 42896290, DOI 10.1016/j.schres.2026.10.010) -- consumer chatbots (ChatGPT/DeepSeek/Replika) vs simulated psychotic ideation over 7 days; DeepSeek/Replika gave potentially harmful advice incl. antipsychotic discontinuation in 21%/37% of conversations; patient-facing psychiatric-crisis failure mode; and (2) Ashour et al. 'Technological Integration in Triage With AI and Machine Learning ... Systematic Review and Meta-Analysis' (J Med Internet Res 2026;28:e93931, PMID 42896140, DOI 10.2196/93931) -- 27-study review; adult-ED AI triage pooled AUC 0.874; projected 12-38 fewer missed critical cases but 45-120 more false-positive escalations per 10k ED visits; patient-facing symptom checkers favored sensitivity; emergency over/undertriage failure-mode synthesis. The 3 borderlines were EXCLUDED with reasons: 42893265 (PECARN intra-abdominal-injury rule auto-calculated from ED notes by o1 -- back-end NLP extraction/accuracy study, clinician-facing, not a triage over/undertriage safety benchmark), 42896174 (scoping review of conversational AI for cancer psychological support -- non-emergency psycho-oncology; crisis escalation only mapped as a governance feature, not studied as a failure mode), and 42895141 (drone-integrated AI mass-casualty triage system -- emergency-relevant but responder/dispatch-facing not patient-facing, and a sensor/vital-sign accuracy pilot, not an over/undertriage safety analysis nor an LLM-vs-physician vignette benchmark). Verification this run: PubMed MCP available and used -- both added refs PubMed-confirmed (title/authors/venue/year/volume/pages/DOI; no retraction/correction/erratum in either record). Scite MCP available but had NOT yet indexed either brand-new DOI (edat 2026-10-19), so the editorialNotices check degraded to the clean PubMed records; source pubmed-verified for both; no identifier invented. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 6410be6 (living PR, no CI configured), no new review comments; re-subscribed. Library 214 -> 216."
+   },
+   {
+    "date": "2026-10-21",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-21 ~14:06 UTC). SYNC: git HEAD = origin = 22168d0 and the dashboard was still at the 2026-10-20 version (V60, last_updated 2026-10-20); the fresh-session scan published NOTHING new to the dashboard today (dashboard<->git byte-identical before this run: 216 refs, 6 alerts/5 unresolved, 0 to recover either direction), so no scan +N provenance entry to recover -- single reconciler entry. Ran the two edat sweeps (window 2026/10/19..2026/10/21, overlapping yesterday's 10-18..10-20 window on 10-19/10-20 so nothing slipped the gap; A1 61 [paginated 50+11], A2 19; 78 unique, 2 already in library [yesterday's Kotas/Ashour adds], 37 already screened on 10-20 -> 39 genuinely-new edat-10-21 PMIDs). A background subagent screened the 39 -> 1 ON, 2 borderline (both excluded), 36 off. ADDED 1 (ancillary, design_overlap false): Yildiz & Demir 'When AI and conventional triage disagree: what should be the reference standard' (Emerg Med J 2026, online ahead of print, PMID 42901748, DOI 10.1136/emermed-2026-216660) -- a physician-authored methodology Letter on the reference-standard problem for AI-vs-conventional triage disagreement, directly on the protocol's benchmark/physician-adjudication methodology. Caveat recorded: brief Letter, no abstract in PubMed, so substance beyond the title/keywords was not independently verifiable this run. The 2 borderlines were EXCLUDED with reasons: 42898328 (agentic 'maternal triage' framework with patient conversational agent + physician escalation -- synthetic-data technical proof-of-concept with explicitly no clinical validity, and sub-acute maternal remote-monitoring rather than acute everyday-language emergency symptom recognition), and 42900908 (Baugh et al., AI cost-savings Monte Carlo simulation for ED chest-pain evaluation, West J Emerg Med 2026;27(5):1340-1352 -- clinician-facing CDS on structured inputs [ECG/labs/demographics] evaluated for cost-efficiency, not patient-facing and not a characterized over/undertriage safety failure). Verification this run: PubMed MCP available and used (added ref's bibliographics confirmed; no retraction/correction). Scite MCP available but had NOT yet indexed the brand-new DOI (edat 2026-10-21), so editorialNotices degraded to the clean PubMed record; source pubmed-verified. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 22168d0 (living PR, no CI configured), no new review comments. Library 216 -> 217."
    }
   ],
   "alerts": [
@@ -4589,6 +4594,27 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-20"
+  },
+  {
+   "title": "When AI and conventional triage disagree: what should be the reference standard",
+   "authors": "Yildiz AF, Demir MM",
+   "journal": "Emergency Medicine Journal",
+   "year": 2026,
+   "pmid": "42901748",
+   "doi": "10.1136/emermed-2026-216660",
+   "url": "https://doi.org/10.1136/emermed-2026-216660",
+   "type": "editorial",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology",
+    "triage-standards",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Physician-authored EMJ correspondence (two Turkish emergency-medicine physicians, Kızıltepe and Nizip State Hospitals) on a METHODOLOGY question at the heart of this protocol: when an AI triage tool and conventional (nurse/ESI) triage DISAGREE, what should serve as the gold/reference standard for adjudicating which is correct? That is precisely the reference-standard problem underlying any over/undertriage measurement and any AI-emergency-triage accuracy benchmark -- the same physician-adjudication / harm-weighted-reference question the protocol's design turns on. Relevant via emergency-triage + the benchmark/reference-standard methodology branch (how triage-safety failures are even defined and measured). Ancillary, design_overlap FALSE: a brief methodology commentary, not the protocol's patient-facing dual-register empirical design. Surfaced by the 2026-10-21 reconciler's edat sweep. Verification: PubMed-verified for all bibliographic fields (PMID 42901748; DOI 10.1136/emermed-2026-216660; Emerg Med J 2026, online ahead of print 2026-10-20; authors Ahmet Faruk Yildiz / Muhammed Mustafa Demir; MeSH keywords Artificial Intelligence / Emergency Medicine / triage; article type Letter; no retraction/correction/erratum in the record). CAVEAT (recorded for the PI): this is a brief Letter/correspondence and PubMed returns NO ABSTRACT, so its substance beyond the title/keywords could not be independently verified this run; the entry is included on the strength of its clearly on-topic title and venue. Scite has NOT yet indexed this brand-new DOI (edat 2026-10-21), so the editorialNotices check degraded to the clean PubMed record. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-21"
   }
  ]
 }
