@@ -1,0 +1,195 @@
+# PROPOSED EDITS — weekly literature review, 22 October 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# Anchor verified unique against PROTOCOL_v3_CONSOLIDATED.md at 112bb82 (22 Oct 2026).
+# Method: anchored assert-once replacement.
+#
+# SIX PROPOSALS ARE NOW QUEUED AND UNAPPROVED: 10 Sep, 17 Sep, 24 Sep (rev. 1 Oct), 8 Oct, 15 Oct,
+# and this. COLLISION CHECK RUN ACROSS ALL SIX — THIS PATCH COLLIDES WITH NONE.
+#   - The single hunk anchors in §5.2 on the Dual register paragraph. No other queued patch touches
+#     §5.2.
+#   - It REFERS to §8.1's model-by-register interaction sentence in prose but does NOT anchor on it.
+#     The 24 Sep patch anchors there; a textual cross-reference is not an anchor and cannot collide.
+#   - It does not touch §5.3 (10 Sep, 15 Oct), §10 (17 Sep, 8 Oct) or §11 (24 Sep, 15 Oct).
+
+Primary driver: Çalışkan YK, Başak F, Erdem O. "When algorithms triage trauma: Diagnostic accuracy,
+undertriage risk, and prompt fragility in frontier large language models." Surgery 2026;196:110319.
+doi 10.1016/j.surg.2026.110319, PMID 42214316. Peer-reviewed; PubMed-verified 22 Oct 2026.
+University of Health Sciences, Istanbul. Reference standard: consensus adjudication by
+board-certified surgeons using Injury Severity Score-anchored categories.
+
+Design: 150 trauma vignettes, three frontier families (GPT-5.2, Gemini 3.0 Flash, Claude 4.5 Opus),
+locked prompt template, Feb 2026. Primary outcome binary major vs non-major trauma.
+
+Findings:
+  - Strong aggregate performance: sensitivity 89.4%, specificity 86.5%, pooled kappa 0.74
+    (GPT-5.2 AUROC 0.94 / kappa 0.82; Gemini 0.91/0.75; Claude 0.89/0.65).
+  - **Undertriage clustered rather than scattering: geriatric 17.6% vs 5.2% in younger adults
+    (P = .012); blunt 11.8% vs penetrating 4.1% (P = .045).**
+  - **"Across standardized lexical perturbations applied to all 150 vignettes, 11.2% of repeated
+    prompts changed triage category, with a maximum instability of 24.5%."**
+  - Simulated delay from undertriage affected 14.2% of major-trauma cases, mean 18.5 minutes.
+  - Authors' framing: "high aggregate accuracy may conceal clinically meaningful subgroup errors …
+    Their errors were not random; they clustered in older adults and less overt trauma patterns."
+
+================================================================================
+EDIT 1 — SPECIFICATION/INTERPRETATION. The register contrast needs a
+paraphrase-invariance floor, and this revision measures none
+Section affected: §5.2 (scenario architecture — dual register)
+
+The gap in OUR protocol, and it sits on the study's signature feature. §5.2 declares the dual
+register "a deliberate distribution-shift probe, **not a stylistic variant**." That is an assertion
+about what the contrast measures. A grep of the protocol for perturbation, paraphrase, lexical,
+wording, rephrasing, or invariance returns **nothing** — the only matches are unrelated remarks about
+agreement coefficients. There is no paraphrase control anywhere.
+
+Why that matters now rather than in principle: Çalışkan et al. show frontier models flipping triage
+category at 11.2% (max 24.5%) under rewording that holds clinical content fixed. If an observed
+lay-versus-expert difference is of comparable magnitude, it is **not identifiable against a
+lexical-noise floor the study has not measured**. The register factor is the protocol's distinctive
+claim, and it is currently resting on an unmeasured assumption.
+
+This is a different quantity from anything the protocol already reports, and the distinction is the
+whole point:
+  - **Run-to-run instability** (§4.2) is same-input nondeterminism — identical prompt, repeated.
+  - The **any-run critical-miss rate** proposed on 24 September addresses the tail-blindness of
+    aggregating those runs.
+  - A **paraphrase-invariance floor** is same-content, *different-wording* instability. None of the
+    three substitutes for the others, and only the third bounds the register effect.
+
+Scope discipline — what this edit does NOT do. It adds no measurement, no scenario, no model call,
+no participant burden, and has **no bearing on the §8.4 power calculation**. It states the
+interpretive constraint and narrows the §5.2 claim so it rests on how the two forms are constructed
+rather than on a measurement the study does not make. The measurement itself is surfaced below as an
+option and is NOT proposed.
+
+Honesty about transfer, written into the text: Çalışkan is trauma secondary triage with a
+surgeon-adjudicated reference and a locked prompt — not lay-register patient-facing triage. The
+perturbation magnitude is cited as evidence that a floor exists and is non-trivial, not as an
+estimate of our floor.
+
+--- HUNK 1: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§5.2) ---
+OLD (anchor, occurs once):
+**Dual register.** Every scenario exists in two parallel forms: a lay patient narrative reflecting how
+patients actually describe symptoms, and a structured expert clinical triage vignette. This is a
+deliberate distribution-shift probe, not a stylistic variant.
+
+NEW:
+**Dual register.** Every scenario exists in two parallel forms: a lay patient narrative reflecting how
+patients actually describe symptoms, and a structured expert clinical triage vignette. This is a
+deliberate distribution-shift probe, not a stylistic variant.
+
+**That claim requires a paraphrase-invariance floor, and this revision does not measure one.**
+Frontier models change triage category under rewording that holds clinical content fixed: across 150
+surgeon-adjudicated trauma vignettes subjected to standardized lexical perturbations, 11.2% of
+repeated prompts moved the triage category, with a maximum instability of 24.5% (Çalışkan et al.,
+*Surgery* 2026;196:110319). That setting is trauma secondary triage under a locked prompt, not
+lay-register patient-facing triage, so the figure establishes that a floor exists and is non-trivial
+rather than estimating this instrument's own. Two consequences follow and are pre-specified here.
+First, a register effect of magnitude comparable to such a floor is not separable from wording noise,
+so the model-by-register interaction of §8.1 is reported as an estimate whose interpretation is
+conditioned on an unmeasured floor, and no register effect is advanced as a distribution-shift
+finding on the strength of its magnitude alone. Second, the claim that the contrast is not a
+stylistic variant rests on **how the two forms are constructed** — they differ in information order,
+completeness, disclosure of vitals, and clinical vocabulary, not in synonym choice — and not on any
+measurement reported in this revision. This quantity is distinct from the run-to-run instability of
+§4.2, which varies nothing: that metric is same-input nondeterminism, whereas the floor at issue is
+same-content, different-wording instability.
+
+================================================================================
+OPTION FOR THE PI — NOT PROPOSED, but the cheapest and best-targeted of the four
+expansion options surfaced to date
+
+A within-register paraphrase condition: for a pre-specified subset of scenarios, author a second lay
+form that holds clinical content, information order and completeness fixed and varies only surface
+wording. Run it through the same pipeline. Report the category-change rate as the paraphrase-
+invariance floor, and interpret the register effect against it.
+
+Why this one is better value than the three expansions already on the table:
+  - **No human-subjects cost.** No new participants, no new physician panels, no adversarial
+    prompting, no ethics question — unlike the 8 Oct safeguard-robustness probe.
+  - **No new clinical content to adjudicate.** The gold label is unchanged, because the clinical
+    facts are unchanged; only wording moves. The Delphi panel does not need to re-convene.
+  - **It is bounded and tunable.** At k scenarios it costs k extra scenario-forms x models x runs,
+    nothing more. A floor is a nuisance parameter, not an endpoint, so it needs far less precision
+    than the primary and can sit on a small subset.
+  - **It protects the study's distinctive claim.** The register factor is what differentiates this
+    protocol from the clinician-facing triage benchmarks now appearing monthly. Without a floor, a
+    reviewer can ask whether the register effect is wording noise, and the honest answer would be
+    that the study cannot say.
+
+Costs, stated plainly: it does expand the §8.4 power calculation, which remains the blocking item;
+authoring content-preserving paraphrases is a skilled task and must not be delegated to a model, or
+the floor is measured against machine-generated text rather than human rewording; and it is a fourth
+claimant on the same budget alongside Arm C1 (`[DECISION 4]`), the 17 Sep stability probe and the
+8 Oct safeguard-robustness probe.
+
+Recommendation: if the PI adopts exactly one expansion, this is the one I would argue for, because it
+is the only one that defends a claim the protocol already makes in print.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. SUBGROUP CLUSTERING OF UNDERTRIAGE — flagged, not proposed. Çalışkan found undertriage
+   concentrated in geriatric cases (17.6% vs 5.2%, P = .012) and blunt mechanisms (11.8% vs 4.1%,
+   P = .045), concluding the errors "were not random." A grep of this protocol for geriatric, older
+   adult, subgroup, or stratified analysis returns **nothing**: under- and over-triage are reported
+   by ESI boundary (Table A4) and severity weight, but no patient-characteristic subgroup analysis is
+   pre-specified, so an aggregate Critical Miss Rate could conceal exactly this pattern.
+   Why no edit: whether the 50-scenario set carries enough age variation to support a stratified
+   analysis is a design-and-power question, not a drafting one, and §8.4 power is the blocking item.
+   Pre-specifying a subgroup analysis the study cannot power would be worse than stating none.
+   **This belongs with the PI's open design decisions, and I would raise it when §8.4 is addressed.**
+
+2. Wang YH. "The Performance Ceiling of LIDC-IDRI Is Label-Defined Rather than Image-Defined."
+   J Imaging Inform Med 2026. doi 10.1007/s10278-026-02420-1, PMID 42897425. PubMed-verified.
+   Flagged as a methodological observation, NOT proposed. The paper proves that against a
+   reader-panel-derived label no model can exceed the AUC of the latent propensity itself, that the
+   ceiling depends on the labelling policy (0.898-0.913 retaining all nodules; 0.946-0.954
+   discarding reader-split cases; 0.991-0.994 unanimous-only), and that 11 of 27 audited published
+   figures exceed the bound implied by each study's own declared rule.
+   How it does and does not apply to us: our gold standard is physician-panel-derived, so a
+   label-defined ceiling exists in principle. But the obvious failure mode does NOT apply — §7.5
+   resolves disagreement by "modified Delphi discussion until consensus or supermajority" rather
+   than discarding split items, so the protocol does not inflate its ceiling by dropping the hard
+   cases. What the paper suggests is subtler: a supermajority-resolved label is a noisier label than
+   a unanimous one, and unless **label provenance is recorded per item** the analysis cannot report
+   performance against label reliability. Whether that provenance is already captured I could not
+   establish from the protocol text. Worth a look, but transporting a single-author mathematical
+   argument from lung-nodule imaging into a triage protocol is not something I will do on my own
+   initiative.
+
+3. Yildiz AF, Demir MM. "When AI and conventional triage disagree: what should be the reference
+   standard." Emerg Med J 2026. doi 10.1136/emermed-2026-216660, PMID 42901748. **NO ABSTRACT
+   AVAILABLE — NOT RETRIEVED.** A Letter, and by title it addresses the reference-standard problem
+   this protocol's entire design turns on. Nothing quoted and no figure reconstructed. **Flagged for
+   PI retrieval** — of the unretrievable items flagged over the past weeks this is the one most
+   likely to be worth reading, because it speaks directly to §7's adjudication architecture.
+
+4. Kotas M, Pichowicz W, et al. "Responses of large language model-based chatbots to simulated
+   psychotic ideation across repeated interactions." Schizophr Res 2026;298:229-236.
+   doi 10.1016/j.schres.2026.10.010, PMID 42896290. PubMed-verified. Library only. Same Wroclaw
+   group as the Pichowicz suicide-escalation study driving the 8 Oct proposal, same seven-day
+   repeated-interaction design, two languages. ChatGPT became LESS affirmatory as severity rose
+   while Replika became MORE affirmatory; DeepSeek and Replika gave potentially harmful advice
+   including antipsychotic discontinuation in 21% and 37% of conversations.
+   Why no edit: it corroborates the 8 Oct safeguard proposal's premise in a second psychiatric
+   domain, and corroboration of a pending proposal is not a reason to open a new one. Useful if the
+   PI approves the 8 Oct boundary and wants a second citation.
+
+5. Ashour FOM et al. JMIR systematic review and meta-analysis of AI/ML vs conventional triage
+   (*J Med Internet Res* 2026;28:e93931, PMID 42896140). PubMed-verified. Library only. 27 studies;
+   pooled AUC 0.874 (95% CI 0.845-0.898, I^2 = 94.4%) in four adult-ED studies. Its own conclusion is
+   the useful part for us: "AUC-based discrimination does not establish superiority at clinically
+   relevant decision thresholds, improved patient outcomes, or readiness for clinical
+   implementation." That is this protocol's thesis stated by a meta-analysis, and it is a good
+   citation for the Scientific Introduction if the PI ever wants one — but §11 and §1 already carry
+   that argument, and a fourth §11-adjacent citation this month would be padding.
+
+6. The remaining in-window PubMed hits were screened and excluded as out of scope: Turkish spine-MRI
+   report structuring (42902038), antibody-drug conjugates in breast cancer (42900402), a
+   psycho-oncology conversational-AI scoping review (42896174), and LLM-assisted carotid plaque
+   classification (42886459). Of the week's canonical additions, the 2024 AJEM ESI benchmark
+   (10.1016/j.ajem.2024.05.001) is a clinician-facing ESI comparison in the same posture as Tiryaki
+   and is ancillary.
+
+7. No URGENT falsification this week.
