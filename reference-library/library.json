@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-10-24",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -361,6 +361,11 @@
     "date": "2026-10-21",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-21 ~14:06 UTC). SYNC: git HEAD = origin = 22168d0 and the dashboard was still at the 2026-10-20 version (V60, last_updated 2026-10-20); the fresh-session scan published NOTHING new to the dashboard today (dashboard<->git byte-identical before this run: 216 refs, 6 alerts/5 unresolved, 0 to recover either direction), so no scan +N provenance entry to recover -- single reconciler entry. Ran the two edat sweeps (window 2026/10/19..2026/10/21, overlapping yesterday's 10-18..10-20 window on 10-19/10-20 so nothing slipped the gap; A1 61 [paginated 50+11], A2 19; 78 unique, 2 already in library [yesterday's Kotas/Ashour adds], 37 already screened on 10-20 -> 39 genuinely-new edat-10-21 PMIDs). A background subagent screened the 39 -> 1 ON, 2 borderline (both excluded), 36 off. ADDED 1 (ancillary, design_overlap false): Yildiz & Demir 'When AI and conventional triage disagree: what should be the reference standard' (Emerg Med J 2026, online ahead of print, PMID 42901748, DOI 10.1136/emermed-2026-216660) -- a physician-authored methodology Letter on the reference-standard problem for AI-vs-conventional triage disagreement, directly on the protocol's benchmark/physician-adjudication methodology. Caveat recorded: brief Letter, no abstract in PubMed, so substance beyond the title/keywords was not independently verifiable this run. The 2 borderlines were EXCLUDED with reasons: 42898328 (agentic 'maternal triage' framework with patient conversational agent + physician escalation -- synthetic-data technical proof-of-concept with explicitly no clinical validity, and sub-acute maternal remote-monitoring rather than acute everyday-language emergency symptom recognition), and 42900908 (Baugh et al., AI cost-savings Monte Carlo simulation for ED chest-pain evaluation, West J Emerg Med 2026;27(5):1340-1352 -- clinician-facing CDS on structured inputs [ECG/labs/demographics] evaluated for cost-efficiency, not patient-facing and not a characterized over/undertriage safety failure). Verification this run: PubMed MCP available and used (added ref's bibliographics confirmed; no retraction/correction). Scite MCP available but had NOT yet indexed the brand-new DOI (edat 2026-10-21), so editorialNotices degraded to the clean PubMed record; source pubmed-verified. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 22168d0 (living PR, no CI configured), no new review comments. Library 216 -> 217."
+   },
+   {
+    "date": "2026-10-24",
+    "added": 1,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-24 ~14:07 UTC). SYNC: git HEAD = origin = a2133a0 and the dashboard was still at the 2026-10-21 version (V61, last_updated 2026-10-21); the fresh-session scan published NOTHING new to the dashboard today (dashboard<->git byte-identical before this run: 217 refs, 6 alerts/5 unresolved, 0 to recover either direction), so no scan +N provenance entry to recover -- single reconciler entry. Ran the two edat sweeps (window 2026/10/22..2026/10/24, overlapping yesterday's 10-21..10-23 window on 10-22/10-23; A1 80 [paginated 60+20], A2 36; 107 unique, 0 already in library, 37 already screened on 10-23 -> 70 genuinely-new PMIDs, a heavy edat-10-24 day). Two parallel background subagents screened the 70 (35 each) -> 0 ON, 3 borderline, 67 off. ADDED 1 (ancillary, design_overlap false): Nori et al. 'Sequential diagnosis with language models' (Science 2026;394(6822):423-428, PMID 42912144, DOI 10.1126/science.aeh7930) -- Microsoft MAI-DxO flagship benchmark; SDBench = 304 NEJM CPC + 325 MIMIC-IV-ED emergency-department cases; orchestrator 83.2%/80.3% vs physicians 36.1%/46.8%; a landmark LLM-vs-physician clinical-reasoning/diagnosis benchmark on an ED cohort, included on the same ancillary precedent as the held Brodeur Science reasoning paper (which it cites), Rao PrIME-LLM, and Yamin (diagnosis not triage-disposition, physician-panel-facing not patient-facing -> design_overlap false; NOT an urgent alert, same as Brodeur). The 3 borderlines were EXCLUDED with reasons: 42912144 was the only include; 42918885 (European Radiology scoping review of predictive/operational AI in emergency radiology for early risk stratification -- clinician-facing imaging field-map, not patient-facing, not a primary triage-safety-failure study -> clinician-facing-imaging/CDS exclusion, same posture as 42907264 the day before) and 42914767 (Patient Educ Couns narrative review 'How patient-operated AI tools are reshaping patient perceptions and the patient-clinician relationship' -- the closest patient-facing self-triage near-miss [patients enter symptoms / judge urgency; failure modes inconsistent triage, overtriage/cyberchondria, hallucinations] but a broad qualitative relationship review with no empirical results and only partial emergency-relevance -> excluded on the same reasoning as the standing Luo & Lu near-miss; FLAGGED FOR PI as the closest patient-facing self-triage item this run). Verification this run: PubMed MCP + Scite MCP both available; the added ref PubMed-confirmed and Scite-confirmed (OA-green, no editorial notices); source pubmed-verified. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head a2133a0 (living PR, no CI configured), no new review comments. Library 217 -> 218."
    }
   ],
   "alerts": [
@@ -4615,6 +4620,26 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-21"
+  },
+  {
+   "title": "Sequential diagnosis with language models",
+   "authors": "Nori H, Daswani M, Kelly C, Lundberg S, Ribeiro MT, Wilson M, Liu X, Sounderajah V, Carlson JM, Lungren MP, Gross B, Hames P, Suleyman M, King D, Horvitz E",
+   "journal": "Science",
+   "year": 2026,
+   "pmid": "42912144",
+   "doi": "10.1126/science.aeh7930",
+   "url": "https://doi.org/10.1126/science.aeh7930",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "benchmark-methodology",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Landmark Microsoft (MAI) benchmark of frontier LLMs on SEQUENTIAL DIAGNOSIS -- the iterative, cost-aware clinical-reasoning paradigm. Introduces SDBench (304 New England Journal of Medicine clinicopathological-conference cases + 325 MIMIC-IV-ED EMERGENCY-DEPARTMENT admission encounters, each turned into an interactive stepwise encounter) and an AI 'diagnostic orchestrator' (MAI-DxO) that simulates a panel of physicians, continually revising the differential and selecting cost-effective tests. The system reached 83.2% diagnostic accuracy on CPC cases and 80.3% on the MIMIC-IV-ED emergency-department cohort, versus 36.1% and 46.8% for generalist physicians (authors stress this is a controlled benchmark, not a deployed tool). Relevant to the protocol as a flagship LLM-vs-physician performance benchmark on an EMERGENCY-DEPARTMENT case cohort -- it situates the protocol's physician-comparator evidence base. Ancillary, design_overlap FALSE: it measures DIAGNOSTIC accuracy and workup cost (not triage acuity/disposition or over/under-triage), and is PHYSICIAN-PANEL-FACING (an orchestrator simulating clinicians), NOT the protocol's patient-facing dual-register lay-language emergency-triage design; same ancillary 'landmark LLM-vs-physician clinical-reasoning benchmark' bucket as the already-held Brodeur Science reasoning paper (10.1126/science.adz4433 -- which this paper cites), the Rao PrIME-LLM clinical-reasoning benchmark, and the Yamin high-stakes-emergency-triage decision paper. Deliberately NOT an urgent alert: it measures capability (favorable to LLMs) rather than lay-language undertriage/harm, so it fails the Urgent Alert Protocol triggers (same posture as Brodeur). Surfaced by the 2026-10-24 reconciler's edat sweep. Verification: PubMed-verified (PMID 42912144; DOI 10.1126/science.aeh7930; Science 2026;394(6822):423-428; 15 Microsoft authors Nori ... Suleyman/King/Horvitz confirmed; article type Journal Article; MeSH Large Language Models / Benchmarking / Diagnosis, Differential / Artificial Intelligence) AND Scite-confirmed (record OA-green, title/authors/venue/volume/issue/pages match, NO editorial notices -- not retracted/corrected). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-24"
   }
  ]
 }
