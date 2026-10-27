@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-25
-total-references: 219
+last-updated: 2026-10-27
+total-references: 221
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-25** · 219 references.
+Updated daily by automated scan. Last scan: **2026-10-27** · 221 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -174,6 +174,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Yildiz 2026 — When AI and conventional triage disagree what should be the reference…]] (2026)
 - [[Nori 2026 — Sequential diagnosis with language models]] (2026)
 - [[Khan 2026 — Sex-based diagnostic bias in AI symptom checkers a structured,…]] (2026)
+- [[Altunpak 2026 — Clinical Safety Thresholds and Decision Risks of Search-Augmented…]] (2026)
+- [[Ariel 2026 — When Empathy Outpaces Accuracy Extending Chatbot Evaluation in…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -270,6 +272,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Kotas 2026 — Responses of large language model-based chatbots to simulated…]] (2026)
 - [[Ashour 2026 — Technological Integration in Triage With AI and Machine Learning…]] (2026)
 - [[Khan 2026 — Sex-based diagnostic bias in AI symptom checkers a structured,…]] (2026)
+- [[Ariel 2026 — When Empathy Outpaces Accuracy Extending Chatbot Evaluation in…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
 - [[Chang 2025 — Evaluating the Impact of Authoritative and Subjective Cues on Large…]] (2025)
@@ -343,6 +346,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[YK 2026 — When algorithms triage trauma Diagnostic accuracy, undertriage risk,…]] (2026)
 - [[Yildiz 2026 — When AI and conventional triage disagree what should be the reference…]] (2026)
 - [[Nori 2026 — Sequential diagnosis with language models]] (2026)
+- [[Altunpak 2026 — Clinical Safety Thresholds and Decision Risks of Search-Augmented…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Livingston 2025 — Reproducible generative artificial intelligence evaluation for health…]] (2025) — **core**
 - [[Cilar 2025 — A Brief Review on Benchmarking for Large Language Models Evaluation…]] (2025)
@@ -428,6 +432,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Ashour 2026 — Technological Integration in Triage With AI and Machine Learning…]] (2026)
 - [[Yildiz 2026 — When AI and conventional triage disagree what should be the reference…]] (2026)
 - [[Nori 2026 — Sequential diagnosis with language models]] (2026)
+- [[Altunpak 2026 — Clinical Safety Thresholds and Decision Risks of Search-Augmented…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -526,6 +531,8 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Kotas 2026 — Responses of large language model-based chatbots to simulated…]] (2026)
 - [[Ashour 2026 — Technological Integration in Triage With AI and Machine Learning…]] (2026)
 - [[Khan 2026 — Sex-based diagnostic bias in AI symptom checkers a structured,…]] (2026)
+- [[Altunpak 2026 — Clinical Safety Thresholds and Decision Risks of Search-Augmented…]] (2026)
+- [[Ariel 2026 — When Empathy Outpaces Accuracy Extending Chatbot Evaluation in…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)

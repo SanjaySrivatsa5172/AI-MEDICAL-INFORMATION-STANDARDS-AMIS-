@@ -4,13 +4,13 @@ authors: "Cotte F, et al."
 journal: "NEJM AI"
 year: 2026
 doi: "10.1056/AIoa2500833"
-pmid: ""
+pmid: "42932480"
 url: "https://ai.nejm.org/doi/full/10.1056/AIoa2500833"
 type: "journal-article"
 tier: "ancillary"
 design-overlap: false
 date-added: 2026-08-06
-source: "websearch-verified"
+source: "websearch+pubmed-verified"
 tags: [emergency-triage-ai, ancillary]
 ---
 # From Advice to Action: Real-World Behavior of Patients Using an Integrated Diagnostic Decision Support System for Navigating the Health Care System
@@ -22,6 +22,7 @@ tags: [emergency-triage-ai, ancillary]
 
 **Link:** https://ai.nejm.org/doi/full/10.1056/AIoa2500833
 **DOI:** `10.1056/AIoa2500833`
+**PMID:** `42932480`
 
 Topics: Emergency triage AI
 

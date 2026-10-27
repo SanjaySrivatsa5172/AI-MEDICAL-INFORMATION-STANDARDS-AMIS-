@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-25",
+  "last_updated": "2026-10-27",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -376,6 +376,11 @@
     "date": "2026-10-25",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-25 ~14:10 UTC). The FRESH-SESSION SCAN published to the dashboard today (last_updated advanced to 2026-10-25; +0 refs; WebSearch-only, PubMed/Scite unavailable to it) but its push did not reach git (fresh-session push 403s); this run brings git into line. Recovered the scan's +0 provenance entry verbatim (immediately above). Dashboard<->git reference sets were byte-identical before this run (218 refs; 0 on dashboard missing from git; 0 in git missing from dashboard; no alert differences), so nothing to recover except the scan's provenance entry and the last_updated bump. ENVIRONMENT NOTE: this run's container initialized the LOCAL claude/cedars-sinai-ai-safety-refs-nw6h0p branch at origin/main's tip (dbdb972, the repo's calculator/JVS/Dua content) instead of the reconciler tip, so the first ff-only pull aborted on divergence; corrected locally with a hard reset to origin/claude/cedars-sinai-ai-safety-refs-nw6h0p (2d51d4d) -- ORIGIN WAS ALWAYS INTACT (ls-remote confirmed origin branch = 2d51d4d with full reconciler history and library.json present; main had merely advanced to dbdb972 via PRs #12-#16). No data loss; no force-push; origin untouched by the reset. Separately ran the two PubMed edat sweeps the WebSearch-only scan could not (window 2026/10/23..2026/10/25; A1 85 [paginated 60+25], A2 34; 109 unique, 1 already in library [yesterday's MAI-DxO], 71 already screened on 10-24 -> 37 genuinely-new PMIDs). A background subagent screened the 37 -> 1 ON, 1 borderline (excluded), 35 off. ADDED 1 (ancillary, design_overlap false): Khan & Paasche-Orlow 'Sex-based diagnostic bias in AI symptom checkers: a structured, exploratory audit of three platforms' (Front Digit Health 2026;8:1950777, PMID 42923008, DOI 10.3389/fdgth.2026.1950777) -- physician-co-authored patient-facing audit of Ada/Isabel/Docus symptom checkers on ACS/PE/panic vignettes showing sex-based divergence in triage rank/probability/advisory (undertriage/false-reassurance for the female ACS profile), directly on the protocol's patient-facing emergency-triage failure mode + equity dimension; PubMed + Scite verified (OA gold CC-BY, no editorial notices). The 1 borderline was EXCLUDED: 42921380 (Agrawal et al., 'Artificial Intelligence in Emergency Radiology', Indian J Radiol Imaging 2026;36(4):563-577 -- emergency-focused but clinician-facing imaging narrative review, not patient-facing and not a triage-safety benchmark; third such emergency-radiology-AI review excluded this window, cf. 42907264 and 42918885). Verification this run: PubMed MCP + Scite MCP both available. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 2d51d4d (living PR, no CI configured), no new review comments; base branch main has advanced to dbdb972 (unrelated calculator/JVS content) but the reconciler branch still merges clean. Library 218 -> 219."
+   },
+   {
+    "date": "2026-10-27",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-27 ~14:40 UTC). SYNC: git HEAD = origin = 1075990 and the dashboard was still at the 2026-10-25 version (V64); the fresh-session scan has NOT published since 2026-10-25 (dashboard<->git byte-identical before this run: 219 refs, 6 alerts/5 unresolved, 0 to recover either direction), so single reconciler entry, no scan provenance to recover. ENVIRONMENT NOTE: fresh container again initialized the local branch off origin/main; aligned via checkout -B to origin/claude/cedars-sinai-ai-safety-refs-nw6h0p (1075990) -- origin intact, no force-push. Ran the two PubMed edat sweeps (window 2026/10/25..2026/10/27, a WEEKEND BACKLOG; A1 110 [paginated 60+50], A2 35; 136 unique, 1 already in library [Khan], 52 already screened on 10-26 -> 83 genuinely-new PMIDs). Three parallel background subagents screened the 83 (28/28/27) -> 2 ON, 5 borderline, 75 off, plus 1 duplicate-of-existing. ADDED 2 (both ancillary, design_overlap false): (1) Altunpak 'Clinical Safety Thresholds and Decision Risks of Search-Augmented LLMs in Acute Pancreatitis' (Am Surg 2026, PMID 42931091, DOI 10.1177/00031348261502277) -- ChatGPT-5.3/Gemini 3.0 vs 2025 IAP/APA guidelines on 27 acute-pancreatitis scenarios, surgeon-rated; hallucination 25.9%/22.2% and ONE FATAL error (premature necrosectomy); acute-care LLM-safety failure-mode benchmark (clinician-facing), pubmed-verified (Scite not-yet-indexed); and (2) Ariel & Hasid 'When Empathy Outpaces Accuracy: Extending Chatbot Evaluation in Behavioral Health' (NEJM AI 2026;3(6):AIltr2600197, PMID 42932625, DOI 10.1056/AIltr2600197) -- physician-authored NEJM AI letter on patient-facing behavioral-health chatbots giving false reassurance on ALCOHOL-WITHDRAWAL red-flags (seizure/death), explicitly calling for harm-weighted chatbot-error evaluation (the protocol's thesis in miniature); pubmed+scite-verified, no editorial notices. BACK-FILLED PMID 42932480 onto the existing Cotte et al. NEJM AI Ada Health/CUF entry (10.1056/AIoa2500833, previously pmid null; PubMed has now indexed it, confirmed DOI/title/authors this run) and upgraded its source websearch-verified -> websearch+pubmed-verified (a provenance upgrade surfaced because the sweep re-found the paper under its new PMID; NOT a new reference). EXCLUDED 5 borderlines (near-misses for PI): 42932470 (NEJM AI LLM-vs-physician cost-of-care -- overtriage-adjacent over-ordering + prompt fragility on outpatient/ED notes, but a cost/economics study, clinician-facing), 42932681 (NEJM AI automation-bias-with-AI-literacy RCT -- strong over-reliance/anchoring failure mode but GENERAL diagnostic vignettes, fails the emergency gate), 42931486 (AI vs emergency physician on chest-radiograph interpretation -- clinician-facing imaging, not a triage benchmark), 42930367 (teleconsultation CDS systematic review -- clinician-facing, not emergency-specific), and 42932700 ('When the Chatbot Leaks' -- patient-facing but a data-security failure, no emergency/triage content). ENRICHMENT FLAG for PI: Uscher-Pines et al. 7-chatbot alcohol-misuse evaluation (the study the Ariel/Hasid letter extends) -- a likely patient-facing candidate, not yet verified/added. Verification this run: PubMed MCP + Scite MCP both available. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 1075990 (living PR, no CI); base main advanced to dbdb972 (unrelated) but reconciler branch merges clean; no new review comments. Library 219 -> 221 (plus the Cotte PMID back-fill)."
    }
   ],
   "alerts": [
@@ -2842,10 +2847,10 @@
    ],
    "tier": "ancillary",
    "relevance": "Prospective real-world quality-improvement study (n=1,470) embedded in Portugal's CUF private healthcare network: patients using Ada Health's physician-designed clinical-AI symptom checker via the myCUF app more than doubled their rate of choosing the clinically appropriate care setting (from <1/3 to ~2/3), with physician panels retrospectively adjudicating appropriateness of intended vs. observed care -- real-world disposition/triage-navigation outcome data and a physician-adjudication methodology relevant to this protocol's evaluation architecture, though not itself an emergency-undertriage safety stress test.",
-   "source": "websearch-verified",
+   "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-08-06",
-   "pmid": null
+   "pmid": "42932480"
   },
   {
    "title": "Large Language Model Performance and Clinical Reasoning Tasks",
@@ -4670,6 +4675,47 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-25"
+  },
+  {
+   "title": "Clinical Safety Thresholds and Decision Risks of Search-Augmented Large Language Models in Acute Pancreatitis: A Guideline-Anchored Evaluation for Surgical Practice",
+   "authors": "Altunpak B",
+   "journal": "The American Surgeon",
+   "year": 2026,
+   "pmid": "42931091",
+   "doi": "10.1177/00031348261502277",
+   "url": "https://doi.org/10.1177/00031348261502277",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "emergency-triage-ai",
+    "physician-evaluation"
+   ],
+   "tier": "ancillary",
+   "relevance": "Guideline-anchored LLM clinical-SAFETY evaluation (Istanbul) in ACUTE PANCREATITIS -- an acute surgical emergency. ChatGPT-5.3 and Gemini 3.0 Flash were queried on 27 consensus-derived clinical scenarios spanning diagnosis, management, intervention, and DISCHARGE DISPOSITION, anchored to the 2025 IAP/APA acute-pancreatitis guidelines (zero-shot); three blinded general surgeons scored accuracy/completeness/Global Quality plus binary error metrics. Response-level HALLUCINATION rates were similar (ChatGPT 25.9% vs Gemini 22.2%), and critically ONE FATAL ERROR -- advocating premature necrosectomy -- occurred in the Gemini cohort (3.7%). Both models wrote at a 12th-grade reading level. Author concludes persistent critical errors + high reading level preclude autonomous deployment, positioning LLMs strictly as SUPERVISED clinical co-pilots. Relevant to the protocol via emergency-relevance (acute, time-critical, point-of-care decision support with a disposition arm) + the AI-safety FAILURE-MODE branch (hallucination with clinical harm, including a fatal recommendation). Ancillary, design_overlap FALSE: a clinician/surgeon-rated single-condition LLM-safety benchmark, not the protocol's patient-facing dual-register harm-weighted emergency-triage design -- same ancillary 'acute-care LLM-safety benchmark' bucket as the held NOHARM and Temiz (aesthetic-surgery 'dangerous reassurance') entries. Surfaced by the 2026-10-27 reconciler's PubMed edat sweep. Verification: PubMed-verified (PMID 42931091; DOI 10.1177/00031348261502277; Am Surg 2026, online ahead of print; single author Burak Altunpak; article type Journal Article; no retraction/correction in the record). Scite had NOT yet indexed this brand-new DOI, so the editorialNotices check degraded to the clean PubMed record. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-27"
+  },
+  {
+   "title": "When Empathy Outpaces Accuracy: Extending Chatbot Evaluation in Behavioral Health",
+   "authors": "Ariel D, Hasid B",
+   "journal": "NEJM AI",
+   "year": 2026,
+   "pmid": "42932625",
+   "doi": "10.1056/AIltr2600197",
+   "url": "https://doi.org/10.1056/AIltr2600197",
+   "type": "editorial",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai"
+   ],
+   "tier": "ancillary",
+   "relevance": "Physician-authored NEJM AI letter/commentary (family medicine, Clalit Health Services) extending Uscher-Pines et al.'s evaluation of SEVEN consumer chatbots for alcohol-misuse support (empathy consistently strong, information quality not). Its central point is squarely the protocol's thesis: several rater-identified chatbot errors involved REASSURANCE about symptoms that in clinical practice would prompt assessment for ALCOHOL WITHDRAWAL SYNDROME -- a condition carrying risk of SEIZURE and DEATH -- yet the original scoring framework did NOT weight errors by clinical severity; and recent evidence shows PATIENTS CANNOT independently detect harmful advice when delivered with warmth and apparent competence. The authors call for future evaluations to WEIGHT chatbot errors by potential for harm, to examine how out-of-workflow chatbot use may erode physicians' ability to identify at-risk patients, and to assess non-English performance. Relevant via emergency-relevance (alcohol-withdrawal = acute, seizure/death, time-critical symptom recognition) + patient-facing (consumer behavioral-health chatbots) + failure-mode (false reassurance / missed red-flag / sycophancy -- 'harmful advice delivered with warmth'). Ancillary (a new daily-scan catch and a commentary, not a protocol-packet-cited core reference); design_overlap FALSE: an editorial/viewpoint strongly ALIGNED with the protocol's harm-weighting thesis but not itself a design-overlapping empirical study. The underlying Uscher-Pines et al. 7-chatbot alcohol-misuse evaluation is FLAGGED FOR PI as an enrichment candidate (not independently verified/added this run). Published 2026-05-28 but only recently PubMed-indexed (edat), so a previously-missed catch surfaced by the 2026-10-27 edat sweep. Verification: PubMed-verified (PMID 42932625; DOI 10.1056/AIltr2600197; NEJM AI 2026;3(6):AIltr2600197; authors Dean Ariel / Boaz Hasid; article types Journal Article / Editorial / Comment; MeSH Empathy / Alcoholism) AND Scite-confirmed (record present, NO editorial notices -- not retracted/corrected). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-27"
   }
  ]
 }
