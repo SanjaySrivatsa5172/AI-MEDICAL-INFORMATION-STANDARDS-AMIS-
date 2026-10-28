@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-10-27",
+  "last_updated": "2026-10-28",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -381,6 +381,16 @@
     "date": "2026-10-27",
     "added": 2,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-27 ~14:40 UTC). SYNC: git HEAD = origin = 1075990 and the dashboard was still at the 2026-10-25 version (V64); the fresh-session scan has NOT published since 2026-10-25 (dashboard<->git byte-identical before this run: 219 refs, 6 alerts/5 unresolved, 0 to recover either direction), so single reconciler entry, no scan provenance to recover. ENVIRONMENT NOTE: fresh container again initialized the local branch off origin/main; aligned via checkout -B to origin/claude/cedars-sinai-ai-safety-refs-nw6h0p (1075990) -- origin intact, no force-push. Ran the two PubMed edat sweeps (window 2026/10/25..2026/10/27, a WEEKEND BACKLOG; A1 110 [paginated 60+50], A2 35; 136 unique, 1 already in library [Khan], 52 already screened on 10-26 -> 83 genuinely-new PMIDs). Three parallel background subagents screened the 83 (28/28/27) -> 2 ON, 5 borderline, 75 off, plus 1 duplicate-of-existing. ADDED 2 (both ancillary, design_overlap false): (1) Altunpak 'Clinical Safety Thresholds and Decision Risks of Search-Augmented LLMs in Acute Pancreatitis' (Am Surg 2026, PMID 42931091, DOI 10.1177/00031348261502277) -- ChatGPT-5.3/Gemini 3.0 vs 2025 IAP/APA guidelines on 27 acute-pancreatitis scenarios, surgeon-rated; hallucination 25.9%/22.2% and ONE FATAL error (premature necrosectomy); acute-care LLM-safety failure-mode benchmark (clinician-facing), pubmed-verified (Scite not-yet-indexed); and (2) Ariel & Hasid 'When Empathy Outpaces Accuracy: Extending Chatbot Evaluation in Behavioral Health' (NEJM AI 2026;3(6):AIltr2600197, PMID 42932625, DOI 10.1056/AIltr2600197) -- physician-authored NEJM AI letter on patient-facing behavioral-health chatbots giving false reassurance on ALCOHOL-WITHDRAWAL red-flags (seizure/death), explicitly calling for harm-weighted chatbot-error evaluation (the protocol's thesis in miniature); pubmed+scite-verified, no editorial notices. BACK-FILLED PMID 42932480 onto the existing Cotte et al. NEJM AI Ada Health/CUF entry (10.1056/AIoa2500833, previously pmid null; PubMed has now indexed it, confirmed DOI/title/authors this run) and upgraded its source websearch-verified -> websearch+pubmed-verified (a provenance upgrade surfaced because the sweep re-found the paper under its new PMID; NOT a new reference). EXCLUDED 5 borderlines (near-misses for PI): 42932470 (NEJM AI LLM-vs-physician cost-of-care -- overtriage-adjacent over-ordering + prompt fragility on outpatient/ED notes, but a cost/economics study, clinician-facing), 42932681 (NEJM AI automation-bias-with-AI-literacy RCT -- strong over-reliance/anchoring failure mode but GENERAL diagnostic vignettes, fails the emergency gate), 42931486 (AI vs emergency physician on chest-radiograph interpretation -- clinician-facing imaging, not a triage benchmark), 42930367 (teleconsultation CDS systematic review -- clinician-facing, not emergency-specific), and 42932700 ('When the Chatbot Leaks' -- patient-facing but a data-security failure, no emergency/triage content). ENRICHMENT FLAG for PI: Uscher-Pines et al. 7-chatbot alcohol-misuse evaluation (the study the Ariel/Hasid letter extends) -- a likely patient-facing candidate, not yet verified/added. Verification this run: PubMed MCP + Scite MCP both available. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 1075990 (living PR, no CI); base main advanced to dbdb972 (unrelated) but reconciler branch merges clean; no new review comments. Library 219 -> 221 (plus the Cotte PMID back-fill)."
+   },
+   {
+    "date": "2026-10-28",
+    "added": 0,
+    "notes": "Fresh-session daily scan via WebSearch only (PubMed/Scite/Gmail unavailable). Searched triage-safety, physician-graded patient-facing AI, consumer-product, and preprint angles. All candidates (ChatGPT Health Nature Med stress test, MTS-Bench, OpenEvidence structured test, VLDB BioDMS26 Right-for-the-Wrong-Reasons, 15-chatbot psychiatric triage arXiv 2604.25415, UTSW/Jarrett npj Digit Med stigma-triage) already in library or previously screened. No new references, no alerts. Note: repo was not pre-cloned at the expected path; cloned fresh via git proxy."
+   },
+   {
+    "date": "2026-10-28",
+    "added": 5,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-28 ~14:30 UTC). The FRESH-SESSION SCAN published to the dashboard today (last_updated advanced to 2026-10-28, dashboard version 1793193057-a15b; +0 refs; WebSearch-only, PubMed/Scite unavailable to it) but its push did not reach git (fresh-session push 403s); this run brings git into line. Recovered the scan's +0 provenance entry verbatim (immediately above). Dashboard<->git reference sets were byte-identical before this run (221 refs; 0 on dashboard missing from git; 0 in git missing from dashboard; no alert differences), so nothing to recover except the scan's provenance entry and the last_updated bump. ENVIRONMENT: git HEAD aligned to origin reconciler tip 4ff56a2 (ls-remote confirmed origin branch intact at 4ff56a2 with full reconciler history and library.json present; base main unchanged at dbdb972, unrelated calculator/JVS/Dua content) -- origin intact, no force-push. Ran the two PubMed edat sweeps the WebSearch-only scan could not (window 2026/10/26..2026/10/28; A1 124 [paginated 60+64], A2 51; 162 unique, 3 already in library [Altunpak 42931091, Ariel/Hasid 42932625, Cotte 42932480], 88 already screened on 10-27 -> 71 genuinely-new PMIDs). Three parallel background subagents screened the 71 (24/24/23) -> after independent PI-side adjudication: 5 ON, several borderlines excluded, remainder off. ADDED 5 (ALL ancillary, design_overlap false): (1) Bashah et al. 'Evaluating Internet-Based AI Chatbots as Unregulated Digital Health Resources in Dental Emergency Management' (JMIR Med Inform 2026;14(1):e96731, PMID 42945123, DOI 10.2196/96731) -- patient-facing audit of 5 consumer chatbots on acute dental medical emergencies (anaphylaxis/cardiac arrest/hypoglycemia), 27,300 responses, 92.96% correct, safety caution; pubmed-verified (Scite not-yet-indexed); (2) Albalawi et al. 'Evaluating a Large Language Model for Emergency Triage Using Synthetic Clinical Dialogues' (Diagnostics (Basel) 2026;16(20):3268, PMID 42938107, DOI 10.3390/diagnostics16203268) -- GPT-5.2 ESI triage on 1000 simulated Hajj scenarios, 79.7% relative undertriage reduction (91.9% high-acuity), high-acuity recall 94.5%; ancillary ESI-triage safety benchmark, design-adjacent but synthetic/ESI-keyed not lay-language physician-adjudicated; pubmed+scite-verified; (3) Prabha et al. 'Graph-Enhanced RAG for Postoperative Patient Question Answering' (Bioengineering (Basel) 2026;13(10):1097, PMID 42938952, DOI 10.3390/bioengineering13101097) -- patient-facing postop Q&A with a 20-question emergency-intent arm at only 75% accuracy -> 'not autonomous patient-facing triage'; pubmed+scite-verified; (4) Sorin & Klang 'Generative AI for Establishing the Chief Complaint' (J Clin Med 2026;15(20):7912, PMID 42941427, DOI 10.3390/jcm15207912) -- physician VIEWPOINT proposing an evaluation framework for patient-facing AI symptom intake centered on whether 'concerns requiring urgent assessment were missed' (the protocol's thesis in miniature); pubmed+scite-verified; (5) Kamaleddin et al. 'A multi-agent LLM framework for structured clinical interviewing and psychiatric screening' (Transl Psychiatry 2026;16(1), PMID 42946723, DOI 10.1038/s41398-026-04335-5) -- multi-agent psychiatric screening with a 2000-sentence suicidal-ideation RED-FLAG benchmark (94.2% sensitivity) + escalation; in scope via the suicidal-crisis safety branch; pubmed+scite-verified. EXCLUDED near-misses (for PI): 42938175 (Coskun et al., freely-available LLMs for CDS in PERFORATED PEPTIC ULCER, mDISCERN/GQS reliability-variation only -- acute surgical emergency but clinician-facing and NO disposition/harmful-error arm, so weaker than the included Altunpak acute-pancreatitis benchmark), 42938970 (automated LLM-judge for perioperative patient Q&A -- patient-facing-AI-safety methodology but non-emergency), 42941318 (calibrated-reliance-on-LLMs narrative review -- clinician-facing automation-bias review, not emergency-specific), 42940450 (AI+metaverse digital-mental-health governance Delphi -- crisis-services/psychiatric-triage-hazard mention only, a governance/ethics piece), and the recurring emergency-radiology/imaging and tabular-risk-prediction families (e.g. 42936677 PE CT-workflow, 42946184 ED chest-radiograph missed-nodule QA, 42942374 OMI/STEMI ECG review, 42938136 OMFR sycophancy -- clean sycophancy design but non-emergency dental radiology). Verification this run: PubMed MCP + Scite MCP both available. No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean (living PR, no CI configured); base main dbdb972 (unrelated) but reconciler branch merges clean; no new review comments. Library 221 -> 226."
    }
   ],
   "alerts": [
@@ -4716,6 +4726,111 @@
    "source": "pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-10-27"
+  },
+  {
+   "title": "Evaluating Internet-Based AI Chatbots as Unregulated Digital Health Resources in Dental Emergency Management: Comparative Multilingual Study",
+   "authors": "Bashah A, Huixin Q, Zaawari H, Al-Waqeerah A, Ghaleb E, Salem A, Wahan N, Chen G",
+   "journal": "JMIR Medical Informatics",
+   "year": 2026,
+   "pmid": "42945123",
+   "doi": "10.2196/96731",
+   "url": "https://doi.org/10.2196/96731",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Patient-facing audit of five publicly accessible consumer LLM chatbots (ChatGPT-5.2, Gemini 3.1, DeepSeek-R1, Grok 4.20, Kimi K2.5) on the management of acute MEDICAL emergencies arising in dental practice -- anaphylaxis, cardiac arrest, severe hypoglycemia (life-threatening events that 'can unfold within seconds'). 130 questions across four formats (MCQ, yes/no, open-ended WH, clinical scenario) x two prompting strategies x three languages (English, Arabic, Chinese) over seven days = 27,300 responses, scored correct/incorrect by language-specific expert reviewers. 92.96% correct overall; MCQs highest (94.3%), WH lowest (91.5%); English highest (93.5%); Gemini 3.1 highest (94.8%). Authors conclude the 'presence of incorrect responses highlights potential safety concerns' and that use 'as real-time decision support during dental medical emergencies should be approached with caution.' Relevant via emergency-relevance (acute, time-critical, life-threatening medical emergencies) + patient-facing (publicly accessible consumer chatbots that 'clinicians and patients consult in real time') + AI-safety FAILURE-MODE (incorrect responses as an uncharacterized patient-safety risk in point-of-care emergency decision support). Ancillary, design_overlap FALSE: a management-content-ACCURACY audit via structured multilingual Q&A, NOT the protocol's everyday-language symptom-to-disposition, physician-adjudicated, harm-weighted triage design (same patient-facing-chatbot-emergency-safety bucket as the Khan symptom-checker and Altunpak acute-pancreatitis entries). Surfaced by the 2026-10-28 reconciler's PubMed edat sweep (the WebSearch-only fresh-session scan did not catch it). Verification: PubMed-verified (PMID 42945123; DOI 10.2196/96731; JMIR Med Inform 2026;14(1):e96731; authors Bashah/Huixin/Zaawari/Al-Waqeerah/Ghaleb/Salem/Wahan/Chen; article types Journal Article / Comparative Study; MeSH Large Language Models / Internet / Digital Health). Scite had NOT yet indexed this brand-new DOI (edat 2026-10-27), so the editorialNotices check degraded to the clean PubMed record. source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-28"
+  },
+  {
+   "title": "Evaluating a Large Language Model for Emergency Triage Using Synthetic Clinical Dialogues: Toward a Multimodal Clinical Safety Framework",
+   "authors": "Albalawi F, Alotaibi R, Alshammari S, Masri T",
+   "journal": "Diagnostics (Basel)",
+   "year": 2026,
+   "pmid": "42938107",
+   "doi": "10.3390/diagnostics16203268",
+   "url": "https://doi.org/10.3390/diagnostics16203268",
+   "type": "journal-article",
+   "topics": [
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "benchmark-methodology",
+    "triage-standards"
+   ],
+   "tier": "ancillary",
+   "relevance": "Emergency-triage LLM clinical-SAFETY study: GPT-5.2 evaluated on 1000 balanced/stratified simulated Hajj/Umrah mass-gathering ED scenarios, combining synthetically generated clinical DIALOGUES (narrative input) with structured physiological indicators toward an ESI-based clinical-decision-support safety framework (ground truth derived from MIMIC-IV-ED). Incorporating clinical dialogues produced a 79.7% relative reduction in UNDER-TRIAGE across all ESI levels (91.9% in high-acuity cases) and a high-acuity recall of 94.5%, identifying critical 'red-flag' symptoms not captured in structured data. Directly on the protocol's over/under-triage failure mode and red-flag symptom recognition. Relevant via emergency-relevance (ESI emergency triage, ED, high-acuity, mass-gathering emergencies) + AI-safety FAILURE-MODE (undertriage reduction / red-flag identification / explicit 'clinical safety framework'). Ancillary, design_overlap FALSE: although it shares the protocol's interest in narrative-augmented, under-triage-aware emergency triage, it uses SYNTHETIC CLINICIAN-register dialogues + structured physiology with ESI/MIMIC-IV-ED ground truth in a clinician-facing decision-support frame -- NOT the protocol's real patient-facing everyday-LAY-language, physician-adjudicated, harm-weighted dual-register design (same ancillary ESI-triage-benchmark bucket as prior over/undertriage benchmarks; a design-ADJACENT methods cousin flagged here for PI awareness, not a design twin). Surfaced by the 2026-10-28 reconciler's PubMed edat sweep. Verification: PubMed-verified (PMID 42938107; DOI 10.3390/diagnostics16203268; Diagnostics (Basel) 2026;16(20):3268; PMC13703718; authors Albalawi/Alotaibi/Alshammari/Masri; article type Journal Article) AND Scite-confirmed (record present, OA gold CC-BY, NO editorial notices -- not retracted/corrected). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-28"
+  },
+  {
+   "title": "Graph-Enhanced Retrieval-Augmented Generation for Postoperative Patient Question Answering: A Comparative Evaluation of Knowledge Graph, Retrieval-Augmented Generation, and Hybrid GraphRAG Approaches",
+   "authors": "Prabha S, Collaco BG, Rosa Malena C, Haider SA, Wood N, Forte AJ",
+   "journal": "Bioengineering (Basel)",
+   "year": 2026,
+   "pmid": "42938952",
+   "doi": "10.3390/bioengineering13101097",
+   "url": "https://doi.org/10.3390/bioengineering13101097",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Patient-facing postoperative patient-messaging question-answering study (Mayo Clinic) comparing knowledge-graph-only, RAG-only, and hybrid GraphRAG architectures on a 250-question benchmark that includes a pre-specified 20-question EMERGENCY-INTENT arm (plus 200 in-scope and 30 out-of-scope), with three blinded clinicians rating all 750 outputs. Overall accuracy 96.8% (GraphRAG) / 94.8% (RAG-only) / 56.0% (KG-only); LLM-as-a-judge estimated hallucination risk 0.108 / 0.132 / 0.436. CRITICALLY, EMERGENCY-INTENT accuracy was only 75.0% for BOTH retrieval-augmented systems -- the authors conclude the architecture is 'suited to supervised clinical workflows with clinician review, not autonomous patient-facing triage,' and call for prospective validation on authentic patient messages. The sub-threshold emergency-intent accuracy (a missed-emergency / under-triage risk when patients message about acute concerns) is squarely the protocol's failure mode. Relevant via emergency-relevance (defined emergency-intent arm; undertriage risk) + patient-facing (postoperative patient-facing messaging) + AI-safety FAILURE-MODE (hallucination-risk estimation; 25% emergency-intent miss -> explicit 'not autonomous patient-facing triage'). Ancillary, design_overlap FALSE: the primary design is a RAG-ARCHITECTURE comparison and the patient-facing emergency-triage-safety signal is a small (ancillary) arm within it, not the protocol's dual-register harm-weighted triage twin. Surfaced by the 2026-10-28 reconciler's PubMed edat sweep. Verification: PubMed-verified (PMID 42938952; DOI 10.3390/bioengineering13101097; Bioengineering (Basel) 2026;13(10):1097; PMC13701952; authors Prabha/Collaco/Rosa Malena/Haider/Wood/Forte; article type Journal Article) AND Scite-confirmed (record present, OA gold CC-BY, NO editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-28"
+  },
+  {
+   "title": "Generative AI for Establishing the Chief Complaint",
+   "authors": "Sorin V, Klang E",
+   "journal": "Journal of Clinical Medicine",
+   "year": 2026,
+   "pmid": "42941427",
+   "doi": "10.3390/jcm15207912",
+   "url": "https://doi.org/10.3390/jcm15207912",
+   "type": "viewpoint",
+   "topics": [
+    "patient-facing-ai",
+    "emergency-triage-ai",
+    "ai-safety-failure-modes",
+    "lay-language"
+   ],
+   "tier": "ancillary",
+   "relevance": "Physician-authored VIEWPOINT (Vera Sorin & Eyal Klang -- Mayo Clinic / Beth Israel Deaconess, Harvard) proposing an evaluation framework for patient-facing GENERATIVE-AI symptom INTAKE and chief-complaint establishment. Squarely on the protocol's core question: patients 'may struggle to describe their symptoms or leave important concerns unspoken,' and the authors propose measuring 'the proportion of patients whose main symptoms or concerns are missing or incorrectly described after AI-assisted intake' -- explicitly including whether 'concerns requiring URGENT assessment were missed,' so the AI-produced summary helps clinicians 'judge urgency and decide what needs attention.' Relevant via emergency-relevance (triage / judging urgency / missed urgent concerns) + patient-facing (AI conversational symptom intake with lay patients, in their own words) + AI-safety FAILURE-MODE (missed-urgent-concern / under-capture of red flags). Ancillary, design_overlap FALSE: a conceptual evaluation-framework proposal WITHOUT empirical results (a viewpoint, not a study), conceptually design-ADJACENT to the protocol's patient-facing missed-emergency evaluation but focused on chief-complaint-CAPTURE completeness rather than triage-disposition accuracy -- included as an on-point physician viewpoint (cf. the Ariel/Hasid and Yildiz commentary precedents), with its conceptual proximity flagged for PI. Surfaced by the 2026-10-28 reconciler's PubMed edat sweep. Verification: PubMed-verified (PMID 42941427; DOI 10.3390/jcm15207912; J Clin Med 2026;15(20):7912; PMC13706287; authors Sorin/Klang; article type Journal Article; keywords chief complaint / generative artificial intelligence / history-taking / patient intake / triage) AND Scite-confirmed (record present, OA gold CC-BY, NO editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-28"
+  },
+  {
+   "title": "A multi-agent large language model framework for structured clinical interviewing and psychiatric screening: a proof-of-concept",
+   "authors": "Kamaleddin MA, Mirjalili M, Barzegar R, Trung Le N, Visram A, Gholami Nezhad F, Rueda A, Teferra BG, Monson C, Glatard T, Krishnan S, Sharma D, Mulsant B, Bhat V",
+   "journal": "Translational Psychiatry",
+   "year": 2026,
+   "pmid": "42946723",
+   "doi": "10.1038/s41398-026-04335-5",
+   "url": "https://doi.org/10.1038/s41398-026-04335-5",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "patient-facing-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "Proof-of-concept multi-agent LLM framework (Questioner, Evaluator, Navigator, Diagnoser agents) for protocolized structured psychiatric interviewing and module-level screening (St. Michael's Hospital / CAMH / University of Toronto; senior authors Mulsant, Bhat). In scope via the protocol's explicit 'psychiatric / suicidal-crisis / behavioral-health chatbot safety' branch: the system is designed to 'identify safety-related RED FLAGS and trigger ESCALATION,' and its central safety evaluation is a 2000-sentence SUICIDAL-IDEATION red-flag benchmark stratified by explicit/implicit and active/passive ideation, on which the classifier achieved 93.9% accuracy, 94.2% sensitivity, 93.6% specificity. (Broader framework: 1350 simulated interviews across 15 neuropsychiatric modules, 87.8% concordance with rule-based expected outcomes [sensitivity 88.9%, specificity 86.7%]; F2 88.5% vs single-pass-LLM 49.5% / rule-based 61.9%; PII/PHI redaction before model processing; clinician-supervised use.) Relevant via emergency-relevance (acute suicidal-crisis red-flag recognition + escalation) + AI-safety FAILURE-MODE (missed-red-flag / escalation sensitivity-specificity), with a partial patient-facing element (the agent administers interview modules and interprets patient free-text responses). Ancillary, design_overlap FALSE: a clinician-supervised structured-interview/screening framework whose acute-crisis content is ONE red-flag-detection module -- a suicidal-ideation red-flag-sensitivity methods cousin, NOT the protocol's patient-facing, physician-adjudicated, harm-weighted emergency-triage design. Surfaced by the 2026-10-28 reconciler's PubMed edat sweep. Verification: PubMed-verified (PMID 42946723; DOI 10.1038/s41398-026-04335-5; Transl Psychiatry 2026;16(1); authors Kamaleddin/Mirjalili/Barzegar/.../Mulsant/Bhat; article types Journal Article / Proof of Concept Study; MeSH Large Language Models / Mental Disorders / Interview, Psychological) AND Scite-confirmed (record present, OA gold CC-BY-NC-ND, NO editorial notices). source pubmed-verified; no identifier invented.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-10-28"
   }
  ]
 }
