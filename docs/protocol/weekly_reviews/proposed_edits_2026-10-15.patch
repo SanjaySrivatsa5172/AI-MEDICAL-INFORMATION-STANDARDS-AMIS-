@@ -1,0 +1,223 @@
+# PROPOSED EDITS — weekly literature review, 15 October 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# Anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at bc91984 (15 Oct 2026).
+# Method: anchored assert-once replacement.
+#
+# FIVE PROPOSALS ARE NOW QUEUED AND UNAPPROVED: 10 Sep, 17 Sep, 24 Sep (rev. 1 Oct), 8 Oct, and this.
+# COLLISION CHECK RUN ACROSS ALL FIVE THIS CYCLE — THIS PATCH COLLIDES WITH NONE OF THEM.
+#   - Hunk 1a anchors in §5.3 on the API-access sentence. The 10 Sep patch also edits §5.3 but
+#     anchors on the private-split sentence further down; the two do not overlap in text.
+#   - Hunk 1b anchors in §11 on the TRIPOD-LLM sentence. The 24 Sep patch (as revised 1 Oct) also
+#     edits §11 but anchors on "What none of these supplies is the measurement." Verified
+#     non-overlapping.
+#   - This patch deliberately does NOT touch §10. Its boundary count is already contended by the
+#     17 Sep and 8 Oct patches, and a third claimant would make the order dependency unmanageable.
+#     The substantive statement is placed in §5.3, where the access decision actually lives. If the
+#     PI wants a §10 cross-reference, fold it into whichever §10 patch is applied LAST.
+
+TWO PEER-REVIEWED DRIVERS, CONVERGING ON THE SAME GAP.
+
+(1) Cantor J, Huang E, Zhang LA, Salas A, Zhang F, Burnett A, Lohn A, Pataranutaporn P, Rader B,
+    Yu H, McBain RK. "Suicide-Related Responses From AI Chatbots Through Application Programming
+    Interfaces and Consumer-Facing Apps: Observational Cross-Sectional Comparative Study."
+    J Med Internet Res 2026;28:e97968. doi 10.2196/97968, PMID 42855144.
+    RAND Corporation / Harvard Pilgrim / Harvard Medical School / MIT Media Lab / Mass General
+    Brigham. PubMed-verified 15 Oct 2026.
+
+    Design: five consumer models (ChatGPT, Claude, Gemini, Grok, Llama) x 30 previously vetted
+    suicide-related prompts x five clinician-assigned risk levels, each submitted 100 times through
+    BOTH the public-facing UI and direct API access = 30,000 responses. Blinded LLM classifier
+    validated against independent human coding (289/300, 96.3%, Cohen kappa 0.89). Mixed-effects
+    logistic regression.
+
+    Findings:
+      - Direct responses: 77.4% via API vs 62.2% via UI.
+      - **UI access carried lower odds of a direct response: OR 0.09, 95% CI 0.08-0.10.**
+      - Divergence widest at the top of the risk gradient: very-high-risk prompts 24.8% direct via
+        API vs 4.6% via UI; high-risk 80.1% vs 48.4%.
+      - Gemini ran the other way (UI 76.7% vs API 71.0%), so the direction is not universal.
+      - Authors' conclusion, verbatim: "AI safety depends on how users access the model. Safety
+        observed in a UI should not be assumed to generalize to API access or apps built on APIs.
+        Evaluations and policies should consider access modes."
+
+(2) Chen D, Blayne A, Ning T, Chattha I, Afshar M, Ong JCL, Hong JC, Liu N, Celi LA, Moons KGM,
+    Collins GS, Bitterman DS. "Reporting completeness of clinical trials evaluating large language
+    model interventions in medicine: systematic review." BMJ 2026;395:e100855.
+    doi 10.1136/bmj-2026-100855, PMID 42869550. PubMed-verified 15 Oct 2026. Author list includes
+    the TRIPOD and CONSORT methodologists.
+
+    461 records (68 trial reports, 15 protocols, 378 registrations) scored against TRIPOD-LLM,
+    CONSORT 2025 / CONSORT-AI, SPIRIT 2025 / SPIRIT-AI, CHART, and the WHO registration dataset.
+      - Mean completeness: **TRIPOD-LLM 40%**, CONSORT 2025 44%, CONSORT-AI 59%, CHART 52%;
+        protocols SPIRIT 2025 51% / SPIRIT-AI 57%; registrations 61%.
+      - Inconsistently reported critical elements, verbatim, include "data and intervention
+        provenance, input preprocessing, **model versioning and access modality**, inference
+        parameters, output postprocessing, as well as protocol, data, and code access."
+      - "**Harms planning, monitoring, and reporting were often incompletely reported**, limiting
+        the critical appraisal of the safety of LLM interventions in healthcare."
+
+    NOTE: this review is NOT YET IN THE REFERENCE LIBRARY — the daily scan missed it (see the review
+    record). It is cited here on direct PubMed verification.
+
+Why they converge: Cantor measures how much safety behaviour depends on access modality; Chen names
+access modality as one of the elements LLM trials routinely fail to report. One supplies the effect
+size, the other supplies the reporting obligation.
+
+================================================================================
+EDIT 1 — SPECIFICATION. Pin and report the access modality, and state what the
+API measurement does and does not characterise
+Sections affected: §5.3 (contamination controls / model access); §11 (reporting)
+
+The gap in OUR protocol. §5.3 states that "Models are accessed via API **without web or tool
+access**." That is a sound methodological choice and this edit does not change it. What the protocol
+nowhere states is that **the API is not the surface patients use**, and that the two surfaces are
+different safety regimes.
+
+Why this is load-bearing rather than fussy:
+  - The protocol's motivating result — the Ramaswamy ChatGPT Health evaluation — was obtained on the
+    live product interface. A protocol built to respond to that finding while measuring the API is
+    not, without comment, measuring the same object.
+  - The exposure is largest exactly where this protocol's harm asymmetry is steepest. Cantor's
+    UI/API gap widens as risk rises; our crisis-safeguard and triage-refusal endpoints sit at that
+    end of the gradient. A refusal rate or a safeguard-activation rate measured on the API could
+    differ from the product by an order of magnitude in either direction.
+  - The project has already recognised this confound in OTHERS' work: the dashboard's Fraile Navarro
+    alert carries a caveat about "newer API models vs the gpt-5-mini product." The protocol document
+    has never carried the same caveat about itself.
+
+Scope discipline — what this edit does NOT do. It adds no arm, no scenario, no model call, no
+participant burden, and has **no bearing on the §8.4 power calculation**. It does not change the
+access decision. It pins access modality as a reported parameter — which costs one field in a table
+that already records model identifier, version, access date and sampling parameters — and states the
+boundary.
+
+A claim NOT being made: this is not an internal contradiction of §2 objective 4 ("to measure the
+safety of the human-LLM interaction as deployed, rather than the model in isolation"). That
+objective contrasts the human-in-the-loop arms with Arm A's model-in-isolation condition; "as
+deployed" there refers to human involvement, not to the access surface. The access-mode issue is a
+separate, additional boundary and is proposed as such.
+
+--- HUNK 1a: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§5.3) ---
+OLD (anchor, occurs once):
+Models are accessed via API **without web or tool access**, preventing live benchmark identification
+or answer retrieval during evaluation.
+
+NEW:
+Models are accessed via API **without web or tool access**, preventing live benchmark identification
+or answer retrieval during evaluation. **Access modality is itself a pinned and reported study
+parameter, and this instrument characterises the API surface rather than the consumer application.**
+Consumer interfaces commonly layer moderation rules, refusal templates and system-level instructions
+that direct API access does not apply, and the resulting safety difference is both large and
+concentrated where harm is greatest: across 30,000 responses to clinician-vetted suicide-related
+prompts submitted 100 times each through both a public interface and the API, interface access
+carried substantially lower odds of a direct response (OR 0.09, 95% CI 0.08-0.10), with the gap
+widest at the highest risk tier — 4.6% of interface responses direct against 24.8% via API — though
+one model ran in the opposite direction, so the sign is not universal (Cantor et al., *J Med Internet
+Res* 2026;28:e97968). No figure obtained here transfers to a consumer product without being
+re-measured on that surface, and the crisis-safeguard and triage-refusal endpoints are the most
+exposed, because both sit at the risk tier where the divergence is largest. API access is retained
+deliberately: it is the only surface on which model identifier, version and sampling parameters can
+be pinned and a run reproduced. The choice buys reproducibility at the cost of product fidelity, and
+that trade is stated here rather than left for a reader to infer.
+
+--- HUNK 1b: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§11) ---
+OLD (anchor, occurs once):
+Reporting follows **TRIPOD-LLM** (Gallifant et al., *Nat Med* 2025).
+
+NEW:
+Reporting follows **TRIPOD-LLM** (Gallifant et al., *Nat Med* 2025). Naming a guideline is not the
+same as meeting it. A BMJ meta-research review of 461 trial reports, protocols and registrations
+found mean TRIPOD-LLM reporting completeness of **40%**, and named "model versioning and access
+modality," inference parameters, input preprocessing, output postprocessing and — most relevant to a
+safety study — "harms planning, monitoring, and reporting" among the elements LLM trials
+inconsistently report (Chen et al., *BMJ* 2026;395:e100855). This protocol therefore commits
+specifically rather than by reference: the pinned model identifier and version, **the access
+modality** (§5.3), all sampling parameters, the verbatim prompts, the scoring rubrics and the
+severity-weighting scheme are reported, alongside the per-endpoint scoring-layer assignment of
+Table A4 and the harm-monitoring provisions, whether or not a future checklist revision asks for
+them.
+
+================================================================================
+OPTION FOR THE PI — NOT PROPOSED
+
+A dual-access-mode factor: run a subset of scenarios through the consumer application as well as the
+API, and report the discrepancy. It is the only way to actually close the gap the edit discloses.
+
+Costs, stated plainly, and they are worse than the previous options surfaced:
+  - **Reproducibility collapses on the product surface.** Consumer applications expose no version
+    pin, no temperature, no sampling parameters, and change without notice — the §5.6 pinning
+    discipline cannot be applied, which is the reason API access was chosen in the first place.
+  - **Automation is likely to breach terms of service** and may be rate-limited or blocked; manual
+    entry at scale is a staffing cost and introduces operator variance into the primary endpoint.
+  - It expands the §8.4 power calculation, already the blocking item.
+  - It is now the **fourth** candidate expansion contending for the same budget, alongside Arm C1
+    (`[DECISION 4]`), the 17 Sep stability probe, and the 8 Oct safeguard-robustness probe.
+
+Recommendation: do NOT adopt this as a factor. A defensible cheaper alternative, if the PI wants any
+product-surface evidence, is a small **manually administered descriptive sub-study** on a handful of
+the highest-severity scenarios, reported as an explicitly non-reproducible qualitative appendix and
+nominated for no hypothesis test. That remains a design change and is not proposed here.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. Tiryaki EB, Tiryaki O, Soysal M, Kanbay Y, Tufekci FG. "Agreement and classification performance
+   of ChatGPT-5-generated and nurse-led emergency department triage using an expert reference
+   decision." Int Emerg Nurs 2026;89:101918. doi 10.1016/j.ienj.2026.101918, PMID 42863428.
+   PubMed-verified. **The most quotable "LLM beats humans at triage" result to date, and the PI
+   should expect to be asked about it.** 1,564 adult ED patients: ChatGPT-5 agreed with the expert
+   reference better than nurses (kappa 0.670 vs 0.467), with higher accuracy (83.5% vs 73.3%),
+   higher sensitivity (82.0% vs 49.0%), and FEWER under-triage errors (18.0% vs 51.0% of
+   expert-yellow patients mislabelled green).
+   Why it does NOT bear on this protocol's premise, and why no edit follows:
+     (a) **It contains no high-acuity cases.** The cohort is "1564 adult patients with documented
+         yellow or green triage classifications." The primary endpoint here is the Critical Miss Rate
+         on presentations requiring emergency escalation. A cohort with no red cases is structurally
+         unable to speak to it.
+     (b) **The input is structured clinical data**, not lay language: "Standardized triage-level
+         patient information was entered into ChatGPT-5 using an identical prompt." That is the
+         informational regime the §0 DECISION 1 note already identifies as decisive, on the
+         strength of Jia et al. (objective data eliminated emergency under-triage, 25% -> 0%).
+     (c) The human comparator is triage nurses; Arm B is emergency physicians.
+   Retrospective, single-centre. It belongs in the anticipated-questions brief, not in the protocol.
+
+2. Glasner S, Michero D, Stewart M. "Human-in-the-Loop Suicide Risk Detection and Clinical
+   Escalation in a Generative AI Mental Health Chatbot: Prospective Implementation Study." JMIR Form
+   Res 2026. doi 10.2196/106118, PMID 42853564. PubMed-verified. **ALSO MISSING FROM THE LIBRARY — a
+   second reconciler miss this week.** Prospective, two phases: clinicians successfully reached only
+   25/81 (30.9%) then 73/172 (42.4%) of participants whose suicide-risk alert fired, at a mean 11-12
+   minutes to outreach initiation.
+   Why it is worth the PI's attention but not an edit: it quantifies something §10's S2/S3 boundary
+   gestures at — **"escalate to a human" is an endpoint whose downstream completion rate is well
+   under half**, even in a purpose-built product with a dedicated clinical team. Our instrument
+   scores whether the model recommends escalation, not whether escalation happens. That is already
+   inside the stated S2/S3 boundary, so it needs no new text; it is good supporting material if the
+   PI ever writes the successor-study section.
+
+3. Two quarantined items were PARTIALLY cleared this cycle, now that the Scite quota has reset.
+   Both remain preprint/unverified-figure and neither is cited in any edit:
+   - "The complexities of patient-centred conversational artificial intelligence" — previously held
+     with NO identifier at all. Scite now resolves it: **doi 10.48550/arXiv.2607.08625**, authors
+     Matos, Buege, Cheung, arXiv 2026, OA green, cc-by-nc-nd, no editorial notices. Existence and
+     identifiers verified; **the reported figures remain unverified** (contentDenied, no abstract
+     returned). Still the best match to this protocol's dual-register premise if it reaches a journal.
+   - npj Digital Medicine stigmatizing-information triage study (doi 10.1038/s41746-026-03270-5),
+     quarantined three weeks. Record confirmed: authors **Jarrett, Yun, Ohuabunwa**, npj Digital
+     Medicine, 19 Sep 2026, gold OA, **no editorial notices**. Figures still unverified
+     (contentDenied). Note Philip Jarrett is also an author on the Rehman et al. ACEP
+     patient-facing-AI framework cited in the pending 24 Sep / 1 Oct §11 revision.
+
+4. The remaining in-window PubMed hits were screened and excluded as out of scope: MS synthetic-data
+   validation (42873203), an aesthetic plastic-surgery LLM systematic review (42863432), a heart-
+   failure endpoint commentary (42859285), an EFL writing-instruction protocol (42858066), a
+   hypertension self-management agent framework (42849682), and a cerebellar tDCS trial (42848160).
+   Of the week's eight canonical additions, the remaining six are ancillary chatbot
+   safety/quality evaluations and reviews that corroborate standing positions without adding a
+   mechanism: emergency-care question grading (39496149), altered-consciousness nursing evaluation
+   (42848354), an AI-in-suicide-prevention narrative review (42862709), postoperative aesthetic-
+   surgery complication recognition (42875611), a primary-care AI-triage scoping review (42874138),
+   and an ED diagnostic/triage systematic review (42871532).
+
+5. No URGENT falsification this week. The Tiryaki result runs counter to the protocol's motivating
+   direction but, for the three reasons in item 1, falsifies no standing claim in the protocol or in
+   any companion document.
