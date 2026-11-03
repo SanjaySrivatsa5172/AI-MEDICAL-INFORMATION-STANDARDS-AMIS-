@@ -1,7 +1,7 @@
 ---
 title: "Patient-Facing AI Triage Safety — Reference Index"
-last-updated: 2026-10-29
-total-references: 228
+last-updated: 2026-11-03
+total-references: 229
 tags: [reference-index, ai-triage-safety]
 ---
 
@@ -11,7 +11,7 @@ Supporting the Cedars-Sinai protocol **Physician-Authored Evaluation of Patient-
 
 > Core question: *Can AI systems safely recognize when symptoms described in everyday language require emergency care?*
 
-Updated daily by automated scan. Last scan: **2026-10-29** · 228 references.
+Updated daily by automated scan. Last scan: **2026-11-03** · 229 references.
 
 Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461
 
@@ -183,6 +183,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Kamaleddin 2026 — A multi-agent large language model framework for structured clinical…]] (2026)
 - [[Counihan 2026 — Diagnostic and Triage Performance of Large Language Models in Hand…]] (2026)
 - [[Unknown 2026 — Patient safety and health equity of AI-enabled triage tools in…]] (2026)
+- [[Fraile 2026 — Internal Representation, Not Clinical Knowledge Where Apparent LLM…]] (2026)
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Kopka 2025 — Accuracy of online symptom assessment applications, large language…]] (2025)
@@ -450,6 +451,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Albalawi 2026 — Evaluating a Large Language Model for Emergency Triage Using…]] (2026)
 - [[Prabha 2026 — Graph-Enhanced Retrieval-Augmented Generation for Postoperative…]] (2026)
 - [[Kamaleddin 2026 — A multi-agent large language model framework for structured clinical…]] (2026)
+- [[Fraile 2026 — Internal Representation, Not Clinical Knowledge Where Apparent LLM…]] (2026)
 - [[Johri 2025 — An evaluation framework for clinical use of large language models in…]] (2025) — **core**
 - [[Gaber 2025 — Evaluating large language model workflows in clinical decision…]] (2025) — **core**
 - [[Zuo 2025 — MedXpertQA Benchmarking Expert-Level Medical Reasoning and…]] (2025) — **core**
@@ -557,6 +559,7 @@ Live dashboard: https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa
 - [[Kamaleddin 2026 — A multi-agent large language model framework for structured clinical…]] (2026)
 - [[Counihan 2026 — Diagnostic and Triage Performance of Large Language Models in Hand…]] (2026)
 - [[Unknown 2026 — Patient safety and health equity of AI-enabled triage tools in…]] (2026)
+- [[Fraile 2026 — Internal Representation, Not Clinical Knowledge Where Apparent LLM…]] (2026)
 - [[Guerra-Adames 2025 — A Counterfactual LLM Framework for Detecting Human Biases A Case…]] (2025)
 - [[Zaboli 2025 — Chat-GPT in triage Still far from surpassing human expertise - An…]] (2025)
 - [[Xu 2025 — Diagnosis and Triage Performance of Contemporary Large Language…]] (2025)
