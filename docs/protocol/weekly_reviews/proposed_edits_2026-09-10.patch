@@ -1,0 +1,177 @@
+# PROPOSED EDITS — weekly literature review, 10 September 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# All three anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at f070e5d (10 Sep 2026).
+# Method: anchored assert-once replacement (each OLD block must occur exactly once, or the
+# script fails loudly and changes nothing).
+
+Primary driver for all three: Kim SH, Ziegelmayer S, Busch F, Mertens CJ, Keicher M, Adams LC,
+Bressem KK, Braren R, Makowski MR, Kirschke JS, Hedderich DM, Wiestler B. "Exposing the fragility
+of LLM reasoning through bias-inducing prompts: evidence from BiasMedQA." BMJ Digit Health AI
+2026;2(1):e000189. doi 10.1136/bmjdhai-2025-000189, PMID 42712292, PMC13528315.
+Peer-reviewed; verified against PubMed metadata 10 Sep 2026. Klinikum rechts der Isar /
+Technical University of Munich.
+
+Design: 1,273 clinical case vignettes from the public BiasMedQA dataset covering seven established
+cognitive biases. Three model families — Llama-3.3-70B, Qwen3-32B, Gemini-2.5-Flash — each tested
+against its own reasoning-enhanced variant, under three prompt conditions (base, debiasing,
+few-shot). Two mixed-effects logistic regression models fitted per model pair. Gemini-2.5-Flash
+additionally tested on four bias-inducing prompts written for the study and never published.
+
+Two findings carry:
+  (i) Reasoning did not consistently reduce bias susceptibility. In Llama-3.3-70B and
+      Gemini-2.5-Flash it AMPLIFIED vulnerability to several bias-inducing prompts; in Qwen3-32B it
+      reduced susceptibility to one of seven. Authors' conclusion: "In none of the three LLMs,
+      reasoning was able to consistently reduce vulnerability to bias-inducing prompts."
+  (ii) Published vs unpublished prompt contrast. Gemini-2.5-Flash scored 80.0-88.6% on the
+      published set and 47.4-86.1% on the four unpublished prompts — read by the authors as
+      "potential contamination of its training data and exposing underlying brittleness."
+
+Debiasing and few-shot prompting produced statistically significant reductions in biased responses
+across all three architectures.
+
+================================================================================
+EDIT 1 — SPECIFICATION. Pin the reasoning / inference-time-compute control
+Sections affected: §5.6 (model configuration and version pinning); §7.3.1 inherits by reference
+
+The gap in OUR protocol: §5.6 pins "model identifier, version, access date, temperature, and all
+sampling parameters." A reasoning control is none of those. An extended-thinking toggle, a
+reasoning-effort level, and a thinking-token budget are separate API-level operating modes, not
+sampling parameters — a reader implementing this protocol exactly as written could leave the
+setting unpinned, unreported, or drifting between runs and still be compliant.
+
+Why that matters here specifically: Anchoring Failure Rate is a named secondary endpoint (§4.2)
+and it carries this study's novelty claim. BiasMedQA shows that within a single model family the
+reasoning setting moves cognitive-bias susceptibility, and moves it in different directions for
+different models. An unpinned reasoning control is therefore an uncontrolled moderator sitting
+directly on the endpoint the study is least able to afford noise on.
+
+This is a specification defect that exists TODAY and is independent of whether BiasMedQA's
+particular effect sizes replicate. It is the highest-priority item in this review.
+
+Note on reach: §7.3.1 pins the LLM jury "as in §5.6". Because this edit adds the requirement inside
+§5.6, the jury layer inherits it without a second edit — the three cross-vendor judges must also be
+run at a single declared reasoning setting. One anchored change, both layers covered.
+
+--- HUNK 1: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§5.6) ---
+OLD (anchor, occurs once):
+Model identifier, version, access date, temperature, and all sampling parameters are pinned and
+reported. Each scenario is run **at least three times** per model per condition.
+
+NEW:
+Model identifier, version, access date, temperature, and all sampling parameters are pinned and
+reported. **Where a system exposes a reasoning or inference-time-compute control — an
+extended-thinking toggle, a reasoning-effort setting, a thinking-token budget, or a separately
+addressed reasoning variant within the same model family — that control is pinned and reported in
+its own right, and each system is run at a single declared setting throughout.** A reasoning
+control is not a sampling parameter, and pinning temperature does not pin it: within a single model
+family the reasoning-enhanced variant changes cognitive-bias susceptibility, and not in a
+consistent direction — across three families matched on 1,273 vignettes and seven established
+biases, reasoning failed to reduce susceptibility consistently and amplified it for several biases
+in two of the three (Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189). Left unpinned it is an
+uncontrolled moderator on the Anchoring Failure Rate endpoint (§4.2). Each scenario is run **at
+least three times** per model per condition.
+
+================================================================================
+EDIT 2 — EVIDENCE BALANCE. Add a peer-reviewed positive to the DECISION 1 note,
+and correct an inference the note currently makes
+Sections affected: §0 DECISION 1 evidence note
+
+Two things are wrong with the note as it stands, and neither is a factual error:
+
+(a) Evidentiary asymmetry. The positive side is one peer-reviewed study (Omar et al.) plus two
+    preprints (MTS-Bench, MedMisBench). Both nulls (Jaarsma; Jia) are peer-reviewed. A reader
+    working down the note sees the best-evidenced and most recent items all landing on the null
+    side. BiasMedQA is peer-reviewed, PubMed-indexed, PMC-deposited, 1,273 vignettes, seven
+    biases, three model families, mixed-effects regression — the methodologically strongest single
+    item on the positive side.
+
+(b) An inference that does not survive testing. The note tempers Jaarsma by observing that
+    anchoring resistance "has been shown only for a newest-generation model." That is true as
+    stated, but it carries an implication — that model advancement buys anchoring resistance —
+    which BiasMedQA tests directly via matched reasoning variants and does not support. Correcting
+    this makes the note's own reasoning sounder, and it does so in the direction of keeping
+    Change 12 alive.
+
+--- HUNK 2: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§0, DECISION 1 evidence note) ---
+OLD (anchor, occurs once):
+informational regime, and the patient-facing regime is the one under test here.
+
+NEW:
+informational regime, and the patient-facing regime is the one under test here.
+*Update (10 Sep 2026):* the positive side now carries a peer-reviewed result of comparable weight,
+and it corrects an inference made above. BiasMedQA — 1,273 clinical vignettes, seven established
+cognitive biases, three model families each tested against its own reasoning-enhanced variant,
+mixed-effects logistic regression — found susceptibility to bias-inducing prompts that reasoning
+did not consistently reduce and, in two of the three families, *amplified* for several biases
+(Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189, PMID 42712292). The Jaarsma null is tempered
+above as resistance shown "only for a newest-generation model"; that phrasing implies model
+advancement confers anchoring resistance, and this within-family comparison tests the implication
+directly and does not support it. Debiasing and few-shot prompting did significantly reduce biased
+responses across all three families, which makes anchoring susceptibility prompt-sensitive — a
+further reason the prompt pinning of §5.6 is load-bearing rather than housekeeping.
+
+================================================================================
+EDIT 3 — JUSTIFICATION. Give §5.3 the measured magnitude it currently lacks
+Sections affected: §5.3 (contamination controls)
+
+To be clear about what is NOT being claimed: §5.3 is not deficient. De novo authorship, embedded
+contamination-detection probes, a public/private split, a deliberate-overfitting demonstration, and
+API access without web or tool access together make it one of the better-specified sections in the
+protocol. Nothing here proposes changing a single control.
+
+What it lacks is a number. The section currently justifies the private split on PROPAGATION
+evidence — the Ramaswamy vignette set reused by two further evaluations within six months. That
+establishes that published sets spread; it does not establish what the spreading costs. BiasMedQA
+supplies the missing half from inside one study: the same model, published prompts versus
+unpublished prompts.
+
+The bound is stated in the proposed text and must stay there. It is one model on four items; the
+authors themselves attribute the gap to contamination AND brittleness together and do not separate
+them; and the unpublished range is wide (47.4-86.1%). It is not a clean contamination estimate and
+the protocol should not present it as one. It is the closest published measurement of the quantity
+the public/private split exists to protect, and it gives the embedded probes a pre-registered
+expectation to be read against instead of a bare hope that memorization will show up.
+
+--- HUNK 3: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§5.3) ---
+OLD (anchor, occurs once):
+single study's shelf life, which is why this instrument's private split is a design requirement rather
+than a courtesy.
+
+NEW:
+single study's shelf life, which is why this instrument's private split is a design requirement rather
+than a courtesy.
+
+What that split is worth has now been measured inside a single study rather than inferred from
+propagation alone. Evaluated on the published BiasMedQA prompt set, one frontier model scored
+80.0-88.6%; on four bias-inducing prompts written for that study and never published, the same model
+scored 47.4-86.1% (Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189). The authors read the gap as
+potential training-data contamination together with underlying brittleness, and it is carried here
+with that bound intact: one model, four items, two explanations not separated by the design. It is
+not a clean contamination estimate and is not offered as one. It is the closest published
+measurement of the quantity this instrument's public/private split exists to protect, and it is the
+expectation against which the embedded contamination-detection probes are interpreted.
+
+================================================================================
+NOT PROPOSED — recorded so the reasoning is auditable
+
+1. Saito H, Ohira T. "When an AI-generated diagnosis begins to matter: the AI consequence point."
+   Diagnosis (Berl) 2026. doi 10.1515/dx-2026-0153, PMID 42703743. Added to the library by the
+   canonical reconciler on 8 Sep; verified via PubMed. LIBRARY ONLY — no protocol edit proposed.
+   It is a viewpoint with no data, so it cannot carry evidentiary weight. Flagged for the PI
+   because of one connection worth knowing: it names and defines the patient who arrives at a
+   consultation "already organised around an AI-generated disease name," which is precisely the
+   user-asserted cue locus in Change 12's three-locus design. If Change 12 is adopted, this is a
+   citable framing for why that locus is clinically real — in the cover letter or the Scientific
+   Introduction's motivation, never as evidence.
+
+2. The evaluation-awareness / reward-seeking amendment REMAINS HELD. BiasMedQA does not resolve it
+   and must not be used as though it does. Training-data contamination is memorization; evaluation
+   awareness is a model detecting that it is being tested. These are different mechanisms and
+   BiasMedQA evidences only the first. What it does supply is a peer-reviewed, PubMed-indexed
+   instance of the premise the two concerns share — that a benchmark score can overstate deployed
+   capability — which is worth something to a filing that could not previously cite the primary
+   source at all (egress-blocked, below this project's citation bar). The amendment itself still
+   waits on the PI.
+
+3. No URGENT falsification this week. Nothing found overturns a standing claim in the protocol or
+   in any companion document.

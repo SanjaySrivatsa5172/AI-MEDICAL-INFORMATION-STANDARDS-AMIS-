@@ -1,0 +1,83 @@
+# PROPOSED EDITS — weekly literature review, 27 August 2026
+# STATUS: NOT APPLIED. Awaiting PI approval. One edit, three anchored hunks.
+# Application method: anchored assert-once replacement (each OLD block must occur
+# exactly once in the target file; fail loudly otherwise).
+
+================================================================================
+EDIT 1 — Cite the contrasting anchoring null (Jaarsma et al.) alongside Sheppert
+Justification: Jaarsma EH, Ring D, Wickman J, Drost A. "Can Large Language Models
+Preserve Diagnostic Accuracy Despite Patient Self-Diagnosis and Framing Bias in
+Hypothetical Upper-Extremity Scenarios?" J Hand Surg Am 2026.
+doi 10.1016/j.jhsa.2026.07.014, PMID 42640232. Peer-reviewed; verified via PubMed
+27 Aug 2026. Finding: ChatGPT (GPT-5), 180 randomized vignettes across five benign
+upper-extremity musculoskeletal conditions; 92% diagnostic accuracy UNAFFECTED by
+patient-stated self-diagnosis; the model deviated from the proposed self-diagnosis
+in 65% of scenarios, 89% of deviations correctly aligning with the intended
+diagnosis. Authors conclude "limited susceptibility to the anchoring, confirmation,
+and acquiescence biases known to affect human diagnostic reasoning."
+Why it must be cited: the Scientific Introduction cites Sheppert et al. (LLMs
+anchor ~4x more than physicians) as the quantitative anchoring gap, and this
+project's own standard — set with the Ada et al. register null in the PI-approved
+21 Aug cycle — is to declare competing nulls rather than omit them. The Jaarsma
+null does NOT falsify any protocol claim (different model generation, benign
+non-emergency conditions, diagnosis-selection rather than disposition, no
+asymmetric-harm axis), but a reviewer who finds it uncited will ask why. Citing it
+converts a vulnerability into a stated, falsifiable rationale: anchoring resistance
+may be model-generation- and stakes-dependent, which is what the benchmark measures.
+Sections affected: Scientific Introduction (anchoring prediction, "Expected
+Findings"); Scientific Introduction Key References; PROTOCOL_v3 §0 DECISION 1
+evidence note.
+
+--- HUNK 1a: docs/protocol_scientific_introduction_v3.md (anchoring prediction) ---
+OLD (anchor, occurs once):
+roughly four-fold higher odds (Sheppert et al., *Int J Med Inform*, 2026). A patient told
+NEW:
+roughly four-fold higher odds (Sheppert et al., *Int J Med Inform*, 2026). A contrasting
+null is cited deliberately: in benign upper-extremity musculoskeletal vignettes, GPT-5 held
+92% diagnostic accuracy regardless of the patient's stated self-diagnosis, overriding
+incorrect self-diagnoses in most scenarios (Jaarsma et al., *J Hand Surg Am*, 2026) —
+anchoring susceptibility may therefore be model-generation- and stakes-dependent, and no
+study has yet shown such resistance where the missed diagnosis is catastrophic, which is
+precisely the regime this benchmark measures. A patient told
+
+--- HUNK 1b: docs/protocol_scientific_introduction_v3.md (Key References) ---
+OLD (anchor, occurs once — end of reference 21):
+*Int J Med Inform*. 2026. doi:10.1016/j.ijmedinf.2026.106550. PMID 42335861.
+NEW:
+*Int J Med Inform*. 2026. doi:10.1016/j.ijmedinf.2026.106550. PMID 42335861.
+22. Jaarsma EH, Ring D, Wickman J, Drost A. Can large language models preserve diagnostic accuracy despite patient self-diagnosis and framing bias in hypothetical upper-extremity scenarios? *J Hand Surg Am*. 2026. doi:10.1016/j.jhsa.2026.07.014. PMID 42640232. *(Contrasting null: GPT-5 unaffected by self-diagnosis anchors in benign musculoskeletal vignettes.)*
+
+--- HUNK 1c: docs/protocol/PROTOCOL_v3_CONSOLIDATED.md (§0 DECISION 1 evidence note) ---
+OLD (anchor, occurs once):
+no longer unexamined in the wider literature; it remains untested in patient-facing emergency triage.
+See `docs/protocol/weekly_reviews/`.
+NEW:
+no longer unexamined in the wider literature; it remains untested in patient-facing emergency triage.
+*Update (27 Aug 2026):* one contrasting null now exists — GPT-5 held 92% diagnostic accuracy
+regardless of patient self-diagnosis in benign upper-extremity vignettes (Jaarsma et al.,
+*J Hand Surg Am* 2026, PMID 42640232). This tempers but does not reverse the evidence weight:
+anchoring resistance has been shown only for a newest-generation model on benign conditions with
+no disposition decision and no asymmetric-harm axis, and Change 12 is the instrument that would
+test whether it holds where missing is catastrophic.
+See `docs/protocol/weekly_reviews/`.
+================================================================================
+
+DELIBERATELY NOT PROPOSED THIS CYCLE (recorded so they are not re-litigated):
+- Halıcı et al., Med Sci Monit 2026 (PMID 42642916, doi 10.12659/MSM.953573):
+  weighted kappa 0.824 against routine ED triage while urgent-case sensitivity was
+  0.630, with lower-acuity discordance concentrated in older, diabetic, and trauma
+  patients. This CORROBORATES the tail-concentration argument in the pending §7.3
+  amendment (aggregate agreement conceals direction- and subgroup-concentrated
+  undertriage) on the answering side. No edit proposed: the protocol text makes no
+  claim this changes; the paper belongs as supporting citation IF the §7.3
+  amendment is adopted, and is now in the reference library (canonical sync).
+- Yan et al., Anaesthesiol Intensive Ther 2026 (PMID 42638598, doi 10.5114/ait/221943):
+  evaluation-prompt strategy alone moved LLM-judge/clinician ICC from 0.94 to 0.82
+  (p<0.001) in critical-care report scoring. Peer-reviewed, found by this review's
+  independent sweep (not yet in the canonical library — flagged to the reconciler).
+  Direct support for two elements of the PENDING §7.3 amendment: pre-registration
+  of the verbatim judge prompt (Appendix F) and the judge-development/validation
+  firewall. No edit proposed because the amendment containing those elements is
+  itself still awaiting PI decision.
+- Li et al., Int J Med Inform 2026 (PMID 42435613) and the npj Digit Med scoping
+  review (PMID 42624944): background/ancillary; in library via canonical sync.
