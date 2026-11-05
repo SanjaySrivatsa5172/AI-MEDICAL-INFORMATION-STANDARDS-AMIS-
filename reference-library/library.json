@@ -4,7 +4,7 @@
     "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
     "pi": "S. Sanjay Srivatsa, MD",
     "institution": "Cedars-Sinai Medical Center",
-    "last_updated": "2026-10-29",
+    "last_updated": "2026-11-05",
     "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
     "update_history": [
       {
@@ -401,6 +401,26 @@
         "date": "2026-10-29",
         "added": 2,
         "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-10-29 ~14:40 UTC). The FRESH-SESSION SCAN published to the dashboard today (last_updated advanced to 2026-10-29, dashboard version 1793280143-311d; +0 refs; WebSearch-only) but its push did not reach git (fresh-session push 403s); this run brings git into line. Recovered the scan's +0 provenance entry verbatim (immediately above). Dashboard<->git reference sets were byte-identical before this run (226 refs; 0 on dashboard missing from git; 0 in git missing from dashboard; no alert differences), so nothing to recover except the scan's provenance entry and the last_updated bump. ENVIRONMENT: fresh container, but the local branch was correctly pre-checked-out at the origin reconciler tip a2e2e44 this run (no checkout anomaly); ls-remote confirmed origin branch a2e2e44 and base main unchanged at dbdb972 (unrelated calculator/JVS/Dua content) -- origin intact, no force-push. Ran the two PubMed edat sweeps the WebSearch-only scan could not (window 2026/10/27..2026/10/29; A1 100 [paginated 70+30], A2 41; 131 unique, 5 already in library [yesterday's adds 42945123/42941427/42938107/42938952/42946723], 87 already screened on 10-28 -> 39 genuinely-new PMIDs). Two parallel background subagents screened the 39 (20/19) -> after independent adjudication: 2 ON, remainder off (1 borderline rejected). ADDED 2 (BOTH ancillary, design_overlap false): (1) Counihan et al. 'Diagnostic and Triage Performance of Large Language Models in Hand and Wrist Complaints: A Standardised Vignette Evaluation' (Hand (N Y) 2026, PMID 42948859, DOI 10.1177/15589447261497439) -- patient-'voice' consumer-LLM (ChatGPT/Gemini/Copilot) triage audit, 50 vignettes, overall triage accuracy 83.3% with undertriage rising with acuity (0%->16.7%->21.7% trauma) and explicit false-reassurance/delayed-care warning; the closest METHODS cousin among recent finds (patient-voice input + triage-disposition + acuity-weighted undertriage) but kept design_overlap FALSE (hand/wrist orthopaedic domain, single-register, fictitious-vignette -- flagged in-entry for PI); pubmed-verified (Scite not-yet-indexed). (2) 'Patient safety and health equity of AI-enabled triage tools in primary care: a systematic review' (BMJ Health Care Inform 2026, PMID 42951327, DOI 10.1136/bmjhci-2026-102427) -- secondary systematic review of AI triage-tool patient-safety (mistriage/undertriage) and equity; ancillary background reference; PubMed-verified for the record but ABSTRACT UNAVAILABLE this run (no PubMed abstract, Scite not-indexed, WebSearch did not surface the page) so screened on the confirmed title/journal/scope with detailed findings + author list pending indexing (authors left blank, not guessed). EXCLUDED near-misses (for PI): 42950884 (Tahseen, 'Trained on Civilians, Deployed on Soldiers', Mil Med -- military mental-health AI GOVERNANCE commentary; touches the suicidal-crisis missed-red-flag angle [minimized suicidality scored low risk] but is a defense-policy/behavioral-validity governance piece, not an emergency-triage-safety study); 42949520 (radiology automation-bias/deskilling confidence-stratified 'triage' model) and 42949357 (cognitive-bias taxonomy in AI radiology) -- clinician-facing radiology AI with the protocol's failure-mode vocabulary but no emergency symptom-recognition/patient-disposition; 42947874 (generative LVO CTA enhancement -- emergency topic but clinician imaging AI); 42948529 (acute-hypermagnesemia case report with a clinician-facing AI-ECG marker -- waveform, OUT). Verification this run: PubMed MCP + Scite MCP both available (Scite had not yet indexed either new DOI, both brand-new edat 10-28). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head a2e2e44 (living PR, no CI configured), 0 open review threads; base main dbdb972 (unrelated) but reconciler branch merges clean. Library 226 -> 228."
+      },
+      {
+        "date": "2026-11-02",
+        "added": 1,
+        "notes": "Fresh-session scan via WebSearch only (no PubMed/Scite). Environment: repo had to be re-cloned (working dir missing). Added 1 ancillary arXiv preprint (2605.29889); DOI/PMID omitted, unconfirmed. No alerts. No new regulatory action found (FDA CDS guidance Jan 2026 unchanged). Basu et al. 2026 (safety hazard detection in medical triage) referenced by citing papers but not located; not added."
+      },
+      {
+        "date": "2026-11-03",
+        "added": 0,
+        "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-11-03 ~14:30 UTC). DELAYED RECOVER: the fresh-session scan published to the dashboard on 2026-11-02 (last_updated advanced to 2026-11-02; dashboard version 1793632791-fa60; +1 ref), but it published AFTER the 2026-11-02 reconciler run had already read the dashboard (which that day still showed my 2026-10-29 V69), so the scan's +1 is reconciled into git today. This ends a 4-day stretch (10-30..11-02) in which the fresh-session scan had not republished at all. RECOVERED the scan's 1 ancillary preprint and its +1 provenance entry verbatim (immediately above): Fraile Navarro et al. 'Internal Representation, Not Clinical Knowledge: Where Apparent LLM Triage Failures Originate' (arXiv 2605.29889, Macquarie University -- same group as standing alert #2 Fraile Navarro 2603.11413). A mechanistic (sparse-autoencoder) analysis of open models (Gemma 3 4B/12B IT, Qwen3-8B) arguing the Ramaswamy 51.6% under-triage result arises at the MCQ decision/output step rather than missing clinical representation -- bears on forced-choice vs free-text triage endpoints; ancillary, design_overlap false. Independently re-verified this run via WebSearch (arXiv/alphaxiv/papers.cool: title/authors/arXiv-ID 2605.29889/28-May-2026 date all match; no withdrawal notice); source upgraded websearch -> websearch-verified. CONNECTOR DEGRADED: the Scite MCP hit its monthly 250-call limit this run (resets 2026-11-09); pay-as-you-go was NOT enabled (standing policy: never enable Scite pay-as-you-go / never order papers), so verification degraded to PubMed MCP + WebSearch and the deterministic DataCite DOI 10.48550/arXiv.2605.29889 was left un-back-filled (doi null) pending Scite's return. Separately ran the two PubMed edat sweeps (window 2026/11/01..2026/11/03; A1 37, A2 11; 47 unique, 0 already in library, 13 already screened on 11-02 -> 34 genuinely-new PMIDs). Two parallel background subagents screened the 34 (17/17) -> 0 ON, 3 borderlines (all excluded), 31 off. EXCLUDED near-misses (for PI): 42971091 (Psychiatry Res scoping review of AI for depression/suicide-risk assessment/intervention/ethics -- touches the in-scope suicidal-crisis theme but a broad field-map, not a focused patient-facing chatbot-safety or triage-safety study), 42972377 (BMC Health Serv Res Reddit topic-modeling/content analysis of consumer GenAI health-advice user experiences -- patient-facing with a care-seeking/delayed-care signal [24% sought more urgent care, 4.6% delayed/avoided] but an observational social-media content analysis, not an emergency-recognition evaluation), and 42971026 (Int Emerg Nurs scoping review of CDSS implementation in nurses' reverse-triage during disaster surges -- strong emergency-triage subject matter but clinician-facing CDS implementation review, not an LLM triage-safety benchmark). ENRICHMENT FLAG for PI (surfaced by the scan): Basu et al. 2026 'safety hazard detection in medical triage' (~53-pp knowledge-action gap, Qwen 2.5 7B) referenced by citing papers but not located/verified -- a candidate if it can be sourced. Verification this run: PubMed MCP available; Scite MCP at monthly limit (degraded as above). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head 4739954 (living PR, no CI configured), 0 open review threads; base main dbdb972 (unrelated) but reconciler branch merges clean. Library 228 -> 229."
+      },
+      {
+        "date": "2026-11-04",
+        "added": 2,
+        "notes": "Fresh-session scan via WebSearch only (no PubMed/Scite); repo re-cloned (working dir missing). Added 2: Lancet published version of AMIE primary-care feasibility (PMID 42849491 from PubMed URL; DOI unconfirmed, omitted) and ENT emergency-triage LLM study (Otolaryngol Head Neck Surg, DOI/PMID from URLs). Already-present items re-surfaced (CARE-Bench, SymptomAI, PHA validation, Nat Med ChatGPT Health). Unverified: GitHub-issue-only arXiv 2610.30412 (obstetric triage de-escalation) not added. No retraction signals; no alerts; no new regulatory action found."
+      },
+      {
+        "date": "2026-11-05",
+        "added": 1,
+        "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-11-05 ~14:03 UTC). DELAYED RECOVER of the 2026-11-04 fresh-session scan: the scan published to the dashboard on 2026-11-04 (version 1793801504-ea7d; last_updated advanced to 2026-11-04; +2 -> 231) but AFTER the 2026-11-04 reconciler had already read V71 (2026-11-03), so its additions are reconciled into git today. Scan reported +2; reconciled to +1 net in git. (1) ADDED ENT emergency-triage LLM study (PMID 42307998, Otolaryngol Head Neck Surg 2026;175(3):603-611, DOI 10.1002/ohn.70313): 30 ENT emergency-referral vignettes, 4 LLMs vs 4 clinicians scored by 10 blinded otolaryngologists; GPT-5 comparable to the otolaryngology attending, LLM & ENT cohorts both out-rated emergency clinicians. Clinician-to-clinician referral triage (not lay patient-facing); ancillary, design_overlap false. PubMed-verified (full 16-author list + venue; source websearch -> websearch+pubmed-verified). (2) The scan's second add -- the Lancet publication of the AMIE ambulatory-primary-care feasibility study (PMID 42849491) -- was NOT added as a new entry: it is the peer-reviewed version of the arXiv 2603.08448 preprint already in the library, so that existing entry was UPGRADED IN PLACE to the published Lancet article (per the one-entry-per-study dedup policy; cf the 2026-08-07 preprint-dup precedent). PubMed supplied the real DOI 10.1016/S0140-6736(26)01535-7 (scan had left it null) -> back-filled; title/venue/type updated; source websearch+scite-verified -> websearch+pubmed-verified; design_overlap retained true (preserved the seed curation contra the scan's false, as it remains a strong methods-differentiation contrast -- physician-SUPERVISED ambulatory conversational-AI vs this protocol's UNSUPERVISED patient-facing EMERGENCY triage -- now a Lancet paper). CONNECTOR DEGRADED: Scite MCP still at its monthly 250-call limit (resets 2026-11-09); pay-as-you-go NOT enabled (standing policy), so editorialNotices verification degraded to PubMed MCP; both recovered items are PubMed-indexed published articles with no retraction/correction linkage, so verification held. Separately ran the two PubMed edat sweeps (window 2026/11/03..2026/11/05; A1 80, A2 23; 95 unique, 0 already in library, 60 already screened 11-04 -> 35 genuinely-new PMIDs). Two parallel background subagents screened the 35 -> 0 ON, 2 borderlines (both excluded), 33 off. EXCLUDED near-misses (for PI): 42982421 (JMIR real-world caregiver-facing pediatric LLM assistant 'Xiaoyi', 16,074 sessions, 15.6% triage-guidance / 48.8% symptom-consultation [fever/cough] use -- but endpoint is general response-quality/clinical-appropriateness, not an emergency-triage/urgency or under/overtriage safety evaluation), and 42980879 (Curr Psychiatry Rep commentary on sycophancy + chatbot mental-health psychosocial risks -- a commentary on general psychosocial harm [loneliness/dependence], not an evaluation and not acute crisis). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head c11b0ae, no CI configured; base main unrelated but branch merges clean. Library 229 -> 230; dashboard reconciled 231 -> 230 (scan's AMIE preprint+published duplicate collapsed to one upgraded entry)."
       }
     ],
     "alerts": [
@@ -2357,21 +2377,21 @@
       "date_added": "2026-08-02"
     },
     {
-      "title": "A prospective clinical feasibility study of a conversational diagnostic AI in an ambulatory primary care clinic",
-      "authors": "Brodeur P, et al.",
-      "journal": "arXiv",
+      "title": "Conversational diagnostic artificial intelligence in ambulatory primary care: a prospective feasibility study",
+      "authors": "Brodeur PG, Koshy JM, Palepu A, Saab K, Homiar A, Ruparel R, Wu C, et al.",
+      "journal": "The Lancet",
       "year": 2026,
-      "pmid": null,
-      "doi": "10.48550/arXiv.2603.08448",
-      "url": "https://doi.org/10.48550/arXiv.2603.08448",
-      "type": "preprint",
+      "pmid": "42849491",
+      "doi": "10.1016/S0140-6736(26)01535-7",
+      "url": "https://doi.org/10.1016/S0140-6736(26)01535-7",
+      "type": "journal-article",
       "topics": [
         "patient-facing-ai",
         "physician-evaluation"
       ],
       "tier": "ancillary",
-      "relevance": "First real-world (non-simulated) prospective feasibility study of AMIE conversational diagnostic AI with 100 patients at an academic ambulatory clinic, tri-phasic physician-supervised pathway and retrospective chart review; extends prior OSCE-based AMIE evaluations to actual clinical practice",
-      "source": "websearch+scite-verified",
+      "relevance": "Peer-reviewed Lancet publication (2026 Oct 8; 408(10565):1732-1744; ClinicalTrials.gov NCT06911398) of the AMIE ambulatory-primary-care feasibility study previously held in this library as the arXiv 2603.08448 preprint; this entry was upgraded in place to the published version (real DOI back-filled from PubMed, which the 2026-11-04 scan had left unconfirmed). Prospective single-centre single-arm feasibility study (Beth Israel Deaconess Medical Center + Google Research/DeepMind): 114 patients enrolled, 98 completed a patient-facing AMIE conversation up to 5 days before a single-complaint urgent primary-care visit, with trained physician safety supervisors. Zero prespecified conversation safety stops; supervisors noted one hallucination and added clinical information in 5 interactions; AMIE conversations were rated favourably in 87-100% of cases by clinical evaluators (48-96% by patients). Physician-supervised, ambulatory (not emergency) triage, and not unsupervised — bears on patient-facing-AI safety-evaluation methodology and as a physician-supervised comparator, not on lay-language emergency undertriage. design_overlap retained for methods differentiation. Funded by Alphabet. PubMed-verified (PMID 42849491); Scite editorialNotices unavailable this run (monthly limit) but the PubMed record is fully indexed with no retraction/correction.",
+      "source": "websearch+pubmed-verified",
       "design_overlap": true,
       "date_added": "2026-08-02"
     },
@@ -4883,6 +4903,45 @@
       "source": "pubmed-verified",
       "design_overlap": false,
       "date_added": "2026-10-29"
+    },
+    {
+      "title": "Internal Representation, Not Clinical Knowledge: Where Apparent LLM Triage Failures Originate",
+      "authors": "Fraile Navarro D, Como B, Sheng J, Ananthan S, Berkovsky S",
+      "journal": "arXiv (preprint)",
+      "year": 2026,
+      "pmid": null,
+      "doi": null,
+      "url": "https://arxiv.org/abs/2605.29889",
+      "type": "preprint",
+      "topics": [
+        "emergency-triage-ai",
+        "ai-safety-failure-modes",
+        "benchmark-methodology"
+      ],
+      "tier": "ancillary",
+      "relevance": "Preprint (arXiv 2605.29889, posted ~28 May 2026; Macquarie University). Mechanistic follow-on to the Ramaswamy et al. ChatGPT Health 51.6% under-triage benchmark and the Fraile Navarro 2603.11413 format critique: using sparse-autoencoder features in open models (Gemma 3 4B/12B IT, Qwen3-8B), argues apparent triage failures under multiple-choice output arise at the decision/output step, not from missing clinical representation (same medical features activate on the clinical narrative in both formats but go quiet at the MCQ decision token). Also frames Basu et al. 2026's 53-pp knowledge-action gap (Qwen 2.5 7B). Bears on interpretation of forced-choice vs free-text triage endpoints in this protocol's dual-register design; small open models only, no consumer products or physician grading, so ancillary and design_overlap false. Not auto-alerted. VERIFIED via WebSearch (arXiv/alphaxiv/papers.cool listings: title, authors, date); abstract/excerpts only, full text not read; DOI not confirmed so omitted; no retraction notice found. RECONCILER (2026-11-03) independently re-confirmed via WebSearch -- arXiv 2605.29889, authors David Fraile Navarro / Berardino Como / Jialei Sheng / Soundariya Ananthan / Shlomo Berkovsky, posted 28 May 2026, sparse-autoencoder/Gemma-3/Qwen3 'format-not-knowledge' thesis all match; no withdrawal notice. Scite was at its monthly MCP limit this run (pay-as-you-go not enabled), so the deterministic DataCite DOI 10.48550/arXiv.2605.29889 is left un-back-filled pending Scite's return; source websearch -> websearch-verified; no identifier invented.",
+      "source": "websearch-verified",
+      "design_overlap": false,
+      "date_added": "2026-11-02"
+    },
+    {
+      "title": "The Utility of Large Language Models to Assist With Emergency Triage Decisions Within Otolaryngology",
+      "authors": "Hack S, Attal R, Steckbeck RJ, Boldes T, Ayeni T, Smith AJ, Sagiv D, Kellermeyer B, Garcia-Lliberos A, Rodriguez-Prado C, Biadsee A, Sebelik M, Roxbury CR, Purnell P, Zalzal HG",
+      "journal": "Otolaryngology–Head and Neck Surgery",
+      "year": 2026,
+      "pmid": "42307998",
+      "doi": "10.1002/ohn.70313",
+      "url": "https://doi.org/10.1002/ohn.70313",
+      "type": "journal-article",
+      "topics": [
+        "emergency-triage-ai",
+        "physician-evaluation"
+      ],
+      "tier": "ancillary",
+      "relevance": "Specialty clinician-to-clinician emergency-referral triage vignette study (Otolaryngol Head Neck Surg 2026;175(3):603-611): 30 ENT emergency-referral scenarios across the urgency spectrum, rated for urgency-appropriateness and explanation quality by 10 blinded otolaryngologists (3-point scale); 4 LLMs (GPT-5, GPT-4, DeepSeek, Grok) vs 4 clinicians (otolaryngology attending/resident, emergency attending/resident). The otolaryngology attending scored highest; GPT-5 was statistically comparable (no significant difference in either domain); GPT-4 out-rated both emergency clinicians; at group level the LLM and otolaryngology cohorts did not differ and both out-rated the emergency clinicians. Referral input is clinician-to-clinician (not lay patient-facing), limiting bearing on the lay-register core question; useful as human-comparator over/under-triage context. Ancillary, design_overlap false. Recovered from the 2026-11-04 scan; PubMed-verified (PMID 42307998; full 16-author list and venue confirmed). Scite editorialNotices unavailable this run (monthly limit), but the PubMed record is fully indexed with no retraction/correction.",
+      "source": "websearch+pubmed-verified",
+      "design_overlap": false,
+      "date_added": "2026-11-04"
     },
     {
       "title": "A Classification of Safety Risks in Medical AI",

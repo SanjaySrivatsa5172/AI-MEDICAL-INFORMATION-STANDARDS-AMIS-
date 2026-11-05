@@ -1,0 +1,122 @@
+# PROPOSED EDITS — weekly literature review, 5 November 2026
+# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# Anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at e5c2ab1 (5 Nov 2026).
+# Method: anchored assert-once replacement.
+#
+# SEVEN PROPOSALS ARE NOW QUEUED AND UNAPPROVED: 10 Sep, 17 Sep, 24 Sep (as revised 1 Oct),
+# 8 Oct, 15 Oct, 22 Oct, and this.
+#
+# *** READ THIS BEFORE APPLYING — THIS PATCH SHARES §10 ANCHORS WITH THE 17 SEP AND 8 OCT PATCHES ***
+# Three queued patches now add a §10 boundary and each bumps the opening count:
+#   17 Sep  — the single-turn boundary ("The disposition is measured once.")
+#   8 Oct   — the safeguard-robustness boundary ("Safeguard activation is not safeguard robustness.")
+#   this    — the equity boundary ("No claim is made about who the instrument protects.")
+# All three are compatible in any order, but the COUNT HUNK depends on how many have been applied:
+#
+#   CASE A — neither 17 Sep nor 8 Oct applied (current protocol state): "Three" -> "Four".
+#   CASE B — exactly one of them applied:                              "Four"  -> "Five".
+#   CASE C — both applied:                                             "Five"  -> "Six".
+#
+# Hunk 1a below gives all three forms. Apply exactly ONE, chosen by the live text. The insertion
+# anchor for hunk 1b ("**A benchmark result is a measurement, not a clearance.**") survives both
+# prior edits intact — each inserts ABOVE it — and stays unique in all three cases; verified this
+# cycle against the live file. If all three patches are approved, apply 17 Sep, then 8 Oct, then
+# CASE C here.
+
+================================================================================
+PROPOSAL 1 — state the equity boundary in §10
+Section affected: §10 (What This Study Does Not Establish)
+
+Primary driver: Alamoudi A, Gai Y, Zghebi SS, Kontopantelis E, Brown BC. "Patient safety and
+health equity of AI-enabled triage tools in primary care: a systematic review." BMJ Health Care
+Inform 2026;33(1). doi 10.1136/bmjhci-2026-102427, PMID 42951327. PROSPERO CRD420251179046.
+University of Manchester. **Peer-reviewed; PubMed-verified 5 November 2026** — the record has been
+in the library since 29 October on title and venue alone, because PubMed carried no abstract and
+no author list for it then. Both are now indexed; this is the first cycle in which the paper could
+actually be read.
+
+What it found, searching PubMed, Embase, Web of Science and Scopus from January 2015 to November
+2025 for prospective real-world evaluations of AI triage tools in primary care:
+
+  1. Four studies met eligibility, and **all four evaluated rule-based or decision-tree tools.
+     No machine-learning or generative-AI system met the eligibility criteria at all.**
+  2. Safe triage 81–97.6%; under-triage 2–17.2%; over-triage 8–29%. The pooled safe-triage
+     proportion across three studies (n = 1303) was 0.908 with a 95% CI of 0.319 to 0.995 and
+     I² = 97.0% — which the authors state plainly is hypothesis-generating rather than a summary
+     measure. We should quote their caution, not their point estimate.
+  3. **No included study analysed differential triage accuracy by any sociodemographic factor,
+     despite the demographic data being available.** The authors call this a systemic evidence gap
+     and propose a Safety-Equity Evidence Mapping matrix to characterise it.
+  4. Safety outcomes throughout "were confined to technical performance proxies rather than direct
+     measures of harm."
+
+Why this is a protocol gap rather than an enhancement. §10 opens by saying its boundaries are
+"stated here rather than left for reviewers to find." Measured against that standard the section
+is incomplete: the protocol contains **no** equity, sociodemographic, subgroup, health-literacy or
+language-access term anywhere in its 33 pages — verified by grep this cycle, zero hits. That
+silence was defensible while the question was merely foreseeable. It is now named, in a
+peer-reviewed systematic review of this exact tool class, as the field's standing omission. An IRB
+reviewing a patient-facing AI safety study will ask how the work bears on populations; the honest
+answer is "it does not, and here is why," and that answer belongs in the section built to hold it.
+
+What this proposal deliberately does NOT do. It adds **no** design element, no stratification, no
+scenario authoring and no analysis. It makes no power claim and cannot disturb §8.4. The protocol's
+dual register is a language-facility contrast held constant across models — it is not a proxy for
+a population and must not be reported as one, which is itself part of what the boundary says.
+
+--- HUNK 1a: §10 opening count — APPLY EXACTLY ONE FORM ---
+
+  CASE A (use if the live text reads "Three" — neither 17 Sep nor 8 Oct applied):
+  OLD (anchor, occurs once):
+  Three boundaries are stated here rather than left for reviewers to find.
+
+  NEW:
+  Four boundaries are stated here rather than left for reviewers to find.
+
+  CASE B (use if the live text reads "Four" — exactly one of 17 Sep / 8 Oct applied):
+  OLD (anchor, occurs once):
+  Four boundaries are stated here rather than left for reviewers to find.
+
+  NEW:
+  Five boundaries are stated here rather than left for reviewers to find.
+
+  CASE C (use if the live text reads "Five" — both 17 Sep and 8 Oct applied):
+  OLD (anchor, occurs once):
+  Five boundaries are stated here rather than left for reviewers to find.
+
+  NEW:
+  Six boundaries are stated here rather than left for reviewers to find.
+
+--- HUNK 1b: §10, new boundary inserted before the closing boundary ---
+OLD (anchor, occurs once — unaffected by the 17 Sep and 8 Oct edits, which insert above it):
+**A benchmark result is a measurement, not a clearance.**
+
+NEW:
+**No claim is made about who the instrument protects.** This design carries no sociodemographic
+variable. Scenarios are physician-authored composites, not drawn from a population, so no
+subgroup is represented in them and no differential-safety analysis is possible or attempted. The
+dual register is a contrast in how a presentation is worded, held constant across models and runs;
+it is a probe for distribution shift, and it is not a proxy for health literacy, language access
+or any patient group. Nothing reported here should be read as evidence that a measured Critical
+Miss Rate holds equally across populations. The gap this leaves is not peculiar to this study: a
+systematic review of real-world AI triage safety in primary care found that no included study had
+analysed differential triage accuracy by any sociodemographic factor, despite holding the data,
+and that no machine-learning or generative system met its eligibility criteria at all (Alamoudi et
+al., *BMJ Health Care Inform* 2026;33(1)). Closing it requires a population-sampled design with
+stratified recruitment and the power to support subgroup claims. That is a successor study, and
+this protocol does not pre-empt its conclusions.
+
+**A benchmark result is a measurement, not a clearance.**
+
+================================================================================
+APPLICATION NOTES FOR THE PI
+
+- Nothing above is applied. The protocol is unchanged at e5c2ab1.
+- Ordering across the queue, consolidated: apply 10 Sep before 24 Sep; apply 17 Sep before 8 Oct;
+  within §10, apply 17 Sep, then 8 Oct, then this patch's CASE C. The §13 housekeeping hunk in the
+  17 Sep patch must use the live library figure, which is **231** as of today, not the 185 recorded
+  in that patch and not the 178 still printed in §10's neighbour §13.
+- If you would rather this boundary were merged into one consolidated §10 rewrite together with the
+  17 Sep and 8 Oct boundaries, say so and I will prepare that as a single hunk instead of three
+  interacting ones. Three queued patches contending for one count line is a sign the queue, not the
+  text, has become the problem.
