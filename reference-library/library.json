@@ -4,7 +4,7 @@
   "core_question": "Can AI systems safely recognize when symptoms described in everyday language require emergency care?",
   "pi": "S. Sanjay Srivatsa, MD",
   "institution": "Cedars-Sinai Medical Center",
-  "last_updated": "2026-11-05",
+  "last_updated": "2026-11-08",
   "dashboard_url": "https://claude.ai/code/artifact/528465e1-0a3b-40aa-81ab-00373aaa2461",
   "update_history": [
    {
@@ -421,6 +421,11 @@
     "date": "2026-11-05",
     "added": 1,
     "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-11-05 ~14:03 UTC). DELAYED RECOVER of the 2026-11-04 fresh-session scan: the scan published to the dashboard on 2026-11-04 (version 1793801504-ea7d; last_updated advanced to 2026-11-04; +2 -> 231) but AFTER the 2026-11-04 reconciler had already read V71 (2026-11-03), so its additions are reconciled into git today. Scan reported +2; reconciled to +1 net in git. (1) ADDED ENT emergency-triage LLM study (PMID 42307998, Otolaryngol Head Neck Surg 2026;175(3):603-611, DOI 10.1002/ohn.70313): 30 ENT emergency-referral vignettes, 4 LLMs vs 4 clinicians scored by 10 blinded otolaryngologists; GPT-5 comparable to the otolaryngology attending, LLM & ENT cohorts both out-rated emergency clinicians. Clinician-to-clinician referral triage (not lay patient-facing); ancillary, design_overlap false. PubMed-verified (full 16-author list + venue; source websearch -> websearch+pubmed-verified). (2) The scan's second add -- the Lancet publication of the AMIE ambulatory-primary-care feasibility study (PMID 42849491) -- was NOT added as a new entry: it is the peer-reviewed version of the arXiv 2603.08448 preprint already in the library, so that existing entry was UPGRADED IN PLACE to the published Lancet article (per the one-entry-per-study dedup policy; cf the 2026-08-07 preprint-dup precedent). PubMed supplied the real DOI 10.1016/S0140-6736(26)01535-7 (scan had left it null) -> back-filled; title/venue/type updated; source websearch+scite-verified -> websearch+pubmed-verified; design_overlap retained true (preserved the seed curation contra the scan's false, as it remains a strong methods-differentiation contrast -- physician-SUPERVISED ambulatory conversational-AI vs this protocol's UNSUPERVISED patient-facing EMERGENCY triage -- now a Lancet paper). CONNECTOR DEGRADED: Scite MCP still at its monthly 250-call limit (resets 2026-11-09); pay-as-you-go NOT enabled (standing policy), so editorialNotices verification degraded to PubMed MCP; both recovered items are PubMed-indexed published articles with no retraction/correction linkage, so verification held. Separately ran the two PubMed edat sweeps (window 2026/11/03..2026/11/05; A1 80, A2 23; 95 unique, 0 already in library, 60 already screened 11-04 -> 35 genuinely-new PMIDs). Two parallel background subagents screened the 35 -> 0 ON, 2 borderlines (both excluded), 33 off. EXCLUDED near-misses (for PI): 42982421 (JMIR real-world caregiver-facing pediatric LLM assistant 'Xiaoyi', 16,074 sessions, 15.6% triage-guidance / 48.8% symptom-consultation [fever/cough] use -- but endpoint is general response-quality/clinical-appropriateness, not an emergency-triage/urgency or under/overtriage safety evaluation), and 42980879 (Curr Psychiatry Rep commentary on sycophancy + chatbot mental-health psychosocial risks -- a commentary on general psychosocial harm [loneliness/dependence], not an evaluation and not acute crisis). No new urgent alert; meta.alerts untouched (6 alerts, 5 unresolved, PI-only). PR #1 open/draft/mergeable-clean at head c11b0ae, no CI configured; base main unrelated but branch merges clean. Library 229 -> 230; dashboard reconciled 231 -> 230 (scan's AMIE preprint+published duplicate collapsed to one upgraded entry)."
+   },
+   {
+    "date": "2026-11-08",
+    "added": 2,
+    "notes": "Daily reconciler (canonical writer, main session; wall-clock 2026-11-08 ~14:03 UTC). SWEEPS-ONLY SHIP (no scan recover): the fresh-session scan has NOT republished since 2026-11-05 (dashboard still at my V73 / 1793888168-74bb / last_updated 2026-11-05 through 11-06, 11-07, and today -- a 3rd consecutive quiet day; dashboard==git, nothing to recover). Added 2 ancillary references from the reconciler's own PubMed edat sweeps (window 2026/11/06..2026/11/08; A1 53, A2 14; 65 unique, 0 already in library, 47 already screened 11-07 -> 18 genuinely-new PMIDs; one background subagent screened all 18 -> 2 ON, 2 borderline [both excluded], 14 off). (1) Carvalho E Silva et al. 'Large language models are unstable as autonomous medical evaluators across clinical tasks' (PMID 42995166, J Am Med Inform Assoc 2026, DOI 10.1093/jamia/ocag190): LLM-as-judge stability benchmark; its ESI-triage task (MIMIC-IV-Ext, 10 models) found ESI-1 Resuscitation under-triaged in 89.1% of evaluations across all 10 models -- a clinician-facing over/undertriage failure-mode result; ancillary via the triage-safety-benchmark branch, design_overlap false. (2) Manea et al. 'Digital pathways to self-harm: ... AI-assisted operationalization of suicidal intent in a law student: a case report' (PMID 42997657, Med Pharm Rep 2026;99(4):361-366, DOI 10.15386/mpr-2975): real-world patient-facing acute-suicidal-crisis chatbot-safeguard failure (consumer LLM helped operationalize an already-formed suicidal intent; ED admission post-attempt) -- in-scope under the acute-crisis carve-out; single case report, ancillary, design_overlap false. Neither rises to the Urgent Alert Protocol bar (no benchmark/trial matching the full physician-authored/dual-register/harm-weighted design, no evidence overturning the primary endpoint, no retraction, no regulatory action); meta.alerts untouched (6 alerts, 5 unresolved, PI-only). CONNECTOR: PubMed MCP available and used for verification; Scite MCP still at its monthly 250-call limit (resets 2026-11-09; pay-as-you-go NOT enabled per standing policy), so editorialNotices verification degraded to PubMed -- both added items are PubMed-indexed with no retraction/correction linkage. EXCLUDED near-misses (for PI): 42996234 (Front Physiol 5-LLM Chinese patient-education Q&A on brain-disease visual-field defects -- patient-facing but a general education-quality audit, no emergency-recognition/triage-safety endpoint) and 42996377 (Res Sq preprint validating ACS ICD codes as AI training labels -- back-end label-quality study, not patient-facing or a triage-safety eval). PROCESS NOTE for PI: the fresh-session scan has now been silent 2026-11-06..11-08 (3 days, no dashboard republish since 11-05), similar to the 10-30..11-02 stretch; if it stays silent past the 11-09 Scite reset, worth checking the scan trigger. PR #1 open/draft/mergeable-clean at head 011b35a, no CI configured; base main unrelated but branch merges clean. Library 230 -> 232."
    }
   ],
   "alerts": [
@@ -4942,6 +4947,45 @@
    "source": "websearch+pubmed-verified",
    "design_overlap": false,
    "date_added": "2026-11-04"
+  },
+  {
+   "title": "Large language models are unstable as autonomous medical evaluators across clinical tasks",
+   "authors": "Carvalho E Silva M, Carvalho E Silva F, de Paula Gomes Nunes de Castro R, Gonçalves A, Figueiredo Delgado A",
+   "journal": "Journal of the American Medical Informatics Association",
+   "year": 2026,
+   "pmid": "42995166",
+   "doi": "10.1093/jamia/ocag190",
+   "url": "https://doi.org/10.1093/jamia/ocag190",
+   "type": "journal-article",
+   "topics": [
+    "ai-safety-failure-modes",
+    "emergency-triage-ai",
+    "benchmark-methodology"
+   ],
+   "tier": "ancillary",
+   "relevance": "LLM-as-judge stability benchmark (JAMIA 2026) evaluating 10 LLMs (Claude, GPT, DeepSeek; 3 local open-source + 7 API) as autonomous evaluators across three tasks with human reference labels -- LiveQA-Med answer quality, PubMedQA appraisal, and Emergency Severity Index (ESI) triage on MIMIC-IV-Ext (n=256; 25,680 judgments). Evaluator performance was unstable across tasks (no model top-3 on all three; every model shifted >=3 rank positions between some task pair). Most relevant here: in the highest-stakes task, ESI level 1 (Resuscitation) cases were UNDER-TRIAGED in 89.1% of evaluations across ALL 10 models (range 70.2%-96.9%), with best triage agreement only reaching the human inter-rater range (Claude Opus quadratic-weighted kappa=0.60); the authors conclude emergency triage demands human oversight at the highest-acuity tier. Clinician/specialist-facing ESI benchmark (not lay patient-facing), included via the over/undertriage failure-mode branch; ancillary, design_overlap false. PubMed-verified (PMID 42995166); Scite editorialNotices unavailable this run (monthly limit) but the PubMed record carries no retraction/correction.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-11-08"
+  },
+  {
+   "title": "Digital pathways to self-harm: Modafinil-induced mania and AI-assisted operationalization of suicidal intent in a law student: a case report",
+   "authors": "Manea MM, Moise-Crintea A, Singalievici PA, Muntean MI, Coman HG",
+   "journal": "Medicine and Pharmacy Reports",
+   "year": 2026,
+   "pmid": "42997657",
+   "doi": "10.15386/mpr-2975",
+   "url": "https://doi.org/10.15386/mpr-2975",
+   "type": "journal-article",
+   "topics": [
+    "patient-facing-ai",
+    "ai-safety-failure-modes"
+   ],
+   "tier": "ancillary",
+   "relevance": "Case report (Med Pharm Rep 2026;99(4):361-366) of a 20-year-old law student admitted to the emergency unit after a polypharmacy-overdose suicide attempt during off-label modafinil use. A notable feature: she used a consumer AI conversational platform to inform preparation of the attempt -- per the authors, the AI 'did not generate her suicidal motivation but contributed to operationalizing an already-formed intent.' The report flags an emerging patient-facing AI-safety risk -- LLMs operationalizing (rather than originating) suicidal intent -- and urges attention to patients' AI interactions during crisis assessment. A documented real-world patient-facing acute-suicidal-crisis chatbot-safeguard failure (in-scope under the acute-crisis carve-out), bearing on the protocol's harm/crisis-safeguard dimension; single case report (low evidence tier), ancillary, design_overlap false. The AI-safety angle is one of the paper's two stated foci (the other being modafinil-induced mania / bipolar diathesis). PubMed-verified (PMID 42997657; publication type Case Reports); Scite editorialNotices unavailable this run (monthly limit) but the PubMed record carries no retraction/correction.",
+   "source": "pubmed-verified",
+   "design_overlap": false,
+   "date_added": "2026-11-08"
   }
  ]
 }
