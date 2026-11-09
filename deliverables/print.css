@@ -1,0 +1,20 @@
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+body { font-family: "Liberation Serif", Georgia, "Times New Roman", serif; font-size: 10.5pt; line-height: 1.45; color: #111; max-width: none; margin: 0; }
+h1 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 19pt; margin: 1.4em 0 .5em; padding-bottom: .25em; border-bottom: 2px solid #333; page-break-after: avoid; }
+h1.title { font-size: 23pt; border: none; margin-bottom: .2em; text-align: left; }
+h2 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 14pt; margin: 1.3em 0 .4em; page-break-after: avoid; color: #1a1a1a; }
+h3 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 11.5pt; margin: 1.1em 0 .35em; page-break-after: avoid; color: #333; }
+h4 { font-family: "Liberation Sans", Arial, sans-serif; font-size: 10.5pt; margin: 1em 0 .3em; page-break-after: avoid; font-style: italic; }
+p, li { orphans: 3; widows: 3; }
+table { border-collapse: collapse; width: 100%; margin: .8em 0; font-size: 9.5pt; page-break-inside: avoid; }
+th, td { border: 1px solid #999; padding: 4px 7px; text-align: left; vertical-align: top; }
+th { background: #ececec; font-family: "Liberation Sans", Arial, sans-serif; font-weight: bold; }
+tr:nth-child(even) td { background: #fafafa; }
+code { font-family: "Liberation Mono", "Courier New", monospace; font-size: 9pt; background: #f2f2f2; padding: 1px 3px; border-radius: 2px; }
+blockquote { border-left: 3px solid #666; margin: .8em 0 .8em 0; padding: .3em 0 .3em 1em; color: #222; background: #f7f7f7; page-break-inside: avoid; }
+hr { border: none; border-top: 1px solid #bbb; margin: 1.5em 0; }
+#TOC { page-break-after: always; }
+#TOC ul { list-style: none; padding-left: 1em; }
+#TOC > ul { padding-left: 0; }
+#TOC a { text-decoration: none; color: #111; }
+strong { color: #000; }
