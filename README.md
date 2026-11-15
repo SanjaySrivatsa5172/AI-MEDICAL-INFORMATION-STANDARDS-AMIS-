@@ -15,6 +15,12 @@
 
 **Five foundational standards for AI systems that generate medical information.**
 
+**Public repository (cite this):** [github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-](https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-)
+
+**Hosted scorer (cite this):** [amis-claim-calculator.onrender.com](https://amis-claim-calculator.onrender.com). Use the **Onboarding** tab on that site, or open [amis-claim-calculator.onrender.com/onboarding](https://amis-claim-calculator.onrender.com/onboarding). Source and local run remain in this repository. See [docs/calculator_onboarding.md](docs/calculator_onboarding.md) and [docs/deploy.md](docs/deploy.md).
+
 > *"The apparent confidence of any medical statement should not exceed its epistemic warrant."*
 
 ---
@@ -100,6 +106,37 @@ risks = analyzer.analyze(
 
 Copy [implementation/prompts/system_prompt_template.md](implementation/prompts/system_prompt_template.md) into your LLM system prompt.
 
+### 5. Score a paper in the web calculator
+
+Paste an abstract or upload a PDF/text file. The calculator reuses the modules above — it does not invent a second schema — and adds claim extraction plus a methodological-failure axis.
+
+```bash
+git clone https://github.com/SanjaySrivatsa5172/AI-MEDICAL-INFORMATION-STANDARDS-AMIS-.git
+cd AI-MEDICAL-INFORMATION-STANDARDS-AMIS-
+python3 -m pip install -r implementation/web/requirements.txt
+python3 -m implementation.web.app
+```
+
+Open http://127.0.0.1:8765. Docker:
+
+```bash
+docker build -t amis-calculator .
+docker run --rm -p 8765:8765 amis-calculator
+```
+
+See [implementation/web/README.md](implementation/web/README.md), [docs/deploy.md](docs/deploy.md), and the public landing page in [`site/index.html`](site/index.html).
+
+The calculator evaluates epistemic claims only. It does not prescribe treatment (Standard 5).
+
+Evidence for the five standards and the methodological-failure axis:
+[docs/calculator_evidence.md](docs/calculator_evidence.md).
+Draft follow-up letter pointing readers at the calculator:
+[examples/letters/jvsvi_calculator_followup.md](examples/letters/jvsvi_calculator_followup.md).
+
+Worked examples in `examples/calculator/`: Srivatsa abstract, ResidencyRL letter,
+CRAFT-MD (Johri et al., *Nat Med* 2025; grader-AI), and AgentClinic (Schmidgall et al.,
+*npj Digit Med* 2026; LLM moderator). Publisher PDFs are not committed.
+
 ---
 
 ## Repository Structure
@@ -114,13 +151,18 @@ ai-medical-information-standards/
 │   ├── source_hierarchy.yaml          # 5-tier hierarchy
 │   ├── uncertainty_calibration.yaml   # Confidence thresholds
 │   ├── harm_cascade.json              # Decision tree
-│   └── validation_schema.json         # JSON Schema for compliance
+│   ├── validation_schema.json         # JSON Schema for compliance
+│   └── imaging_ml_evidence.yaml       # Appraisal of ML diagnostic imaging claims
 │
 ├── implementation/                    # Reference implementations
 │   ├── python/
 │   │   ├── validator.py               # Compliance checker
 │   │   ├── source_classifier.py       # Tier classification
-│   │   └── harm_analyzer.py           # Cascade analysis
+│   │   ├── harm_analyzer.py           # Cascade analysis
+│   │   ├── claim_extractor.py         # AI medical claim extraction
+│   │   ├── method_failure.py          # Evaluation-failure axis
+│   │   └── calculator.py              # Orchestrates the web/CLI scorer
+│   ├── web/                           # Local FastAPI calculator
 │   └── prompts/
 │       └── system_prompt_template.md  # LLM system prompt
 │
@@ -130,10 +172,26 @@ ai-medical-information-standards/
 │   ├── implementation_guide.md        # Adoption guide
 │   └── compliance_checklist.md        # Self-assessment
 │
-└── examples/
-    ├── compliant_output.md            # What good looks like
-    └── non_compliant_output.md        # Documented failures
+├── examples/
+│   ├── compliant_output.md            # What good looks like
+│   └── non_compliant_output.md        # Documented failures
+│
+└── evidence-reviews/                  # Standards applied to real questions
+    ├── README.md                      # Conformance requirements
+    └── lipoedema-ultrasound-ml.md     # ML for ultrasound detection of lipoedema
 ```
+
+---
+
+## Evidence Reviews
+
+[evidence-reviews/](evidence-reviews/) contains worked applications of the standards to real clinical questions — sources tier-classified, confidence capped by the evidence actually located, negative claims scoped to the search that produced them, and a harm cascade recorded before the answer is published.
+
+| Review | Question | Highest tier located | Confidence ceiling |
+|---|---|---|---|
+| [Lipoedema ultrasound + ML](evidence-reviews/lipoedema-ultrasound-ml.md) | Is there a published study applying machine learning to ultrasound detection of lipoedema? | Tier 3 | Uncertain |
+
+Reviews that assess machine-learning diagnostic models also apply [standards/imaging_ml_evidence.yaml](standards/imaging_ml_evidence.yaml), which extends Standards 2 and 3 to a failure mode tier classification alone does not catch: a model can report excellent discrimination and still be clinically useless, because the reported metric was computed on the data that selected it, or because the model learned an acquisition artefact rather than the disease.
 
 ---
 

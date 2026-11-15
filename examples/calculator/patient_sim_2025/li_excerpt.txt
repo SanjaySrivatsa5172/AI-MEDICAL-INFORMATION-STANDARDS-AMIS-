@@ -1,0 +1,11 @@
+Large Language Model-Based Virtual Patient Systems for History-Taking in Medical Education: Comprehensive Systematic Review
+Dongliang Li, Syaheerah Lebai Lutfi
+JMIR Medical Informatics 2026;14:e79039. DOI 10.2196/79039
+Open text: https://doi.org/10.2196/79039
+
+Abstract
+Large language models (LLMs) such as GPT-3.5 and GPT-4 have been transforming virtual patient systems in medical education by providing scalable alternatives to standardized patients. This systematic review evaluates LLM-based virtual patient systems for medical history-taking. Following PRISMA 2020, nine databases were searched (1 January 2020 to 18 August 2025). Nontransformer models and non-history-taking tasks were excluded.
+
+Results: A total of 39 studies were included. Systems mainly simulated internal medicine and mental health disorders, with few covering multimorbidity or rare conditions. Knowledge-graph integration improved top-k accuracy by 16.02%. Evaluations, typically involving 10-50 students and 3-10 experts, demonstrated strong performance (top-k accuracy 0.45-0.98, hallucination rate 0.31%-5%, SUS >= 80). However, small samples, inconsistent metrics, and limited controls restricted generalizability. Common datasets such as MIMIC-III exhibited ICU bias and lacked diversity.
+
+The authors report moderate risk of bias and limited dataset transparency in the included studies. This review critiques evaluation quality in the field; it does not assert an in-family autorater of the authors' own virtual patient.

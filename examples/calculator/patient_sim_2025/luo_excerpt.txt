@@ -1,0 +1,11 @@
+A large language model digital patient system enhances ophthalmology history taking skills
+Ming-Jie Luo, Shaowei Bi, Jianyu Pang, Lixue Liu, et al.
+npj Digital Medicine 2025;8:502. DOI 10.1038/s41746-025-01841-6
+Open PDF: https://www.nature.com/articles/s41746-025-01841-6.pdf
+
+Abstract
+Clinical trainees face limited opportunities to practice medical history-taking. We developed a large language model-based digital patient (LLMDP) system that transforms de-identified electronic health records into voice-enabled virtual patients capable of free-text dialog and adaptive feedback. In a single-center randomized controlled trial (ClinicalTrials.gov NCT06229379; N=84), students trained with LLMDP achieved a 10.50-point increase in medical history-taking assessment scores (95% CI 4.66-16.33, p<0.001) compared with traditional methods. LLMDP-trained students also demonstrated greater empathy.
+
+Methods excerpt: The performance of several LLMs was evaluated by human doctors using previously established evaluation criteria. Automated metrics (BLEU and ROUGE) were used during model selection; the educational endpoint was a medical history-taking assessment (MHTA) after randomized training. The LLMDP group scored 64.62 +/- 9.52 versus 54.12 +/- 8.80 in the control group.
+
+Human doctors, not an in-family autorater, scored the educational outcome. BLEU/ROUGE guided model selection and can Goodhart fluency rather than clinical fidelity; the RCT endpoint is trainee performance, not chatbot diagnostic accuracy. Single-center trial; generalizability is limited.

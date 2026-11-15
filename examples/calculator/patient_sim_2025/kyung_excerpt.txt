@@ -1,0 +1,11 @@
+PatientSim: A Persona-Driven Simulator for Realistic Doctor-Patient Interactions
+Daeun Kyung, Hyunseung Chung, Seongsu Bae, Jiho Kim, Jae Ho Sohn, Taerim Kim, Soo Kyung Kim, Edward Choi
+arXiv:2505.17818 (2025); NeurIPS 2025 Datasets and Benchmarks.
+Open PDF: https://arxiv.org/pdf/2505.17818
+
+Abstract
+Doctor-patient consultations require multi-turn, context-aware communication tailored to diverse patient personas. We introduce PatientSim, a patient simulator that generates realistic and diverse patient personas for clinical scenarios. PatientSim operates using (1) clinical profiles derived from MIMIC-ED and MIMIC-IV and (2) personas defined by four axes: personality, language proficiency, medical history recall, and cognitive confusion, resulting in 37 unique combinations. We evaluate eight LLMs for factual accuracy and persona consistency. The top-performing open-source model, Llama 3.3 70B, is validated by four clinicians.
+
+Evaluation excerpt: We evaluate eight LLMs as the backbone of our simulator and select Llama 3.3 70B as the final model. In RQ2, we evaluated the LLM sentence classifier's performance using manually annotated labels by authors across 411 sentences from 10 dialogues. We analyze the performance of the LLM sentence classifier for the sentence classification task by comparing two widely adopted LLM-as-judge setups. Human evaluation as Llama 3.3 70B consistently demonstrated robust performance was then used to further validate the selected model. Four clinicians assessed quality (reported average overall quality 3.89/4).
+
+Limitation: Simulated conversations cannot capture non-verbal cues, and personas may not fully cover real-world clinical variability. Using an LLM-as-judge to classify or score simulator utterances is an in-family grader even when a later clinician audit is added.
