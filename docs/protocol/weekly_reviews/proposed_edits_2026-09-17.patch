@@ -1,5 +1,7 @@
 # PROPOSED EDITS — weekly literature review, 17 September 2026
-# STATUS: PROPOSAL ONLY. NOTHING APPLIED. Awaiting PI approval.
+# STATUS: **APPLIED 16 November 2026** under PI approval of the same date.
+# Superseded as a proposal; retained as the record of what was proposed and why.
+# See ../weekly_reviews/APPLIED_MANIFEST.md for what was and was not taken from this file.
 # All four anchors verified unique against PROTOCOL_v3_CONSOLIDATED.md at ec8e9c9 (17 Sep 2026).
 # Method: anchored assert-once replacement (each OLD block must occur exactly once, or the
 # script fails loudly and changes nothing).
