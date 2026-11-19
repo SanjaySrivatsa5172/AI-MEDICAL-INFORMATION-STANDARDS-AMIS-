@@ -4,6 +4,7 @@
 
 **Protocol number:** _[NOT YET ASSIGNED — Cedars-Sinai IRB to assign]_\
 **Version:** 3.1 (consolidated), 21 August 2026\
+**Revised:** 16 November 2026 — seven weekly-review amendments applied under PI approval of the same date; see `docs/protocol/weekly_reviews/`. _[Version identifier deliberately not incremented: whether this becomes v3.2 is a PI decision, not bookkeeping.]_\
 **Supersedes:** Protocol v2 (April 2026) as amended by Amendment 1 (23 July 2026), incorporating Addendum A (1 August 2026)
 
 **Principal Investigator:** S. Sanjay Srivatsa, MD, FACC, FSCAI, MRCP (London), DABVLM
@@ -34,9 +35,12 @@ Director, HAV Center of Fresno — Fresno, California
 > evidence revision have never been transmitted.** This protocol conflicts with nothing in the Cedars file; it
 > is the first full protocol they will receive, and it supersedes the April condensed version outright.
 >
-> **Four PI decisions and three external inputs remain open.** They are enumerated in §0, marked inline as
-> `[DECISION n]` and `[INPUT n]`, and at least two of them change protocol text. One — the sample size
-> justification — cannot be written at all until pilot data exist. See §8.4.
+> **Two PI decisions and three external inputs remain open.** They are enumerated in §0, marked inline as
+> `[DECISION n]` and `[INPUT n]`. **DECISION 1 (defer Change 12) and DECISION 3 (majority-of-three) were
+> resolved on 16 November 2026**; DECISION 2a and 2b close at filing at the level of form, and DECISION 4
+> (Arm C1 scope) is still open. The sample size justification remains unwritten and §8.4 remains blocking —
+> but deferring Change 12 removed the obstacle that made it unwritable, so it is now work to be done rather
+> than a question waiting on pilot data that do not exist. See §8.4.
 >
 > Nothing here should be filed until §0 is closed out.
 
@@ -48,12 +52,26 @@ Director, HAV Center of Fresno — Fresno, California
 
 | # | Decision | Why it blocks | Where it lands |
 |---|---|---|---|
-| **DECISION 1** | Adopt or defer **Change 12** (note-embedded bias-cue factor, matched pairs) | Adoption expands scenario authoring and **invalidates the existing power calculation** | §5.3, §7.5, §8.4 |
+| **DECISION 1** — **RESOLVED 16 Nov 2026: DEFERRED** | Adopt or defer **Change 12** (note-embedded bias-cue factor, matched pairs) | **Change 12 is deferred.** Scenario authoring does not expand this cycle, and the matched-pair power calculation that depended on non-existent discordance rates is not required. This selects option (a) in §8.4 | §5.3, §7.5, §8.4 |
 | **DECISION 2a** | Confirm the **threshold-setting rule** for the jury acceptance gates (§7.3.4): thresholds fixed by a pre-registered mapping on the blinded validation set, evaluated on one-sided confidence bounds, rather than by an asserted number | Closes at filing at the level of form; the numeric values are fixed before unblinding | §7.3.3, §7.3.4 |
 | **DECISION 2b** | Confirm that the **inter-judge agreement band** is a *reported diagnostic*, not a gate, with its comparator derived from measurement | Records the PI's own inversion — a jury agreeing with itself far more than physicians agree with each other exhibits shared bias, not accuracy | §7.3.5 |
 | *(superseded)* | ~~Confirm **Gwet AC1 ≥ 0.75** as the promotion threshold~~ | **Retired 29 Aug 2026** by the approved §7.3 amendment: AC1 is demoted to a reported statistic. At the prevalence this study expects, AC1 ≥ 0.75 is satisfied by a jury with zero sensitivity on the flagged class, and no symmetric agreement coefficient can distinguish a lenient jury from a strict one | §7.3.5 |
-| **DECISION 3** | **Majority-of-three** vs **first-run-primary** for repeated runs | Determines the primary-analysis unit for every model output | §5.6, §8.1 |
+| **DECISION 3** — **RESOLVED 16 Nov 2026: MAJORITY-OF-THREE** | **Majority-of-three** vs **first-run-primary** for repeated runs | **Majority-of-three is adopted.** The primary-analysis unit is the within-model majority across repeated runs. It is read together with the any-run critical-miss rate of §8.1, which exists precisely because a majority rule cannot see a dangerous output occurring on a minority of runs | §5.6, §8.1 |
 | **DECISION 4** | **Arm C1** (longitudinal interaction) in or out of scope this cycle | Changes participant burden, timeline, and consent | §5.5, §6 |
+
+**Resolutions of record, 16 November 2026.** The PI resolved two of these decisions in writing on
+16 November 2026, alongside approval of the seven queued weekly-review proposals:
+
+- **DECISION 1 — "NO" (defer).** Change 12 is **not** adopted this cycle. The note-embedded
+  bias-cue factor and its matched-pair design are deferred. The §0 evidence notes below are
+  retained unchanged as the record of why the question stayed open for three months, and they
+  remain the basis on which Change 12 could be revisited in a later amendment.
+- **DECISION 3 — "majority-of-three."** The primary-analysis unit for repeated runs is the
+  within-model majority. The §8.1 any-run critical-miss rate is reported alongside it.
+
+**DECISION 2a and 2b** close at filing at the level of form and need nothing further now.
+**DECISION 4 (Arm C1 scope) remains open**: the scope itself has not been specified, and no
+protocol text here assumes it either way.
 
 *Evidence note (weekly literature review, 21 Aug 2026):* the case for **adopting Change 12** has
 strengthened materially — a peer-reviewed rheumatology study shows a dismissive referral-note anchor
@@ -76,7 +94,36 @@ comes from a consumer patient-facing system reasoning without objective clinical
 paper shows why that boundary is load-bearing — supplying objective data eliminated emergency
 under-triage outright (25% → 0%, p = 0.005), so anchoring susceptibility is a property of the
 informational regime, and the patient-facing regime is the one under test here.
+*Update (10 Sep 2026):* the positive side now carries a peer-reviewed result of comparable weight,
+and it corrects an inference made above. BiasMedQA — 1,273 clinical vignettes, seven established
+cognitive biases, three model families each tested against its own reasoning-enhanced variant,
+mixed-effects logistic regression — found susceptibility to bias-inducing prompts that reasoning
+did not consistently reduce and, in two of the three families, *amplified* for several biases
+(Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189, PMID 42712292). The Jaarsma null is tempered
+above as resistance shown "only for a newest-generation model"; that phrasing implies model
+advancement confers anchoring resistance, and this within-family comparison tests the implication
+directly and does not support it. Debiasing and few-shot prompting did significantly reduce biased
+responses across all three families, which makes anchoring susceptibility prompt-sensitive — a
+further reason the prompt pinning of §5.6 is load-bearing rather than housekeeping.
 See `docs/protocol/weekly_reviews/`.
+
+*Evidence note on* `[DECISION 3]` *(weekly literature review, 24 September 2026):* both candidate
+rules are central-tendency estimators, and new evidence places the hazard in the tail. Across 54
+diagnostically challenging emergency cases, six models queried three times each and 972
+physician-scored responses, **31 of 34 dangerous model-case combinations were stochastic rather
+than systematic** — the dangerous recommendation appeared on some runs of a case and not others,
+which the authors name "a failure mode hidden by aggregate metrics" (Liu et al., *J Med Syst*
+2026;50(1), PMID 42776332). The same study found models with indistinguishable mean accuracy
+carrying different catastrophic-failure tiers, and its least reproducible model sat in the higher
+catastrophic tier despite a middle-tier mean. Under majority-of-three a dangerous output occurring
+on one run of three is arithmetically invisible; under first-run-primary it enters with probability
+one in three. Neither rule estimates the quantity that matters under an asymmetric loss function,
+which is why §8.1 reports an any-run critical-miss rate alongside whichever rule is adopted. The
+source is a single-centre proof-of-concept on physician-scored diagnostic safety, not lay-language
+triage disposition; its effect sizes are not imported. What transfers is structural, and it is the
+objection §7.3 already sustains against symmetric agreement coefficients — a statistic that cannot
+see direction cannot govern a directional hazard — applied to run aggregation rather than to
+inter-rater agreement.
 
 ### External inputs required
 
@@ -188,7 +235,8 @@ physician-defined gold standard.
 
 **Exploratory objectives.**
 1. Longitudinal interaction effects (Arm C1) `[DECISION 4]`.
-2. Bias-cue locus effects (Change 12) `[DECISION 1]`.
+2. Bias-cue locus effects (Change 12) — **deferred, `[DECISION 1]` resolved 16 Nov 2026 (§0)**. Not
+   examined in this cycle.
 3. Crisis-safeguard activation consistency across matched suicidality presentations.
 
 ---
@@ -237,7 +285,10 @@ refusal as a category requiring separate assessment (Jia et al., *Int J Med Info
   circularity objection precisely where the study is most exposed.
 - **Human–LLM Degradation Gap** — Arm A performance minus Arm C performance
 - **Under-triage and over-triage rates**, reported separately at each ESI level boundary
-- **Run-to-run instability** — disagreement across repeated runs of the same model on the same input
+- **Run-to-run instability** — disagreement across repeated runs of the same model on the same
+  input. This quantifies nondeterminism under a fixed prompt. It is **not** a measure of flipping
+  induced by a conversational challenge: that is a different quantity, it requires a second turn
+  to observe, and unlike nondeterminism it is directionally asymmetric (§10)
 - **Interaction-failure metrics** — information omission, model misinterpretation, suggestion adoption
   failure, interaction variability. **Physician-sovereign** (§7.4); free-text interaction judgments
   are not delegated to models.
@@ -292,12 +343,43 @@ immediate catastrophic harm if under-triaged.
 patients actually describe symptoms, and a structured expert clinical triage vignette. This is a
 deliberate distribution-shift probe, not a stylistic variant.
 
+**That claim requires a paraphrase-invariance floor, and this revision does not measure one.**
+Frontier models change triage category under rewording that holds clinical content fixed: across 150
+surgeon-adjudicated trauma vignettes subjected to standardized lexical perturbations, 11.2% of
+repeated prompts moved the triage category, with a maximum instability of 24.5% (Çalışkan et al.,
+*Surgery* 2026;196:110319). That setting is trauma secondary triage under a locked prompt, not
+lay-register patient-facing triage, so the figure establishes that a floor exists and is non-trivial
+rather than estimating this instrument's own. Two consequences follow and are pre-specified here.
+First, a register effect of magnitude comparable to such a floor is not separable from wording noise,
+so the model-by-register interaction of §8.1 is reported as an estimate whose interpretation is
+conditioned on an unmeasured floor, and no register effect is advanced as a distribution-shift
+finding on the strength of its magnitude alone. Second, the claim that the contrast is not a
+stylistic variant rests on **how the two forms are constructed** — they differ in information order,
+completeness, disclosure of vitals, and clinical vocabulary, not in synonym choice — and not on any
+measurement reported in this revision. This quantity is distinct from the run-to-run instability of
+§4.2, which varies nothing: that metric is same-input nondeterminism, whereas the floor at issue is
+same-content, different-wording instability.
+
 ### 5.3 Contamination controls
 
 De novo authorship; embedded contamination-detection probes to measure memorization directly rather
 than assume its absence; a public/private scenario split; and a deliberate-overfitting demonstration.
 Models are accessed via API **without web or tool access**, preventing live benchmark identification
-or answer retrieval during evaluation.
+or answer retrieval during evaluation. **Access modality is itself a pinned and reported study
+parameter, and this instrument characterises the API surface rather than the consumer application.**
+Consumer interfaces commonly layer moderation rules, refusal templates and system-level instructions
+that direct API access does not apply, and the resulting safety difference is both large and
+concentrated where harm is greatest: across 30,000 responses to clinician-vetted suicide-related
+prompts submitted 100 times each through both a public interface and the API, interface access
+carried substantially lower odds of a direct response (OR 0.09, 95% CI 0.08-0.10), with the gap
+widest at the highest risk tier — 4.6% of interface responses direct against 24.8% via API — though
+one model ran in the opposite direction, so the sign is not universal (Cantor et al., *J Med Internet
+Res* 2026;28:e97968). No figure obtained here transfers to a consumer product without being
+re-measured on that surface, and the crisis-safeguard and triage-refusal endpoints are the most
+exposed, because both sit at the risk tier where the divergence is largest. API access is retained
+deliberately: it is the only surface on which model identifier, version and sampling parameters can
+be pinned and a run reproduced. The choice buys reproducibility at the cost of product fidelity, and
+that trade is stated here rather than left for a reader to infer.
 
 The propagation risk these controls address is now observable rather than theoretical: within six
 months of publication, the Ramaswamy vignette set had been reused by at least two further evaluations
@@ -306,8 +388,21 @@ scenario sets spread across the literature — and from there into training corp
 single study's shelf life, which is why this instrument's private split is a design requirement rather
 than a courtesy.
 
-`[DECISION 1]` If Change 12 is adopted, scenario authoring expands to matched-pair cue variants across
-three cue loci (no cue / note-embedded / user-asserted). Authors must be told before drafting begins.
+What that split is worth has now been measured inside a single study rather than inferred from
+propagation alone. Evaluated on the published BiasMedQA prompt set, one frontier model scored
+80.0-88.6%; on four bias-inducing prompts written for that study and never published, the same model
+scored 47.4-86.1% (Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189). The authors read the gap as
+potential training-data contamination together with underlying brittleness, and it is carried here
+with that bound intact: one model, four items, two explanations not separated by the design. It is
+not a clean contamination estimate and is not offered as one. It is the closest published
+measurement of the quantity this instrument's public/private split exists to protect, and it is the
+expectation against which the embedded contamination-detection probes are interpreted.
+
+`[DECISION 1]` **Resolved 16 November 2026: Change 12 is deferred** (§0). Scenario authoring does
+**not** expand to matched-pair cue variants in this cycle, and authors proceed on the single-cue
+design. Had Change 12 been adopted, authoring would have expanded to matched-pair cue variants
+across three cue loci (no cue / note-embedded / user-asserted), and authors would have had to be
+told before drafting began; that expansion is held for any future amendment that revisits it.
 
 ### 5.4 Physician role separation
 
@@ -348,7 +443,19 @@ disposition before consulting, estimates the order effect directly.
 ### 5.6 Model configuration and version pinning
 
 Model identifier, version, access date, temperature, and all sampling parameters are pinned and
-reported. Each scenario is run **at least three times** per model per condition. `[DECISION 3]`
+reported. **Where a system exposes a reasoning or inference-time-compute control — an
+extended-thinking toggle, a reasoning-effort setting, a thinking-token budget, or a separately
+addressed reasoning variant within the same model family — that control is pinned and reported in
+its own right, and each system is run at a single declared setting throughout.** A reasoning
+control is not a sampling parameter, and pinning temperature does not pin it: within a single model
+family the reasoning-enhanced variant changes cognitive-bias susceptibility, and not in a
+consistent direction — across three families matched on 1,273 vignettes and seven established
+biases, reasoning failed to reduce susceptibility consistently and amplified it for several biases
+in two of the three (Kim et al., *BMJ Digit Health AI* 2026;2(1):e000189). Left unpinned it is an
+uncontrolled moderator on the Anchoring Failure Rate endpoint (§4.2). Each scenario is run **at
+least three times** per model per condition. **`[DECISION 3]` resolved 16 November 2026:
+majority-of-three** — the within-model majority across the repeated runs is the primary-analysis
+unit (§0, §8.1).
 determines whether the majority call or the first run is primary; under either rule, run-to-run
 agreement is reported as an **instability metric**, so that nondeterminism is measured rather than
 averaged away.
@@ -485,7 +592,9 @@ The jury layer is **subordinate and provisional in both directions**: it may sco
 
 #### 7.3.2 Verdict recording and the jury margin
 
-For every jury-scored item, the **full per-judge vote vector** is stored, together with a derived `jury_margin` field taking the values 3–0, 2–1, or no-mode. `run_margin` is stored as a separate field, whichever way `[DECISION 3]` resolves. This is a data-capture requirement and must be settled before unblinding.
+For every jury-scored item, the **full per-judge vote vector** is stored, together with a derived `jury_margin` field taking the values 3–0, 2–1, or no-mode. `run_margin` is stored as a separate field; `[DECISION 3]` resolved to majority-of-three on
+16 November 2026 (§0), and the field is retained regardless, because the per-run detail is what the
+§8.1 any-run critical-miss rate is computed from. This is a data-capture requirement and must be settled before unblinding.
 
 **A jury verdict exists only where the three judges are unanimous.** Non-unanimous and no-mode items are recorded as **jury-indeterminate**. This replaces the previous "majority verdict used," which had no defined behaviour for three distinct ordinal scores and which recorded a 2–1 split with the same authority as a 3–0. Under conditional independence, the posterior probability that a margin-1 majority is correct equals the per-judge accuracy — the reliability of one judge, not three; under positive dependence among judges it is lower still. A margin-1 verdict is therefore not evidence of ensemble agreement and is not treated as such.
 
@@ -595,6 +704,22 @@ evaluation mode, and **scenario as a random effect** to account for case-level c
 model-by-register interaction term tests whether specific systems show differential vulnerability to
 lay-language presentation.
 
+**An any-run critical-miss rate is reported alongside the primary analysis**, defined as the
+proportion of scenarios in which **at least one** of the repeated runs is scored a critical miss.
+It is reported per model and per condition with a cluster-bootstrap interval, independently of the
+run-aggregation rule — `[DECISION 3]` resolved to majority-of-three on 16 November 2026 (§0), and
+this statistic was specified to stand whichever rule was chosen. It is a reported safety statistic
+rather than a second primary
+endpoint: no hypothesis test is nominated on it and it enters no multiplicity family. It exists
+because neither candidate aggregation rule can see a dangerous output that occurs on a minority of
+runs, and the published evidence is that most dangerous outputs are of that kind (§0, `[DECISION 3]`
+evidence note). The run-to-run instability metric does not discharge this, because instability is
+symmetric: a model alternating between two safe dispositions and a model alternating between a safe
+disposition and a critical miss are indistinguishable under it. The statistic requires **no
+additional model calls, scenarios, or participants** — the repeated runs are already performed under
+§5.6 and the per-run results already retained under §7.3.1 — and it therefore has no bearing on the
+§8.4 power calculation.
+
 ### 8.2 Multiplicity and agreement
 
 Benjamini–Hochberg false discovery rate correction across models. Inter-rater reliability reported
@@ -619,7 +744,8 @@ interactions) under hierarchical gatekeeping.
 > examinations predicts Cronbach's alpha of approximately 0.70–0.80 — the threshold that body found
 > sufficient for a high-stakes national licensing examination with 32 cases.
 >
-> **However:** if Change 12 is adopted `[DECISION 1]`, the matched-pair design requires a power
+> **However — superseded 16 November 2026 by the deferral of Change 12; retained as the record of
+> why §8.4 stood open. Read with the resolution note below.** If Change 12 is adopted `[DECISION 1]`, the matched-pair design requires a power
 > calculation based on **discordance rates that do not yet exist**. Those rates are obtainable only
 > from pilot data. Until the pilot is run, no effect-size or power figure for the cue-locus analysis
 > can be stated, and none may be inserted into this protocol.
@@ -627,6 +753,14 @@ interactions) under hierarchical gatekeeping.
 > **This is the single largest obstacle to filing.** Options: (a) file with Change 12 deferred and the
 > power section written against the primary endpoint alone; (b) file a pilot-first protocol and amend;
 > (c) run the pilot before filing. **This is a PI decision that interacts directly with DECISION 1.**
+>
+> **Resolved in part, 16 November 2026.** DECISION 1 was answered "defer" (§0), which selects
+> **option (a)**: Change 12 is not adopted, so no matched-pair discordance rates are needed and the
+> obstacle described in the paragraph above no longer stands. **§8.4 nevertheless remains
+> UNRESOLVED and blocking**, because the power section written against the primary endpoint alone
+> has not yet been written, and no power figure may be stated until it is. What changed on
+> 16 November is that this is now a piece of work to be done rather than a question waiting on data
+> that does not exist.
 
 ---
 
@@ -641,7 +775,7 @@ on the Cedars-Sinai template.]_
 
 ## 10. What This Study Does Not Establish
 
-Three boundaries are stated here rather than left for reviewers to find.
+Six boundaries are stated here rather than left for reviewers to find.
 
 **This is an encounter-time instrument measuring a hazard with a delayed tail.** The deployment safety
 classification proposed for medical AI separates errors a clinician can catch inside the ordinary
@@ -660,6 +794,49 @@ registers, and runs, which is what makes comparison valid. They do not reproduce
 emotional pressure, interruption, and partial disclosure of a frightened person describing symptoms in
 real time. Arm C narrows this gap; it does not close it, and no vignette-based design can.
 
+**The disposition is measured once.** Arm A elicits a single response per scenario, and the
+Critical Miss Rate is scored from that response. A patient who reads a recommendation and asks
+"are you sure?" — the most ordinary thing a worried person does — is outside what this instrument
+observes. The exposure is not hypothetical: across 120 vignettes, ten models and 28,800 responses,
+one certainty challenge moved diagnostic accuracy from 51.8% to 42.2%, and the flips were
+asymmetric — 544 correct-to-incorrect against 198 incorrect-to-correct, with the worst-affected
+model losing 36.4 percentage points (Samsel et al., *Artif Intell Med* 2026;182:103516). Those are
+diagnostic-accuracy flips on general clinical vignettes, not disposition flips on this instrument's
+scenarios under its asymmetric loss function, and the magnitude must not be assumed to transfer.
+The direction of the exposure does: a single-turn Critical Miss Rate is an upper bound on the
+safety of a system the patient can talk back to. Arm C observes lay participants conversing with a
+model, but scores the participant's disposition rather than the model's; Arm C1, which would
+observe repeated interaction directly, is exploratory and unresolved `[DECISION 4]`.
+
+**Safeguard activation is not safeguard robustness.** The crisis-safeguard endpoint detects whether
+protective language appears on a matched suicidality presentation. It does not test whether that
+protection survives a user who argues with it, reframes the request, or persists across days. The
+distinction is load-bearing rather than semantic: in a peer-reviewed simulation of escalating
+suicidal risk over seven days, deliberate bypass attempts succeeded against every system tested —
+in six of nine, seven of nine and eight of nine attempts for the three chatbots examined — and
+referral behaviour at the point of imminent risk diverged sharply between systems whose overall
+referral rates looked comparable (Pichowicz et al., *J Affect Disord* 2026;122586). That study
+simulated 27 trajectories against three consumer systems, two of which are outside this protocol's
+scope, so its rates are not estimates for the systems under test here; what it establishes is that
+bypass is a real and common property of the class, and that an activation measurement is silent
+about it. A system that activates its safeguard consistently and can then be talked out of it would
+score well on this endpoint. Reporting the endpoint without this boundary would overstate what it
+establishes.
+
+**No claim is made about who the instrument protects.** This design carries no sociodemographic
+variable. Scenarios are physician-authored composites, not drawn from a population, so no
+subgroup is represented in them and no differential-safety analysis is possible or attempted. The
+dual register is a contrast in how a presentation is worded, held constant across models and runs;
+it is a probe for distribution shift, and it is not a proxy for health literacy, language access
+or any patient group. Nothing reported here should be read as evidence that a measured Critical
+Miss Rate holds equally across populations. The gap this leaves is not peculiar to this study: a
+systematic review of real-world AI triage safety in primary care found that no included study had
+analysed differential triage accuracy by any sociodemographic factor, despite holding the data,
+and that no machine-learning or generative system met its eligibility criteria at all (Alamoudi et
+al., *BMJ Health Care Inform* 2026;33(1)). Closing it requires a population-sampled design with
+stratified recruitment and the power to support subgroup claims. That is a successor study, and
+this protocol does not pre-empt its conclusions.
+
 **A benchmark result is a measurement, not a clearance.** Nothing here licenses a deployment decision.
 The measurement is conditioned on pinned model versions and begins decaying the moment a vendor ships
 a new generation — which is why the deliverable is a reusable instrument rather than a verdict.
@@ -668,12 +845,39 @@ a new generation — which is why the deliverable is a reusable instrument rathe
 
 ## 11. Reporting and Regulatory Context
 
-Reporting follows **TRIPOD-LLM** (Gallifant et al., *Nat Med* 2025).
+Reporting follows **TRIPOD-LLM** (Gallifant et al., *Nat Med* 2025). Naming a guideline is not the
+same as meeting it. A BMJ meta-research review of 461 trial reports, protocols and registrations
+found mean TRIPOD-LLM reporting completeness of **40%**, and named "model versioning and access
+modality," inference parameters, input preprocessing, output postprocessing and — most relevant to a
+safety study — "harms planning, monitoring, and reporting" among the elements LLM trials
+inconsistently report (Chen et al., *BMJ* 2026;395:e100855). This protocol therefore commits
+specifically rather than by reference: the pinned model identifier and version, **the access
+modality** (§5.3), all sampling parameters, the verbatim prompts, the scoring rubrics and the
+severity-weighting scheme are reported, alongside the per-endpoint scoring-layer assignment of
+Table A4 and the harm-monitoring provisions, whether or not a future checklist revision asks for
+them.
 
 Findings will land inside an active regulatory architecture: EU AI Act Article 72 post-market
 monitoring; FDA final guidance on predetermined change control plans (August 2025); IMDRF N81 and N88
 (January 2025); the NIST AI Risk Management Framework; and WHO guidance on large multi-modal models.
-What none of these supplies is the measurement. Consumer triage AI largely escapes device regulation
+The emergency-medicine profession has stated the same gap in its own voice, and has gone further by
+defining what legitimate patient-facing AI looks like. The American College of Emergency Physicians
+AI Task Force consensus, an official ACEP work product formally endorsed by the ACEP Board of
+Directors in 2025, records that AI integration across emergency-department workflows — triage among
+them — "has outpaced clinician training, vendor evaluation infrastructure, and specialty-wide
+governance," that most emergency physicians "lack the foundational skills to critically evaluate or
+safely oversee these products," and that "no national standard exists to guide education, vetting,
+or implementation" (Dash et al., *J Am Coll Emerg Physicians Open* 2026;7(6):100503). A companion
+framework from the same specialty defines patient-facing AI as tools that interact directly with
+patients "to collect information, deliver tailored communication, and support decision making
+**under clinician governance**," bounded by the risks of "undertriage, confabulated content, ... and
+medico-legal ambiguity" and paired with "a human oversight model with defined escalation roles"
+(Rehman et al., *J Am Coll Emerg Physicians Open* 2026;7(5):100466). That definition is worth
+stating precisely, because the systems under test here do not satisfy it: a consumer chatbot
+returning a disposition to a worried patient has no clinician in the loop and no escalation role
+defined for anyone. It is not patient-facing AI under governance; it is the same function operating
+without it — the §1 deployment-classification point in the profession's own terms. What none of
+these supplies is the measurement. Consumer triage AI largely escapes device regulation
 by positioning itself as wellness information rather than software as a medical device, and the
 frameworks that would otherwise govern it are calibrated to evidence that does not exist for this use
 case.
@@ -699,8 +903,8 @@ case.
 
 ## 13. References
 
-The verified reference set is maintained in the project reference library (**178 entries as of
-3 September 2026**; the count is maintained on the canonical daily-reconciler branch and this figure
+The verified reference set is maintained in the project reference library (**234 entries as of
+16 November 2026**; the count is maintained on the canonical daily-reconciler branch and this figure
 is refreshed at each weekly review) and the Key References list of the companion *Scientific Introduction v3*. Preprints are
 identified as such throughout; per project citation policy, preprint findings are presented with that
 caveat and re-verified upon journal publication.

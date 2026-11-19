@@ -1,5 +1,5 @@
 {
-  "last_review": "2026-11-12",
+  "last_review": "2026-11-19",
   "dashboard_refs_at_review": 233,
   "alerts_at_review": 6,
   "last_alert_dates": [
@@ -9,5 +9,7 @@
     "2026-08-06",
     "2026-08-15",
     "2026-08-16"
-  ]
+  ],
+  "reconciler_last_run": "2026-11-08",
+  "reconciler_status": "STOPPED — no canonical commit since 2026-11-08; PI notified 2026-11-19"
 }
